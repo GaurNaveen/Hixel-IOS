@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B65A538F2141538700C18554 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A538E2141538700C18554 /* AppDelegate.swift */; };
+		B65A53912141538700C18554 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A53902141538700C18554 /* ViewController.swift */; };
+		B65A53942141538700C18554 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65A53922141538700C18554 /* Main.storyboard */; };
+		B65A53962141538700C18554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B65A53952141538700C18554 /* Assets.xcassets */; };
+		B65A53992141538700C18554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65A53972141538700C18554 /* LaunchScreen.storyboard */; };
+		B65A53A42141538700C18554 /* Hixel_IOS_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A53A32141538700C18554 /* Hixel_IOS_AppTests.swift */; };
+		B65A53AF2141538700C18554 /* Hixel_IOS_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A53AE2141538700C18554 /* Hixel_IOS_AppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B65A53A02141538700C18554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B65A53832141538600C18554 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B65A538A2141538600C18554;
+			remoteInfo = "Hixel IOS App";
+		};
+		B65A53AB2141538700C18554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B65A53832141538600C18554 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B65A538A2141538600C18554;
+			remoteInfo = "Hixel IOS App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B65A538B2141538600C18554 /* Hixel IOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hixel IOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B65A538E2141538700C18554 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B65A53902141538700C18554 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B65A53932141538700C18554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B65A53952141538700C18554 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B65A53982141538700C18554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B65A539A2141538700C18554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B65A539F2141538700C18554 /* Hixel IOS AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hixel IOS AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B65A53A32141538700C18554 /* Hixel_IOS_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hixel_IOS_AppTests.swift; sourceTree = "<group>"; };
+		B65A53A52141538700C18554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B65A53AA2141538700C18554 /* Hixel IOS AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hixel IOS AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B65A53AE2141538700C18554 /* Hixel_IOS_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hixel_IOS_AppUITests.swift; sourceTree = "<group>"; };
+		B65A53B02141538700C18554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B65A53882141538600C18554 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B65A539C2141538700C18554 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B65A53A72141538700C18554 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B65A53822141538600C18554 = {
+			isa = PBXGroup;
+			children = (
+				B65A538D2141538600C18554 /* Hixel IOS App */,
+				B65A53A22141538700C18554 /* Hixel IOS AppTests */,
+				B65A53AD2141538700C18554 /* Hixel IOS AppUITests */,
+				B65A538C2141538600C18554 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B65A538C2141538600C18554 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B65A538B2141538600C18554 /* Hixel IOS App.app */,
+				B65A539F2141538700C18554 /* Hixel IOS AppTests.xctest */,
+				B65A53AA2141538700C18554 /* Hixel IOS AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B65A538D2141538600C18554 /* Hixel IOS App */ = {
+			isa = PBXGroup;
+			children = (
+				B65A538E2141538700C18554 /* AppDelegate.swift */,
+				B65A53902141538700C18554 /* ViewController.swift */,
+				B65A53922141538700C18554 /* Main.storyboard */,
+				B65A53952141538700C18554 /* Assets.xcassets */,
+				B65A53972141538700C18554 /* LaunchScreen.storyboard */,
+				B65A539A2141538700C18554 /* Info.plist */,
+			);
+			path = "Hixel IOS App";
+			sourceTree = "<group>";
+		};
+		B65A53A22141538700C18554 /* Hixel IOS AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				B65A53A32141538700C18554 /* Hixel_IOS_AppTests.swift */,
+				B65A53A52141538700C18554 /* Info.plist */,
+			);
+			path = "Hixel IOS AppTests";
+			sourceTree = "<group>";
+		};
+		B65A53AD2141538700C18554 /* Hixel IOS AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B65A53AE2141538700C18554 /* Hixel_IOS_AppUITests.swift */,
+				B65A53B02141538700C18554 /* Info.plist */,
+			);
+			path = "Hixel IOS AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B65A538A2141538600C18554 /* Hixel IOS App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B65A53B32141538700C18554 /* Build configuration list for PBXNativeTarget "Hixel IOS App" */;
+			buildPhases = (
+				B65A53872141538600C18554 /* Sources */,
+				B65A53882141538600C18554 /* Frameworks */,
+				B65A53892141538600C18554 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hixel IOS App";
+			productName = "Hixel IOS App";
+			productReference = B65A538B2141538600C18554 /* Hixel IOS App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B65A539E2141538700C18554 /* Hixel IOS AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B65A53B62141538700C18554 /* Build configuration list for PBXNativeTarget "Hixel IOS AppTests" */;
+			buildPhases = (
+				B65A539B2141538700C18554 /* Sources */,
+				B65A539C2141538700C18554 /* Frameworks */,
+				B65A539D2141538700C18554 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B65A53A12141538700C18554 /* PBXTargetDependency */,
+			);
+			name = "Hixel IOS AppTests";
+			productName = "Hixel IOS AppTests";
+			productReference = B65A539F2141538700C18554 /* Hixel IOS AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B65A53A92141538700C18554 /* Hixel IOS AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B65A53B92141538700C18554 /* Build configuration list for PBXNativeTarget "Hixel IOS AppUITests" */;
+			buildPhases = (
+				B65A53A62141538700C18554 /* Sources */,
+				B65A53A72141538700C18554 /* Frameworks */,
+				B65A53A82141538700C18554 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B65A53AC2141538700C18554 /* PBXTargetDependency */,
+			);
+			name = "Hixel IOS AppUITests";
+			productName = "Hixel IOS AppUITests";
+			productReference = B65A53AA2141538700C18554 /* Hixel IOS AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B65A53832141538600C18554 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Naveen Gaur";
+				TargetAttributes = {
+					B65A538A2141538600C18554 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					B65A539E2141538700C18554 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B65A538A2141538600C18554;
+					};
+					B65A53A92141538700C18554 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B65A538A2141538600C18554;
+					};
+				};
+			};
+			buildConfigurationList = B65A53862141538600C18554 /* Build configuration list for PBXProject "Hixel IOS App" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B65A53822141538600C18554;
+			productRefGroup = B65A538C2141538600C18554 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B65A538A2141538600C18554 /* Hixel IOS App */,
+				B65A539E2141538700C18554 /* Hixel IOS AppTests */,
+				B65A53A92141538700C18554 /* Hixel IOS AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B65A53892141538600C18554 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B65A53992141538700C18554 /* LaunchScreen.storyboard in Resources */,
+				B65A53962141538700C18554 /* Assets.xcassets in Resources */,
+				B65A53942141538700C18554 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B65A539D2141538700C18554 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B65A53A82141538700C18554 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B65A53872141538600C18554 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B65A53912141538700C18554 /* ViewController.swift in Sources */,
+				B65A538F2141538700C18554 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B65A539B2141538700C18554 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B65A53A42141538700C18554 /* Hixel_IOS_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B65A53A62141538700C18554 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B65A53AF2141538700C18554 /* Hixel_IOS_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B65A53A12141538700C18554 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B65A538A2141538600C18554 /* Hixel IOS App */;
+			targetProxy = B65A53A02141538700C18554 /* PBXContainerItemProxy */;
+		};
+		B65A53AC2141538700C18554 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B65A538A2141538600C18554 /* Hixel IOS App */;
+			targetProxy = B65A53AB2141538700C18554 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B65A53922141538700C18554 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B65A53932141538700C18554 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B65A53972141538700C18554 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B65A53982141538700C18554 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B65A53B12141538700C18554 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B65A53B22141538700C18554 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B65A53B42141538700C18554 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Hixel IOS App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com..Hello-World.Hixel-IOS-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B65A53B52141538700C18554 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Hixel IOS App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com..Hello-World.Hixel-IOS-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B65A53B72141538700C18554 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Hixel IOS AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com..Hello-World.Hixel-IOS-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hixel IOS App.app/Hixel IOS App";
+			};
+			name = Debug;
+		};
+		B65A53B82141538700C18554 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Hixel IOS AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com..Hello-World.Hixel-IOS-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hixel IOS App.app/Hixel IOS App";
+			};
+			name = Release;
+		};
+		B65A53BA2141538700C18554 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Hixel IOS AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com..Hello-World.Hixel-IOS-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Hixel IOS App";
+			};
+			name = Debug;
+		};
+		B65A53BB2141538700C18554 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Hixel IOS AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com..Hello-World.Hixel-IOS-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Hixel IOS App";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B65A53862141538600C18554 /* Build configuration list for PBXProject "Hixel IOS App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B65A53B12141538700C18554 /* Debug */,
+				B65A53B22141538700C18554 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B65A53B32141538700C18554 /* Build configuration list for PBXNativeTarget "Hixel IOS App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B65A53B42141538700C18554 /* Debug */,
+				B65A53B52141538700C18554 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B65A53B62141538700C18554 /* Build configuration list for PBXNativeTarget "Hixel IOS AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B65A53B72141538700C18554 /* Debug */,
+				B65A53B82141538700C18554 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B65A53B92141538700C18554 /* Build configuration list for PBXNativeTarget "Hixel IOS AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B65A53BA2141538700C18554 /* Debug */,
+				B65A53BB2141538700C18554 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B65A53832141538600C18554 /* Project object */;
+}
