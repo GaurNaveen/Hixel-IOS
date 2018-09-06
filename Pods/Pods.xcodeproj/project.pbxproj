@@ -1,0 +1,757 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0956AA43E4598B8A654F282997266751 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		21F8F65F5AD23A25450A66A58BFB23BB /* Pods-Hixel IOS AppUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C631BEAF3E525DD0D63763AA019C45E7 /* Pods-Hixel IOS AppUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		322349A9D231D9CE0173383C1CF7E13E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		4A5F73F7EC7608A405A0F0A84BB1A58C /* Pods-Hixel IOS AppUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CCD7B7AFA53C648B739C2BDF46D14F /* Pods-Hixel IOS AppUITests-dummy.m */; };
+		64CC6569285F949F3AF74FB6CF2F16AC /* Pods-Hixel IOS AppTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FED51A2C7BF5AE38D25E6F2723A8472 /* Pods-Hixel IOS AppTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68687A293948F134332088AEFE0C5674 /* Pods-Hixel IOS AppTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B7E7E59AECB5B699DE25252AE84326 /* Pods-Hixel IOS AppTests-dummy.m */; };
+		8E0592F74533D62E6CCF237EDE9CE6FB /* Pods-Hixel IOS App-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAF4A9B550EE4ACE730798E49CFE58F /* Pods-Hixel IOS App-dummy.m */; };
+		E2480050A9C17215E03E66867CA50CC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		E3130C26C71C39A4BF11FDA42C538EC9 /* Pods-Hixel IOS App-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 334CD196DC30DF8A2C1EDAEFEE8BE20C /* Pods-Hixel IOS App-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3FCE2747CD256C1C6017ADC1EDF46AF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A43A46459E675BD73C3B9ED9BAF6534C;
+			remoteInfo = "Pods-Hixel IOS App";
+		};
+		C8F3EE0735D87DD20204977E29B33EEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A43A46459E675BD73C3B9ED9BAF6534C;
+			remoteInfo = "Pods-Hixel IOS App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01831767C583BD954D70481ACECDB91F /* Pods-Hixel IOS AppUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Hixel IOS AppUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		049DE051F2D2FB4140CE1D28F50F0FB5 /* Pods-Hixel IOS App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hixel IOS App.release.xcconfig"; sourceTree = "<group>"; };
+		0C03FA78D201D1D0DC439595EB3C8DAF /* Pods_Hixel_IOS_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Hixel_IOS_App.framework; path = "Pods-Hixel IOS App.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		128834C70E3B0F3A9FBFB17D8B081BC8 /* Pods-Hixel IOS AppTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hixel IOS AppTests-frameworks.sh"; sourceTree = "<group>"; };
+		23CBA5176CB8F09689DE7C60A6C33F28 /* Pods-Hixel IOS AppTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Hixel IOS AppTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		276786604BF04388382E8DB974DA263C /* Pods_Hixel_IOS_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Hixel_IOS_AppTests.framework; path = "Pods-Hixel IOS AppTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		334CD196DC30DF8A2C1EDAEFEE8BE20C /* Pods-Hixel IOS App-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Hixel IOS App-umbrella.h"; sourceTree = "<group>"; };
+		34B7E7E59AECB5B699DE25252AE84326 /* Pods-Hixel IOS AppTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Hixel IOS AppTests-dummy.m"; sourceTree = "<group>"; };
+		41207FAB7E93FE55F151A84D1397C47C /* Pods-Hixel IOS AppTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Hixel IOS AppTests.modulemap"; sourceTree = "<group>"; };
+		4153AD23A7B749018333449ED91309D7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		523C11210C3B4EB8F600A04C99896B64 /* Pods-Hixel IOS AppUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hixel IOS AppUITests-resources.sh"; sourceTree = "<group>"; };
+		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5AD25D596F56A43589968EE7342D32FC /* Pods-Hixel IOS AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hixel IOS AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5FED51A2C7BF5AE38D25E6F2723A8472 /* Pods-Hixel IOS AppTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Hixel IOS AppTests-umbrella.h"; sourceTree = "<group>"; };
+		666CCA38305306C1A75BDB550A29C971 /* Pods-Hixel IOS AppUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hixel IOS AppUITests-frameworks.sh"; sourceTree = "<group>"; };
+		67971EFB1966B3115BBF1A9FA3594439 /* Pods-Hixel IOS AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hixel IOS AppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		71CCD7B7AFA53C648B739C2BDF46D14F /* Pods-Hixel IOS AppUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Hixel IOS AppUITests-dummy.m"; sourceTree = "<group>"; };
+		7D86B940907E5C5709E608520A0B4AE7 /* Pods-Hixel IOS App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hixel IOS App.debug.xcconfig"; sourceTree = "<group>"; };
+		89D40F3562EA8C367FD438A7D27EF7DA /* Pods-Hixel IOS App.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Hixel IOS App.modulemap"; sourceTree = "<group>"; };
+		908CEF3243A03BCF91933D33272A9247 /* Pods-Hixel IOS AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hixel IOS AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		96963FA0AE157B904EA3DF6AD4C0AF12 /* Pods-Hixel IOS App-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hixel IOS App-frameworks.sh"; sourceTree = "<group>"; };
+		9CAF4A9B550EE4ACE730798E49CFE58F /* Pods-Hixel IOS App-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Hixel IOS App-dummy.m"; sourceTree = "<group>"; };
+		A9C5459062CDF836633DD643ADC58158 /* Pods-Hixel IOS AppTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hixel IOS AppTests-resources.sh"; sourceTree = "<group>"; };
+		B10BDE7B3BD5A972430B48ED1552750C /* Pods-Hixel IOS AppUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Hixel IOS AppUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BBA2E61C6285CD568114DA44DB584765 /* Pods-Hixel IOS App-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Hixel IOS App-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BEC1ED2684304F0C4A652A46C462E076 /* Pods-Hixel IOS AppUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Hixel IOS AppUITests.modulemap"; sourceTree = "<group>"; };
+		C4408C5CDE1F0B003665DB52BE2DF517 /* Pods-Hixel IOS AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hixel IOS AppTests.release.xcconfig"; sourceTree = "<group>"; };
+		C631BEAF3E525DD0D63763AA019C45E7 /* Pods-Hixel IOS AppUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Hixel IOS AppUITests-umbrella.h"; sourceTree = "<group>"; };
+		C8B5158088F8A8C7451F4AE182F767D6 /* Pods-Hixel IOS AppTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Hixel IOS AppTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		D221B1048E19DC894FDC42F65AEB25EB /* Pods-Hixel IOS App-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hixel IOS App-resources.sh"; sourceTree = "<group>"; };
+		DE81111410C872281449A23F35B743CB /* Pods_Hixel_IOS_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Hixel_IOS_AppUITests.framework; path = "Pods-Hixel IOS AppUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFFE52232EC1ED0E775F9A2E355611EE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC4E3DE73A40556AC12340B05EDBDB09 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8E08FFC0C013A8DD32128C04A44F0CE /* Pods-Hixel IOS App-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Hixel IOS App-acknowledgements.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		74492C413B992F270CFCEE4196D9FAA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				322349A9D231D9CE0173383C1CF7E13E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B497901421644B56A691F0AC3FF2073A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2480050A9C17215E03E66867CA50CC2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E35BE299EC19CF58AD4A598D4A302574 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0956AA43E4598B8A654F282997266751 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		6504FCD0A12894DF63ED7793A6C93DAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0C03FA78D201D1D0DC439595EB3C8DAF /* Pods_Hixel_IOS_App.framework */,
+				276786604BF04388382E8DB974DA263C /* Pods_Hixel_IOS_AppTests.framework */,
+				DE81111410C872281449A23F35B743CB /* Pods_Hixel_IOS_AppUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				6504FCD0A12894DF63ED7793A6C93DAD /* Products */,
+				A95CCCA763FBF13B55AA16D79D7284BC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		950F7A81ED2A998472A5767706E2F462 /* Pods-Hixel IOS App */ = {
+			isa = PBXGroup;
+			children = (
+				DFFE52232EC1ED0E775F9A2E355611EE /* Info.plist */,
+				89D40F3562EA8C367FD438A7D27EF7DA /* Pods-Hixel IOS App.modulemap */,
+				BBA2E61C6285CD568114DA44DB584765 /* Pods-Hixel IOS App-acknowledgements.markdown */,
+				F8E08FFC0C013A8DD32128C04A44F0CE /* Pods-Hixel IOS App-acknowledgements.plist */,
+				9CAF4A9B550EE4ACE730798E49CFE58F /* Pods-Hixel IOS App-dummy.m */,
+				96963FA0AE157B904EA3DF6AD4C0AF12 /* Pods-Hixel IOS App-frameworks.sh */,
+				D221B1048E19DC894FDC42F65AEB25EB /* Pods-Hixel IOS App-resources.sh */,
+				334CD196DC30DF8A2C1EDAEFEE8BE20C /* Pods-Hixel IOS App-umbrella.h */,
+				7D86B940907E5C5709E608520A0B4AE7 /* Pods-Hixel IOS App.debug.xcconfig */,
+				049DE051F2D2FB4140CE1D28F50F0FB5 /* Pods-Hixel IOS App.release.xcconfig */,
+			);
+			name = "Pods-Hixel IOS App";
+			path = "Target Support Files/Pods-Hixel IOS App";
+			sourceTree = "<group>";
+		};
+		A95CCCA763FBF13B55AA16D79D7284BC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				950F7A81ED2A998472A5767706E2F462 /* Pods-Hixel IOS App */,
+				B865D94FE206A41BC363C83AE50739A9 /* Pods-Hixel IOS AppTests */,
+				AC46DA02ACB92946CB0E26BC720D5BC9 /* Pods-Hixel IOS AppUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		AC46DA02ACB92946CB0E26BC720D5BC9 /* Pods-Hixel IOS AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4153AD23A7B749018333449ED91309D7 /* Info.plist */,
+				BEC1ED2684304F0C4A652A46C462E076 /* Pods-Hixel IOS AppUITests.modulemap */,
+				B10BDE7B3BD5A972430B48ED1552750C /* Pods-Hixel IOS AppUITests-acknowledgements.markdown */,
+				01831767C583BD954D70481ACECDB91F /* Pods-Hixel IOS AppUITests-acknowledgements.plist */,
+				71CCD7B7AFA53C648B739C2BDF46D14F /* Pods-Hixel IOS AppUITests-dummy.m */,
+				666CCA38305306C1A75BDB550A29C971 /* Pods-Hixel IOS AppUITests-frameworks.sh */,
+				523C11210C3B4EB8F600A04C99896B64 /* Pods-Hixel IOS AppUITests-resources.sh */,
+				C631BEAF3E525DD0D63763AA019C45E7 /* Pods-Hixel IOS AppUITests-umbrella.h */,
+				908CEF3243A03BCF91933D33272A9247 /* Pods-Hixel IOS AppUITests.debug.xcconfig */,
+				5AD25D596F56A43589968EE7342D32FC /* Pods-Hixel IOS AppUITests.release.xcconfig */,
+			);
+			name = "Pods-Hixel IOS AppUITests";
+			path = "Target Support Files/Pods-Hixel IOS AppUITests";
+			sourceTree = "<group>";
+		};
+		B865D94FE206A41BC363C83AE50739A9 /* Pods-Hixel IOS AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC4E3DE73A40556AC12340B05EDBDB09 /* Info.plist */,
+				41207FAB7E93FE55F151A84D1397C47C /* Pods-Hixel IOS AppTests.modulemap */,
+				23CBA5176CB8F09689DE7C60A6C33F28 /* Pods-Hixel IOS AppTests-acknowledgements.markdown */,
+				C8B5158088F8A8C7451F4AE182F767D6 /* Pods-Hixel IOS AppTests-acknowledgements.plist */,
+				34B7E7E59AECB5B699DE25252AE84326 /* Pods-Hixel IOS AppTests-dummy.m */,
+				128834C70E3B0F3A9FBFB17D8B081BC8 /* Pods-Hixel IOS AppTests-frameworks.sh */,
+				A9C5459062CDF836633DD643ADC58158 /* Pods-Hixel IOS AppTests-resources.sh */,
+				5FED51A2C7BF5AE38D25E6F2723A8472 /* Pods-Hixel IOS AppTests-umbrella.h */,
+				67971EFB1966B3115BBF1A9FA3594439 /* Pods-Hixel IOS AppTests.debug.xcconfig */,
+				C4408C5CDE1F0B003665DB52BE2DF517 /* Pods-Hixel IOS AppTests.release.xcconfig */,
+			);
+			name = "Pods-Hixel IOS AppTests";
+			path = "Target Support Files/Pods-Hixel IOS AppTests";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E0D919E635D23B70123790B8308F8EF /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		41C71EF57AD241FA4ECD332D3BA4413D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3130C26C71C39A4BF11FDA42C538EC9 /* Pods-Hixel IOS App-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB6CA1208525638FD5172780011F10A0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21F8F65F5AD23A25450A66A58BFB23BB /* Pods-Hixel IOS AppUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCD0C21C563B45829ECF455EECB862AD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64CC6569285F949F3AF74FB6CF2F16AC /* Pods-Hixel IOS AppTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		49E3C2CA050A42927224A0F6AB3C48D7 /* Pods-Hixel IOS AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70B5B8AC94552C98F19FD5B8E6C33FA7 /* Build configuration list for PBXNativeTarget "Pods-Hixel IOS AppUITests" */;
+			buildPhases = (
+				BB6CA1208525638FD5172780011F10A0 /* Headers */,
+				5067ACDE0A8564DD1295D53948AA4A9C /* Sources */,
+				E35BE299EC19CF58AD4A598D4A302574 /* Frameworks */,
+				71816F15006318E9A22B277D20A005F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E16DA06E7A33733147359A02E1DB44D /* PBXTargetDependency */,
+			);
+			name = "Pods-Hixel IOS AppUITests";
+			productName = "Pods-Hixel IOS AppUITests";
+			productReference = DE81111410C872281449A23F35B743CB /* Pods_Hixel_IOS_AppUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		79CE20FD3378C9FEB1F732FA117E59AA /* Pods-Hixel IOS AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD21AD38ADBC8A5EAB6C7168F63D86D9 /* Build configuration list for PBXNativeTarget "Pods-Hixel IOS AppTests" */;
+			buildPhases = (
+				FCD0C21C563B45829ECF455EECB862AD /* Headers */,
+				AEC91B2849669AE4174EDDE79E4022CF /* Sources */,
+				74492C413B992F270CFCEE4196D9FAA4 /* Frameworks */,
+				47AC1DDD4D8127286E0CC1094FC62357 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				141E0D8624AD1D03FD4C7A2FCC5D9314 /* PBXTargetDependency */,
+			);
+			name = "Pods-Hixel IOS AppTests";
+			productName = "Pods-Hixel IOS AppTests";
+			productReference = 276786604BF04388382E8DB974DA263C /* Pods_Hixel_IOS_AppTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A43A46459E675BD73C3B9ED9BAF6534C /* Pods-Hixel IOS App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BF5C2A02D80385A99B8CF6C6207F0F3 /* Build configuration list for PBXNativeTarget "Pods-Hixel IOS App" */;
+			buildPhases = (
+				41C71EF57AD241FA4ECD332D3BA4413D /* Headers */,
+				1D753CC361ECED0F03F74EBC5BAC1104 /* Sources */,
+				B497901421644B56A691F0AC3FF2073A /* Frameworks */,
+				47F299029C0F13C006BCAB699CD6A93C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Hixel IOS App";
+			productName = "Pods-Hixel IOS App";
+			productReference = 0C03FA78D201D1D0DC439595EB3C8DAF /* Pods_Hixel_IOS_App.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 6504FCD0A12894DF63ED7793A6C93DAD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A43A46459E675BD73C3B9ED9BAF6534C /* Pods-Hixel IOS App */,
+				79CE20FD3378C9FEB1F732FA117E59AA /* Pods-Hixel IOS AppTests */,
+				49E3C2CA050A42927224A0F6AB3C48D7 /* Pods-Hixel IOS AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		47AC1DDD4D8127286E0CC1094FC62357 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47F299029C0F13C006BCAB699CD6A93C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71816F15006318E9A22B277D20A005F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D753CC361ECED0F03F74EBC5BAC1104 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E0592F74533D62E6CCF237EDE9CE6FB /* Pods-Hixel IOS App-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5067ACDE0A8564DD1295D53948AA4A9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A5F73F7EC7608A405A0F0A84BB1A58C /* Pods-Hixel IOS AppUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEC91B2849669AE4174EDDE79E4022CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68687A293948F134332088AEFE0C5674 /* Pods-Hixel IOS AppTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		141E0D8624AD1D03FD4C7A2FCC5D9314 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Hixel IOS App";
+			target = A43A46459E675BD73C3B9ED9BAF6534C /* Pods-Hixel IOS App */;
+			targetProxy = C8F3EE0735D87DD20204977E29B33EEE /* PBXContainerItemProxy */;
+		};
+		3E16DA06E7A33733147359A02E1DB44D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Hixel IOS App";
+			target = A43A46459E675BD73C3B9ED9BAF6534C /* Pods-Hixel IOS App */;
+			targetProxy = 3FCE2747CD256C1C6017ADC1EDF46AF3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3AB486CF70980392C80C91A77104BCDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D86B940907E5C5709E608520A0B4AE7 /* Pods-Hixel IOS App.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Hixel IOS App/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Hixel IOS App/Pods-Hixel IOS App.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		45F056A4E75CF3B5E3B0DF0DCCAABD52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4408C5CDE1F0B003665DB52BE2DF517 /* Pods-Hixel IOS AppTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Hixel IOS AppTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Hixel IOS AppTests/Pods-Hixel IOS AppTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		61C031BAE017983B02FABE442414208E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67971EFB1966B3115BBF1A9FA3594439 /* Pods-Hixel IOS AppTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Hixel IOS AppTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Hixel IOS AppTests/Pods-Hixel IOS AppTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7F2D6B8DBB87B32FB2AA90328E6383FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 049DE051F2D2FB4140CE1D28F50F0FB5 /* Pods-Hixel IOS App.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Hixel IOS App/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Hixel IOS App/Pods-Hixel IOS App.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		947486DE087E88E7A7F869607857378F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AD25D596F56A43589968EE7342D32FC /* Pods-Hixel IOS AppUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Hixel IOS AppUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Hixel IOS AppUITests/Pods-Hixel IOS AppUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C92782E717C52E3633C9A5F211E7987A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		D4ED4A67B3137D3AAF4281A4A7890FD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 908CEF3243A03BCF91933D33272A9247 /* Pods-Hixel IOS AppUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Hixel IOS AppUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Hixel IOS AppUITests/Pods-Hixel IOS AppUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EA8C7AF90938697605468604B2A17B9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C92782E717C52E3633C9A5F211E7987A /* Debug */,
+				EA8C7AF90938697605468604B2A17B9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70B5B8AC94552C98F19FD5B8E6C33FA7 /* Build configuration list for PBXNativeTarget "Pods-Hixel IOS AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4ED4A67B3137D3AAF4281A4A7890FD2 /* Debug */,
+				947486DE087E88E7A7F869607857378F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BF5C2A02D80385A99B8CF6C6207F0F3 /* Build configuration list for PBXNativeTarget "Pods-Hixel IOS App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AB486CF70980392C80C91A77104BCDC /* Debug */,
+				7F2D6B8DBB87B32FB2AA90328E6383FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD21AD38ADBC8A5EAB6C7168F63D86D9 /* Build configuration list for PBXNativeTarget "Pods-Hixel IOS AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61C031BAE017983B02FABE442414208E /* Debug */,
+				45F056A4E75CF3B5E3B0DF0DCCAABD52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
