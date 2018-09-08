@@ -111,20 +111,11 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     // This function is used to configure each and every cell in the Table View
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Blocks the display of Apple Inc but that will be fixed later
-        if indexPath.row == 0{
-            let cell2 = tableView.dequeueReusableCell(withIdentifier: "CompanyCell2") as! Cell2
-            cell2.setupLabel()
-            return cell2
-        }
-        else{
         let temp_company = companies[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell") as! CompanyCell
         cell.setCompany(tempCompany: temp_company)
         return cell
         }
- 
-    }
     
     // Adds the swipe to delete to UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -132,6 +123,7 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
             companies.remove(at: indexPath.row)
             self.tableView.reloadData()
         }
+        
     }
     
 }
