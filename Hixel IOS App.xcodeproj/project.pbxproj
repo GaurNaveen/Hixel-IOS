@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		21F86B9528A2733FE96DF222 /* Pods_Hixel_IOS_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08975FC1787E2C6C565ACC41 /* Pods_Hixel_IOS_AppUITests.framework */; };
 		672B627B113B7C307EAD3C1A /* Pods_Hixel_IOS_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCEBC587DAE854168CB2E39 /* Pods_Hixel_IOS_AppTests.framework */; };
+		B6541AF321434F4900AB9894 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6541AF221434F4900AB9894 /* CompanyCell.swift */; };
+		B6541AF721436F0700AB9894 /* Cell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6541AF621436F0700AB9894 /* Cell2.swift */; };
 		B65A53992141538700C18554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65A53972141538700C18554 /* LaunchScreen.storyboard */; };
 		B65A53A42141538700C18554 /* Hixel_IOS_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A53A32141538700C18554 /* Hixel_IOS_AppTests.swift */; };
 		B65A53AF2141538700C18554 /* Hixel_IOS_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A53AE2141538700C18554 /* Hixel_IOS_AppUITests.swift */; };
@@ -54,6 +56,8 @@
 		94E1C4BD2DA49B56D14F9358 /* Pods_Hixel_IOS_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hixel_IOS_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4044C3C9165E5319C8960CC /* Pods-Hixel IOS AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppTests/Pods-Hixel IOS AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		B3A8BD88B48EA84CB1E48ED4 /* Pods-Hixel IOS AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppUITests/Pods-Hixel IOS AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B6541AF221434F4900AB9894 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
+		B6541AF621436F0700AB9894 /* Cell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell2.swift; sourceTree = "<group>"; };
 		B65A538B2141538600C18554 /* Hixel IOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hixel IOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65A53982141538700C18554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B65A539A2141538700C18554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 			children = (
 				B65A53C1214206E600C18554 /* Portfolio.storyboard */,
 				B65A53C3214208A300C18554 /* Portfolio.swift */,
+				B6541AF221434F4900AB9894 /* CompanyCell.swift */,
+				B6541AF621436F0700AB9894 /* Cell2.swift */,
 			);
 			path = "Main Dashboard";
 			sourceTree = "<group>";
@@ -413,6 +419,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B65A53C8214209CB00C18554 /* SettingsController.swift in Sources */,
+				B6541AF321434F4900AB9894 /* CompanyCell.swift in Sources */,
+				B6541AF721436F0700AB9894 /* Cell2.swift in Sources */,
 				B65A53C4214208A300C18554 /* Portfolio.swift in Sources */,
 				B65A53C62142098A00C18554 /* ComparisonController.swift in Sources */,
 				B6A523FF21420FA40007B0C8 /* AppDelegate.swift in Sources */,

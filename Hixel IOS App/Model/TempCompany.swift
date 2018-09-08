@@ -7,8 +7,16 @@
 //
 
 import Foundation
-
+import UIKit
 class TempCompany {
+    var name: String
+    var stockExchange: String
+    var score: String
     
+    init(name: String, stockExchange: String, score: String){
+        self.name = name
+        self.stockExchange = stockExchange
+        self.score = score
+    }
     
 }

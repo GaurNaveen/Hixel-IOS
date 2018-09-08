@@ -8,14 +8,26 @@
 
 import Foundation
 import UIKit
+
+// Global Declaration of the Array that will hold Companies Object
+var companies:[TempCompany]=[]
 class PortfolioController: UIViewController {
 
     @IBOutlet weak var header: UIView!
     @IBOutlet weak var headerLabel: UILabel!
-    let hardCodedStrings = ["Dashboard"]
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var overallLabel: UILabel!
+    let hardCodedStrings = ["Dashboard","Overall"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHeaderView()
+        overallLabel.text = hardCodedStrings[1]
+        
+        // setup the UITable view to have a list of Companies on the Dashboard
+        companies = createArray()
+        setuptableView()
     }
     
     // Sets up the Header View of the Portfolio/Dashboard
@@ -24,6 +36,30 @@ class PortfolioController: UIViewController {
         headerLabel.text = hardCodedStrings[0]
         headerLabel.textColor = .white
         
+    }
+    
+    // Configures the Delegate and DataSource for the Table View
+    private func setuptableView(){
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    // Creates a temporary array that holds the company names and then returns it
+    private func createArray() ->[TempCompany]{
+        var tempCompanies: [TempCompany] = []
+        let company1 = TempCompany(name: "Apple Inc", stockExchange: "NASDAQ", score: "12%")
+        let company2 = TempCompany(name: "Rolls Royce", stockExchange: "NASDAQ", score: "89%")
+        let company3 = TempCompany(name: "BMW", stockExchange: "NYSE", score: "95%")
+        let company4 = TempCompany(name: "Alphabet", stockExchange: "NYSE", score: "55%")
+        let company5 = TempCompany(name: "Daimler AMG", stockExchange: "NYSE", score: "67%")
+        
+        
+        tempCompanies.append(company1)
+        tempCompanies.append(company2)
+        tempCompanies.append(company3)
+        tempCompanies.append(company4)
+        tempCompanies.append(company5)
+        return tempCompanies
     }
 
 
@@ -56,5 +92,38 @@ extension UIView {
         layer.shouldRasterize = true
         layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
+    
+    func drawLine()
+    {
+        
+    }
+}
+
+// MARK: Table View setup here
+extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
+    
+    // Determines how many rows the table view should actually have
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return companies.count
+    }
+    
+    // This function is used to configure each and every cell in the Table View
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Blocks the display of Apple Inc but that will be fixed later
+        if indexPath.row == 0{
+            let cell2 = tableView.dequeueReusableCell(withIdentifier: "CompanyCell2") as! Cell2
+            cell2.setupLabel()
+            return cell2
+        }
+        else{
+        let temp_company = companies[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell") as! CompanyCell
+        
+        cell.setCompany(tempCompany: temp_company)
+        return cell
+        }
+    }
+    
 }
 
