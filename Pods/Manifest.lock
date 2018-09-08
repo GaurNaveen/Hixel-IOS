@@ -1,3 +1,57 @@
-PODFILE CHECKSUM: 8a6eac5b379b6afcbb0590aa5e5f889c3745b243
+PODS:
+  - MaterialComponents/AnimationTiming (60.1.0)
+  - MaterialComponents/Buttons (60.1.0):
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/private/Shapes
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - MaterialComponents/Ink (60.1.0):
+    - MaterialComponents/private/Math
+  - MaterialComponents/OverlayWindow (60.1.0):
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Application (60.1.0)
+  - MaterialComponents/private/KeyboardWatcher (60.1.0):
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Math (60.1.0)
+  - MaterialComponents/private/Overlay (60.1.0)
+  - MaterialComponents/private/Shapes (60.1.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/ShadowElevations (60.1.0)
+  - MaterialComponents/ShadowLayer (60.1.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/Snackbar (60.1.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Buttons
+    - MaterialComponents/OverlayWindow
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/KeyboardWatcher
+    - MaterialComponents/private/Overlay
+    - MaterialComponents/Typography
+  - MaterialComponents/Typography (60.1.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+  - MDFInternationalization (1.1.0)
+  - MDFTextAccessibility (1.2.0)
+
+DEPENDENCIES:
+  - MaterialComponents/Snackbar
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
+
+SPEC CHECKSUMS:
+  MaterialComponents: bd1ebf279041919605fe6133a4173db4148ec1cd
+  MDFInternationalization: b5b8626628abf026e630e5ebaeee563037712cbb
+  MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
+
+PODFILE CHECKSUM: b2a6c990a4d1f4bd6b5b6e07ba50fd7e385cf181
 
 COCOAPODS: 1.5.3

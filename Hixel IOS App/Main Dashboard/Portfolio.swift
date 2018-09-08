@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MaterialComponents.MaterialSnackbar
 
 // Global Declaration of the Array that will hold Companies Object
 var companies:[TempCompany]=[]
@@ -119,10 +120,41 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     
     // Adds the swipe to delete to UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let deletedCompany = companies[0]
         if editingStyle == .delete{
             companies.remove(at: indexPath.row)
             self.tableView.reloadData()
         }
+        // Displays the snackbar when a company gets deleted
+        let message = MDCSnackbarMessage()
+        let action = MDCSnackbarMessageAction()
+        let actionHandler = { () in
+            let actionMessage = MDCSnackbarMessage()
+            // When the user clicks the UNDO button perform the action here
+            self.insertNewRow(deletedCompany: deletedCompany)
+            actionMessage.text = deletedCompany.name + " added back to portfolio"
+            MDCSnackbarManager.show(actionMessage)
+            
+        }
+        action.handler = actionHandler
+        action.title = "Undo"
+        message.action = action
+        message.text = deletedCompany.name+" deleted from Portfolio"
+        MDCSnackbarManager.show(message)
+        
+    }
+    
+    func insertNewRow(deletedCompany : TempCompany)
+    {
+        companies.append(deletedCompany)
+        
+        let indexPath = IndexPath(row: companies.count-1, section: 0)
+        tableView.beginUpdates()
+        tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        tableView.endUpdates()
+        
+        
         
     }
     

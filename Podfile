@@ -5,6 +5,7 @@ target 'Hixel IOS App' do
   use_frameworks!
 
   # Pods for Hixel IOS App
+  pod "MaterialComponents/Snackbar"
 
   target 'Hixel IOS AppTests' do
     inherit! :search_paths

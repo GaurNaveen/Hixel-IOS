@@ -33,7 +33,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Stalker!! Come Back Later" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWe-ur-Q7L">
-                                <rect key="frame" x="67" y="473" width="301" height="20.5"/>
+                                <rect key="frame" x="67" y="473" width="301" height="69.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBoldItalic" family="Avenir Next" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1MZ-AJ-iLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1191" y="697"/>
+            <point key="canvasLocation" x="116" y="879"/>
         </scene>
         <!--Portfolio-->
         <scene sceneID="gC3-sY-Owj">
@@ -160,7 +160,7 @@
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="34.5" id="ArB-wU-woA"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="29"/>
+                                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
                                                                             <color key="textColor" red="0.99963909387588501" green="1" blue="0.99975615739822388" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -239,11 +239,30 @@
                         <outlet property="headerLabel" destination="GGK-gs-HKC" id="lbo-PI-jud"/>
                         <outlet property="overallLabel" destination="kgQ-Wc-95L" id="QmC-cg-zx6"/>
                         <outlet property="tableView" destination="feT-LE-teu" id="6xD-Oo-H82"/>
+                        <segue destination="hJV-vX-57w" kind="show" identifier="Dashboard_Company" id="hp5-UO-Yc0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGX-G2-8OB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="116" y="-218.59070464767618"/>
+        </scene>
+        <!--Company Data View-->
+        <scene sceneID="vTI-ce-PsQ">
+            <objects>
+                <viewController title="Company Data View" id="hJV-vX-57w" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pYU-28-Cjh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="S5A-mt-b7C"/>
+                    </view>
+                    <connections>
+                        <segue destination="zKi-eE-QL6" kind="show" identifier="Company_Comparison" id="lIu-Uh-BJu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jxi-9q-IV7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1156" y="-350"/>
         </scene>
         <!--Settings-->
         <scene sceneID="yFM-dj-VEl">
@@ -324,4 +343,7 @@
         <image name="Settings_Icon" width="34" height="34"/>
         <image name="bob-the-builder" width="1600" height="1493"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lIu-Uh-BJu"/>
+    </inferredMetricsTieBreakers>
 </document>

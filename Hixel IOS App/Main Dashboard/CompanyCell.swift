@@ -21,7 +21,7 @@ class CompanyCell: UITableViewCell {
         containerLayouSetup()
     }
     
-    // Adds shadow effect , border and increases the corner radius
+    // Adds shadow effect , border and increases the corner radius of the view
     func containerLayouSetup(){
         cv.dropShadow()
         cv.layer.borderWidth = 0.5
