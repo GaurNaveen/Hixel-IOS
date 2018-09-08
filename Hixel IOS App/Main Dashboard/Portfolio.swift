@@ -18,7 +18,7 @@ class PortfolioController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var overallLabel: UILabel!
-    let hardCodedStrings = ["Dashboard","Overall"]
+    let hardCodedStrings = ["Dashboard","Portfolio"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +66,7 @@ class PortfolioController: UIViewController {
 
 }
 // MARK: Extension Methods for UIColor and UIView
-// To get Custom Colors or To convert hex code into rgb
+// To get Custom Colors or To convert hex code into rgba
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
@@ -84,15 +84,16 @@ extension UIColor {
 extension UIView {
     func dropShadow(scale: Bool = true) {
         layer.masksToBounds = false
-        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowColor = UIColor.lightGray.cgColor
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: -1, height: 1)
-        layer.shadowRadius = 1
+        layer.shadowRadius = 0.5
         layer.shadowPath = UIBezierPath(rect: bounds).cgPath
         layer.shouldRasterize = true
         layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
     
+    // Takes coordinates and constraints and draws vertical/ horizontal line. Probably add an if statement
     func drawLine()
     {
         
@@ -119,10 +120,10 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         else{
         let temp_company = companies[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell") as! CompanyCell
-        
         cell.setCompany(tempCompany: temp_company)
         return cell
         }
+ 
     }
     
 }

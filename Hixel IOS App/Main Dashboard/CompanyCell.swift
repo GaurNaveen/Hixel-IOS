@@ -10,12 +10,22 @@ import UIKit
 
 class CompanyCell: UITableViewCell {
 
+    @IBOutlet weak var cv: UIView!
     @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var stock: UILabel!
     
+   
     func setCompany(tempCompany: TempCompany){
         companyName.text = tempCompany.name
         stock.text = "Stock: "+tempCompany.stockExchange
+        containerLayouSetup()
+    }
+    
+    // Adds shadow effect , border and increases the corner radius
+    func containerLayouSetup(){
+        cv.dropShadow()
+        cv.layer.borderWidth = 0.5
+        cv.layer.cornerRadius = 6.0
     }
     
 

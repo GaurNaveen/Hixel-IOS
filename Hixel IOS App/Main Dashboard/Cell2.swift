@@ -10,10 +10,18 @@ import UIKit
 
 class Cell2: UITableViewCell {
     @IBOutlet weak var port: UILabel!
+    @IBOutlet weak var cont: UIView!
     
+    @IBOutlet weak var cellView: UIView!
     func setupLabel()
     {
         port.text = "Graph Will be added here"
+        
+    }
+    
+    func setupCell()
+    {
+        cont.dropShadow()
     }
 
 }
