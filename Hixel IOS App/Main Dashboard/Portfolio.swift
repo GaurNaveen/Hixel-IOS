@@ -126,5 +126,13 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
  
     }
     
+    // Adds the swipe to delete to UITableView
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            companies.remove(at: indexPath.row)
+            self.tableView.reloadData()
+        }
+    }
+    
 }
 
