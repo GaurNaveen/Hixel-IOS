@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		21F86B9528A2733FE96DF222 /* Pods_Hixel_IOS_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08975FC1787E2C6C565ACC41 /* Pods_Hixel_IOS_AppUITests.framework */; };
 		672B627B113B7C307EAD3C1A /* Pods_Hixel_IOS_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCEBC587DAE854168CB2E39 /* Pods_Hixel_IOS_AppTests.framework */; };
+		8C668BD22146B35100356101 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C668BD12146B35100356101 /* AppDelegate.swift */; };
+		8CA9B1612146D25A00FC5502 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1602146D25A00FC5502 /* Company.swift */; };
+		8CA9B1632146D64F00FC5502 /* CompanyIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1622146D64F00FC5502 /* CompanyIdentifiers.swift */; };
+		8CA9B1652146D77A00FC5502 /* FinancialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1642146D77A00FC5502 /* FinancialData.swift */; };
+		8CA9B1672146D8CE00FC5502 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1662146D8CE00FC5502 /* LoginData.swift */; };
+		8CA9B1692146DEE500FC5502 /* ApplicationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1682146DEE500FC5502 /* ApplicationUser.swift */; };
+		8CA9B16B2146DFB400FC5502 /* SearchEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B16A2146DFB400FC5502 /* SearchEntry.swift */; };
+		8CB823502146C0170065A34D /* ServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB8234F2146C0170065A34D /* ServerInterface.swift */; };
 		B6541AF321434F4900AB9894 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6541AF221434F4900AB9894 /* CompanyCell.swift */; };
 		B6541AF721436F0700AB9894 /* Cell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6541AF621436F0700AB9894 /* Cell2.swift */; };
 		B65A53992141538700C18554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65A53972141538700C18554 /* LaunchScreen.storyboard */; };
@@ -22,7 +30,6 @@
 		B65A53CC21420C2A00C18554 /* Portfolio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65A53C1214206E600C18554 /* Portfolio.storyboard */; };
 		B65A53CD21420C2B00C18554 /* Portfolio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65A53C1214206E600C18554 /* Portfolio.storyboard */; };
 		B6A523FC21420F4A0007B0C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A523FB21420F490007B0C8 /* Default-568h@2x.png */; };
-		B6A523FF21420FA40007B0C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A523FE21420FA30007B0C8 /* AppDelegate.swift */; };
 		B6A52400214213310007B0C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6A523FD21420F600007B0C8 /* Assets.xcassets */; };
 		B6A52401214213340007B0C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6A523FD21420F600007B0C8 /* Assets.xcassets */; };
 		B6A52402214213350007B0C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6A523FD21420F600007B0C8 /* Assets.xcassets */; };
@@ -53,6 +60,14 @@
 		400B82C68231DACDFEDFFA57 /* Pods-Hixel IOS AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppUITests/Pods-Hixel IOS AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		86013F4AB26CB89410E7A4F8 /* Pods-Hixel IOS AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppTests/Pods-Hixel IOS AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		886C6E88821634C87EE71FD3 /* Pods-Hixel IOS App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS App/Pods-Hixel IOS App.release.xcconfig"; sourceTree = "<group>"; };
+		8C668BD12146B35100356101 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		8CA9B1602146D25A00FC5502 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		8CA9B1622146D64F00FC5502 /* CompanyIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyIdentifiers.swift; sourceTree = "<group>"; };
+		8CA9B1642146D77A00FC5502 /* FinancialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialData.swift; sourceTree = "<group>"; };
+		8CA9B1662146D8CE00FC5502 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		8CA9B1682146DEE500FC5502 /* ApplicationUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUser.swift; sourceTree = "<group>"; };
+		8CA9B16A2146DFB400FC5502 /* SearchEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEntry.swift; sourceTree = "<group>"; };
+		8CB8234F2146C0170065A34D /* ServerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInterface.swift; sourceTree = "<group>"; };
 		94E1C4BD2DA49B56D14F9358 /* Pods_Hixel_IOS_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hixel_IOS_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4044C3C9165E5319C8960CC /* Pods-Hixel IOS AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppTests/Pods-Hixel IOS AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		B3A8BD88B48EA84CB1E48ED4 /* Pods-Hixel IOS AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppUITests/Pods-Hixel IOS AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,7 +89,6 @@
 		B65A53C7214209CB00C18554 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		B6A523FB21420F490007B0C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B6A523FD21420F600007B0C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B6A523FE21420FA30007B0C8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../../Desktop/TableView/TableView/AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +119,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C668BD52146B68E00356101 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8CB8234F2146C0170065A34D /* ServerInterface.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		B65A53822141538600C18554 = {
 			isa = PBXGroup;
 			children = (
@@ -131,8 +153,9 @@
 		B65A538D2141538600C18554 /* Hixel IOS App */ = {
 			isa = PBXGroup;
 			children = (
+				8C668BD52146B68E00356101 /* Network */,
+				8C668BD12146B35100356101 /* AppDelegate.swift */,
 				B65A53C9214209FE00C18554 /* Main Dashboard */,
-				B6A523FE21420FA30007B0C8 /* AppDelegate.swift */,
 				B6A523FD21420F600007B0C8 /* Assets.xcassets */,
 				B65A53972141538700C18554 /* LaunchScreen.storyboard */,
 				B65A539A2141538700C18554 /* Info.plist */,
@@ -165,6 +188,12 @@
 			isa = PBXGroup;
 			children = (
 				B65A53BD2141648B00C18554 /* TempCompany.swift */,
+				8CA9B1602146D25A00FC5502 /* Company.swift */,
+				8CA9B1622146D64F00FC5502 /* CompanyIdentifiers.swift */,
+				8CA9B1642146D77A00FC5502 /* FinancialData.swift */,
+				8CA9B1662146D8CE00FC5502 /* LoginData.swift */,
+				8CA9B1682146DEE500FC5502 /* ApplicationUser.swift */,
+				8CA9B16A2146DFB400FC5502 /* SearchEntry.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,7 +315,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Naveen Gaur";
 				TargetAttributes = {
 					B65A538A2141538600C18554 = {
@@ -363,21 +392,23 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hixel IOS App/Pods-Hixel IOS App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -445,12 +476,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB823502146C0170065A34D /* ServerInterface.swift in Sources */,
 				B65A53C8214209CB00C18554 /* SettingsController.swift in Sources */,
+				8CA9B1652146D77A00FC5502 /* FinancialData.swift in Sources */,
 				B6541AF321434F4900AB9894 /* CompanyCell.swift in Sources */,
+				8CA9B16B2146DFB400FC5502 /* SearchEntry.swift in Sources */,
 				B6541AF721436F0700AB9894 /* Cell2.swift in Sources */,
+				8CA9B1692146DEE500FC5502 /* ApplicationUser.swift in Sources */,
+				8CA9B1672146D8CE00FC5502 /* LoginData.swift in Sources */,
 				B65A53C4214208A300C18554 /* Portfolio.swift in Sources */,
+				8C668BD22146B35100356101 /* AppDelegate.swift in Sources */,
 				B65A53C62142098A00C18554 /* ComparisonController.swift in Sources */,
-				B6A523FF21420FA40007B0C8 /* AppDelegate.swift in Sources */,
+				8CA9B1612146D25A00FC5502 /* Company.swift in Sources */,
+				8CA9B1632146D64F00FC5502 /* CompanyIdentifiers.swift in Sources */,
 				B65A53BE2141648B00C18554 /* TempCompany.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,6 +550,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -519,6 +558,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -569,6 +609,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -576,6 +617,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
