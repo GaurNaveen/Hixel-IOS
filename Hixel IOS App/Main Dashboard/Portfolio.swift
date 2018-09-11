@@ -15,6 +15,7 @@ import Moya
 var companies:[TempCompany]=[]
 class PortfolioController: UIViewController {
     @IBOutlet weak var MAINVIEW: UIView! // Conatins all the views in which we are working in
+    @IBOutlet weak var verticalAxis: UIView!
     
     @IBOutlet weak var verticalBarLine: UIView!
     @IBOutlet weak var summary: UILabel!
@@ -125,26 +126,35 @@ class PortfolioController: UIViewController {
         barGraphView.layer.borderColor = UIColor.init(netHex: 0x707070).cgColor
         barGraphView.layer.cornerRadius = 5.0
         
+        // Setup the vertical axis for the bar graph using auto layout
+        verticalAxis.translatesAutoresizingMaskIntoConstraints = false
+        verticalAxis.topAnchor.constraint(equalTo: overallLabel.bottomAnchor, constant: 50).isActive = true
+        verticalAxis.bottomAnchor.constraint(equalTo: barGraphView.topAnchor, constant: 5).isActive = true
+        verticalAxis.leftAnchor.constraint(equalTo: barGraphView.rightAnchor, constant: 55).isActive = true
+        verticalAxis.rightAnchor.constraint(equalTo: barGraphView.leftAnchor, constant: 25).isActive = true
+        verticalAxis.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        verticalAxis.widthAnchor.constraint(equalToConstant: 2).isActive = true
+        verticalAxis.backgroundColor = UIColor.black
         // setup all the bars on the graph
-        bar1.dropShadow()
-        bar1.layer.borderColor = UIColor.black.cgColor
-        bar1.layer.borderWidth = 1.0
+        //bar1.dropShadow()
+        //bar1.layer.borderColor = UIColor.black.cgColor
+        //bar1.layer.borderWidth = 1.0
         
-        bar2.dropShadow()
-        bar2.layer.borderColor = UIColor.black.cgColor
-        bar2.layer.borderWidth = 1.0
+      //  bar2.dropShadow()
+       // bar2.layer.borderColor = UIColor.black.cgColor
+       // bar2.layer.borderWidth = 1.0
         
-        bar3.dropShadow()
-        bar3.layer.borderColor = UIColor.black.cgColor
-        bar3.layer.borderWidth = 1.0
+        //bar3.dropShadow()
+        //bar3.layer.borderColor = UIColor.black.cgColor
+        //bar3.layer.borderWidth = 1.0
         
-        bar4.dropShadow()
-        bar4.layer.borderColor = UIColor.black.cgColor
-        bar4.layer.borderWidth = 1.0
+        //bar4.dropShadow()
+        //bar4.layer.borderColor = UIColor.black.cgColor
+        //bar4.layer.borderWidth = 1.0
         
-        bar5.dropShadow()
-        bar5.layer.borderColor = UIColor.black.cgColor
-        bar5.layer.borderWidth = 1.0
+       // bar5.dropShadow()
+        //bar5.layer.borderColor = UIColor.black.cgColor
+        //bar5.layer.borderWidth = 1.0
        
         setupBarGraphLabel()
         
@@ -163,7 +173,8 @@ class PortfolioController: UIViewController {
         barLabel3.text = financialIndicators[2]
         barLabel4.text = financialIndicators[3]
         barLabel5.text = financialIndicators[4]
-        
+       
+       
         barColors()
         barLines()
     }
@@ -237,6 +248,7 @@ class PortfolioController: UIViewController {
         let fifthBar = UIView()
         barGraphView.addSubview(fifthBar)
         
+        
         oneBar.translatesAutoresizingMaskIntoConstraints = false
         oneBar.topAnchor.constraint(equalTo: barHLine3.bottomAnchor, constant: 0).isActive = true
         oneBar.rightAnchor.constraint(equalTo: barGraphView.leftAnchor, constant: 60).isActive = true
@@ -247,7 +259,8 @@ class PortfolioController: UIViewController {
         oneBar.dropShadow()
         oneBar.layer.borderColor = UIColor.black.cgColor
         oneBar.layer.borderWidth = 1
-        
+ 
+ 
         secondBar.translatesAutoresizingMaskIntoConstraints = false
         secondBar.topAnchor.constraint(equalTo: barHLine2.bottomAnchor, constant: 0).isActive = true
         secondBar.bottomAnchor.constraint(equalTo: horixontalBarLine.topAnchor, constant: 0).isActive = true
@@ -259,7 +272,7 @@ class PortfolioController: UIViewController {
         secondBar.dropShadow()
         secondBar.layer.borderColor = UIColor.black.cgColor
         secondBar.layer.borderWidth = 1
-        
+       
         barThird.translatesAutoresizingMaskIntoConstraints = false
         barThird.topAnchor.constraint(equalTo: barHLine4.bottomAnchor, constant: 0).isActive = true
         barThird.leftAnchor.constraint(equalTo: secondBar.rightAnchor, constant: 40).isActive = true
