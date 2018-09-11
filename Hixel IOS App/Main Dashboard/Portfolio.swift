@@ -9,11 +9,13 @@
 import Foundation
 import UIKit
 import MaterialComponents.MaterialSnackbar
+import Moya
 
 // Global Declaration of the Array that will hold Companies Object
 var companies:[TempCompany]=[]
 class PortfolioController: UIViewController {
-
+    @IBOutlet weak var MAINVIEW: UIView! // Conatins all the views in which we are working in
+    
     @IBOutlet weak var verticalBarLine: UIView!
     @IBOutlet weak var summary: UILabel!
     @IBOutlet weak var horixontalBarLine: UIView!
@@ -32,6 +34,10 @@ class PortfolioController: UIViewController {
     let hardCodedStrings = ["Dashboard","Portfolio"]
     let financialIndicators = ["Health","Performance","Strength","Returns","Risk"]
     let overallFinancialValues = [3,2,5,3,4]
+    let graphScale = ["0","1","2","3","4","5"]
+    
+    let comapanyDataProvider = MoyaProvider<ServerInterface>()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +46,43 @@ class PortfolioController: UIViewController {
         
         // setup the UITable view to have a list of Companies on the Dashboard
         companies = createArray()
+        
+        // Put these two views into a if statement when a user doesn't have a company
         setuptableView()
         
         // sets up the Graph on the Main Dashboard
         setupBarGraphView()
+        
+        
+        /* Activate when doing onboarding
+        // If the user doesn't have any company then display the message
+        let message = UILabel()
+        MAINVIEW.addSubview(message)
+        message.text = "Please add a company or fuck off!!"
+        message.font = message.font.withSize(15)
+        message.translatesAutoresizingMaskIntoConstraints = false
+        message.centerXAnchor.constraint(equalTo: MAINVIEW.centerXAnchor).isActive = true
+        message.centerYAnchor.constraint(equalTo: MAINVIEW.centerYAnchor).isActive = true
+        message.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        message.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        */
+        
+        
+        
+        
+        comapanyDataProvider.request(.companydata(tickers: "TSLA", years: 2)) { (result) in
+            
+            switch result{
+            case .success(let response):
+                ///let json = try! JSONSerialization.jsonObject(with: response.data, options:[])
+                print(response.data)
+                
+            case .failure(let error):
+                print(error)
+               
+
+            }
+        }
         
     }
     
@@ -158,9 +197,30 @@ class PortfolioController: UIViewController {
         barHLine5.backgroundColor = UIColor.init(netHex: 0x868686)
         
         setupBars(value: 5)
+        setupGraphScale()
+    }
+    
+    @IBOutlet weak var scale1: UILabel!
+    @IBOutlet weak var scale2: UILabel!
+    @IBOutlet weak var scale3: UILabel!
+    @IBOutlet weak var scale4: UILabel!
+    @IBOutlet weak var scale5: UILabel!
+    @IBOutlet weak var scale6: UILabel!
+    private func setupGraphScale()
+    {
+        // Have to set them up one by one. Will be grouped together later
+        scale1.text = graphScale[0]
+        scale2.text = graphScale[1]
+        scale3.text = graphScale[2]
+        scale4.text = graphScale[5]
+        scale5.text = graphScale[4]
+        scale6.text = graphScale[3]
+
     }
     
     // Using Auto Layout to setup all the anchors for each bar. Right now the values doesn't changes dynamically but they will be added soon.
+    let barThird = UIView()
+
     private func setupBars(value : Int) // should take an array of int values
     {
         let oneBar = UIView()
@@ -169,7 +229,6 @@ class PortfolioController: UIViewController {
         let secondBar = UIView()
         barGraphView.addSubview(secondBar)
         
-       let barThird = UIView()
         barGraphView.addSubview(barThird)
         
         let fourthBar = UIView()
@@ -187,7 +246,7 @@ class PortfolioController: UIViewController {
         oneBar.backgroundColor = calculateColor(value: 3)
         oneBar.dropShadow()
         oneBar.layer.borderColor = UIColor.black.cgColor
-        oneBar.layer.borderWidth = 1.5
+        oneBar.layer.borderWidth = 1
         
         secondBar.translatesAutoresizingMaskIntoConstraints = false
         secondBar.topAnchor.constraint(equalTo: barHLine2.bottomAnchor, constant: 0).isActive = true
@@ -199,7 +258,7 @@ class PortfolioController: UIViewController {
         secondBar.backgroundColor = calculateColor(value: 2)
         secondBar.dropShadow()
         secondBar.layer.borderColor = UIColor.black.cgColor
-        secondBar.layer.borderWidth = 1.5
+        secondBar.layer.borderWidth = 1
         
         barThird.translatesAutoresizingMaskIntoConstraints = false
         barThird.topAnchor.constraint(equalTo: barHLine4.bottomAnchor, constant: 0).isActive = true
@@ -211,7 +270,7 @@ class PortfolioController: UIViewController {
         barThird.backgroundColor = calculateColor(value: 4)
         barThird.dropShadow()
         barThird.layer.borderColor = UIColor.black.cgColor
-        barThird.layer.borderWidth = 1.5
+        barThird.layer.borderWidth = 1
         
         fourthBar.translatesAutoresizingMaskIntoConstraints = false
         fourthBar.topAnchor.constraint(equalTo: barHLine3.bottomAnchor, constant: 0).isActive = true
@@ -223,7 +282,7 @@ class PortfolioController: UIViewController {
         fourthBar.backgroundColor = calculateColor(value: 3)
         fourthBar.dropShadow()
         fourthBar.layer.borderColor = UIColor.black.cgColor
-        fourthBar.layer.borderWidth = 1.5
+        fourthBar.layer.borderWidth = 1
         
         fifthBar.translatesAutoresizingMaskIntoConstraints = false
         fifthBar.topAnchor.constraint(equalTo: barHLine4.bottomAnchor, constant: 0).isActive = true
@@ -235,7 +294,7 @@ class PortfolioController: UIViewController {
         fifthBar.backgroundColor = calculateColor(value: 4)
         fifthBar.dropShadow()
         fifthBar.layer.borderColor = UIColor.black.cgColor
-        fifthBar.layer.borderWidth = 1.5
+        fifthBar.layer.borderWidth = 1
         
         
         
@@ -246,20 +305,21 @@ class PortfolioController: UIViewController {
     {
         if(value <= 2)
         {
-            return UIColor.init(netHex: 0xF1949D)
+            return UIColor.init(netHex: 0xFF5D84)
         }
         
         else if(value == 3)
         {
-            return UIColor.init(netHex: 0xFEF69A)
+            return UIColor.init(netHex: 0xFFDD7C)
         }
         
         else
         {
-            return UIColor.init(netHex: 0xD2FC9A)
+            return UIColor.init(netHex: 0x1DCEB1)
         }
     
     }
+    
     
 
 }
@@ -335,6 +395,11 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         message.text = deletedCompany.name+" deleted from Portfolio"
         MDCSnackbarManager.show(message)
         
+        // Refresh the bar graph when the user deletes a company from the portfolio
+        /*
+        barThird.backgroundColor = UIColor.black
+        print("hello")
+         */
     }
     
     // Adds the deleted company back to the table view
