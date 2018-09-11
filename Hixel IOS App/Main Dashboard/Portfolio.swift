@@ -32,6 +32,9 @@ class PortfolioController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var overallLabel: UILabel!
     
+    @IBAction func moreInfoOnGraph(_ sender: Any) {
+        performSegue(withIdentifier: "Dashboard_Graph_info", sender: self)
+    }
     let hardCodedStrings = ["Dashboard","Portfolio"]
     let financialIndicators = ["Health","Performance","Strength","Returns","Risk"]
     let overallFinancialValues = [3,2,5,3,4]
@@ -135,26 +138,6 @@ class PortfolioController: UIViewController {
         verticalAxis.heightAnchor.constraint(equalToConstant: 200).isActive = true
         verticalAxis.widthAnchor.constraint(equalToConstant: 2).isActive = true
         verticalAxis.backgroundColor = UIColor.black
-        // setup all the bars on the graph
-        //bar1.dropShadow()
-        //bar1.layer.borderColor = UIColor.black.cgColor
-        //bar1.layer.borderWidth = 1.0
-        
-      //  bar2.dropShadow()
-       // bar2.layer.borderColor = UIColor.black.cgColor
-       // bar2.layer.borderWidth = 1.0
-        
-        //bar3.dropShadow()
-        //bar3.layer.borderColor = UIColor.black.cgColor
-        //bar3.layer.borderWidth = 1.0
-        
-        //bar4.dropShadow()
-        //bar4.layer.borderColor = UIColor.black.cgColor
-        //bar4.layer.borderWidth = 1.0
-        
-       // bar5.dropShadow()
-        //bar5.layer.borderColor = UIColor.black.cgColor
-        //bar5.layer.borderWidth = 1.0
        
         setupBarGraphLabel()
         
