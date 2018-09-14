@@ -33,7 +33,7 @@ class PortfolioController: UIViewController {
     @IBOutlet weak var overallLabel: UILabel!
     
     @IBAction func moreInfoOnGraph(_ sender: Any) {
-        performSegue(withIdentifier: "Dashboard_Graph_info", sender: self)
+        performSegue(withIdentifier: "Dashboard_Company", sender: self)
     }
     let hardCodedStrings = ["Dashboard","Portfolio"]
     let financialIndicators = ["Health","Performance","Strength","Returns","Risk"]
@@ -74,13 +74,12 @@ class PortfolioController: UIViewController {
         
         
         
-        comapanyDataProvider.request(.companydata(tickers: "TSLA", years: 2)) { (result) in
+        comapanyDataProvider.request(.companydata(tickers: "AAPL", years: 2)) { (result) in
             
             switch result{
             case .success(let response):
                 ///let json = try! JSONSerialization.jsonObject(with: response.data, options:[])
                 print(response.data)
-                
             case .failure(let error):
                 print(error)
                
