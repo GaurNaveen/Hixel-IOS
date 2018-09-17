@@ -12,7 +12,7 @@ import MaterialComponents.MaterialSnackbar
 import Moya
 
 // Global Declaration of the Array that will hold Companies Object
-var companies:[TempCompany]=[]
+ var companies:[TempCompany]=[]
 class PortfolioController: UIViewController {
     @IBOutlet weak var MAINVIEW: UIView! // Conatins all the views in which we are working in
     @IBOutlet weak var verticalAxis: UIView!
@@ -33,7 +33,7 @@ class PortfolioController: UIViewController {
     @IBOutlet weak var overallLabel: UILabel!
     
     @IBAction func moreInfoOnGraph(_ sender: Any) {
-        performSegue(withIdentifier: "Dashboard_Company", sender: self)
+        performSegue(withIdentifier: "Dashboard_Graph_info", sender: self)
     }
     let hardCodedStrings = ["Dashboard","Portfolio"]
     let financialIndicators = ["Health","Performance","Strength","Returns","Risk"]
@@ -368,7 +368,8 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     // Adds the swipe to delete to UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
-        let deletedCompany = companies[0]
+        let deletedCompany = companies[indexPath.row]
+        let deletedIndex = indexPath.row
         if editingStyle == .delete{
             companies.remove(at: indexPath.row)
             self.tableView.reloadData()
@@ -379,7 +380,7 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         let actionHandler = { () in
             let actionMessage = MDCSnackbarMessage()
             // When the user clicks the UNDO button perform the action here
-            self.insertNewRow(deletedCompany: deletedCompany)
+            self.insertNewRow(deletedCompany: deletedCompany,deletedIndex: deletedIndex)
             actionMessage.text = deletedCompany.name + " added back to portfolio"
             MDCSnackbarManager.show(actionMessage)
             
@@ -398,16 +399,21 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     }
     
     // Adds the deleted company back to the table view
-    func insertNewRow(deletedCompany : TempCompany)
+    func insertNewRow(deletedCompany : TempCompany,deletedIndex: Int)
     {
         companies.append(deletedCompany)
         
-        let indexPath = IndexPath(row: companies.count-1, section: 0)
+        let indexPath = IndexPath(row: deletedIndex-1, section: 0)
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         tableView.endUpdates()
     
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "Dashboard_Company", sender: self)
+    }
+    
+    
     
 }
 

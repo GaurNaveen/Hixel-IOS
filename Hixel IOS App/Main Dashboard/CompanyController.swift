@@ -48,13 +48,6 @@ class CompanyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataField1.dropShadow()
-        //score.translatesAutoresizingMaskIntoConstraints = false
-        //score.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 100).isActive = true
-        //score.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 450).isActive = true
-        //score.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        //score.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        //score.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 180).isActive = true
-        //score.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 150).isActive = true
         // Do any additional setup after loading the view.
         // let's start by drawing a circle somehow
         scoreLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
@@ -72,9 +65,7 @@ class CompanyController: UIViewController {
         // Change the color of the circle
         shapeLayer.fillColor = UIColor.black.cgColor
         shapeLayer.strokeEnd = 0
-        
-        
-        
+    
         // Create my track layer now
         let trackLayer = CAShapeLayer()
         trackLayer.path = circularPath1.cgPath
@@ -84,17 +75,12 @@ class CompanyController: UIViewController {
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.lineCap = kCALineCapRound
         //scoreChartContainer.layer.addSublayer(trackLayer)
-        
-        
-        
-        
         scoreChartContainer.layer.addSublayer(shapeLayer)
         
         setAutoLayoutOnScore1()
         
         scoreChartContainer.addSubview(score1)
         // Use autoLayout on score_percent
-        
         scoreChartContainer.addSubview(score_percent)
         addAutoLayoutToScorePercent()        //view.addSubview(score)
         handleTap()
@@ -107,7 +93,7 @@ class CompanyController: UIViewController {
         print("Attepmting to animate strokee")
         
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        basicAnimation.toValue = 0.7  // This will be helpfull to control the outer layer , 1 means full , 0.5 means half. adjust accordingly
+        basicAnimation.toValue = 0.5  // This will be helpfull to control the outer layer , 1 means full , 0.5 means half. adjust accordingly
         basicAnimation.duration = 2
         
         basicAnimation.fillMode = kCAFillModeForwards

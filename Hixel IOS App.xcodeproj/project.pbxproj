@@ -30,6 +30,7 @@
 		B65A53CC21420C2A00C18554 /* Portfolio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65A53C1214206E600C18554 /* Portfolio.storyboard */; };
 		B65A53CD21420C2B00C18554 /* Portfolio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65A53C1214206E600C18554 /* Portfolio.storyboard */; };
 		B6824010214B310900DFACF0 /* CompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682400F214B310900DFACF0 /* CompanyController.swift */; };
+		B6A2D74F214FA5A000853A0C /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A2D74E214FA5A000853A0C /* SearchCell.swift */; };
 		B6A523FC21420F4A0007B0C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A523FB21420F490007B0C8 /* Default-568h@2x.png */; };
 		B6A52400214213310007B0C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6A523FD21420F600007B0C8 /* Assets.xcassets */; };
 		B6A52401214213340007B0C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6A523FD21420F600007B0C8 /* Assets.xcassets */; };
@@ -91,6 +92,7 @@
 		B65A53C52142098A00C18554 /* ComparisonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonController.swift; sourceTree = "<group>"; };
 		B65A53C7214209CB00C18554 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		B682400F214B310900DFACF0 /* CompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyController.swift; sourceTree = "<group>"; };
+		B6A2D74E214FA5A000853A0C /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		B6A523FB21420F490007B0C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B6A523FD21420F600007B0C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6FA6DC62147B29D00C38901 /* GraphScaleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphScaleInfo.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				B6541AF621436F0700AB9894 /* Cell2.swift */,
 				B6FA6DC62147B29D00C38901 /* GraphScaleInfo.swift */,
 				B682400F214B310900DFACF0 /* CompanyController.swift */,
+				B6A2D74E214FA5A000853A0C /* SearchCell.swift */,
 			);
 			path = "Main Dashboard";
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				8CA9B1612146D25A00FC5502 /* Company.swift in Sources */,
 				B6FA6DC72147B29D00C38901 /* GraphScaleInfo.swift in Sources */,
 				8CA9B1632146D64F00FC5502 /* CompanyIdentifiers.swift in Sources */,
+				B6A2D74F214FA5A000853A0C /* SearchCell.swift in Sources */,
 				B65A53BE2141648B00C18554 /* TempCompany.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
