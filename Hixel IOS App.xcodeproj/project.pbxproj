@@ -17,6 +17,10 @@
 		8CA9B1692146DEE500FC5502 /* ApplicationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1682146DEE500FC5502 /* ApplicationUser.swift */; };
 		8CA9B16B2146DFB400FC5502 /* SearchEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B16A2146DFB400FC5502 /* SearchEntry.swift */; };
 		8CB823502146C0170065A34D /* ServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB8234F2146C0170065A34D /* ServerInterface.swift */; };
+		B61B178C2150E70D0029CA63 /* ComparisonController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B178B2150E70D0029CA63 /* ComparisonController2.swift */; };
+		B61B17902150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */; };
+		B61B17912150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */; };
+		B61B17922150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */; };
 		B6541AF321434F4900AB9894 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6541AF221434F4900AB9894 /* CompanyCell.swift */; };
 		B6541AF721436F0700AB9894 /* Cell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6541AF621436F0700AB9894 /* Cell2.swift */; };
 		B65A53992141538700C18554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65A53972141538700C18554 /* LaunchScreen.storyboard */; };
@@ -75,6 +79,8 @@
 		94E1C4BD2DA49B56D14F9358 /* Pods_Hixel_IOS_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hixel_IOS_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4044C3C9165E5319C8960CC /* Pods-Hixel IOS AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppTests/Pods-Hixel IOS AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		B3A8BD88B48EA84CB1E48ED4 /* Pods-Hixel IOS AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppUITests/Pods-Hixel IOS AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B61B178B2150E70D0029CA63 /* ComparisonController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonController2.swift; sourceTree = "<group>"; };
+		B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6541AF221434F4900AB9894 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		B6541AF621436F0700AB9894 /* Cell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell2.swift; sourceTree = "<group>"; };
 		B65A538B2141538600C18554 /* Hixel IOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hixel IOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +223,7 @@
 				B6FA6DC62147B29D00C38901 /* GraphScaleInfo.swift */,
 				B682400F214B310900DFACF0 /* CompanyController.swift */,
 				B6A2D74E214FA5A000853A0C /* SearchCell.swift */,
+				B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */,
 			);
 			path = "Main Dashboard";
 			sourceTree = "<group>";
@@ -225,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				B65A53C52142098A00C18554 /* ComparisonController.swift */,
+				B61B178B2150E70D0029CA63 /* ComparisonController2.swift */,
 			);
 			path = Comparison;
 			sourceTree = "<group>";
@@ -489,7 +497,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B61B17902150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */,
 				8CB823502146C0170065A34D /* ServerInterface.swift in Sources */,
+				B61B178C2150E70D0029CA63 /* ComparisonController2.swift in Sources */,
 				B65A53C8214209CB00C18554 /* SettingsController.swift in Sources */,
 				8CA9B1652146D77A00FC5502 /* FinancialData.swift in Sources */,
 				B6541AF321434F4900AB9894 /* CompanyCell.swift in Sources */,
@@ -514,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B65A53A42141538700C18554 /* Hixel_IOS_AppTests.swift in Sources */,
+				B61B17912150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B65A53AF2141538700C18554 /* Hixel_IOS_AppUITests.swift in Sources */,
+				B61B17922150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

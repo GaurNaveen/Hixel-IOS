@@ -11,7 +11,13 @@ import UIKit
 
 
 class ComparisonController: UIViewController{
-    @IBOutlet weak var compare_button: UIButton!
+    
+    // MARK: Takes the uesr to the comaparison view
+    @IBAction func compare1(_ sender: Any) {
+        performSegue(withIdentifier: "search_comparison", sender: self)
+    }
+    
+    @IBOutlet weak var compare2: UIButton!
     var searchData = companies
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -21,9 +27,11 @@ class ComparisonController: UIViewController{
     
     override func viewDidLoad() {
        print(companies.count, "ey")
-        compare_button.isHidden = true
+       compare2.isHidden = true
+        
+        
     }
-    
+
    
 }
 
@@ -82,7 +90,8 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
                 
             }
             if selected_companies.count <= 1 {
-                compare_button.isHidden = true
+               // compare_button.isHidden = true
+                compare2.isHidden = true
                 
             }
             
@@ -94,7 +103,8 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
             selected_companies.append(companies[indexPath.row])
             
             if selected_companies.count == 2{
-                compare_button.isHidden = false
+                compare2.isHidden = false
+                
             }
             //print(selected_companies[indexPath.row].name)
         }
