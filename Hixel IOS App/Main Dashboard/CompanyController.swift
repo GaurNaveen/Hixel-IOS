@@ -9,6 +9,12 @@
 import UIKit
 
 class CompanyController: UIViewController {
+    
+    // Company Name is hardcoded rn, will be removed when network layer is connected
+    var ratios = ["Apple Inc","Liquidity Ratio","Debt Ratio","P/E Ratio","Health","Performance","Strength","Risk"]
+    
+    var ratiosValue = [0,1.2,0.2,2.4,3,3,4,1]
+
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var scoreChartContainer: UIView!
     let shapeLayer = CAShapeLayer()
@@ -127,4 +133,30 @@ class CompanyController: UIViewController {
     }
     */
 
+}
+
+extension CompanyController:UITableViewDataSource,UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return  ratios.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let value = ratiosValue[indexPath.row]
+        
+        let name = ratios[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ratio1", for: indexPath) as! CompanyTableViewCell
+        cell.setupName(name: name)
+        cell.setupValue(value: value)
+        
+        if(indexPath.row == 0)
+        {
+            cell.backgroundColor = UIColor.init(netHex: 0x335289)
+            cell.ratioName.textColor = .white
+            cell.ratioValue.isHidden = true
+            
+        }
+        
+        return cell
+    }
+    
 }
