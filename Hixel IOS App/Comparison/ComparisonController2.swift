@@ -11,6 +11,7 @@ import UIKit
 class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     //var selectedCompanies = ["Apple Inc","Samsung Corp","Alphabet","Bmw","Facebook"]
 
+    @IBOutlet weak var graphHeaderView: UIView!
     @IBOutlet weak var collectionViewB: UICollectionView!
     // Contains all the companies user have selected
     var Aselected: [TempCompany] = []
@@ -19,7 +20,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        graphHeaderView.dropShadow()
         
 
         // Do any additional setup after loading the view.
@@ -41,7 +42,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             let cellB = collectionView.dequeueReusableCell(withReuseIdentifier: "score", for: indexPath) as! ScoreCollectionViewCell
             cellB.setupCompaniesName(companies: temp_Company, score: scoreNumber[indexPath.row])
             cellB.layer.borderColor = UIColor.black.cgColor
-            cellB.layer.borderWidth = 0.4
+            cellB.layer.borderWidth = 0.5
             cellB.layer.cornerRadius = 10.0
             
             // Add the Score chart
