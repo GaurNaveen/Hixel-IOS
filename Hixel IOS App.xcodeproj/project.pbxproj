@@ -21,6 +21,7 @@
 		B61B17902150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */; };
 		B61B17912150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */; };
 		B61B17922150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */; };
+		B61B1794215106A20029CA63 /* ScoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B1793215106A20029CA63 /* ScoreCollectionViewCell.swift */; };
 		B6541AF321434F4900AB9894 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6541AF221434F4900AB9894 /* CompanyCell.swift */; };
 		B6541AF721436F0700AB9894 /* Cell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6541AF621436F0700AB9894 /* Cell2.swift */; };
 		B65A53992141538700C18554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65A53972141538700C18554 /* LaunchScreen.storyboard */; };
@@ -81,6 +82,7 @@
 		B3A8BD88B48EA84CB1E48ED4 /* Pods-Hixel IOS AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppUITests/Pods-Hixel IOS AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B61B178B2150E70D0029CA63 /* ComparisonController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonController2.swift; sourceTree = "<group>"; };
 		B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonCollectionViewCell.swift; sourceTree = "<group>"; };
+		B61B1793215106A20029CA63 /* ScoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6541AF221434F4900AB9894 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		B6541AF621436F0700AB9894 /* Cell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell2.swift; sourceTree = "<group>"; };
 		B65A538B2141538600C18554 /* Hixel IOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hixel IOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +235,7 @@
 			children = (
 				B65A53C52142098A00C18554 /* ComparisonController.swift */,
 				B61B178B2150E70D0029CA63 /* ComparisonController2.swift */,
+				B61B1793215106A20029CA63 /* ScoreCollectionViewCell.swift */,
 			);
 			path = Comparison;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				B6824010214B310900DFACF0 /* CompanyController.swift in Sources */,
 				B65A53C62142098A00C18554 /* ComparisonController.swift in Sources */,
 				8CA9B1612146D25A00FC5502 /* Company.swift in Sources */,
+				B61B1794215106A20029CA63 /* ScoreCollectionViewCell.swift in Sources */,
 				B6FA6DC72147B29D00C38901 /* GraphScaleInfo.swift in Sources */,
 				8CA9B1632146D64F00FC5502 /* CompanyIdentifiers.swift in Sources */,
 				B6A2D74F214FA5A000853A0C /* SearchCell.swift in Sources */,
