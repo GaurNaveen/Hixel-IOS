@@ -16,6 +16,11 @@ class ComparisonController: UIViewController{
     @IBAction func compare1(_ sender: Any) {
         performSegue(withIdentifier: "search_comparison", sender: self)
     }
+    // MARK: Passes the data between views
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ComparisonController2
+        vc.Aselected = self.selected_companies
+    }
     
     @IBOutlet weak var compare2: UIButton!
     var searchData = companies

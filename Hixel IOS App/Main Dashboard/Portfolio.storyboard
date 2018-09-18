@@ -115,7 +115,7 @@
                     <connections>
                         <outlet property="compare2" destination="xE9-O3-9Rq" id="V9w-Qc-rgS"/>
                         <outlet property="searchBar" destination="Dr6-PU-p9l" id="Ycn-Tb-tNA"/>
-                        <segue destination="yxg-XX-VAi" kind="show" identifier="search_comparison" id="RQ4-Hq-PD4"/>
+                        <segue destination="yxg-XX-VAi" kind="presentation" identifier="search_comparison" id="ZuV-d9-Jyl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1MZ-AJ-iLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
