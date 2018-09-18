@@ -11,14 +11,19 @@ import UIKit
 class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     //var selectedCompanies = ["Apple Inc","Samsung Corp","Alphabet","Bmw","Facebook"]
     
+    @IBOutlet weak var collectionView3: UICollectionView!
     // Arrays that holds the Financial Indicators values
     var financialIndicatorsValue = [4,3,2]
+    var financialIndicators = ["Financial Indicators","Health","Performance","Strength","Risk","Return"]
     
     // All Horizontal line
     @IBOutlet weak var H_Bar3: UIView!
     @IBOutlet weak var H_Bar4: UIView!
     @IBOutlet weak var H_Bar2: UIView!
     
+    @IBAction func info(_ sender: Any) {
+        performSegue(withIdentifier: "comparison_info", sender: self)
+    }
     
     
     @IBOutlet weak var HBar3: UILabel!
@@ -129,6 +134,11 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(collectionView == self.collectionView3)
+        {
+            return financialIndicators.count
+        }
+        
         return Aselected.count
     }
     
@@ -149,6 +159,18 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             return cellB
         }
         
+        if collectionView == self.collectionView3{
+            
+            let indicator = financialIndicators[indexPath.row]
+            let cell3 = collectionView.dequeueReusableCell(withReuseIdentifier: "indicators", for: indexPath) as! CollectionViewCell3
+                cell3.layer.cornerRadius = 12.0
+                cell3.setIndicatorsLabel(indicator: indicator)
+
+                return cell3
+            
+            
+        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ComparisonCell", for: indexPath) as! ComparisonCollectionViewCell
         
         cell.company_name.text = Aselected[indexPath.row].name
@@ -159,6 +181,30 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         return cell
     
     }
+    
+    var selectedIndexPath: IndexPath?
+    var previoud:IndexPath?
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (collectionView == self.collectionView3) {
+           collectionView3.cellForItem(at: indexPath)?.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
+            
+            //  MARK: This allows you to access cell elements
+            let cell =  collectionView.cellForItem(at: indexPath) as! CollectionViewCell3
+           // cell.label.textColor = .white
+            
+            if(selectedIndexPath != nil)
+            {
+                collectionView3.cellForItem(at: selectedIndexPath!)?.backgroundColor = UIColor.white
+                
+               // cell.label.textColor = .black
+
+            }
+            selectedIndexPath = indexPath
+
+            
+        }
+    }
+    
  
 
 }

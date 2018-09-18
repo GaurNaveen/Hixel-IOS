@@ -126,7 +126,7 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
             // When the user selects the company add it to a seprate array
             selected_companies.append(companies[indexPath.row])
             
-            if selected_companies.count == 3{
+            if selected_companies.count == 2{
                 compare2.isHidden = false
                 
             }

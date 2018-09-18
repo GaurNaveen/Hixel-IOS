@@ -356,10 +356,20 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRi-Kk-BOL">
+                                                        <rect key="frame" x="329" y="7" width="22" height="22"/>
+                                                        <connections>
+                                                            <action selector="info:" destination="yxg-XX-VAi" eventType="touchUpInside" id="9dt-sS-vFC"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="lRi-Kk-BOL" secondAttribute="trailing" constant="8" id="2nW-NV-Apz"/>
+                                                    <constraint firstItem="lRi-Kk-BOL" firstAttribute="leading" secondItem="3z5-sA-Dpt" secondAttribute="trailing" constant="129" id="RBZ-95-L8l"/>
                                                     <constraint firstItem="3z5-sA-Dpt" firstAttribute="top" secondItem="dKw-wa-7qN" secondAttribute="top" constant="8" id="TJe-DR-3oc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="lRi-Kk-BOL" secondAttribute="bottom" constant="8" id="U6N-Kw-STl"/>
+                                                    <constraint firstItem="lRi-Kk-BOL" firstAttribute="top" secondItem="dKw-wa-7qN" secondAttribute="top" constant="7" id="Ube-lK-4Pp"/>
                                                     <constraint firstAttribute="height" constant="37" id="cot-tk-stY"/>
                                                     <constraint firstItem="3z5-sA-Dpt" firstAttribute="leading" secondItem="dKw-wa-7qN" secondAttribute="leading" constant="3" id="fZ3-o0-89h"/>
                                                     <constraint firstAttribute="trailing" secondItem="3z5-sA-Dpt" secondAttribute="trailing" constant="159" id="xzx-qh-TJO"/>
@@ -513,6 +523,47 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="0.92941176470588238" green="0.41176470588235292" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YCh-QM-mXy">
+                                                        <rect key="frame" x="4" y="0.0" width="347" height="58"/>
+                                                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="58" id="5DA-yk-oul"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="58" id="PXv-ZH-vie"/>
+                                                        </constraints>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lpA-k8-oYh">
+                                                            <size key="itemSize" width="123" height="42"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="indicators" id="iT3-2o-eNE" customClass="CollectionViewCell3" customModule="Hixel_IOS_App" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="8" width="123" height="42"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="123" height="42"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Financial Indicators" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpM-Dv-cAu">
+                                                                            <rect key="frame" x="6" y="11" width="109" height="21"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </view>
+                                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <connections>
+                                                                    <outlet property="label" destination="gpM-Dv-cAu" id="Oqa-ee-bxO"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="yxg-XX-VAi" id="MBR-lY-fY0"/>
+                                                            <outlet property="delegate" destination="yxg-XX-VAi" id="zgx-sx-fas"/>
+                                                        </connections>
+                                                    </collectionView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -548,12 +599,14 @@
                                                     <constraint firstItem="7ss-Av-QnB" firstAttribute="top" secondItem="F6a-aZ-L5t" secondAttribute="top" constant="60" id="ew8-Rb-Z6k"/>
                                                     <constraint firstItem="IW9-KC-I5x" firstAttribute="leading" secondItem="F6a-aZ-L5t" secondAttribute="leading" constant="2" id="ey4-jD-pqU"/>
                                                     <constraint firstItem="xjJ-H2-IpU" firstAttribute="leading" secondItem="F6a-aZ-L5t" secondAttribute="leading" constant="136" id="ez4-xA-dKe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="YCh-QM-mXy" secondAttribute="trailing" constant="8" id="fa0-fY-MFo"/>
                                                     <constraint firstAttribute="trailing" secondItem="Lbe-5R-flL" secondAttribute="trailing" constant="19" id="h8L-SE-oeg"/>
                                                     <constraint firstItem="mGG-qD-urj" firstAttribute="top" secondItem="F6a-aZ-L5t" secondAttribute="top" constant="203" id="hkS-aj-IC9"/>
                                                     <constraint firstItem="PAj-VP-HHG" firstAttribute="leading" secondItem="F6a-aZ-L5t" secondAttribute="leading" constant="241" id="hzN-Xi-c2K"/>
                                                     <constraint firstItem="xPg-cr-j1b" firstAttribute="leading" secondItem="F6a-aZ-L5t" secondAttribute="leading" constant="21" id="irI-rD-KcM"/>
                                                     <constraint firstItem="mGG-qD-urj" firstAttribute="leading" secondItem="F6a-aZ-L5t" secondAttribute="leading" constant="2" id="jaG-vo-efk"/>
                                                     <constraint firstItem="Fg6-S1-tVi" firstAttribute="top" secondItem="F6a-aZ-L5t" secondAttribute="top" constant="117" id="kwS-9e-IGT"/>
+                                                    <constraint firstItem="YCh-QM-mXy" firstAttribute="top" secondItem="F6a-aZ-L5t" secondAttribute="top" id="olu-Yz-xpi"/>
                                                     <constraint firstItem="zxT-jZ-roY" firstAttribute="leading" secondItem="F6a-aZ-L5t" secondAttribute="leading" constant="21" id="oqM-AX-kmK"/>
                                                     <constraint firstAttribute="height" constant="343" id="r7s-66-JcT"/>
                                                     <constraint firstItem="E5x-vk-McB" firstAttribute="top" secondItem="F6a-aZ-L5t" secondAttribute="top" constant="74" id="s2c-KI-UYD"/>
@@ -561,6 +614,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="eWz-a6-Ezt" secondAttribute="trailing" constant="19" id="tmd-UV-nRm"/>
                                                     <constraint firstItem="7ss-Av-QnB" firstAttribute="leading" secondItem="Fg6-S1-tVi" secondAttribute="trailing" constant="5" id="toT-nQ-b3J"/>
                                                     <constraint firstItem="Jaf-Nv-mZZ" firstAttribute="leading" secondItem="F6a-aZ-L5t" secondAttribute="leading" constant="2" id="uke-vd-jDI"/>
+                                                    <constraint firstItem="YCh-QM-mXy" firstAttribute="leading" secondItem="F6a-aZ-L5t" secondAttribute="leading" constant="4" id="unS-Mm-m9N"/>
                                                     <constraint firstAttribute="trailing" secondItem="mGG-qD-urj" secondAttribute="trailing" constant="343" id="wQ2-24-eN8"/>
                                                     <constraint firstAttribute="trailing" secondItem="PAj-VP-HHG" secondAttribute="trailing" constant="21" id="y7h-yJ-SYj"/>
                                                     <constraint firstItem="KGl-rx-3BY" firstAttribute="leading" secondItem="F6a-aZ-L5t" secondAttribute="leading" constant="21" id="ycR-xu-tcD"/>
@@ -630,6 +684,7 @@
                         <outlet property="bar1" destination="lKw-V7-RZv" id="8Mh-cF-04o"/>
                         <outlet property="bar2" destination="dDC-Xm-9Jo" id="KOk-iZ-Rya"/>
                         <outlet property="bar3" destination="8TX-jp-Ejw" id="cpN-xi-swP"/>
+                        <outlet property="collectionView3" destination="YCh-QM-mXy" id="jeD-Vw-FRc"/>
                         <outlet property="collectionViewB" destination="bY3-oz-EEC" id="eTl-rx-l12"/>
                         <outlet property="graphContainerView" destination="F6a-aZ-L5t" id="bnh-aA-OyW"/>
                         <outlet property="graphHeaderView" destination="dKw-wa-7qN" id="Vlj-dn-JNi"/>
@@ -637,6 +692,7 @@
                         <outlet property="label1" destination="IEF-nq-JRq" id="YyF-jo-dE1"/>
                         <outlet property="label2" destination="xjJ-H2-IpU" id="5Z0-Ri-5l7"/>
                         <outlet property="label3" destination="PAj-VP-HHG" id="xcO-4O-OP3"/>
+                        <segue destination="OVu-nJ-idn" kind="show" identifier="comparison_info" id="J9O-rh-PCW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZl-ZX-iqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1574,6 +1630,7 @@
         <image name="more_info" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="J9O-rh-PCW"/>
         <segue reference="lIu-Uh-BJu"/>
     </inferredMetricsTieBreakers>
 </document>
