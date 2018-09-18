@@ -34,12 +34,12 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        var scoreNumber = [70, 50, 20]
         // Inside this if statement setup the score chart
         if collectionView == self.collectionViewB {
             let temp_Company = Aselected[indexPath.row]
             let cellB = collectionView.dequeueReusableCell(withReuseIdentifier: "score", for: indexPath) as! ScoreCollectionViewCell
-            cellB.setupCompaniesName(companies: temp_Company)
+            cellB.setupCompaniesName(companies: temp_Company, score: scoreNumber[indexPath.row])
             cellB.layer.borderColor = UIColor.black.cgColor
             cellB.layer.borderWidth = 0.4
             cellB.layer.cornerRadius = 10.0
