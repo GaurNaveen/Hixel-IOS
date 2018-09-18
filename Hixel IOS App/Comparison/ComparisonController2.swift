@@ -14,9 +14,13 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     @IBOutlet weak var collectionViewB: UICollectionView!
     // Contains all the companies user have selected
     var Aselected: [TempCompany] = []
+    let shapeLayer = CAShapeLayer()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Do any additional setup after loading the view.
     }
@@ -33,7 +37,15 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         
         // Inside this if statement setup the score chart
         if collectionView == self.collectionViewB {
+            let temp_Company = Aselected[indexPath.row]
             let cellB = collectionView.dequeueReusableCell(withReuseIdentifier: "score", for: indexPath) as! ScoreCollectionViewCell
+            cellB.setupCompaniesName(companies: temp_Company)
+            cellB.layer.borderColor = UIColor.black.cgColor
+            cellB.layer.borderWidth = 0.4
+            cellB.layer.cornerRadius = 10.0
+            
+            // Add the Score chart
+            
             
             return cellB
         }

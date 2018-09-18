@@ -12,6 +12,7 @@ import UIKit
 
 class ComparisonController: UIViewController{
     
+    @IBOutlet weak var clear: UIButton!
     // MARK: Takes the uesr to the comaparison view
     @IBAction func compare1(_ sender: Any) {
         performSegue(withIdentifier: "search_comparison", sender: self)
@@ -22,6 +23,13 @@ class ComparisonController: UIViewController{
         vc.Aselected = self.selected_companies
     }
     
+    @IBAction func clear(_ sender: Any) {
+        setAccessoryToNone()
+        selected_companies.removeAll()
+        compare2.isHidden = true
+        clear.isHidden = true
+    }
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var compare2: UIButton!
     var searchData = companies
     
@@ -33,10 +41,19 @@ class ComparisonController: UIViewController{
     override func viewDidLoad() {
        print(companies.count, "ey")
        compare2.isHidden = true
+       clear.isHidden = true
         
         
     }
 
+    func setAccessoryToNone()
+    { let size = companies.count
+        for i in 0..<size
+        {   let indexPath = IndexPath(row: i, section: 0)
+
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+        }
+    }
    
 }
 
@@ -72,6 +89,7 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return   companies.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,6 +102,7 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        clear.isHidden = false
       
         if(tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark)
         {

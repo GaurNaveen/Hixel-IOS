@@ -111,6 +111,13 @@ class PortfolioController: UIViewController {
         let company3 = TempCompany(name: "BMW", stockExchange: "NYSE", score: "95%")
         let company4 = TempCompany(name: "Alphabet", stockExchange: "NYSE", score: "55%")
         let company5 = TempCompany(name: "Daimler AMG", stockExchange: "NYSE", score: "67%")
+        let company6 = TempCompany(name: "Facebook", stockExchange: "NASDAQ", score: "12%")
+        let company7 = TempCompany(name: "Tesla Inc.", stockExchange: "NASDAQ", score: "89%")
+        let company8 = TempCompany(name: "Intel Corp", stockExchange: "NYSE", score: "95%")
+        let company9 = TempCompany(name: "Microsoft Corp.", stockExchange: "NYSE", score: "55%")
+        let company10 = TempCompany(name: "Disney Corp.", stockExchange: "NYSE", score: "67%")
+        let company11 = TempCompany(name: "AMD Corp.", stockExchange: "NYSE", score: "55%")
+        let company12 = TempCompany(name: "Amazon Inc.", stockExchange: "NYSE", score: "67%")
         
         
         tempCompanies.append(company1)
@@ -118,6 +125,13 @@ class PortfolioController: UIViewController {
         tempCompanies.append(company3)
         tempCompanies.append(company4)
         tempCompanies.append(company5)
+        tempCompanies.append(company6)
+        tempCompanies.append(company7)
+        tempCompanies.append(company8)
+        tempCompanies.append(company9)
+        tempCompanies.append(company10)
+        tempCompanies.append(company11)
+        tempCompanies.append(company12)
         return tempCompanies
     }
     
