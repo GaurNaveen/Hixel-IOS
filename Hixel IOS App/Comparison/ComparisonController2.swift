@@ -15,7 +15,8 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     // Arrays that holds the Financial Indicators values
     var financialIndicatorsValue = [4,3,2]
     var financialIndicators = ["Financial Indicators","Health","Performance","Strength","Risk","Return"]
-    
+    var ratios = ["Liquidity Ratio","Debt Ratio","P/E Ratio"]
+    var ratiosValue = [0,1.2,1.3,0.5,0,1.45,0.29,0.45,0,1.34,1.67,0.6]
     // All Horizontal line
     @IBOutlet weak var H_Bar3: UIView!
     @IBOutlet weak var H_Bar4: UIView!
@@ -23,6 +24,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     
     @IBAction func info(_ sender: Any) {
         performSegue(withIdentifier: "comparison_info", sender: self)
+        
     }
     
     
@@ -95,7 +97,20 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         
         
         
-        
+        ratios.insert(Aselected[0].name, at: 0)
+        ratios.insert(Aselected[1].name, at: 4)
+        ratios.append("Liquidity Ratio")
+        ratios.append("Debt Ratio")
+        ratios.append("P/E Ratio")
+        ratios.insert(Aselected[2].name, at: 8)
+        ratios.append("Liquidity Ratio")
+        ratios.append("Debt Ratio")
+        ratios.append("P/E Ratio")
+        //ratios.append("Liquidity Ratio")
+        //ratios.append("Debt Ratio")
+        //ratios.append("P/E Ratio")
+
+
         
         // Do any additional setup after loading the view.
     }
@@ -200,11 +215,51 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
 
             }
             selectedIndexPath = indexPath
-
+            
             
         }
     }
     
  
 
+}
+
+extension ComparisonController2: UITableViewDelegate,UITableViewDataSource
+{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return ratios.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ratio", for: indexPath)as! TableViewCell
+        let name = ratios[indexPath.row]
+        let value = ratiosValue[indexPath.row]
+        cell.setupLabel(name: name)
+        cell.setupLabelValue(value: value)
+        if(indexPath.row == 0)
+        {
+            cell.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
+            cell.ratioName.textColor = .white
+            cell.ratioValue.isHidden = true
+        }
+        if(indexPath.row == 4)
+        {
+            cell.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
+            cell.ratioName.textColor = .white
+            cell.ratioValue.isHidden = true
+
+        }
+        
+        if(indexPath.row == 8)
+        {
+            cell.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
+            cell.ratioName.textColor = .white
+            cell.ratioValue.isHidden = true
+
+        }
+        
+        return cell
+        
+    }
 }

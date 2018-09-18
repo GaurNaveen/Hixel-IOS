@@ -23,6 +23,7 @@
 		B61B17922150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */; };
 		B61B1794215106A20029CA63 /* ScoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B1793215106A20029CA63 /* ScoreCollectionViewCell.swift */; };
 		B61B1798215180BF0029CA63 /* CollectionViewCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B1797215180BF0029CA63 /* CollectionViewCell3.swift */; };
+		B61B179A21519B200029CA63 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B179921519B200029CA63 /* TableViewCell.swift */; };
 		B6541AF321434F4900AB9894 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6541AF221434F4900AB9894 /* CompanyCell.swift */; };
 		B6541AF721436F0700AB9894 /* Cell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6541AF621436F0700AB9894 /* Cell2.swift */; };
 		B65A53992141538700C18554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65A53972141538700C18554 /* LaunchScreen.storyboard */; };
@@ -85,6 +86,7 @@
 		B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonCollectionViewCell.swift; sourceTree = "<group>"; };
 		B61B1793215106A20029CA63 /* ScoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		B61B1797215180BF0029CA63 /* CollectionViewCell3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell3.swift; sourceTree = "<group>"; };
+		B61B179921519B200029CA63 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		B6541AF221434F4900AB9894 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		B6541AF621436F0700AB9894 /* Cell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell2.swift; sourceTree = "<group>"; };
 		B65A538B2141538600C18554 /* Hixel IOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hixel IOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +241,7 @@
 				B65A53C52142098A00C18554 /* ComparisonController.swift */,
 				B61B178B2150E70D0029CA63 /* ComparisonController2.swift */,
 				B61B1793215106A20029CA63 /* ScoreCollectionViewCell.swift */,
+				B61B179921519B200029CA63 /* TableViewCell.swift */,
 			);
 			path = Comparison;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				8CA9B1612146D25A00FC5502 /* Company.swift in Sources */,
 				B61B1794215106A20029CA63 /* ScoreCollectionViewCell.swift in Sources */,
 				B6FA6DC72147B29D00C38901 /* GraphScaleInfo.swift in Sources */,
+				B61B179A21519B200029CA63 /* TableViewCell.swift in Sources */,
 				8CA9B1632146D64F00FC5502 /* CompanyIdentifiers.swift in Sources */,
 				B6A2D74F214FA5A000853A0C /* SearchCell.swift in Sources */,
 				B61B1798215180BF0029CA63 /* CollectionViewCell3.swift in Sources */,
