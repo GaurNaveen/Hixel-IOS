@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HU8-Q7-ZVV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HU8-Q7-ZVV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="AvenirNext.ttc">
-            <string>AvenirNext-DemiBold</string>
-            <string>AvenirNext-DemiBoldItalic</string>
-            <string>AvenirNext-Regular</string>
-        </array>
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue-BoldItalic</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Comparison-->
         <scene sceneID="6Zj-yF-BUP">
@@ -45,9 +34,36 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jy4-Qs-lXu">
                                 <rect key="frame" x="0.0" y="109" width="375" height="558"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="U6i-xa-aCv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNS-vC-326">
+                                            <rect key="frame" x="304" y="14" width="63" height="30"/>
+                                            <state key="normal" title="Compare"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Portfolio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPs-4e-DwM">
+                                            <rect key="frame" x="8" y="8" width="140" height="43"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="SNS-vC-326" secondAttribute="trailing" constant="8" id="K95-cV-10v"/>
+                                        <constraint firstAttribute="bottom" secondItem="WPs-4e-DwM" secondAttribute="bottom" constant="8" id="W0F-Hk-GqP"/>
+                                        <constraint firstItem="WPs-4e-DwM" firstAttribute="leading" secondItem="U6i-xa-aCv" secondAttribute="leading" constant="8" id="Yxf-4n-wnY"/>
+                                        <constraint firstItem="SNS-vC-326" firstAttribute="leading" secondItem="WPs-4e-DwM" secondAttribute="trailing" constant="156" id="cAU-XP-ku5"/>
+                                        <constraint firstItem="SNS-vC-326" firstAttribute="leading" secondItem="WPs-4e-DwM" secondAttribute="trailing" constant="156" id="dCw-Ml-i7L"/>
+                                        <constraint firstItem="WPs-4e-DwM" firstAttribute="top" secondItem="U6i-xa-aCv" secondAttribute="top" constant="8" id="mRS-wD-5Sq"/>
+                                        <constraint firstItem="SNS-vC-326" firstAttribute="top" secondItem="U6i-xa-aCv" secondAttribute="top" constant="14" id="re5-mT-WTf"/>
+                                        <constraint firstAttribute="bottom" secondItem="SNS-vC-326" secondAttribute="bottom" constant="15" id="yH2-U2-7yw"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="JUu-Hs-2nl" customClass="SearchCell" customModule="Hixel_IOS_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="87" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JUu-Hs-2nl" id="HO8-1b-KEx">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -95,6 +111,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Compare" image="Compare_Icon" id="wm6-vg-nP1"/>
                     <connections>
+                        <outlet property="compare_button" destination="SNS-vC-326" id="Yfc-SB-xUu"/>
                         <outlet property="searchBar" destination="Dr6-PU-p9l" id="Ycn-Tb-tNA"/>
                     </connections>
                 </viewController>

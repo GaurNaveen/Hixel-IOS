@@ -11,6 +11,7 @@ import UIKit
 
 
 class ComparisonController: UIViewController{
+    @IBOutlet weak var compare_button: UIButton!
     var searchData = companies
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -20,6 +21,7 @@ class ComparisonController: UIViewController{
     
     override func viewDidLoad() {
        print(companies.count, "ey")
+        compare_button.isHidden = true
     }
     
    
@@ -73,14 +75,28 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
         if(tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark)
         {
         tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
-        
+            if selected_companies.count != 0 {
+                
+                // Will be changed later on...
+                _ = selected_companies.popLast()
+                
+            }
+            if selected_companies.count <= 1 {
+                compare_button.isHidden = true
+                
+            }
+            
         }
         else{
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
             
             // When the user selects the company add it to a seprate array
             selected_companies.append(companies[indexPath.row])
-            print(selected_companies[indexPath.row].name)
+            
+            if selected_companies.count == 2{
+                compare_button.isHidden = false
+            }
+            //print(selected_companies[indexPath.row].name)
         }
         
     }
