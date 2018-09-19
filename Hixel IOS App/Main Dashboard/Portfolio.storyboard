@@ -334,7 +334,7 @@
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="companyName" destination="bLm-5k-ISv" id="VrN-78-shE"/>
-                                                            <outlet property="hey" destination="2rN-b5-dRQ" id="DWr-dn-JNe"/>
+                                                            <outlet property="hey" destination="2rN-b5-dRQ" id="Yhp-vg-Fhf"/>
                                                             <outlet property="scoreLabel" destination="tu8-GR-3le" id="ado-4J-8ck"/>
                                                             <outlet property="score_container" destination="hbt-g2-EAn" id="9AN-2b-3rO"/>
                                                         </connections>
@@ -1731,7 +1731,7 @@
         <image name="more_info" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S3T-pC-Rh2"/>
+        <segue reference="J9O-rh-PCW"/>
         <segue reference="lIu-Uh-BJu"/>
     </inferredMetricsTieBreakers>
 </document>
