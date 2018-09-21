@@ -33,7 +33,8 @@ class PortfolioController: UIViewController {
     @IBOutlet weak var overallLabel: UILabel!
     
     @IBAction func moreInfoOnGraph(_ sender: Any) {
-        performSegue(withIdentifier: "Dashboard_Graph_info", sender: self)
+       // performSegue(withIdentifier: "Dashboard_Graph_info", sender: self)
+        performSegue(withIdentifier: "port_graphinfo2", sender: self)
     }
     let hardCodedStrings = ["Dashboard","Portfolio"]
     let financialIndicators = ["Health","Performance","Strength","Returns","Risk"]
@@ -70,10 +71,6 @@ class PortfolioController: UIViewController {
         message.heightAnchor.constraint(equalToConstant: 120).isActive = true
         message.widthAnchor.constraint(equalToConstant: 120).isActive = true
         */
-        
-        
-        
-        
         comapanyDataProvider.request(.companydata(tickers: "AAPL", years: 2)) { (result) in
             
             switch result{
@@ -132,6 +129,7 @@ class PortfolioController: UIViewController {
         tempCompanies.append(company10)
         tempCompanies.append(company11)
         tempCompanies.append(company12)
+        
         return tempCompanies
     }
     
@@ -226,25 +224,32 @@ class PortfolioController: UIViewController {
     }
     
     // Using Auto Layout to setup all the anchors for each bar. Right now the values doesn't changes dynamically but they will be added soon.
+    let oneBar = UIView()
+    let secondBar = UIView()
     let barThird = UIView()
+    let fourthBar = UIView()
+    let fifthBar = UIView()
+
+
 
     private func setupBars(value : Int) // should take an array of int values
     {
-        let oneBar = UIView()
         barGraphView.addSubview(oneBar)
-        
-        let secondBar = UIView()
         barGraphView.addSubview(secondBar)
-        
         barGraphView.addSubview(barThird)
-        
-        let fourthBar = UIView()
         barGraphView.addSubview(fourthBar)
-        
-        let fifthBar = UIView()
         barGraphView.addSubview(fifthBar)
         
-        
+        // MARK: Setup Bars
+        Setup_First_Bar(oneBar: oneBar)
+        Setup_Second_Bar(secondBar: secondBar)
+        Setup_Third_Bar(barThird: barThird)
+        Setup_Fourth_Bar(fourthBar: fourthBar)
+        Setup_Fifth_Bar(fifthBar: fifthBar)
+    }
+    
+    func Setup_First_Bar(oneBar : UIView)
+    {
         oneBar.translatesAutoresizingMaskIntoConstraints = false
         oneBar.topAnchor.constraint(equalTo: barHLine3.bottomAnchor, constant: 0).isActive = true
         oneBar.rightAnchor.constraint(equalTo: barGraphView.leftAnchor, constant: 60).isActive = true
@@ -252,11 +257,14 @@ class PortfolioController: UIViewController {
         oneBar.heightAnchor.constraint(equalToConstant: 130).isActive = true
         oneBar.widthAnchor.constraint(equalToConstant: 23).isActive = true
         oneBar.backgroundColor = calculateColor(value: 3)
-        oneBar.dropShadow()
+        // oneBar.dropShadow()
         oneBar.layer.borderColor = UIColor.black.cgColor
-        oneBar.layer.borderWidth = 1
- 
- 
+        oneBar.layer.borderWidth = 0.5
+        oneBar.layer.cornerRadius = 5
+    }
+    
+    func Setup_Second_Bar(secondBar: UIView)
+    {
         secondBar.translatesAutoresizingMaskIntoConstraints = false
         secondBar.topAnchor.constraint(equalTo: barHLine2.bottomAnchor, constant: 0).isActive = true
         secondBar.bottomAnchor.constraint(equalTo: horixontalBarLine.topAnchor, constant: 0).isActive = true
@@ -265,10 +273,14 @@ class PortfolioController: UIViewController {
         secondBar.heightAnchor.constraint(equalToConstant: 130).isActive = true
         secondBar.widthAnchor.constraint(equalToConstant: 23).isActive = true
         secondBar.backgroundColor = calculateColor(value: 2)
-        secondBar.dropShadow()
+        // secondBar.dropShadow()
         secondBar.layer.borderColor = UIColor.black.cgColor
-        secondBar.layer.borderWidth = 1
-       
+        secondBar.layer.borderWidth = 0.5
+        secondBar.layer.cornerRadius = 5
+    }
+    
+    func Setup_Third_Bar(barThird : UIView)
+    {
         barThird.translatesAutoresizingMaskIntoConstraints = false
         barThird.topAnchor.constraint(equalTo: barHLine4.bottomAnchor, constant: 0).isActive = true
         barThird.leftAnchor.constraint(equalTo: secondBar.rightAnchor, constant: 40).isActive = true
@@ -277,10 +289,14 @@ class PortfolioController: UIViewController {
         barThird.heightAnchor.constraint(equalToConstant: 153).isActive = true
         barThird.widthAnchor.constraint(equalToConstant: 23).isActive = true
         barThird.backgroundColor = calculateColor(value: 4)
-        barThird.dropShadow()
+        //   barThird.dropShadow()
         barThird.layer.borderColor = UIColor.black.cgColor
-        barThird.layer.borderWidth = 1
-        
+        barThird.layer.borderWidth = 0.5
+        barThird.layer.cornerRadius = 5
+    }
+    
+    func Setup_Fourth_Bar(fourthBar : UIView)
+    {
         fourthBar.translatesAutoresizingMaskIntoConstraints = false
         fourthBar.topAnchor.constraint(equalTo: barHLine3.bottomAnchor, constant: 0).isActive = true
         fourthBar.bottomAnchor.constraint(equalTo: horixontalBarLine.topAnchor, constant: 0).isActive = true
@@ -289,10 +305,14 @@ class PortfolioController: UIViewController {
         fourthBar.heightAnchor.constraint(equalToConstant: 118).isActive = true
         fourthBar.widthAnchor.constraint(equalToConstant: 21).isActive = true
         fourthBar.backgroundColor = calculateColor(value: 3)
-        fourthBar.dropShadow()
+        // fourthBar.dropShadow()
         fourthBar.layer.borderColor = UIColor.black.cgColor
-        fourthBar.layer.borderWidth = 1
-        
+        fourthBar.layer.borderWidth = 0.5
+        fourthBar.layer.cornerRadius = 5
+    }
+    
+    func Setup_Fifth_Bar(fifthBar : UIView)
+    {
         fifthBar.translatesAutoresizingMaskIntoConstraints = false
         fifthBar.topAnchor.constraint(equalTo: barHLine4.bottomAnchor, constant: 0).isActive = true
         fifthBar.bottomAnchor.constraint(equalTo: horixontalBarLine.topAnchor, constant: 0).isActive = true
@@ -301,12 +321,10 @@ class PortfolioController: UIViewController {
         fifthBar.heightAnchor.constraint(equalToConstant: 153).isActive = true
         fifthBar.widthAnchor.constraint(equalToConstant: 28).isActive = true
         fifthBar.backgroundColor = calculateColor(value: 4)
-        fifthBar.dropShadow()
+        //  fifthBar.dropShadow()
         fifthBar.layer.borderColor = UIColor.black.cgColor
-        fifthBar.layer.borderWidth = 1
-        
-        
-        
+        fifthBar.layer.borderWidth = 0.5
+        fifthBar.layer.cornerRadius = 5
     }
     
     // Function that calculates the color of the bars in the graph depending on the values
