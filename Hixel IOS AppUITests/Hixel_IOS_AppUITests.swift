@@ -30,7 +30,22 @@ class Hixel_IOS_AppUITests: XCTestCase {
     
     func testExample() {
         // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
+        app.scrollViews.otherElements.tables.otherElements.containing(.staticText, identifier:"Overall Summary").children(matching: .button).element.tap()
+        app.buttons["Back"].tap()
+        
+        let tabBarsQuery = app.tabBars
+        tabBarsQuery.buttons["Compare"].tap()
+        
+        let tablesQuery2 = app.tables
+        let tablesQuery = tablesQuery2
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Apple Inc"]/*[[".cells.staticTexts[\"Apple Inc\"]",".staticTexts[\"Apple Inc\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Rolls Royce"]/*[[".cells.staticTexts[\"Rolls Royce\"]",".staticTexts[\"Rolls Royce\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["BMW"]/*[[".cells.staticTexts[\"BMW\"]",".staticTexts[\"BMW\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery2.buttons["Clear"].tap()
+        tabBarsQuery.buttons["Portfolio"].tap()
+                // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
 }
