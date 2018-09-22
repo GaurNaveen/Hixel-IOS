@@ -743,6 +743,7 @@
                         <outlet property="label2" destination="xjJ-H2-IpU" id="5Z0-Ri-5l7"/>
                         <outlet property="label3" destination="PAj-VP-HHG" id="xcO-4O-OP3"/>
                         <segue destination="OVu-nJ-idn" kind="show" identifier="comparison_info" id="J9O-rh-PCW"/>
+                        <segue destination="ObU-N7-aqp" kind="presentation" identifier="comparison_graph2" id="zqB-K4-ABl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZl-ZX-iqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2244,7 +2245,8 @@
         <image name="user-1" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S3T-pC-Rh2"/>
+        <segue reference="J9O-rh-PCW"/>
+        <segue reference="zqB-K4-ABl"/>
         <segue reference="lIu-Uh-BJu"/>
     </inferredMetricsTieBreakers>
 </document>

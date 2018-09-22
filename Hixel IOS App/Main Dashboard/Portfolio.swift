@@ -10,9 +10,11 @@ import Foundation
 import UIKit
 import MaterialComponents.MaterialSnackbar
 import Moya
-
+import Charts
 // Global Declaration of the Array that will hold Companies Object
  var companies:[TempCompany]=[]
+
+
 class PortfolioController: UIViewController {
     @IBOutlet weak var MAINVIEW: UIView! // Conatins all the views in which we are working in
     @IBOutlet weak var verticalAxis: UIView!

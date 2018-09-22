@@ -9,10 +9,9 @@
 import UIKit
 import Charts
 class GraphInfoViewController: UIViewController {
-    let line = LineChartView()
     
     
-    let financial_indicators_name = ["Health","Safety","Performance","Returns","Strength"]
+    let financial_indicators_name = ["1. Health","2. Safety","3. Performance","4. Returns","5. Strength"]
     
     let health = "Gauges a company's ability to pay short-term and long-term obligations. It's used to give an idea of a company's ability to pay back its liabilities (e.g. debt) with its assets.\n\nBased on: Current ratio = Current Assets / Current Liabilities"
     

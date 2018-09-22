@@ -23,8 +23,8 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     @IBOutlet weak var H_Bar2: UIView!
     
     @IBAction func info(_ sender: Any) {
-        performSegue(withIdentifier: "comparison_info", sender: self)
-        
+       // performSegue(withIdentifier: "comparison_info", sender: self) port_graphinfo2
+        performSegue(withIdentifier: "comparison_graph2", sender: self)
     }
     
     
@@ -158,7 +158,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var scoreNumber = [70, 50, 20]
+        var scoreNumber = [70, 50, 20,30]
         // Inside this if statement setup the score chart
         if collectionView == self.collectionViewB {
             let temp_Company = Aselected[indexPath.row]

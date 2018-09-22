@@ -193,8 +193,6 @@
 				B6E9F3B82154E7E100B2168D /* Login */,
 				8C668BD52146B68E00356101 /* Network */,
 				8C668BD12146B35100356101 /* AppDelegate.swift */,
-				B6E9F3B22154D5EC00B2168D /* SignUpController.swift */,
-				B6E9F3AF2154CEC400B2168D /* LoginController.swift */,
 				B65A53C9214209FE00C18554 /* Main Dashboard */,
 				B6A523FD21420F600007B0C8 /* Assets.xcassets */,
 				B65A53972141538700C18554 /* LaunchScreen.storyboard */,
@@ -280,6 +278,8 @@
 		B6E9F3B82154E7E100B2168D /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				B6E9F3AF2154CEC400B2168D /* LoginController.swift */,
+				B6E9F3B22154D5EC00B2168D /* SignUpController.swift */,
 				B6E9F3B52154E2BB00B2168D /* ForgotPasswordViewController.swift */,
 			);
 			path = Login;
