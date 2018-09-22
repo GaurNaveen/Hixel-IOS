@@ -13,6 +13,7 @@ class CompanyCell: UITableViewCell {
     @IBOutlet weak var cv: UIView!
     @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var stock: UILabel!
+    @IBOutlet weak var score: UILabel!
     
    
     func setCompany(tempCompany: TempCompany){
@@ -26,6 +27,32 @@ class CompanyCell: UITableViewCell {
         cv.dropShadow()
         cv.layer.borderWidth = 0.5
         cv.layer.cornerRadius = 6.0
+    }
+    
+    func setupScore(value : Int)
+    {
+        score.text = "Score : " + String(value)
+        score.textColor = calculateScoreColor(value: value)
+    }
+    
+    // MARK: Score color calculator
+    
+    func calculateScoreColor(value : Int) -> UIColor
+    {
+        if (value == 50)
+        {
+            return UIColor.yellow
+        }
+            
+        else if (value < 50)
+        {
+            return UIColor.red
+        }
+            
+        else{
+            return UIColor.init(netHex: 0x1DCEB1)
+            
+        }
     }
     
 

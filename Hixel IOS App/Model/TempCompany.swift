@@ -11,9 +11,9 @@ import UIKit
 class TempCompany {
     var name: String
     var stockExchange: String
-    var score: String
+    var score: Int
     
-    init(name: String, stockExchange: String, score: String){
+    init(name: String, stockExchange: String, score: Int){
         self.name = name
         self.stockExchange = stockExchange
         self.score = score
