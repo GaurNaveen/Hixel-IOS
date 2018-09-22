@@ -398,7 +398,7 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         }
     
     // Adds the swipe to delete to UITableView
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         let deletedCompany = companies[indexPath.row]
         let deletedIndex = indexPath.row
@@ -437,7 +437,7 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         
         let indexPath = IndexPath(row: deletedIndex-1, section: 0)
         tableView.beginUpdates()
-        tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        tableView.insertRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         tableView.endUpdates()
     
     }

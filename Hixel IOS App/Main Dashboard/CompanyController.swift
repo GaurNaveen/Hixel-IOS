@@ -65,7 +65,7 @@ class CompanyController: UIViewController {
         // This
         let circularPath1 = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle:2*CGFloat.pi, clockwise: true)
         shapeLayer.path = circularPath.cgPath
-        shapeLayer.lineCap = kCALineCapRound
+        shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.strokeColor = UIColor.green.cgColor
         shapeLayer.lineWidth = 10
         // Change the color of the circle
@@ -79,7 +79,7 @@ class CompanyController: UIViewController {
         trackLayer.strokeColor = UIColor.lightGray.cgColor
         trackLayer.lineWidth = 10
         trackLayer.fillColor = UIColor.clear.cgColor
-        trackLayer.lineCap = kCALineCapRound
+        trackLayer.lineCap = CAShapeLayerLineCap.round
         //scoreChartContainer.layer.addSublayer(trackLayer)
         scoreChartContainer.layer.addSublayer(shapeLayer)
         
@@ -102,7 +102,7 @@ class CompanyController: UIViewController {
         basicAnimation.toValue = 0.5  // This will be helpfull to control the outer layer , 1 means full , 0.5 means half. adjust accordingly
         basicAnimation.duration = 2
         
-        basicAnimation.fillMode = kCAFillModeForwards
+        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation,forKey: "ursoBasic")
         

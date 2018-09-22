@@ -24,7 +24,7 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         let circularPath = UIBezierPath(arcCenter: center, radius: 88, startAngle: -CGFloat.pi / 2, endAngle: 2*CGFloat.pi, clockwise: true)
         shapeLayer.path = circularPath.cgPath
         shapeLayer.fillColor = UIColor.init(netHex: 0x3C4F7B).cgColor
-        shapeLayer.lineCap = kCALineCapRound
+        shapeLayer.lineCap = CAShapeLayerLineCap.round
         chooseColor(score: score)
         shapeLayer.lineWidth = 5
         shapeLayer.strokeEnd = 0
@@ -75,7 +75,7 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         
         basicAnimation.duration = 2
         
-        basicAnimation.fillMode = kCAFillModeForwards
+        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation,forKey: "ursoBasic")
         

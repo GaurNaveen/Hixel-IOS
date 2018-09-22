@@ -1,4 +1,4 @@
- platform :ios, '10.0'
+ platform :ios, '8.0'
 
 target 'Hixel IOS App' do
 
@@ -8,7 +8,7 @@ target 'Hixel IOS App' do
   pod 'MaterialComponents/Snackbar'
   pod 'Alamofire'
   pod 'Moya'
-
+  pod 'Charts'
   target 'Hixel IOS AppTests' do
     inherit! :search_paths
     # Pods for testing

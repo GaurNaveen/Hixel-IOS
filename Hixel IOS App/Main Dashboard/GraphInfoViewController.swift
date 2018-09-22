@@ -7,8 +7,10 @@
 //
 
 import UIKit
-
+import Charts
 class GraphInfoViewController: UIViewController {
+    let line = LineChartView()
+    
     
     let financial_indicators_name = ["Health","Safety","Performance","Returns","Strength"]
     

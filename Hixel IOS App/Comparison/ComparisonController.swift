@@ -51,7 +51,7 @@ class ComparisonController: UIViewController{
         for i in 0..<size
         {   let indexPath = IndexPath(row: i, section: 0)
 
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
         }
     }
    
@@ -104,9 +104,9 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         clear.isHidden = false
       
-        if(tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark)
+        if(tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark)
         {
-        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
             if selected_companies.count != 0 {
                 
                 // Will be changed later on...
@@ -121,7 +121,7 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
             
         }
         else{
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
             
             // When the user selects the company add it to a seprate array
             selected_companies.append(companies[indexPath.row])

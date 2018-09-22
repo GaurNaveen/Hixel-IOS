@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0E9CD124E66FF8C686045CEE3050D7BB"
+               BlueprintIdentifier = "BD9421EAE2AFFBEBA0D011EC1FC8C31D"
                BuildableName = "Pods_Hixel_IOS_App.framework"
                BlueprintName = "Pods-Hixel IOS App"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -37,7 +36,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0E9CD124E66FF8C686045CEE3050D7BB"
+            BlueprintIdentifier = "BD9421EAE2AFFBEBA0D011EC1FC8C31D"
             BuildableName = "Pods_Hixel_IOS_App.framework"
             BlueprintName = "Pods-Hixel IOS App"
             ReferencedContainer = "container:Pods.xcodeproj">
