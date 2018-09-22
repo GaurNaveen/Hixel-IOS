@@ -190,6 +190,8 @@
 		B65A538D2141538600C18554 /* Hixel IOS App */ = {
 			isa = PBXGroup;
 			children = (
+				B6F9D69F215633770093C385 /* Company VIew */,
+				B6F9D69E215633460093C385 /* Info Pop Ups */,
 				B6E9F3B82154E7E100B2168D /* Login */,
 				8C668BD52146B68E00356101 /* Network */,
 				8C668BD12146B35100356101 /* AppDelegate.swift */,
@@ -240,15 +242,9 @@
 			isa = PBXGroup;
 			children = (
 				B65A53C1214206E600C18554 /* Portfolio.storyboard */,
-				B6542393215566AB00C445D6 /* GraphInfoCollectionViewCell.swift */,
-				B65423952155672F00C445D6 /* GraphInfoViewController.swift */,
-				B61B179B2151A8810029CA63 /* CompanyTableViewCell.swift */,
-				B6FA6DC82147C15200C38901 /* GraphInfo.storyboard */,
 				B65A53C3214208A300C18554 /* Portfolio.swift */,
-				B6541AF221434F4900AB9894 /* CompanyCell.swift */,
 				B6541AF621436F0700AB9894 /* Cell2.swift */,
 				B6FA6DC62147B29D00C38901 /* GraphScaleInfo.swift */,
-				B682400F214B310900DFACF0 /* CompanyController.swift */,
 				B6A2D74E214FA5A000853A0C /* SearchCell.swift */,
 				B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */,
 			);
@@ -283,6 +279,26 @@
 				B6E9F3B52154E2BB00B2168D /* ForgotPasswordViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		B6F9D69E215633460093C385 /* Info Pop Ups */ = {
+			isa = PBXGroup;
+			children = (
+				B6542393215566AB00C445D6 /* GraphInfoCollectionViewCell.swift */,
+				B65423952155672F00C445D6 /* GraphInfoViewController.swift */,
+				B6FA6DC82147C15200C38901 /* GraphInfo.storyboard */,
+			);
+			path = "Info Pop Ups";
+			sourceTree = "<group>";
+		};
+		B6F9D69F215633770093C385 /* Company VIew */ = {
+			isa = PBXGroup;
+			children = (
+				B682400F214B310900DFACF0 /* CompanyController.swift */,
+				B61B179B2151A8810029CA63 /* CompanyTableViewCell.swift */,
+				B6541AF221434F4900AB9894 /* CompanyCell.swift */,
+			);
+			path = "Company VIew";
 			sourceTree = "<group>";
 		};
 		F73E495CE7A7B5B0FF5D624B /* Frameworks */ = {
