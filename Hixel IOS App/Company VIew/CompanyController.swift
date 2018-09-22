@@ -7,9 +7,10 @@
 //
 
 import UIKit
-
+import Charts
 class CompanyController: UIViewController {
     
+    @IBOutlet weak var lineChartView: LineChartView!
     // Company Name is hardcoded rn, will be removed when network layer is connected
     var ratios = ["Apple Inc","Liquidity Ratio","Debt Ratio","P/E Ratio","Health","Performance","Strength","Risk"]
     
@@ -46,28 +47,29 @@ class CompanyController: UIViewController {
         score1.heightAnchor.constraint(equalToConstant: 100).isActive = true
         score1.widthAnchor.constraint(equalToConstant: 100).isActive = true
         score1.topAnchor.constraint(equalTo: scoreChartContainer.bottomAnchor, constant: 170).isActive = true
-        score1.bottomAnchor.constraint(equalTo: scoreChartContainer.topAnchor, constant: 210).isActive = true
-        score1.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 100).isActive = true
-        score1.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 235).isActive = true
+        score1.bottomAnchor.constraint(equalTo: scoreChartContainer.topAnchor, constant: 200).isActive = true
+        score1.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 160).isActive = true
+        score1.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 225).isActive = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataField1.dropShadow()
+        setChartValues()
+       // dataField1.dropShadow()
         // Do any additional setup after loading the view.
         // let's start by drawing a circle somehow
         scoreLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         scoreLabel.center = view.center
         
         let center = CGPoint(x: 190, y: 140)
-        let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle:2*CGFloat.pi, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: center, radius: 85, startAngle: -CGFloat.pi / 2, endAngle:2*CGFloat.pi, clockwise: true)
         
         // This
         let circularPath1 = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle:2*CGFloat.pi, clockwise: true)
         shapeLayer.path = circularPath.cgPath
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.strokeColor = UIColor.green.cgColor
-        shapeLayer.lineWidth = 10
+        shapeLayer.lineWidth = 5
         // Change the color of the circle
         shapeLayer.fillColor = UIColor.black.cgColor
         shapeLayer.strokeEnd = 0
@@ -116,22 +118,47 @@ class CompanyController: UIViewController {
         score_percent.widthAnchor.constraint(equalToConstant: 100).isActive = true
         score_percent.topAnchor.constraint(equalTo: scoreChartContainer.bottomAnchor, constant: 170).isActive = true
         score_percent.bottomAnchor.constraint(equalTo: scoreChartContainer.topAnchor, constant: 160).isActive = true
-        score_percent.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 100).isActive = true
-        score_percent.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 235).isActive = true
+        score_percent.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 120).isActive = true
+        score_percent.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 225).isActive = true
         
     }
-  
+  var lineChartEntry = [ChartDataEntry]()
+var lineChartEntry2 = [ChartDataEntry]()
+  var score_Values = [1,3,2,4,3]
+    //var score_Values1 = [2,1,5,1,2]
+
+    var years = ["2014","2015","2016","2017","2018"]
+    // MARK: Setup Line Chart
+    func setChartValues()
+    {
+        for i in 0..<score_Values.count {
+            let value = ChartDataEntry(x: Double(i), y: Double(score_Values[i]))
+            lineChartEntry.append(value)
+        }
+        /*
+        for i in 0..<score_Values1.count {
+            let value = ChartDataEntry(x: Double(i), y: Double(score_Values1[i]))
+            lineChartEntry2.append(value)
+        }
+        */
+        //let set2 = LineChartDataSet(values: lineChartEntry2, label: "Risk")
+        
+        let set1 = LineChartDataSet(values: lineChartEntry, label: "Health")
+        set1.circleColors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
+        set1.colors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
+        set1.mode = .cubicBezier
+        set1.circleRadius  = 4.0
+        let data = LineChartData(dataSet: set1)
+        //data.addDataSet(set2)
+        lineChartView.data = data
+        lineChartView.chartDescription?.text = "Financial Indiacators"
+        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: years)
+        lineChartView.xAxis.granularity = 1
+        
+    }
    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }
 
