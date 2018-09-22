@@ -9,7 +9,8 @@
 import UIKit
 import Charts
 class CompanyController: UIViewController {
-    
+    let indexPath1 = IndexPath(item: 2, section:0)
+
     @IBOutlet weak var lineChartView: LineChartView!
     // Company Name is hardcoded rn, will be removed when network layer is connected
     var ratios = ["Apple Inc","Liquidity Ratio","Debt Ratio","P/E Ratio","Health","Performance","Strength","Risk"]
@@ -203,4 +204,25 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
         
         
     }
-}
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //collectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
+        
+        // MARK: TO Access cell elments
+        let cell = collectionView.cellForItem(at: indexPath) as! RatioCell
+        cell.cellView.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
+        cell.indicator.textColor = .white
+        
+      //  collectionView.cellForItem(at: indexPath1)?.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
+        //collectionView.cellForItem(at: indexPath1)?.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
+        let cell1 = collectionView.cellForItem(at: indexPath1) as! RatioCell
+        cell1.cellView.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
+        cell1.indicator.textColor = .white
+        //print(indexPath1)
+        //print(indexPath)
+
+        }
+        
+        
+    }
+
