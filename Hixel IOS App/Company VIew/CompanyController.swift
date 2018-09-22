@@ -15,7 +15,7 @@ class CompanyController: UIViewController {
     var ratios = ["Apple Inc","Liquidity Ratio","Debt Ratio","P/E Ratio","Health","Performance","Strength","Risk"]
     
     var ratiosValue = [0,1.2,0.2,2.4,3,3,4,1]
-
+    let indicators = ["Health","Performance","Safety","Strength","Returns"]
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var scoreChartContainer: UIView!
     let shapeLayer = CAShapeLayer()
@@ -186,4 +186,21 @@ extension CompanyController:UITableViewDataSource,UITableViewDelegate{
         return cell
     }
     
+}
+
+extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return indicators.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! RatioCell
+        cell.setupIndicator(name: indicators[indexPath.row])
+        cell.layer.cornerRadius = 12.0
+        return cell;
+        
+        
+    }
 }

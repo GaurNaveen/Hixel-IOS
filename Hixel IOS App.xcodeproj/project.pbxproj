@@ -53,6 +53,7 @@
 		B6E9F3B42154D5EC00B2168D /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9F3B22154D5EC00B2168D /* SignUpController.swift */; };
 		B6E9F3B62154E2BB00B2168D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9F3B52154E2BB00B2168D /* ForgotPasswordViewController.swift */; };
 		B6E9F3B72154E2BB00B2168D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9F3B52154E2BB00B2168D /* ForgotPasswordViewController.swift */; };
+		B6F9D6A12156A3DD0093C385 /* RatioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9D6A02156A3DD0093C385 /* RatioCell.swift */; };
 		B6FA6DC72147B29D00C38901 /* GraphScaleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA6DC62147B29D00C38901 /* GraphScaleInfo.swift */; };
 		B6FA6DC92147C15200C38901 /* GraphInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6FA6DC82147C15200C38901 /* GraphInfo.storyboard */; };
 		F64A22F4ECF210A6790EBE45 /* Pods_Hixel_IOS_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E1C4BD2DA49B56D14F9358 /* Pods_Hixel_IOS_App.framework */; };
@@ -124,6 +125,7 @@
 		B6E9F3AF2154CEC400B2168D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		B6E9F3B22154D5EC00B2168D /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		B6E9F3B52154E2BB00B2168D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		B6F9D6A02156A3DD0093C385 /* RatioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCell.swift; sourceTree = "<group>"; };
 		B6FA6DC62147B29D00C38901 /* GraphScaleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphScaleInfo.swift; sourceTree = "<group>"; };
 		B6FA6DC82147C15200C38901 /* GraphInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GraphInfo.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -297,6 +299,7 @@
 			children = (
 				B682400F214B310900DFACF0 /* CompanyController.swift */,
 				B61B179B2151A8810029CA63 /* CompanyTableViewCell.swift */,
+				B6F9D6A02156A3DD0093C385 /* RatioCell.swift */,
 			);
 			path = "Company VIew";
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				B65A53C62142098A00C18554 /* ComparisonController.swift in Sources */,
 				B61B179C2151A8810029CA63 /* CompanyTableViewCell.swift in Sources */,
 				8CA9B1612146D25A00FC5502 /* Company.swift in Sources */,
+				B6F9D6A12156A3DD0093C385 /* RatioCell.swift in Sources */,
 				B61B1794215106A20029CA63 /* ScoreCollectionViewCell.swift in Sources */,
 				B6FA6DC72147B29D00C38901 /* GraphScaleInfo.swift in Sources */,
 				B61B179A21519B200029CA63 /* TableViewCell.swift in Sources */,
