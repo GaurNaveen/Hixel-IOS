@@ -62,8 +62,8 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
          let value = ChartDataEntry(x: Double(i), y: Double(score_Values1[i]))
          lineChartEntry2.append(value)
          }
-        let set1 = LineChartDataSet(values: lineChartEntry, label: "Health")
-        let set2 = LineChartDataSet(values: lineChartEntry2, label: "Safety")
+        let set1 = LineChartDataSet(values: lineChartEntry, label: Aselected[0].name)
+        let set2 = LineChartDataSet(values: lineChartEntry2, label: Aselected[1].name)
         
         set1.circleColors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
         set1.colors = [NSUIColor.init(red: 42, green: 76, blue: 126)]

@@ -9,12 +9,19 @@
 import UIKit
 import Charts
 class CompanyController: UIViewController {
-    let indexPath1 = IndexPath(item: 2, section:0)
+    let indexPath0 = IndexPath(item: 0, section:0)
+    let indexPath1 = IndexPath(item: 1, section:0)
+    let indexPath2 = IndexPath(item: 2, section:0)
+    let indexPath3 = IndexPath(item: 3, section:0)
+    let indexPath4 = IndexPath(item: 4, section:0)
+    var selectedIndexPath: IndexPath?
+
+
 
     @IBOutlet weak var lineChartView: LineChartView!
     // Company Name is hardcoded rn, will be removed when network layer is connected
     var ratios = ["Apple Inc","Liquidity Ratio","Debt Ratio","P/E Ratio","Health","Performance","Strength","Risk"]
-    
+    var indexPaths : [IndexPath] = []
     var ratiosValue = [0,1.2,0.2,2.4,3,3,4,1]
     let indicators = ["Health","Performance","Safety","Strength","Returns"]
     @IBOutlet weak var score: UILabel!
@@ -94,6 +101,13 @@ class CompanyController: UIViewController {
         addAutoLayoutToScorePercent()        //view.addSubview(score)
         handleTap()
        // view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+        
+        indexPaths.append(indexPath0)
+        indexPaths.append(indexPath1)
+        indexPaths.append(indexPath2)
+        indexPaths.append(indexPath3)
+        indexPaths.append(indexPath4)
+
     }
 
     // does the fillin animation
@@ -124,7 +138,7 @@ class CompanyController: UIViewController {
         
     }
   var lineChartEntry = [ChartDataEntry]()
-var lineChartEntry2 = [ChartDataEntry]()
+  var lineChartEntry2 = [ChartDataEntry]()
   var score_Values = [1,3,2,4,3]
     //var score_Values1 = [2,1,5,1,2]
 
@@ -163,31 +177,31 @@ var lineChartEntry2 = [ChartDataEntry]()
 
 }
 
-//extension CompanyController:UITableViewDataSource,UITableViewDelegate{
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//       return  ratios.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let value = ratiosValue[indexPath.row]
-//
-//        let name = ratios[indexPath.row]
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ratio1", for: indexPath) as! CompanyTableViewCell
-//        cell.setupName(name: name)
-//        cell.setupValue(value: value)
-//
-//        if(indexPath.row == 0)
-//        {
-//            cell.backgroundColor = UIColor.init(netHex: 0x335289)
-//            cell.ratioName.textColor = .white
-//            cell.ratioValue.isHidden = true
-//
-//        }
-//
-//        return cell
-//    }
-//
-//}
+extension CompanyController:UITableViewDataSource,UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return  ratios.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let value = ratiosValue[indexPath.row]
+
+        let name = ratios[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ratio1", for: indexPath) as! CompanyTableViewCell
+        cell.setupName(name: name)
+        cell.setupValue(value: value)
+
+        if(indexPath.row == 0)
+        {
+            cell.backgroundColor = UIColor.init(netHex: 0x335289)
+            cell.ratioName.textColor = .white
+            cell.ratioValue.isHidden = true
+
+        }
+
+        return cell
+    }
+
+}
 
 extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSource {
     
@@ -207,22 +221,36 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //collectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
-        
         // MARK: TO Access cell elments
         let cell = collectionView.cellForItem(at: indexPath) as! RatioCell
         cell.cellView.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
         cell.indicator.textColor = .white
         
-      //  collectionView.cellForItem(at: indexPath1)?.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
-        //collectionView.cellForItem(at: indexPath1)?.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
-        let cell1 = collectionView.cellForItem(at: indexPath1) as! RatioCell
-        cell1.cellView.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
-        cell1.indicator.textColor = .white
-        //print(indexPath1)
-        //print(indexPath)
+        for i in 0..<indexPaths.count {
+           // print(indexPath)
+           // print(collectionView.visibleCells.count)
+           // let visible = collectionView.visibleCells
+            if(indexPath != indexPaths[i])
+            {
+                
+                if(collectionView.cellForItem(at: indexPaths[i]) != nil)
+                {
+                     let cell1 =  collectionView.cellForItem(at: indexPaths[i]) as! RatioCell
+                    cell1.cellView.backgroundColor = .white
+                    cell1.indicator.textColor = .black
+                }
+                
+            
+            }
+      
 
         }
         
+    
         
     }
+    
+    
+    
 
+}
