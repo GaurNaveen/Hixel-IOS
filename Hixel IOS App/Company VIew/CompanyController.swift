@@ -163,31 +163,31 @@ var lineChartEntry2 = [ChartDataEntry]()
 
 }
 
-extension CompanyController:UITableViewDataSource,UITableViewDelegate{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return  ratios.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let value = ratiosValue[indexPath.row]
-        
-        let name = ratios[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ratio1", for: indexPath) as! CompanyTableViewCell
-        cell.setupName(name: name)
-        cell.setupValue(value: value)
-        
-        if(indexPath.row == 0)
-        {
-            cell.backgroundColor = UIColor.init(netHex: 0x335289)
-            cell.ratioName.textColor = .white
-            cell.ratioValue.isHidden = true
-            
-        }
-        
-        return cell
-    }
-    
-}
+//extension CompanyController:UITableViewDataSource,UITableViewDelegate{
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//       return  ratios.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let value = ratiosValue[indexPath.row]
+//
+//        let name = ratios[indexPath.row]
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "ratio1", for: indexPath) as! CompanyTableViewCell
+//        cell.setupName(name: name)
+//        cell.setupValue(value: value)
+//
+//        if(indexPath.row == 0)
+//        {
+//            cell.backgroundColor = UIColor.init(netHex: 0x335289)
+//            cell.ratioName.textColor = .white
+//            cell.ratioValue.isHidden = true
+//
+//        }
+//
+//        return cell
+//    }
+//
+//}
 
 extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSource {
     

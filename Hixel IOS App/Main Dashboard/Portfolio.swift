@@ -39,7 +39,7 @@ class PortfolioController: UIViewController {
         performSegue(withIdentifier: "port_graphinfo2", sender: self)
     }
     let hardCodedStrings = ["Dashboard","Portfolio"]
-    let financialIndicators = ["Health","Performance","Strength","Returns","Risk"]
+    let financialIndicators = ["Health","Performance","Strength","Returns","Safety"]
     let overallFinancialValues = [3,2,5,3,4]
     let graphScale = ["0","1","2","3","4","5"]
     

@@ -7,41 +7,21 @@
 //
 
 import UIKit
-
+import Charts
 class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     //var selectedCompanies = ["Apple Inc","Samsung Corp","Alphabet","Bmw","Facebook"]
+    @IBOutlet weak var lineChartView: LineChartView!
     
     @IBOutlet weak var collectionView3: UICollectionView!
     // Arrays that holds the Financial Indicators values
     var financialIndicatorsValue = [4,3,2]
-    var financialIndicators = ["Financial Indicators","Health","Performance","Strength","Risk","Return"]
+    var financialIndicators = ["Financial Indicators","Health","Performance","Strength","Safety","Return"]
     var ratios = ["Liquidity Ratio","Debt Ratio","P/E Ratio"]
     var ratiosValue = [0,1.2,1.3,0.5,0,1.45,0.29,0.45,0,1.34,1.67,0.6]
-    // All Horizontal line
-    @IBOutlet weak var H_Bar3: UIView!
-    @IBOutlet weak var H_Bar4: UIView!
-    @IBOutlet weak var H_Bar2: UIView!
-    
     @IBAction func info(_ sender: Any) {
        // performSegue(withIdentifier: "comparison_info", sender: self) port_graphinfo2
         performSegue(withIdentifier: "comparison_graph2", sender: self)
     }
-    
-    
-    @IBOutlet weak var HBar3: UILabel!
-
-    // All Bars
-    @IBOutlet weak var bar1: UIView!
-    @IBOutlet weak var bar2: UIView!
-    @IBOutlet weak var bar3: UIView!
-    
-    // MARK: All Graph labels
-    @IBOutlet weak var label1: UILabel!
-    @IBOutlet weak var label2: UILabel!
-    @IBOutlet weak var label3: UILabel!
-    
-    
-    
     @IBOutlet weak var graphContainerView: UIView!
     
     @IBOutlet weak var graphHeaderView: UIView!
@@ -59,69 +39,53 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         graphContainerView.layer.borderColor = UIColor.black.cgColor
         graphContainerView.layer.borderWidth = 0.4
         
-        setGraphLabels()
-       bar1.backgroundColor =  cherryPickColour(value: financialIndicatorsValue[0])
-       bar2.backgroundColor =  cherryPickColour(value: financialIndicatorsValue[1])
-       bar3.backgroundColor =  cherryPickColour(value: financialIndicatorsValue[2])
-
-        // intital constraints on the bar graphs
-        // Auto Layout for Bar 1
-        bar1.translatesAutoresizingMaskIntoConstraints = false
-        bar1.topAnchor.constraint(equalTo: H_Bar4.bottomAnchor, constant: 0).isActive = true
-        bar1.bottomAnchor.constraint(equalTo: horizontalLine.topAnchor, constant: 0).isActive = true
-        bar1.leftAnchor.constraint(equalTo: graphContainerView.rightAnchor, constant: 63).isActive = true
-        bar1.rightAnchor.constraint(equalTo: graphContainerView.leftAnchor, constant: 95).isActive = true
-        bar1.heightAnchor.constraint(equalToConstant: 120).isActive = true
-        bar1.widthAnchor.constraint(equalToConstant: 32).isActive = true
+       // Do any additional setup after loading the view.
         
-        // Auto Layout for Bar 2
-        bar2.isHidden = false
-        bar2.translatesAutoresizingMaskIntoConstraints = false
-        bar2.topAnchor.constraint(equalTo: H_Bar3.bottomAnchor, constant: 0).isActive = true
-        bar2.bottomAnchor.constraint(equalTo: horizontalLine.topAnchor, constant: 0).isActive = true
-        bar2.leftAnchor.constraint(equalTo: graphContainerView.rightAnchor, constant: 63).isActive = true
-        bar2.rightAnchor.constraint(equalTo: graphContainerView.leftAnchor, constant: 200).isActive = true
-        bar2.heightAnchor.constraint(equalToConstant: 120).isActive = true
-        bar2.widthAnchor.constraint(equalToConstant: 32).isActive = true
-        
-        // Auto Layout for Bar 3
-        bar3.isHidden = false
-        bar3.translatesAutoresizingMaskIntoConstraints = false
-        bar3.topAnchor.constraint(equalTo: H_Bar2.bottomAnchor, constant: 0).isActive = true
-        bar3.bottomAnchor.constraint(equalTo: horizontalLine.topAnchor, constant: 0).isActive = true
-        bar3.leftAnchor.constraint(equalTo: graphContainerView.rightAnchor, constant: 63).isActive = true
-        bar3.rightAnchor.constraint(equalTo: graphContainerView.leftAnchor, constant: 305).isActive = true
-        bar3.heightAnchor.constraint(equalToConstant: 120).isActive = true
-        bar3.widthAnchor.constraint(equalToConstant: 32).isActive = true
-        
-        
-        
-        
-        ratios.insert(Aselected[0].name, at: 0)
-        ratios.insert(Aselected[1].name, at: 4)
-        ratios.append("Liquidity Ratio")
-        ratios.append("Debt Ratio")
-        ratios.append("P/E Ratio")
-        ratios.insert(Aselected[2].name, at: 8)
-        ratios.append("Liquidity Ratio")
-        ratios.append("Debt Ratio")
-        ratios.append("P/E Ratio")
-        //ratios.append("Liquidity Ratio")
-        //ratios.append("Debt Ratio")
-        //ratios.append("P/E Ratio")
-
-
-        
-        // Do any additional setup after loading the view.
+        setupLineChart()
     }
     
-    func setGraphLabels()
+    // MARK: Setup Line Chart
+    func setupLineChart()
     {
-        label1.text = Aselected[0].name
-        label2.text = Aselected[1].name
-        label3.text = Aselected[2].name
+        var lineChartEntry = [ChartDataEntry]()
+        var lineChartEntry2 = [ChartDataEntry]()
+        var score_Values = [1,3,2,4,3]
+        var score_Values1 = [2,1,5,1,2]
+        let years = ["2014","2015","2016","2017","2018"]
 
+        for i in 0..<score_Values.count {
+            let value = ChartDataEntry(x: Double(i), y: Double(score_Values[i]))
+            lineChartEntry.append(value)
+        }
+        
+         for i in 0..<score_Values1.count {
+         let value = ChartDataEntry(x: Double(i), y: Double(score_Values1[i]))
+         lineChartEntry2.append(value)
+         }
+        let set1 = LineChartDataSet(values: lineChartEntry, label: "Health")
+        let set2 = LineChartDataSet(values: lineChartEntry2, label: "Safety")
+        
+        set1.circleColors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
+        set1.colors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
+        set1.mode = .cubicBezier
+        set1.circleRadius  = 4.0
+        
+        set2.mode = .cubicBezier
+        set2.circleRadius  = 4.0
+       
+        // Add data to the chart
+        let data = LineChartData(dataSet: set1)
+        data.addDataSet(set2)
+        lineChartView.data = data
+        lineChartView.chartDescription?.text = "Financial Indiacators"
+        
+        // Sets up the X axis
+        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: years)
+        lineChartView.xAxis.granularity = 1
+        
     }
+    
+    
     
     func cherryPickColour(value: Int) -> UIColor
     {
