@@ -572,7 +572,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8co-sw-1R4">
-                                <rect key="frame" x="0.0" y="20" width="375" height="931"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="980"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7p-LH-a9R">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
@@ -1367,6 +1367,16 @@
                                                     <outlet property="delegate" destination="hJV-vX-57w" id="z3x-MU-f53"/>
                                                 </connections>
                                             </tableView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vu-hN-BFz">
+                                                <rect key="frame" x="319" y="70" width="43" height="30"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <state key="normal" title="Add">
+                                                    <color key="titleColor" white="1" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="add_button:" destination="hJV-vX-57w" eventType="touchUpInside" id="Qog-zI-k1g"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.17647058823529413" green="0.28235294117647058" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1374,17 +1384,21 @@
                                             <constraint firstItem="LXB-xl-XBd" firstAttribute="leading" secondItem="18o-oQ-RGn" secondAttribute="leading" id="9Ge-u3-jE8"/>
                                             <constraint firstItem="xuV-NA-3o7" firstAttribute="leading" secondItem="18o-oQ-RGn" secondAttribute="leading" id="I6v-rP-zI0"/>
                                             <constraint firstItem="4CO-Og-PaP" firstAttribute="top" secondItem="18o-oQ-RGn" secondAttribute="top" constant="68" id="JbW-Xo-pVl"/>
+                                            <constraint firstItem="3vu-hN-BFz" firstAttribute="leading" secondItem="47N-9H-94z" secondAttribute="trailing" constant="255" id="Jkm-oX-6cf"/>
                                             <constraint firstItem="4CO-Og-PaP" firstAttribute="leading" secondItem="47N-9H-94z" secondAttribute="trailing" constant="69" id="aDK-c6-cHh"/>
                                             <constraint firstAttribute="trailing" secondItem="LXB-xl-XBd" secondAttribute="trailing" id="e9G-YF-A13"/>
                                             <constraint firstItem="WP5-g4-YgL" firstAttribute="top" secondItem="xuV-NA-3o7" secondAttribute="bottom" constant="479" id="gyE-3k-7d3"/>
                                             <constraint firstAttribute="trailing" secondItem="WP5-g4-YgL" secondAttribute="trailing" id="i60-Sp-6V9"/>
                                             <constraint firstItem="xuV-NA-3o7" firstAttribute="top" secondItem="18o-oQ-RGn" secondAttribute="top" constant="147" id="iX4-Ua-ymu"/>
                                             <constraint firstAttribute="height" constant="1500" id="io2-ku-a7j"/>
+                                            <constraint firstItem="xuV-NA-3o7" firstAttribute="top" secondItem="3vu-hN-BFz" secondAttribute="bottom" constant="47" id="kI6-iE-cQi"/>
                                             <constraint firstAttribute="trailing" secondItem="47N-9H-94z" secondAttribute="trailing" constant="311" id="mlX-Lt-umw"/>
                                             <constraint firstItem="47N-9H-94z" firstAttribute="top" secondItem="18o-oQ-RGn" secondAttribute="top" constant="74" id="nSo-u4-mcT"/>
                                             <constraint firstItem="47N-9H-94z" firstAttribute="leading" secondItem="18o-oQ-RGn" secondAttribute="leading" constant="8" id="nmI-SA-KIY"/>
+                                            <constraint firstItem="3vu-hN-BFz" firstAttribute="top" secondItem="18o-oQ-RGn" secondAttribute="top" constant="70" id="sQl-Me-tYY"/>
                                             <constraint firstItem="WP5-g4-YgL" firstAttribute="leading" secondItem="18o-oQ-RGn" secondAttribute="leading" id="sdu-cW-IdS"/>
                                             <constraint firstAttribute="trailing" secondItem="4CO-Og-PaP" secondAttribute="trailing" constant="8" id="tfG-ub-AZe"/>
+                                            <constraint firstAttribute="trailing" secondItem="3vu-hN-BFz" secondAttribute="trailing" constant="13" id="wdL-Lv-seF"/>
                                             <constraint firstAttribute="trailing" secondItem="xuV-NA-3o7" secondAttribute="trailing" id="yeV-VJ-qTl"/>
                                             <constraint firstAttribute="bottom" secondItem="WP5-g4-YgL" secondAttribute="bottom" id="zHd-II-iqY"/>
                                         </constraints>
@@ -1410,11 +1424,13 @@
                     </view>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
+                        <outlet property="companyNameLabel" destination="4CO-Og-PaP" id="MdY-YX-8mw"/>
                         <outlet property="lineChartView" destination="ktm-3Y-FvC" id="6Qq-wW-aLA"/>
                         <outlet property="score1" destination="NCP-qu-0M6" id="PkJ-c0-q0Q"/>
                         <outlet property="scoreChartContainer" destination="xuV-NA-3o7" id="Gw3-jq-l7B"/>
                         <outlet property="score_percent" destination="4gt-xE-dOH" id="0oR-pX-jfw"/>
                         <segue destination="zKi-eE-QL6" kind="show" identifier="Company_Comparison" id="lIu-Uh-BJu"/>
+                        <segue destination="XI4-Fj-Z3v" kind="presentation" identifier="segue2" id="gvh-FA-UjS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxi-9q-IV7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2026,6 +2042,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="S3T-pC-Rh2"/>
         <segue reference="uNh-mk-Z55"/>
+        <segue reference="gvh-FA-UjS"/>
         <segue reference="lIu-Uh-BJu"/>
     </inferredMetricsTieBreakers>
 </document>

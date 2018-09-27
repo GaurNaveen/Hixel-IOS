@@ -9,6 +9,14 @@
 import UIKit
 import Charts
 class CompanyController: UIViewController {
+    
+    // MARK: This is the main company variable
+    var company : TempCompany? = nil
+    
+    
+    @IBOutlet weak var companyNameLabel: UILabel!
+    
+    
     let indexPath0 = IndexPath(item: 0, section:0)
     let indexPath1 = IndexPath(item: 1, section:0)
     let indexPath2 = IndexPath(item: 2, section:0)
@@ -16,7 +24,21 @@ class CompanyController: UIViewController {
     let indexPath4 = IndexPath(item: 4, section:0)
     var selectedIndexPath: IndexPath?
 
-
+    // Prepare to send the current company back to Portfolio
+    @IBAction func add_button(_ sender: Any) {
+        //companies.append(company!)
+        add = true
+        //let Port = PortfolioController()
+        //Port.addCompany1(company: company!)
+        companyToAdd.append(company!)
+        performSegue(withIdentifier: "segue2", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      //  let vc = segue.destination as! PortfolioController
+       // vc.addCompany1(company: company!)
+    }
+    
+    
 
     @IBOutlet weak var lineChartView: LineChartView!
     // Company Name is hardcoded rn, will be removed when network layer is connected
@@ -62,6 +84,7 @@ class CompanyController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        companyNameLabel.text = company?.name
         setChartValues()
        // dataField1.dropShadow()
         // Do any additional setup after loading the view.

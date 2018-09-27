@@ -11,10 +11,11 @@ import UIKit
 import MaterialComponents.MaterialSnackbar
 import Moya
 import Charts
-// Global Declaration of the Array that will hold Companies Object
+// Global Declaration of the Array that will hold varpanies Object
  var companies:[TempCompany]=[]
-
-
+var indexPath1 = IndexPath(row: 0, section: 0)
+var add: Bool = false
+var companyToAdd : [TempCompany] = []
 class PortfolioController: UIViewController {
     @IBOutlet weak var MAINVIEW: UIView! // Conatins all the views in which we are working in
     @IBOutlet weak var verticalAxis: UIView!
@@ -48,8 +49,10 @@ class PortfolioController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupHeaderView()
         overallLabel.text = hardCodedStrings[1]
+        
         
         // setup the UITable view to have a list of Companies on the Dashboard
         companies = createArray()
@@ -59,8 +62,7 @@ class PortfolioController: UIViewController {
         
         // sets up the Graph on the Main Dashboard
         setupBarGraphView()
-        
-        
+        print("ola")
         /* Activate when doing onboarding
         // If the user doesn't have any company then display the message
         let message = UILabel()
@@ -73,6 +75,17 @@ class PortfolioController: UIViewController {
         message.heightAnchor.constraint(equalToConstant: 120).isActive = true
         message.widthAnchor.constraint(equalToConstant: 120).isActive = true
         */
+        if(add == true)
+        {
+           // tableView.reloadData()
+            //addCompany1(company: companyToAdd!)
+            
+            companies += companyToAdd
+            print(companies)
+
+            reload()
+        }
+        
         comapanyDataProvider.request(.companydata(tickers: "AAPL", years: 2)) { (result) in
             
             switch result{
@@ -88,6 +101,10 @@ class PortfolioController: UIViewController {
         
     }
     
+    func addCompany(company : TempCompany)
+    {
+        addCompany1(company: company)
+    }
     // Sets up the Header View of the Portfolio/Dashboard
     private func setupHeaderView(){
         header.backgroundColor = UIColor.init(netHex: 0x395A97)
@@ -348,6 +365,13 @@ class PortfolioController: UIViewController {
         }
     
     }
+    func addCompany1(company : TempCompany)
+    {
+        //setuptableView()
+        print("yewq")
+        companies.append(company)
+    }
+    
     
     
     
@@ -445,8 +469,24 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         tableView.endUpdates()
     
     }
+    
+   
+    func reload()
+    {
+        tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        indexPath1 = indexPath
         performSegue(withIdentifier: "Dashboard_Company", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let vc = segue.destination as! CompanyController
+        vc.company = companies[indexPath1.row]
+       // print(vc.company)
     }
     
    
