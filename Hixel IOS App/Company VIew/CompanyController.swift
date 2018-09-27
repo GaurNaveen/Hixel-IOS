@@ -222,34 +222,37 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //collectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
         // MARK: TO Access cell elments
-        let cell = collectionView.cellForItem(at: indexPath) as! RatioCell
+        let cell = collectionView.cellForItem(at: indexPath as IndexPath) as! RatioCell
         cell.cellView.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
         cell.indicator.textColor = .white
         
-        for i in 0..<indexPaths.count {
-           // print(indexPath)
-           // print(collectionView.visibleCells.count)
-           // let visible = collectionView.visibleCells
-            if(indexPath != indexPaths[i])
-            {
-                
-                if(collectionView.cellForItem(at: indexPaths[i]) != nil)
-                {
-                     let cell1 =  collectionView.cellForItem(at: indexPaths[i]) as! RatioCell
-                    cell1.cellView.backgroundColor = .white
-                    cell1.indicator.textColor = .black
-                }
-                
-            
-            }
-      
-
-        }
+//        for i in 0..<indexPaths.count {
+//           // print(indexPath)
+//            print(collectionView.visibleCells.count)
+//           // let visible = collectionView.visibleCells
+//            if(indexPath != indexPaths[i])
+//            {
+//
+//                if(collectionView.cellForItem(at: indexPaths[i]) != nil)
+//                {
+//                     let cell1 =  collectionView.cellForItem(at: indexPaths[i]) as! RatioCell
+//                    cell1.cellView.backgroundColor = .white
+//                    cell1.indicator.textColor = .black
+//                }
+//
+//
+//            }
+//
+//
+//        }
+//        selectedIndexPath = indexPath
         
     
         
     }
     
+    
+   
     
     
 

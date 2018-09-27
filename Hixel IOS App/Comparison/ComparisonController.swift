@@ -11,6 +11,7 @@ import UIKit
 
 
 class ComparisonController: UIViewController{
+    @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var clear: UIButton!
     // MARK: Takes the uesr to the comaparison view
@@ -28,6 +29,7 @@ class ComparisonController: UIViewController{
         selected_companies.removeAll()
         compare2.isHidden = true
         clear.isHidden = true
+        updateCollectionView()
     }
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var compare2: UIButton!
@@ -126,6 +128,9 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
             // When the user selects the company add it to a seprate array
             selected_companies.append(companies[indexPath.row])
             
+            // When the user selects the companies , update the collection view
+            updateCollectionView()
+            
             if selected_companies.count == 2{
                 compare2.isHidden = false
                 
@@ -135,7 +140,38 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
         
     }
    
+   
     
     
 }
 
+// MARK: Setup for selected companies on top of Your Portfolio companies
+extension ComparisonController : UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return selected_companies.count
+        return selected_companies.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "selected_companies", for: indexPath) as! SelectedCompaniesCollectionViewCell
+        cell.setupCell(name: selected_companies[indexPath.row].name
+        )
+        
+        return cell
+        
+    }
+    
+    // When the user selects the company, that company should appear in the collection view too
+    func updateCollectionView()
+    {
+        //let indexPath = IndexPath(item: 0, section: 0)
+        print("hello")
+        collectionView.reloadData()
+        
+    }
+   
+    
+    
+    
+}
