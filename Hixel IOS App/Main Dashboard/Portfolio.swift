@@ -12,6 +12,7 @@ import MaterialComponents.MaterialSnackbar
 import Moya
 import Charts
 // Global Declaration of the Array that will hold varpanies Object
+var info = false
  var companies:[TempCompany]=[]
 var indexPath1 = IndexPath(row: 0, section: 0)
 var add: Bool = false
@@ -36,6 +37,9 @@ class PortfolioController: UIViewController {
     @IBOutlet weak var overallLabel: UILabel!
     
     @IBAction func moreInfoOnGraph(_ sender: Any) {
+        info = true
+        print("Info was clicked")
+
        // performSegue(withIdentifier: "Dashboard_Graph_info", sender: self)
         performSegue(withIdentifier: "port_graphinfo2", sender: self)
     }
@@ -477,6 +481,7 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        info = false
         indexPath1 = indexPath
         performSegue(withIdentifier: "Dashboard_Company", sender: self)
     }
@@ -484,12 +489,15 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if( info == false)
+        {
         let vc = segue.destination as! CompanyController
         vc.company = companies[indexPath1.row]
        // print(vc.company)
+        }
     }
     
-   
+
     
     
 }

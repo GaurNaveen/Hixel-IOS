@@ -27,11 +27,11 @@ class CompanyController: UIViewController {
     // Prepare to send the current company back to Portfolio
     @IBAction func add_button(_ sender: Any) {
         //companies.append(company!)
-        add = true
+       // add = true
         //let Port = PortfolioController()
         //Port.addCompany1(company: company!)
-        companyToAdd.append(company!)
-        performSegue(withIdentifier: "segue2", sender: self)
+      //  companyToAdd.append(company!)
+       // performSegue(withIdentifier: "segue2", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       //  let vc = segue.destination as! PortfolioController
