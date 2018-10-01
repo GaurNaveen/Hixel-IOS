@@ -1424,6 +1424,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
+                        <outlet property="add_button2" destination="3vu-hN-BFz" id="pq7-jO-O4A"/>
                         <outlet property="companyNameLabel" destination="4CO-Og-PaP" id="MdY-YX-8mw"/>
                         <outlet property="lineChartView" destination="ktm-3Y-FvC" id="6Qq-wW-aLA"/>
                         <outlet property="score1" destination="NCP-qu-0M6" id="PkJ-c0-q0Q"/>
@@ -2040,7 +2041,6 @@
         <image name="user-1" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hp5-UO-Yc0"/>
         <segue reference="S3T-pC-Rh2"/>
         <segue reference="uNh-mk-Z55"/>
         <segue reference="gvh-FA-UjS"/>

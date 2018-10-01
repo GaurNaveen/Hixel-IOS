@@ -10,6 +10,7 @@ import UIKit
 import Charts
 class CompanyController: UIViewController {
     
+    @IBOutlet weak var add_button2: UIButton!
     // MARK: This is the main company variable
     var company : TempCompany? = nil
     
@@ -84,6 +85,7 @@ class CompanyController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        add_button2.isHidden = true
         companyNameLabel.text = company?.name
         setChartValues()
        // dataField1.dropShadow()

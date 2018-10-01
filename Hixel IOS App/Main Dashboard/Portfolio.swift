@@ -38,7 +38,6 @@ class PortfolioController: UIViewController {
     
     @IBAction func moreInfoOnGraph(_ sender: Any) {
         info = true
-        print("Info was clicked")
 
        // performSegue(withIdentifier: "Dashboard_Graph_info", sender: self)
         performSegue(withIdentifier: "port_graphinfo2", sender: self)
