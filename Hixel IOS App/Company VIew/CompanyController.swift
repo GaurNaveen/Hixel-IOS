@@ -218,6 +218,7 @@ extension CompanyController:UITableViewDataSource,UITableViewDelegate{
         if(indexPath.row == 0)
         {
             cell.backgroundColor = UIColor.init(netHex: 0x335289)
+            cell.ratioName.text = company?.name
             cell.ratioName.textColor = .white
             cell.ratioValue.isHidden = true
 

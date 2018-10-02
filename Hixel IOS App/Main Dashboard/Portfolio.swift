@@ -70,7 +70,7 @@ class PortfolioController: UIViewController {
         // If the user doesn't have any company then display the message
         let message = UILabel()
         MAINVIEW.addSubview(message)
-        message.text = "Please add a company or fuck off!!"
+        message.text = "Please add a company"
         message.font = message.font.withSize(15)
         message.translatesAutoresizingMaskIntoConstraints = false
         message.centerXAnchor.constraint(equalTo: MAINVIEW.centerXAnchor).isActive = true
