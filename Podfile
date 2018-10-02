@@ -7,8 +7,11 @@ target 'Hixel IOS App' do
   # Pods for Hixel IOS App
   pod 'MaterialComponents/Snackbar'
   pod 'Alamofire'
-  pod 'Moya'
+  pod 'Moya/RxSwift'
   pod 'Charts'
+  pod 'RxSwift'
+  pod 'KeychainSwift'
+
   target 'Hixel IOS AppTests' do
     inherit! :search_paths
     # Pods for testing

@@ -9,6 +9,28 @@
 /* Begin PBXBuildFile section */
 		21F86B9528A2733FE96DF222 /* Pods_Hixel_IOS_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08975FC1787E2C6C565ACC41 /* Pods_Hixel_IOS_AppUITests.framework */; };
 		672B627B113B7C307EAD3C1A /* Pods_Hixel_IOS_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCEBC587DAE854168CB2E39 /* Pods_Hixel_IOS_AppTests.framework */; };
+		8C3DD283216394F400DA2C99 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DD282216394F400DA2C99 /* Client.swift */; };
+		8C3DD2892163CFCF00DA2C99 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DD2882163CFCF00DA2C99 /* Credentials.swift */; };
+		8C3DD28A2163E89000DA2C99 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DD282216394F400DA2C99 /* Client.swift */; };
+		8C3DD28B2163E89400DA2C99 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DD282216394F400DA2C99 /* Client.swift */; };
+		8C3DD28C2163E89800DA2C99 /* ServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB8234F2146C0170065A34D /* ServerInterface.swift */; };
+		8C3DD28D2163E89800DA2C99 /* ServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB8234F2146C0170065A34D /* ServerInterface.swift */; };
+		8C3DD28E2163E89B00DA2C99 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DD2882163CFCF00DA2C99 /* Credentials.swift */; };
+		8C3DD28F2163E89C00DA2C99 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DD2882163CFCF00DA2C99 /* Credentials.swift */; };
+		8C3DD2902163E8CC00DA2C99 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1662146D8CE00FC5502 /* LoginData.swift */; };
+		8C3DD2912163E8CD00DA2C99 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1662146D8CE00FC5502 /* LoginData.swift */; };
+		8C3DD2922163E8CF00DA2C99 /* FinancialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1642146D77A00FC5502 /* FinancialData.swift */; };
+		8C3DD2932163E8D000DA2C99 /* FinancialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1642146D77A00FC5502 /* FinancialData.swift */; };
+		8C3DD2942163E8D200DA2C99 /* CompanyIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1622146D64F00FC5502 /* CompanyIdentifiers.swift */; };
+		8C3DD2952163E8D300DA2C99 /* CompanyIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1622146D64F00FC5502 /* CompanyIdentifiers.swift */; };
+		8C3DD2962163E8D500DA2C99 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1602146D25A00FC5502 /* Company.swift */; };
+		8C3DD2972163E8D500DA2C99 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1602146D25A00FC5502 /* Company.swift */; };
+		8C3DD2982163E8D800DA2C99 /* TempCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A53BD2141648B00C18554 /* TempCompany.swift */; };
+		8C3DD2992163E8D800DA2C99 /* TempCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A53BD2141648B00C18554 /* TempCompany.swift */; };
+		8C3DD29A2163E8DD00DA2C99 /* ApplicationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1682146DEE500FC5502 /* ApplicationUser.swift */; };
+		8C3DD29B2163E8DD00DA2C99 /* ApplicationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1682146DEE500FC5502 /* ApplicationUser.swift */; };
+		8C3DD29C2163E8E000DA2C99 /* SearchEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B16A2146DFB400FC5502 /* SearchEntry.swift */; };
+		8C3DD29D2163E8E100DA2C99 /* SearchEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B16A2146DFB400FC5502 /* SearchEntry.swift */; };
 		8C668BD22146B35100356101 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C668BD12146B35100356101 /* AppDelegate.swift */; };
 		8CA9B1612146D25A00FC5502 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1602146D25A00FC5502 /* Company.swift */; };
 		8CA9B1632146D64F00FC5502 /* CompanyIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1622146D64F00FC5502 /* CompanyIdentifiers.swift */; };
@@ -84,6 +106,8 @@
 		400B82C68231DACDFEDFFA57 /* Pods-Hixel IOS AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppUITests/Pods-Hixel IOS AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		86013F4AB26CB89410E7A4F8 /* Pods-Hixel IOS AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppTests/Pods-Hixel IOS AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		886C6E88821634C87EE71FD3 /* Pods-Hixel IOS App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS App/Pods-Hixel IOS App.release.xcconfig"; sourceTree = "<group>"; };
+		8C3DD282216394F400DA2C99 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		8C3DD2882163CFCF00DA2C99 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		8C668BD12146B35100356101 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		8CA9B1602146D25A00FC5502 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		8CA9B1622146D64F00FC5502 /* CompanyIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyIdentifiers.swift; sourceTree = "<group>"; };
@@ -164,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				8CB8234F2146C0170065A34D /* ServerInterface.swift */,
+				8C3DD282216394F400DA2C99 /* Client.swift */,
+				8C3DD2882163CFCF00DA2C99 /* Credentials.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -482,21 +508,25 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hixel IOS App/Pods-Hixel IOS App-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -590,7 +620,9 @@
 				B61B1794215106A20029CA63 /* ScoreCollectionViewCell.swift in Sources */,
 				B6FA6DC72147B29D00C38901 /* GraphScaleInfo.swift in Sources */,
 				B61B179A21519B200029CA63 /* TableViewCell.swift in Sources */,
+				8C3DD2892163CFCF00DA2C99 /* Credentials.swift in Sources */,
 				8CA9B1632146D64F00FC5502 /* CompanyIdentifiers.swift in Sources */,
+				8C3DD283216394F400DA2C99 /* Client.swift in Sources */,
 				B6A2D74F214FA5A000853A0C /* SearchCell.swift in Sources */,
 				B61B1798215180BF0029CA63 /* CollectionViewCell3.swift in Sources */,
 				B65A53BE2141648B00C18554 /* TempCompany.swift in Sources */,
@@ -601,8 +633,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C3DD29C2163E8E000DA2C99 /* SearchEntry.swift in Sources */,
+				8C3DD2942163E8D200DA2C99 /* CompanyIdentifiers.swift in Sources */,
+				8C3DD29A2163E8DD00DA2C99 /* ApplicationUser.swift in Sources */,
+				8C3DD28C2163E89800DA2C99 /* ServerInterface.swift in Sources */,
+				8C3DD2962163E8D500DA2C99 /* Company.swift in Sources */,
 				B65A53A42141538700C18554 /* Hixel_IOS_AppTests.swift in Sources */,
+				8C3DD28E2163E89B00DA2C99 /* Credentials.swift in Sources */,
+				8C3DD2982163E8D800DA2C99 /* TempCompany.swift in Sources */,
 				B61B17912150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */,
+				8C3DD2922163E8CF00DA2C99 /* FinancialData.swift in Sources */,
+				8C3DD28B2163E89400DA2C99 /* Client.swift in Sources */,
+				8C3DD2902163E8CC00DA2C99 /* LoginData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,11 +652,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C3DD29D2163E8E100DA2C99 /* SearchEntry.swift in Sources */,
+				8C3DD28D2163E89800DA2C99 /* ServerInterface.swift in Sources */,
+				8C3DD29B2163E8DD00DA2C99 /* ApplicationUser.swift in Sources */,
+				8C3DD2952163E8D300DA2C99 /* CompanyIdentifiers.swift in Sources */,
 				B65A53AF2141538700C18554 /* Hixel_IOS_AppUITests.swift in Sources */,
+				8C3DD2912163E8CD00DA2C99 /* LoginData.swift in Sources */,
+				8C3DD2992163E8D800DA2C99 /* TempCompany.swift in Sources */,
+				8C3DD28F2163E89C00DA2C99 /* Credentials.swift in Sources */,
 				B6E9F3B72154E2BB00B2168D /* ForgotPasswordViewController.swift in Sources */,
+				8C3DD28A2163E89000DA2C99 /* Client.swift in Sources */,
 				B6E9F3B12154CEC400B2168D /* LoginController.swift in Sources */,
+				8C3DD2932163E8D000DA2C99 /* FinancialData.swift in Sources */,
 				B61B17922150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */,
 				B6E9F3B42154D5EC00B2168D /* SignUpController.swift in Sources */,
+				8C3DD2972163E8D500DA2C99 /* Company.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,7 +3,6 @@
 //  Hixel IOS App
 //
 //  Created by Jonah Jeleniewski on 11/9/18.
-//  Copyright © 2018 Naveen Gaur. All rights reserved.
 //
 
 import Foundation
@@ -76,9 +75,9 @@ extension ServerInterface: TargetType {
             case .login, .signup:
                 break
             case .refresh:
-                h["Refresh"] = "REFRESH_TOKEN_PLACEHOLDER"
+                h["Refresh"] = Credentials.currentCredentials().refreshToken
             default:
-                h["Authorization"] = "AUTH_TOKEN_PLACEHOLDER"
+                h["Authorization"] = Credentials.currentCredentials().authToken
         }
         
         return h
