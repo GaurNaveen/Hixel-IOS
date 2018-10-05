@@ -25,19 +25,18 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        let provider = MoyaProvider<ServerInterface>()
         let body = LoginData(email: username.text ?? "", password: password.text ?? "")
         
-        provider.request(.login(loginData: body)) { result in
+        let _ = Client().request(.login(loginData: body)).subscribe { result in
             switch result {
-            case let .success(response):
+            case .success(let response):
                 if (response.statusCode == 200) {
                     self.performSegue(withIdentifier: "login_MainView", sender: self)
                 }
                 else if (response.statusCode == 401) {
                     print("Incorrect username or password.")//TODO: Display user-facing message
                 }
-            case let .failure(error):
+            case .error(let error):
                 print("Network error: \(error)" ) //TODO: Display user-facing message
             }
         }

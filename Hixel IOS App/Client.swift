@@ -20,7 +20,7 @@ final class Client {
         let request = provider.rx.request(token)
         return request
             .flatMap { response in
-                if response.statusCode == 401 {
+                if response.statusCode == 401 && token.authorizationType == .bearer {
                     let oldCredentials = Credentials.currentCredentials()
                     return self.refreshSessionToken(oldCredentials: oldCredentials)
                         .do(onSuccess: {
@@ -31,7 +31,6 @@ final class Client {
                     return Single.just(response)
                 }
             }
-            .filterSuccessfulStatusCodes()
     }
     
     private func refreshSessionToken(oldCredentials: Credentials) -> Single<Credentials> {

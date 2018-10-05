@@ -23,7 +23,7 @@ enum ServerInterface {
     case ratios
 }
 
-extension ServerInterface: TargetType {
+extension ServerInterface: TargetType, AccessTokenAuthorizable {
 
     var baseURL: URL { return URL(string: "https://game.bones-underground.org:8443")! }
 
@@ -81,6 +81,20 @@ extension ServerInterface: TargetType {
         }
         
         return h
+    }
+    
+    var authorizationType: AuthorizationType {
+        switch self {
+            case .login:
+                fallthrough
+            case .signup:
+                fallthrough
+            case .refresh:
+                return .none
+            
+            default:
+                return .bearer
+        }
     }
     
     var sampleData: Data {
