@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Moya
+import SVProgressHUD
 
 class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
@@ -29,28 +30,34 @@ class LoginController: UIViewController, UITextFieldDelegate {
         // If the username and password are empty , raise an alert telling the user about it.
         if(username.text!.isEmpty || password.text!.isEmpty)
         {
-            //popAlert()
-            self.performSegue(withIdentifier: "login_MainView", sender: self)
-
+            popAlert()
+           //self.performSegue(withIdentifier: "login_MainView", sender: self)
+            
         }
         
             
         else
         {
-        
+            SVProgressHUD.show(withStatus: "Signing in")
+            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+            
         let body = LoginData(email: username.text ?? "", password: password.text ?? "")
         
         let _ = Client().request(.login(loginData: body)).subscribe { result in
             switch result {
             case .success(let response):
                 if (response.statusCode == 200) {
+                    SVProgressHUD.dismiss()
                     self.performSegue(withIdentifier: "login_MainView", sender: self)
                 }
                 else if (response.statusCode == 401) {
-                    self.serverErrorAlert()
+                    SVProgressHUD.dismiss()
+                    self.incorrectDetailsAlert()
                     print("Incorrect username or password.")//TODO: Display user-facing message
                 }
+                
             case .error(let error):
+                SVProgressHUD.dismiss()
                 self.serverErrorAlert()
                 print("Network error: \(error)" ) //TODO: Display user-facing message
             }
@@ -83,6 +90,15 @@ class LoginController: UIViewController, UITextFieldDelegate {
     func serverErrorAlert()
     {
         let alert = UIAlertController(title: " Error ", message: "Could not connect to the Server. Please try again!", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func incorrectDetailsAlert()
+    {
+        let alert = UIAlertController(title: " Error ", message: "Username or Password incorrect", preferredStyle: .alert)
         
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)

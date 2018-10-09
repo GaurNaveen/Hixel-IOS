@@ -11,6 +11,8 @@ target 'Hixel IOS App' do
   pod 'Charts'
   pod 'RxSwift'
   pod 'KeychainSwift'
+  pod 'SVProgressHUD'
+
 
   target 'Hixel IOS AppTests' do
     inherit! :search_paths

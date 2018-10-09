@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BD9421EAE2AFFBEBA0D011EC1FC8C31D"
+               BlueprintIdentifier = "19B796D694AA22F6BEC404F818153998"
                BuildableName = "Pods_Hixel_IOS_App.framework"
                BlueprintName = "Pods-Hixel IOS App"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BD9421EAE2AFFBEBA0D011EC1FC8C31D"
+            BlueprintIdentifier = "19B796D694AA22F6BEC404F818153998"
             BuildableName = "Pods_Hixel_IOS_App.framework"
             BlueprintName = "Pods-Hixel IOS App"
             ReferencedContainer = "container:Pods.xcodeproj">

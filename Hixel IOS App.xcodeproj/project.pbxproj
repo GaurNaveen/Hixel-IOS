@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21F86B9528A2733FE96DF222 /* Pods_Hixel_IOS_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08975FC1787E2C6C565ACC41 /* Pods_Hixel_IOS_AppUITests.framework */; };
-		672B627B113B7C307EAD3C1A /* Pods_Hixel_IOS_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCEBC587DAE854168CB2E39 /* Pods_Hixel_IOS_AppTests.framework */; };
+		01E7DB5D41EC833636E1DC8B /* Pods_Hixel_IOS_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA35FF841B2F2C5A74FBE7E5 /* Pods_Hixel_IOS_AppUITests.framework */; };
+		734B87F9F826882AE3C9E238 /* Pods_Hixel_IOS_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E67BE17182F949A42DD2289 /* Pods_Hixel_IOS_App.framework */; };
 		8C3DD283216394F400DA2C99 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DD282216394F400DA2C99 /* Client.swift */; };
 		8C3DD2892163CFCF00DA2C99 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DD2882163CFCF00DA2C99 /* Credentials.swift */; };
 		8C3DD28A2163E89000DA2C99 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DD282216394F400DA2C99 /* Client.swift */; };
@@ -39,6 +39,7 @@
 		8CA9B1692146DEE500FC5502 /* ApplicationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B1682146DEE500FC5502 /* ApplicationUser.swift */; };
 		8CA9B16B2146DFB400FC5502 /* SearchEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9B16A2146DFB400FC5502 /* SearchEntry.swift */; };
 		8CB823502146C0170065A34D /* ServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB8234F2146C0170065A34D /* ServerInterface.swift */; };
+		A94142663FEE05EBC3F17E3A /* Pods_Hixel_IOS_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38601F80EEAEB2FCEAEBD5C /* Pods_Hixel_IOS_AppTests.framework */; };
 		B61B178C2150E70D0029CA63 /* ComparisonController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B178B2150E70D0029CA63 /* ComparisonController2.swift */; };
 		B61B17902150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */; };
 		B61B17912150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */; };
@@ -79,7 +80,6 @@
 		B6F9D6A12156A3DD0093C385 /* RatioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9D6A02156A3DD0093C385 /* RatioCell.swift */; };
 		B6FA6DC72147B29D00C38901 /* GraphScaleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA6DC62147B29D00C38901 /* GraphScaleInfo.swift */; };
 		B6FA6DC92147C15200C38901 /* GraphInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6FA6DC82147C15200C38901 /* GraphInfo.storyboard */; };
-		F64A22F4ECF210A6790EBE45 /* Pods_Hixel_IOS_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E1C4BD2DA49B56D14F9358 /* Pods_Hixel_IOS_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,12 +100,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04E4A3D565F81EA3527B068F /* Pods-Hixel IOS App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS App/Pods-Hixel IOS App.debug.xcconfig"; sourceTree = "<group>"; };
-		08975FC1787E2C6C565ACC41 /* Pods_Hixel_IOS_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hixel_IOS_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CCEBC587DAE854168CB2E39 /* Pods_Hixel_IOS_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hixel_IOS_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		400B82C68231DACDFEDFFA57 /* Pods-Hixel IOS AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppUITests/Pods-Hixel IOS AppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		86013F4AB26CB89410E7A4F8 /* Pods-Hixel IOS AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppTests/Pods-Hixel IOS AppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		886C6E88821634C87EE71FD3 /* Pods-Hixel IOS App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS App/Pods-Hixel IOS App.release.xcconfig"; sourceTree = "<group>"; };
+		0E67BE17182F949A42DD2289 /* Pods_Hixel_IOS_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hixel_IOS_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		336CD5C64B0D33E240F1D549 /* Pods-Hixel IOS AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppUITests/Pods-Hixel IOS AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		61D8BCCA86C733592D390A40 /* Pods-Hixel IOS App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS App/Pods-Hixel IOS App.debug.xcconfig"; sourceTree = "<group>"; };
+		6CABD49832682223D4D7E494 /* Pods-Hixel IOS AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppTests/Pods-Hixel IOS AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		8C3DD282216394F400DA2C99 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		8C3DD2882163CFCF00DA2C99 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		8C668BD12146B35100356101 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -116,9 +114,7 @@
 		8CA9B1682146DEE500FC5502 /* ApplicationUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUser.swift; sourceTree = "<group>"; };
 		8CA9B16A2146DFB400FC5502 /* SearchEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEntry.swift; sourceTree = "<group>"; };
 		8CB8234F2146C0170065A34D /* ServerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInterface.swift; sourceTree = "<group>"; };
-		94E1C4BD2DA49B56D14F9358 /* Pods_Hixel_IOS_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hixel_IOS_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4044C3C9165E5319C8960CC /* Pods-Hixel IOS AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppTests/Pods-Hixel IOS AppTests.release.xcconfig"; sourceTree = "<group>"; };
-		B3A8BD88B48EA84CB1E48ED4 /* Pods-Hixel IOS AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppUITests/Pods-Hixel IOS AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9B5E872485E221A1872E1843 /* Pods-Hixel IOS AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppUITests/Pods-Hixel IOS AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B61B178B2150E70D0029CA63 /* ComparisonController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonController2.swift; sourceTree = "<group>"; };
 		B61B178F2150F2FB0029CA63 /* ComparisonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonCollectionViewCell.swift; sourceTree = "<group>"; };
 		B61B1793215106A20029CA63 /* ScoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -154,6 +150,10 @@
 		B6F9D6A02156A3DD0093C385 /* RatioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCell.swift; sourceTree = "<group>"; };
 		B6FA6DC62147B29D00C38901 /* GraphScaleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphScaleInfo.swift; sourceTree = "<group>"; };
 		B6FA6DC82147C15200C38901 /* GraphInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GraphInfo.storyboard; sourceTree = "<group>"; };
+		DBB121D7DF7B2A91324DEE30 /* Pods-Hixel IOS AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppTests/Pods-Hixel IOS AppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E48DF9D6530CA926166C59F0 /* Pods-Hixel IOS App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS App/Pods-Hixel IOS App.release.xcconfig"; sourceTree = "<group>"; };
+		EA35FF841B2F2C5A74FBE7E5 /* Pods_Hixel_IOS_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hixel_IOS_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F38601F80EEAEB2FCEAEBD5C /* Pods_Hixel_IOS_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hixel_IOS_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F64A22F4ECF210A6790EBE45 /* Pods_Hixel_IOS_App.framework in Frameworks */,
+				734B87F9F826882AE3C9E238 /* Pods_Hixel_IOS_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				672B627B113B7C307EAD3C1A /* Pods_Hixel_IOS_AppTests.framework in Frameworks */,
+				A94142663FEE05EBC3F17E3A /* Pods_Hixel_IOS_AppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,13 +177,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21F86B9528A2733FE96DF222 /* Pods_Hixel_IOS_AppUITests.framework in Frameworks */,
+				01E7DB5D41EC833636E1DC8B /* Pods_Hixel_IOS_AppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1745CBD325EB5638E12BE226 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E67BE17182F949A42DD2289 /* Pods_Hixel_IOS_App.framework */,
+				F38601F80EEAEB2FCEAEBD5C /* Pods_Hixel_IOS_AppTests.framework */,
+				EA35FF841B2F2C5A74FBE7E5 /* Pods_Hixel_IOS_AppUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6EFCED85405460AD2B401E88 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61D8BCCA86C733592D390A40 /* Pods-Hixel IOS App.debug.xcconfig */,
+				E48DF9D6530CA926166C59F0 /* Pods-Hixel IOS App.release.xcconfig */,
+				DBB121D7DF7B2A91324DEE30 /* Pods-Hixel IOS AppTests.debug.xcconfig */,
+				6CABD49832682223D4D7E494 /* Pods-Hixel IOS AppTests.release.xcconfig */,
+				9B5E872485E221A1872E1843 /* Pods-Hixel IOS AppUITests.debug.xcconfig */,
+				336CD5C64B0D33E240F1D549 /* Pods-Hixel IOS AppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8C668BD52146B68E00356101 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,8 +225,8 @@
 				B65A53A22141538700C18554 /* Hixel IOS AppTests */,
 				B65A53AD2141538700C18554 /* Hixel IOS AppUITests */,
 				B65A538C2141538600C18554 /* Products */,
-				FA6A323E66EB59C06B267228 /* Pods */,
-				F73E495CE7A7B5B0FF5D624B /* Frameworks */,
+				6EFCED85405460AD2B401E88 /* Pods */,
+				1745CBD325EB5638E12BE226 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -333,29 +356,6 @@
 			path = "Company VIew";
 			sourceTree = "<group>";
 		};
-		F73E495CE7A7B5B0FF5D624B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				94E1C4BD2DA49B56D14F9358 /* Pods_Hixel_IOS_App.framework */,
-				0CCEBC587DAE854168CB2E39 /* Pods_Hixel_IOS_AppTests.framework */,
-				08975FC1787E2C6C565ACC41 /* Pods_Hixel_IOS_AppUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FA6A323E66EB59C06B267228 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				04E4A3D565F81EA3527B068F /* Pods-Hixel IOS App.debug.xcconfig */,
-				886C6E88821634C87EE71FD3 /* Pods-Hixel IOS App.release.xcconfig */,
-				86013F4AB26CB89410E7A4F8 /* Pods-Hixel IOS AppTests.debug.xcconfig */,
-				A4044C3C9165E5319C8960CC /* Pods-Hixel IOS AppTests.release.xcconfig */,
-				B3A8BD88B48EA84CB1E48ED4 /* Pods-Hixel IOS AppUITests.debug.xcconfig */,
-				400B82C68231DACDFEDFFA57 /* Pods-Hixel IOS AppUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -363,11 +363,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B65A53B32141538700C18554 /* Build configuration list for PBXNativeTarget "Hixel IOS App" */;
 			buildPhases = (
-				74E9A991248BE093A809A1F6 /* [CP] Check Pods Manifest.lock */,
+				E5818C3269D9F1CC09224D18 /* [CP] Check Pods Manifest.lock */,
 				B65A53872141538600C18554 /* Sources */,
 				B65A53882141538600C18554 /* Frameworks */,
 				B65A53892141538600C18554 /* Resources */,
-				475EC552039914A6203D9F68 /* [CP] Embed Pods Frameworks */,
+				DB38FB85506801A8B479341D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -382,7 +382,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B65A53B62141538700C18554 /* Build configuration list for PBXNativeTarget "Hixel IOS AppTests" */;
 			buildPhases = (
-				5F4B9CA1B410E73E619A07C7 /* [CP] Check Pods Manifest.lock */,
+				57F2C1947DBCBFEE86E5308E /* [CP] Check Pods Manifest.lock */,
 				B65A539B2141538700C18554 /* Sources */,
 				B65A539C2141538700C18554 /* Frameworks */,
 				B65A539D2141538700C18554 /* Resources */,
@@ -401,7 +401,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B65A53B92141538700C18554 /* Build configuration list for PBXNativeTarget "Hixel IOS AppUITests" */;
 			buildPhases = (
-				656D7CED9A366A359C5A178A /* [CP] Check Pods Manifest.lock */,
+				36FF1F9753477277CBA8C91A /* [CP] Check Pods Manifest.lock */,
 				B65A53A62141538700C18554 /* Sources */,
 				B65A53A72141538700C18554 /* Frameworks */,
 				B65A53A82141538700C18554 /* Resources */,
@@ -499,10 +499,56 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		475EC552039914A6203D9F68 /* [CP] Embed Pods Frameworks */ = {
+		36FF1F9753477277CBA8C91A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Hixel IOS AppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57F2C1947DBCBFEE86E5308E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Hixel IOS AppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB38FB85506801A8B479341D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hixel IOS App/Pods-Hixel IOS App-frameworks.sh",
@@ -515,8 +561,11 @@
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
@@ -527,58 +576,27 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hixel IOS App/Pods-Hixel IOS App-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5F4B9CA1B410E73E619A07C7 /* [CP] Check Pods Manifest.lock */ = {
+		E5818C3269D9F1CC09224D18 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Hixel IOS AppTests-checkManifestLockResult.txt",
+			outputFileListPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		656D7CED9A366A359C5A178A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Hixel IOS AppUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		74E9A991248BE093A809A1F6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Hixel IOS App-checkManifestLockResult.txt",
 			);
@@ -810,7 +828,7 @@
 		};
 		B65A53B42141538700C18554 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04E4A3D565F81EA3527B068F /* Pods-Hixel IOS App.debug.xcconfig */;
+			baseConfigurationReference = 61D8BCCA86C733592D390A40 /* Pods-Hixel IOS App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -827,7 +845,7 @@
 		};
 		B65A53B52141538700C18554 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 886C6E88821634C87EE71FD3 /* Pods-Hixel IOS App.release.xcconfig */;
+			baseConfigurationReference = E48DF9D6530CA926166C59F0 /* Pods-Hixel IOS App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -844,7 +862,7 @@
 		};
 		B65A53B72141538700C18554 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86013F4AB26CB89410E7A4F8 /* Pods-Hixel IOS AppTests.debug.xcconfig */;
+			baseConfigurationReference = DBB121D7DF7B2A91324DEE30 /* Pods-Hixel IOS AppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -861,7 +879,7 @@
 		};
 		B65A53B82141538700C18554 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4044C3C9165E5319C8960CC /* Pods-Hixel IOS AppTests.release.xcconfig */;
+			baseConfigurationReference = 6CABD49832682223D4D7E494 /* Pods-Hixel IOS AppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -878,7 +896,7 @@
 		};
 		B65A53BA2141538700C18554 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3A8BD88B48EA84CB1E48ED4 /* Pods-Hixel IOS AppUITests.debug.xcconfig */;
+			baseConfigurationReference = 9B5E872485E221A1872E1843 /* Pods-Hixel IOS AppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -894,7 +912,7 @@
 		};
 		B65A53BB2141538700C18554 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 400B82C68231DACDFEDFFA57 /* Pods-Hixel IOS AppUITests.release.xcconfig */;
+			baseConfigurationReference = 336CD5C64B0D33E240F1D549 /* Pods-Hixel IOS AppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
