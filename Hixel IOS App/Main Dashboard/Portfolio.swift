@@ -110,9 +110,9 @@ class PortfolioController: UIViewController {
     }
     // Sets up the Header View of the Portfolio/Dashboard
     private func setupHeaderView(){
-        header.backgroundColor = UIColor.init(netHex: 0x395A97)
+        header.backgroundColor = UIColor.white
         headerLabel.text = hardCodedStrings[0]
-        headerLabel.textColor = .white
+        headerLabel.textColor = .black
         
     }
     

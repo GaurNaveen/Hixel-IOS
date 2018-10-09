@@ -29,7 +29,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
         // If the username and password are empty , raise an alert telling the user about it.
         if(username.text!.isEmpty || password.text!.isEmpty)
         {
-            popAlert()
+            //popAlert()
+            self.performSegue(withIdentifier: "login_MainView", sender: self)
+
         }
         
             
@@ -77,6 +79,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    // Displays an Alert when the App cannot connect to the Server.
     func serverErrorAlert()
     {
         let alert = UIAlertController(title: " Error ", message: "Could not connect to the Server. Please try again!", preferredStyle: .alert)
