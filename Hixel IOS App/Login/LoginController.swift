@@ -45,9 +45,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     self.performSegue(withIdentifier: "login_MainView", sender: self)
                 }
                 else if (response.statusCode == 401) {
+                    self.serverErrorAlert()
                     print("Incorrect username or password.")//TODO: Display user-facing message
                 }
             case .error(let error):
+                self.serverErrorAlert()
                 print("Network error: \(error)" ) //TODO: Display user-facing message
             }
         }
@@ -69,6 +71,15 @@ class LoginController: UIViewController, UITextFieldDelegate {
     func popAlert()
     {
         let alert = UIAlertController(title: " Invalid ", message: "Please enter your Username or Password", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func serverErrorAlert()
+    {
+        let alert = UIAlertController(title: " Error ", message: "Could not connect to the Server. Please try again!", preferredStyle: .alert)
         
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
