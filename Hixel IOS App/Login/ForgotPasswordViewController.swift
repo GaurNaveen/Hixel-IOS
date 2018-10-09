@@ -26,10 +26,23 @@ class ForgotPasswordViewController: UIViewController {
     
     
     @IBAction func submit_button(_ sender: Any) {
+        // If the email field is empty, display an alert on the screen.
+        if(email.text!.isEmpty)
+        {
+            popAlert()
+        }
         
     }
     
-    
+    // Displays an alert on the screen telling user that he left the Email field empty.
+    func popAlert()
+    {
+        let alert = UIAlertController(title: " Invalid ", message: "Please enter your Email address", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
    
 
 }

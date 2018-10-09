@@ -25,6 +25,17 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginButton(_ sender: Any) {
+        
+        // If the username and password are empty , raise an alert telling the user about it.
+        if(username.text!.isEmpty || password.text!.isEmpty)
+        {
+            popAlert()
+        }
+        
+            
+        else
+        {
+        
         let body = LoginData(email: username.text ?? "", password: password.text ?? "")
         
         let _ = Client().request(.login(loginData: body)).subscribe { result in
@@ -41,18 +52,30 @@ class LoginController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    }
     
+    // Takes the user to the Sign Up View
     @IBAction func newAccount(_ sender: Any) {
         performSegue(withIdentifier: "login_signUP", sender: self)
     }
     
+    // Takes the user to the Forgot Password View
     @IBAction func forgot_password(_ sender: Any) {
         
         performSegue(withIdentifier: "login_forgotPassword", sender: self)
     }
     
+    // Displays an alert on the screen when username or password are missing.
+    func popAlert()
+    {
+        let alert = UIAlertController(title: " Invalid ", message: "Please enter your Username or Password", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
-
 
 extension LoginController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
