@@ -49,9 +49,14 @@ class PortfolioController: UIViewController {
     
     let comapanyDataProvider = MoyaProvider<ServerInterface>()
     
+    // MARK: Array that holds the companies retrieved from the server
+    var portfolioCompanies = [Company]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("Hoollla")
+        print("Companies count ",portfolioCompanies)
         
         setupHeaderView()
         overallLabel.text = hardCodedStrings[1]
@@ -415,13 +420,13 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     
     // Determines how many rows the table view should actually have
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return companies.count
+        return portfolioCompanies.count
     }
     
     // This function is used to configure each and every cell in the Table View
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let temp_company = companies[indexPath.row]
+        let temp_company = portfolioCompanies[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell") as! CompanyCell
         cell.setCompany(tempCompany: temp_company)
         cell.setupScore(value: companies[indexPath.row].score)

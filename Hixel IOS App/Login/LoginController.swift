@@ -14,12 +14,17 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
-    
+    var companies1 = [Company]()
+    let companiesTicker = ["aapl","msft","tsla"]
+    var string = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        let joinedStrings = companiesTicker.joined(separator: ",")
+        // Do any additional setup after loading the view.
+        string = joinedStrings
+        print(string)
         // MARK: Setting up Delegates
         username.delegate = self
         password.delegate = self
@@ -38,8 +43,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
             
         else
         {
-            SVProgressHUD.show(withStatus: "Signing in")
-            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+            
+        SVProgressHUD.show(withStatus: "Signing in")
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
             
         let body = LoginData(email: username.text ?? "", password: password.text ?? "")
         
@@ -47,8 +53,21 @@ class LoginController: UIViewController, UITextFieldDelegate {
             switch result {
             case .success(let response):
                 if (response.statusCode == 200) {
-                    SVProgressHUD.dismiss()
-                    self.performSegue(withIdentifier: "login_MainView", sender: self)
+                    
+                    SVProgressHUD.setStatus("Loading Portfolio")
+                    //SVProgressHUD.dismiss()
+                    
+                    let authToken = response.response?.allHeaderFields["Authorization"]as? String
+                    let refreshToken = response.response?.allHeaderFields["Refresh"]as? String
+                    
+                    let newCredentials = Credentials(authToken: authToken ?? "", refreshToken: refreshToken ?? "")
+                    
+                    Credentials.setCredentials(newCredentials: newCredentials)
+                    
+                    
+                    // Load data here
+                    self.loadDataFromServer()
+                   // self.performSegue(withIdentifier: "login_MainView", sender: self)
                 }
                 else if (response.statusCode == 401) {
                     SVProgressHUD.dismiss()
@@ -105,6 +124,50 @@ class LoginController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    // This function is used to load the data from the server. After the data is loaded is takes the
+    // user to the Portfolio.
+    func loadDataFromServer()
+    {
+       
+       let _ = Client().request(.companydata(tickers: string, years: 1)).subscribe{ event in
+            switch event {
+            case .success(let response):
+                // Dismiss the Progress bar.
+                SVProgressHUD.dismiss()
+               
+                print("hello")
+                
+                // let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
+                //print(json)
+                let company = try! JSONDecoder().decode([Company].self, from: response.data)
+                self.companies1 = company
+                //self.companies1[0].identifiers.name
+                
+                // Go to the Main Dashboard
+
+                self.performSegue(withIdentifier: "login_MainView", sender: self)
+
+               // print(self.companies1)
+                break
+           
+            case .error(let error):
+                print(error)
+                break
+            }
+        }
+    }
+    
+    // MARK: Pass the loaded data to the Portfolio
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /* This won't work as the segue is connected to a UITabbarController, we need to cast it to
+         * UITabbarController and get the View Controller object.
+        let vc = segue.destination as! PortfolioController
+        vc.portfolioCompanies = companies1
+        */
+        let tabCtrl: UITabBarController = segue.destination as! UITabBarController
+        let destinationVC = tabCtrl.viewControllers![0] as! PortfolioController // [0] because Portfolio is the first tab in the tab bar controller.
+        destinationVC.portfolioCompanies = companies1
+    }
 }
 
 extension LoginController {

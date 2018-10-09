@@ -16,9 +16,9 @@ class CompanyCell: UITableViewCell {
     @IBOutlet weak var score: UILabel!
     
    
-    func setCompany(tempCompany: TempCompany){
-        companyName.text = tempCompany.name
-        stock.text = "Stock: "+tempCompany.stockExchange
+    func setCompany(tempCompany: Company){
+        companyName.text = tempCompany.identifiers.name
+        stock.text = "Ticker: "+tempCompany.identifiers.ticker
         containerLayouSetup()
     }
     
