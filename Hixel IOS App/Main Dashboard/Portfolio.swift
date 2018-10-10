@@ -19,7 +19,10 @@ var add: Bool = false
 var companyToAdd : [TempCompany] = []
 class PortfolioController: UIViewController {
     @IBOutlet weak var MAINVIEW: UIView! // Conatins all the views in which we are working in
+    @IBOutlet weak var searchController: UISearchBar!
     @IBOutlet weak var verticalAxis: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var SearchTableView: UITableView!
     
     @IBOutlet weak var verticalBarLine: UIView!
     @IBOutlet weak var summary: UILabel!
@@ -51,10 +54,14 @@ class PortfolioController: UIViewController {
     
     // MARK: Array that holds the companies retrieved from the server
     var portfolioCompanies = [Company]()
+    var searchArray = [SearchEntry]()
+
+    let searchcontroller1 = UISearchController(searchResultsController: nil)
+    var filteredCompanies = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       SearchTableView.isHidden = true
         print("Hoollla")
         print("Companies count ",portfolioCompanies)
         
@@ -380,6 +387,31 @@ class PortfolioController: UIViewController {
         companies.append(company)
     }
     
+    // This function connects to the server and loads the search results.
+    func serach(query:String)
+    {
+        let _ = Client().request(.search(query: query)).subscribe { event in
+            switch event{
+            case .success(let response):
+                print("Hurray")
+                
+                let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
+                let searches = try! JSONDecoder().decode([SearchEntry].self, from: response.data)
+                self.searchArray = searches
+                print("Sex",searches)
+                
+                // MARK: Reload the table data when the search results are in.
+                self.SearchTableView.reloadData()
+                
+                break
+                
+            case .error(let error):
+                print("Yikes")
+                print(error)
+                break
+            }
+        }
+    }
     
     
     
@@ -420,19 +452,42 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     
     // Determines how many rows the table view should actually have
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        // Fo the Search Results
+        if tableView == SearchTableView {
+            return searchArray.count
+        }
+        
         return portfolioCompanies.count
     }
     
     // This function is used to configure each and every cell in the Table View
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        if (tableView == self.SearchTableView)
+        {   print("Habbib naveen")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SearchResultTableViewCell1
+            
+            if(searchArray.count != 0 )
+            {
+                cell.setupcell(searchEntry: searchArray[indexPath.row])
+                print("Hello")
+            }
+            
+            return cell
+        }
+        
+        
+        
+        else  {
         let temp_company = portfolioCompanies[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell") as! CompanyCell
         cell.setCompany(tempCompany: temp_company)
         cell.setupScore(value: companies[indexPath.row].score)
         return cell
         }
-    
+        
+    }
     // Adds the swipe to delete to UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -504,5 +559,22 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
 
     
     
+}
+
+extension PortfolioController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        SearchTableView.isHidden = false
+        
+        if(searchText.count != 0)
+        {
+            serach(query: searchText)
+            
+        }
+        
+        if(searchText.count == 0)
+        {
+            SearchTableView.isHidden  = true
+        }
+    }
 }
 

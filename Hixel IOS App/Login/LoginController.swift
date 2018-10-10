@@ -155,6 +155,28 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 break
             }
         }
+        
+        //serach()
+       
+    }
+    
+    func serach()
+    {
+        let _ = Client().request(.search(query: "aap")).subscribe { event in
+            switch event{
+            case .success(let response):
+                print("Hurray")
+                
+                let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
+                print("Sex",json)
+                break
+                
+            case .error(let error):
+                print("Yikes")
+                print(error)
+                break
+            }
+        }
     }
     
     // MARK: Pass the loaded data to the Portfolio
