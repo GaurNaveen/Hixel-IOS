@@ -148,15 +148,16 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
 // MARK: Setup for selected companies on top of Your Portfolio companies
 extension ComparisonController : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return selected_companies.count
-        return selected_companies.count
+        // return selected_companies.count
+         return selected_companies.count
+        //return portcomp.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "selected_companies", for: indexPath) as! SelectedCompaniesCollectionViewCell
-        cell.setupCell(name: selected_companies[indexPath.row].name
-        )
+        cell.setupCell(name: selected_companies[indexPath.row].name)
+        //cell.setupCell(name: portcomp[indexPath.row].identifiers.name)
         
         return cell
         
@@ -170,7 +171,12 @@ extension ComparisonController : UICollectionViewDelegate, UICollectionViewDataS
         collectionView.reloadData()
         
     }
-   
+    
+    /*
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        <#code#>
+    }
+   */
     
     
     

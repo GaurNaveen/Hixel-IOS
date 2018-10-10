@@ -141,32 +141,28 @@ class PortfolioController: UIViewController {
     private func createArray() ->[TempCompany]{
         var tempCompanies: [TempCompany] = []
         let company1 = TempCompany(name: "Apple Inc", stockExchange: "NASDAQ", score: 12)
-        let company2 = TempCompany(name: "Rolls Royce", stockExchange: "NASDAQ", score: 89)
-        let company3 = TempCompany(name: "BMW", stockExchange: "NYSE", score: 95)
-        let company4 = TempCompany(name: "Alphabet", stockExchange: "NYSE", score: 55)
+        let company3 = TempCompany(name: "Twitter Inc", stockExchange: "NYSE", score: 95)
+        let company4 = TempCompany(name: "Snap Inc", stockExchange: "NYSE", score: 55)
         let company5 = TempCompany(name: "Daimler AMG", stockExchange: "NYSE", score: 67)
-        let company6 = TempCompany(name: "Facebook", stockExchange: "NASDAQ", score: 12)
-        let company7 = TempCompany(name: "Tesla Inc.", stockExchange: "NASDAQ", score: 89)
-        let company8 = TempCompany(name: "Intel Corp", stockExchange: "NYSE", score: 95)
+        let company6 = TempCompany(name: "Facebook Inc", stockExchange: "NASDAQ", score: 12)
+        let company7 = TempCompany(name: "Tesla, Inc.", stockExchange: "NASDAQ", score: 89)
         let company9 = TempCompany(name: "Microsoft Corp.", stockExchange: "NYSE", score: 55)
-        let company10 = TempCompany(name: "Disney Corp.", stockExchange: "NYSE", score: 67)
-        let company11 = TempCompany(name: "AMD Corp.", stockExchange: "NYSE", score: 55)
-        let company12 = TempCompany(name: "Amazon Inc.", stockExchange: "NYSE", score: 67)
-        
+        let company12 = TempCompany(name: "Amazon Com Inc.", stockExchange: "NYSE", score: 67)
+        let company13 = TempCompany(name: "Advanced Micro Devices Inc", stockExchange: "NYSE", score: 67)
+        let company14 = TempCompany(name: "Intel", stockExchange: "NYSE", score: 67)
+
         
         tempCompanies.append(company1)
-        tempCompanies.append(company2)
         tempCompanies.append(company3)
         tempCompanies.append(company4)
         tempCompanies.append(company5)
         tempCompanies.append(company6)
         tempCompanies.append(company7)
-        tempCompanies.append(company8)
         tempCompanies.append(company9)
-        tempCompanies.append(company10)
-        tempCompanies.append(company11)
         tempCompanies.append(company12)
-        
+        tempCompanies.append(company13)
+        tempCompanies.append(company14)
+
         return tempCompanies
     }
     
@@ -492,7 +488,7 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
             return searchArray.count
         }
         
-        return portfolioCompanies.count
+        return portcomp.count
     }
     
     // This function is used to configure each and every cell in the Table View
@@ -514,7 +510,7 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         
         
         else  {
-        let temp_company = portfolioCompanies[indexPath.row]
+        let temp_company = portcomp[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell") as! CompanyCell
         cell.setCompany(tempCompany: temp_company)
         cell.setupScore(value: companies[indexPath.row].score)
@@ -609,7 +605,7 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         {
         let vc = segue.destination as! CompanyController
        // vc.company = companies[indexPath1.row]
-        vc.searchedCompany = portfolioCompanies[indexPath1.row]
+        vc.searchedCompany = portcomp[indexPath1.row]
         if(move==true)
         {
         vc.searchedCompany = loadedCompany[0]

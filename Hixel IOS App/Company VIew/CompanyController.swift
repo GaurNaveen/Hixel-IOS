@@ -33,6 +33,9 @@ class CompanyController: UIViewController {
         //Port.addCompany1(company: company!)
       //  companyToAdd.append(company!)
        // performSegue(withIdentifier: "segue2", sender: self)
+        portcomp.append(searchedCompany!)
+         performSegue(withIdentifier: "segue2", sender: self)
+
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       //  let vc = segue.destination as! PortfolioController
@@ -83,7 +86,14 @@ class CompanyController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(portcomp.contains(where: {$0.identifiers.ticker == searchedCompany?.identifiers.ticker}))
+        {
         add_button2.isHidden = true
+        }
+        else{
+            add_button2.isHidden = false
+
+        }
         companyNameLabel.text = searchedCompany?.identifiers.name
         setChartValues()
        // dataField1.dropShadow()

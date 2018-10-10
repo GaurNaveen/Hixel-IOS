@@ -10,12 +10,14 @@ import UIKit
 import Moya
 import SVProgressHUD
 
+var portcomp = [Company]()
+
 class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     var move = false
     var companies1 = [Company]()
-    let companiesTicker = ["aapl","msft","tsla","twtr","snap","fb","amzn"]
+    let companiesTicker = ["aapl","msft","tsla","twtr","snap","fb","amzn","intc","amd"]
     var string = ""
 
     override func viewDidLoad() {
@@ -143,7 +145,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 let company = try! JSONDecoder().decode([Company].self, from: response.data)
                 self.companies1 = company
                 //self.companies1[0].identifiers.name
-                
+                portcomp = company
                 // Go to the Main Dashboard
 
                 self.performSegue(withIdentifier: "login_MainView", sender: self)

@@ -10,6 +10,7 @@ import UIKit
 
 class SearchCell: UITableViewCell {
     @IBOutlet weak var searchName: UILabel!
+ 
     
     func setCompany(tempCompany: TempCompany){
         searchName.text = tempCompany.name
