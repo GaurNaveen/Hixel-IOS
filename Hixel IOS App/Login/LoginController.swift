@@ -55,7 +55,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
             switch result {
             case .success(let response):
                 if (response.statusCode == 200) {
-                    
+                    print("Killa")
                     SVProgressHUD.setStatus("Loading Portfolio")
                     //SVProgressHUD.dismiss()
                     

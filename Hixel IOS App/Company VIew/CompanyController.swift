@@ -38,7 +38,7 @@ class CompanyController: UIViewController {
       //  companyToAdd.append(company!)
        // performSegue(withIdentifier: "segue2", sender: self)
         portcomp.append(searchedCompany!)
-         performSegue(withIdentifier: "segue2", sender: self)
+        // performSegue(withIdentifier: "segue2", sender: self)
 
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -146,8 +146,12 @@ class CompanyController: UIViewController {
         indexPaths.append(indexPath4)
 
     }
-
-    // does the fillin animation
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setToolbarHidden(false, animated: true)
+    }
+    
+    // does the filling animation on the score chart.
     @objc private func handleTap()
     {
         print("Attepmting to animate strokee")
@@ -178,8 +182,8 @@ class CompanyController: UIViewController {
   var lineChartEntry2 = [ChartDataEntry]()
   var score_Values = [1,3,2,4,3]
     //var score_Values1 = [2,1,5,1,2]
-
-    var years = ["2014","2015","2016","2017","2018"]
+  var years = ["2014","2015","2016","2017","2018"]
+    
     // MARK: Setup Line Chart
     func setChartValues()
     {

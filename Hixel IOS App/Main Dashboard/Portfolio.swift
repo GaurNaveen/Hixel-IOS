@@ -12,20 +12,22 @@ import MaterialComponents.MaterialSnackbar
 import Moya
 import Charts
 import SVProgressHUD
+
 // Global Declaration of the Array that will hold varpanies Object
-var info = false
- var companies:[TempCompany]=[]
-var indexPath1 = IndexPath(row: 0, section: 0)
-var add: Bool = false
-var companyToAdd : [TempCompany] = []
-var move = false;
-class PortfolioController: UIViewController {
+    var info = false
+    var companies:[TempCompany]=[]
+    var indexPath1 = IndexPath(row: 0, section: 0)
+    var add: Bool = false
+    var companyToAdd : [TempCompany] = []
+    var move = false;
+
+    class PortfolioController: UIViewController {
+    
     @IBOutlet weak var MAINVIEW: UIView! // Conatins all the views in which we are working in
     @IBOutlet weak var searchController: UISearchBar!
     @IBOutlet weak var verticalAxis: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var SearchTableView: UITableView!
-    
     @IBOutlet weak var verticalBarLine: UIView!
     @IBOutlet weak var summary: UILabel!
     @IBOutlet weak var horixontalBarLine: UIView!
@@ -40,13 +42,12 @@ class PortfolioController: UIViewController {
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var overallLabel: UILabel!
-    
     @IBAction func moreInfoOnGraph(_ sender: Any) {
         info = true
-
-       // performSegue(withIdentifier: "Dashboard_Graph_info", sender: self)
+        // performSegue(withIdentifier: "Dashboard_Graph_info", sender: self)
         performSegue(withIdentifier: "port_graphinfo2", sender: self)
     }
+        
     let hardCodedStrings = ["Dashboard","Portfolio"]
     let financialIndicators = ["Health","Performance","Strength","Returns","Safety"]
     let overallFinancialValues = [3,2,5,3,4]

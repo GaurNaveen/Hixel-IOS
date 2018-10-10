@@ -20,6 +20,6 @@ class SettingsController: UIViewController{
     @IBOutlet weak var headerLabel: UILabel!
     
     override func viewDidLoad() {
-        headerLabel.text = "Hi, John Smith"
+        headerLabel.text = "Hi, Naveen Gaur"
     }
 }
