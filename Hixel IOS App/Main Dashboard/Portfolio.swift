@@ -11,6 +11,7 @@ import UIKit
 import MaterialComponents.MaterialSnackbar
 import Moya
 import Charts
+import SVProgressHUD
 // Global Declaration of the Array that will hold varpanies Object
 var info = false
  var companies:[TempCompany]=[]
@@ -55,7 +56,7 @@ class PortfolioController: UIViewController {
     // MARK: Array that holds the companies retrieved from the server
     var portfolioCompanies = [Company]()
     var searchArray = [SearchEntry]()
-
+    var loadedCompany = [Company]()
     let searchcontroller1 = UISearchController(searchResultsController: nil)
     var filteredCompanies = [String]()
     
@@ -413,6 +414,35 @@ class PortfolioController: UIViewController {
         }
     }
     
+    func loadCompany(ticker:String)
+    {
+        let _ = Client().request(.companydata(tickers: ticker, years: 1)).subscribe{ event in
+            switch event {
+            case .success(let response):
+                // Dismiss the Progress bar.
+                //SVProgressHUD.dismiss()
+                
+                print("hello")
+                print("The ticker is",ticker)
+                
+                let company = try! JSONDecoder().decode([Company].self, from: response.data)
+                //self.companies1[0].identifiers.name
+               // self.loadedCompany = company
+                self.loadedCompany = company
+                SVProgressHUD.dismiss()
+                 self.performSegue(withIdentifier: "Dashboard_Company", sender: self)
+                break
+                
+            case .error(let error):
+                print(error)
+                break
+            }
+        }
+        
+       
+
+    }
+    
     
     
 
@@ -540,9 +570,32 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Load the company data for that particular company
+        if(tableView == self.SearchTableView)
+        {
+            SVProgressHUD.show()
+            info = false
+
+            indexPath1 = indexPath
+            var ticker = searchArray[indexPath.row].ticker
+            
+            //loadCompany(ticker)
+            loadCompany(ticker: ticker)
+            
+            // After the company is loaded, BOOM!! move to the Company Data View
+            info = false
+
+            //performSegue(withIdentifier: "Dashboard_Company", sender: self)
+
+        }
+        
+        else
+        {
         info = false
         indexPath1 = indexPath
         performSegue(withIdentifier: "Dashboard_Company", sender: self)
+        }
     }
     
     
@@ -551,8 +604,11 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         if( info == false)
         {
         let vc = segue.destination as! CompanyController
-        vc.company = companies[indexPath1.row]
+       // vc.company = companies[indexPath1.row]
+        //vc.searchedCompany = portfolioCompanies[indexPath1.row]
+        vc.searchedCompany = loadedCompany[0]
        // print(vc.company)
+            
         }
     }
     

@@ -13,7 +13,7 @@ class CompanyController: UIViewController {
     @IBOutlet weak var add_button2: UIButton!
     // MARK: This is the main company variable
     var company : TempCompany? = nil
-    
+    var searchedCompany : Company? = nil
     
     @IBOutlet weak var companyNameLabel: UILabel!
     
@@ -39,8 +39,6 @@ class CompanyController: UIViewController {
        // vc.addCompany1(company: company!)
     }
     
-    
-
     @IBOutlet weak var lineChartView: LineChartView!
     // Company Name is hardcoded rn, will be removed when network layer is connected
     var ratios = ["Apple Inc","Liquidity Ratio","Debt Ratio","P/E Ratio","Health","Performance","Strength","Risk"]
@@ -86,7 +84,7 @@ class CompanyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         add_button2.isHidden = true
-        companyNameLabel.text = company?.name
+        companyNameLabel.text = searchedCompany?.identifiers.name
         setChartValues()
        // dataField1.dropShadow()
         // Do any additional setup after loading the view.
