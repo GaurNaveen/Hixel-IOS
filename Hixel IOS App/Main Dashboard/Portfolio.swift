@@ -18,6 +18,7 @@ var info = false
 var indexPath1 = IndexPath(row: 0, section: 0)
 var add: Bool = false
 var companyToAdd : [TempCompany] = []
+var move = false;
 class PortfolioController: UIViewController {
     @IBOutlet weak var MAINVIEW: UIView! // Conatins all the views in which we are working in
     @IBOutlet weak var searchController: UISearchBar!
@@ -62,6 +63,7 @@ class PortfolioController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
        SearchTableView.isHidden = true
         print("Hoollla")
         print("Companies count ",portfolioCompanies)
@@ -430,7 +432,9 @@ class PortfolioController: UIViewController {
                // self.loadedCompany = company
                 self.loadedCompany = company
                 SVProgressHUD.dismiss()
+                move = true
                  self.performSegue(withIdentifier: "Dashboard_Company", sender: self)
+                move = false
                 break
                 
             case .error(let error):
@@ -605,8 +609,11 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         {
         let vc = segue.destination as! CompanyController
        // vc.company = companies[indexPath1.row]
-        //vc.searchedCompany = portfolioCompanies[indexPath1.row]
+        vc.searchedCompany = portfolioCompanies[indexPath1.row]
+        if(move==true)
+        {
         vc.searchedCompany = loadedCompany[0]
+            }
        // print(vc.company)
             
         }

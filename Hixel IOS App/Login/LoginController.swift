@@ -13,9 +13,9 @@ import SVProgressHUD
 class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
-    
+    var move = false
     var companies1 = [Company]()
-    let companiesTicker = ["aapl","msft","tsla"]
+    let companiesTicker = ["aapl","msft","tsla","twtr","snap","fb","amzn"]
     var string = ""
 
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        
+        move = true
         // If the username and password are empty , raise an alert telling the user about it.
         if(username.text!.isEmpty || password.text!.isEmpty)
         {
@@ -86,12 +86,13 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     // Takes the user to the Sign Up View
     @IBAction func newAccount(_ sender: Any) {
+        move = false
         performSegue(withIdentifier: "login_signUP", sender: self)
     }
     
     // Takes the user to the Forgot Password View
     @IBAction func forgot_password(_ sender: Any) {
-        
+        move = false
         performSegue(withIdentifier: "login_forgotPassword", sender: self)
     }
     
@@ -186,9 +187,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
         let vc = segue.destination as! PortfolioController
         vc.portfolioCompanies = companies1
         */
+        if(move == true)
+        {
         let tabCtrl: UITabBarController = segue.destination as! UITabBarController
         let destinationVC = tabCtrl.viewControllers![0] as! PortfolioController // [0] because Portfolio is the first tab in the tab bar controller.
         destinationVC.portfolioCompanies = companies1
+        }
     }
 }
 

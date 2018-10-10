@@ -13,8 +13,8 @@ class SettingsController: UIViewController{
     
     // Should take the user back to the Login View
     @IBAction func logout(_ sender: Any) {
-       // performSegue(withIdentifier: "logout", sender: self)
-        performSegue(withIdentifier: "testsegue", sender: self)
+        performSegue(withIdentifier: "logout", sender: self)
+        //performSegue(withIdentifier: "testsegue", sender: self)
 
     }
     @IBOutlet weak var headerLabel: UILabel!
