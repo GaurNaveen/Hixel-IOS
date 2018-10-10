@@ -9,6 +9,10 @@
 import UIKit
 import Charts
 class CompanyController: UIViewController {
+    @IBAction func finanail_indicators_info(_ sender: Any) {
+        performSegue(withIdentifier: "indicators_info", sender: self)
+
+    }
     
     @IBOutlet weak var add_button2: UIButton!
     // MARK: This is the main company variable
