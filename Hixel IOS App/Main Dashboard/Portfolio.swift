@@ -402,7 +402,9 @@ import SVProgressHUD
                 
                 // MARK: Reload the table data when the search results are in.
                 self.SearchTableView.reloadData()
-                
+                var frame = self.SearchTableView.frame
+                frame.size.height = self.SearchTableView.contentSize.height+50
+                self.SearchTableView.frame = frame
                 break
                 
             case .error(let error):

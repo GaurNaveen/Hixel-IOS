@@ -9,7 +9,8 @@
 import UIKit
 
 class SearchResultTableViewCell1: UITableViewCell {
-
+    var exchange = ""
+    var tickerSymbol = ""
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,9 +23,14 @@ class SearchResultTableViewCell1: UITableViewCell {
     }
     
     @IBOutlet weak var searchTextLabel: UILabel!
+    @IBOutlet weak var ticker: UILabel!
     func setupcell(searchEntry:SearchEntry)
     {
+        exchange = searchEntry.exchange
+        tickerSymbol = searchEntry.ticker
+        
         searchTextLabel.text = searchEntry.name
+        ticker.text = exchange + " "+tickerSymbol
 
     }
     

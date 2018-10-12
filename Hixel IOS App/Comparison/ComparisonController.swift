@@ -49,9 +49,10 @@ class ComparisonController: UIViewController{
        print(companies.count, "ey")
        compare2.isHidden = true
        clear.isHidden = true
-        
+        //searchView.translatesAutoresizingMaskIntoConstraints = false
         searchView.isHidden = true
-        searchView.dropShadow()
+        //searchView.dropShadow()
+      //  searchView.layer.cornerRadius = 10.0
     }
 
     func setAccessoryToNone()
@@ -78,7 +79,9 @@ class ComparisonController: UIViewController{
                 
                 // MARK: Reload the table data when the search results are in.
                 self.searchView.reloadData()
-                
+                var frame = self.searchView.frame
+                frame.size.height = self.searchView.contentSize.height+50
+                self.searchView.frame = frame
                 break
                 
             case .error(let error):
