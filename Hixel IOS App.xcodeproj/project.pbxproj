@@ -69,6 +69,7 @@
 		B6A52401214213340007B0C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6A523FD21420F600007B0C8 /* Assets.xcassets */; };
 		B6A52402214213350007B0C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6A523FD21420F600007B0C8 /* Assets.xcassets */; };
 		B6C29EC4215D46BF00DA437F /* SelectedCompaniesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C29EC3215D46BF00DA437F /* SelectedCompaniesCollectionViewCell.swift */; };
+		B6D153F7217073B600ABB7C8 /* SearchComparisonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D153F6217073B600ABB7C8 /* SearchComparisonCell.swift */; };
 		B6E61A5C216D624D00961710 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E61A5B216D624D00961710 /* TestViewController.swift */; };
 		B6E61A5E216D638200961710 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E61A5D216D638200961710 /* SearchTableViewCell.swift */; };
 		B6E61A62216D78DA00961710 /* SearchResultTableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E61A61216D78DA00961710 /* SearchResultTableViewCell1.swift */; };
@@ -147,6 +148,7 @@
 		B6A523FB21420F490007B0C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B6A523FD21420F600007B0C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6C29EC3215D46BF00DA437F /* SelectedCompaniesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCompaniesCollectionViewCell.swift; sourceTree = "<group>"; };
+		B6D153F6217073B600ABB7C8 /* SearchComparisonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchComparisonCell.swift; sourceTree = "<group>"; };
 		B6E61A5B216D624D00961710 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		B6E61A5D216D638200961710 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		B6E61A61216D78DA00961710 /* SearchResultTableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell1.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 		B65A53822141538600C18554 = {
 			isa = PBXGroup;
 			children = (
+				B6D153F6217073B600ABB7C8 /* SearchComparisonCell.swift */,
 				B6A523FB21420F490007B0C8 /* Default-568h@2x.png */,
 				B65A538D2141538600C18554 /* Hixel IOS App */,
 				B65A53A22141538700C18554 /* Hixel IOS AppTests */,
@@ -651,6 +654,7 @@
 				B61B179A21519B200029CA63 /* TableViewCell.swift in Sources */,
 				8C3DD2892163CFCF00DA2C99 /* Credentials.swift in Sources */,
 				8CA9B1632146D64F00FC5502 /* CompanyIdentifiers.swift in Sources */,
+				B6D153F7217073B600ABB7C8 /* SearchComparisonCell.swift in Sources */,
 				8C3DD283216394F400DA2C99 /* Client.swift in Sources */,
 				B6A2D74F214FA5A000853A0C /* SearchCell.swift in Sources */,
 				B61B1798215180BF0029CA63 /* CollectionViewCell3.swift in Sources */,

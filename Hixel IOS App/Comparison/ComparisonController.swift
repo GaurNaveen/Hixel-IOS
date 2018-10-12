@@ -11,6 +11,11 @@ import UIKit
 
 
 class ComparisonController: UIViewController{
+    
+    var searchArray = [SearchEntry]()
+
+    @IBOutlet weak var searchView: UITableView!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var clear: UIButton!
@@ -44,7 +49,7 @@ class ComparisonController: UIViewController{
        print(companies.count, "ey")
        compare2.isHidden = true
        clear.isHidden = true
-        
+        searchView.isHidden = true
         
     }
 
@@ -56,31 +61,51 @@ class ComparisonController: UIViewController{
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
         }
     }
+    
+    // This function connects to the server and loads the search results.
+    func serach(query:String)
+    {
+        let _ = Client().request(.search(query: query)).subscribe { event in
+            switch event{
+            case .success(let response):
+                print("Hurray")
+                
+               // let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
+                let searches = try! JSONDecoder().decode([SearchEntry].self, from: response.data)
+                self.searchArray = searches
+                print("Sex",searches)
+                
+                // MARK: Reload the table data when the search results are in.
+                self.searchView.reloadData()
+                
+                break
+                
+            case .error(let error):
+                print("Yikes")
+                print(error)
+                break
+            }
+        }
+    }
    
 }
 
 // MARK: Comparison Search setup here
 extension ComparisonController: UISearchBarDelegate {
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        isSearching = true
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        isSearching = false
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearching = false
-
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        isSearching = false
-
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchView.isHidden = false
+        
+        if(searchText.count != 0)
+        {
+            // make network calls
+            serach(query: searchText)
+        }
+        
+        if(searchText.count == 0)
+        {
+            searchView.isHidden = true
+        }
         
     }
     
@@ -90,11 +115,32 @@ extension ComparisonController: UISearchBarDelegate {
 extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if (tableView == searchView)
+        {
+            return searchArray.count
+        }
+        
+        
       return   companies.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if(tableView == searchView)
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchComparisonCell
+            
+            if(searchArray.count != 0 )
+            {
+            cell.setupCell(company: searchArray[indexPath.row])
+            }
+            return cell
+        }
+        
+        
+        
         let company = companies[indexPath.row]
         let cell  = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SearchCell
         cell.setCompany(tempCompany: company)
