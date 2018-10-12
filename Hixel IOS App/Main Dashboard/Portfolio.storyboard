@@ -2254,48 +2254,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="xM1-UC-9A1">
-                                <rect key="frame" x="0.0" y="86" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Ije-et-cbD" id="Mlt-BE-KlT"/>
-                                </connections>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2a6-6F-Wey">
-                                <rect key="frame" x="0.0" y="142" width="375" height="525"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="108" id="H6c-ts-TLr" customClass="SearchTableViewCell" customModule="Hixel_IOS_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="108"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H6c-ts-TLr" id="DnP-je-aO0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="107.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mb-ZD-jfP">
-                                                    <rect key="frame" x="0.0" y="43" width="375" height="54"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="0mb-ZD-jfP" firstAttribute="top" secondItem="DnP-je-aO0" secondAttribute="top" constant="43" id="2de-l4-z4K"/>
-                                                <constraint firstAttribute="trailing" secondItem="0mb-ZD-jfP" secondAttribute="trailing" id="9OF-z2-8S0"/>
-                                                <constraint firstAttribute="bottom" secondItem="0mb-ZD-jfP" secondAttribute="bottom" constant="10.5" id="Sg6-cE-l4l"/>
-                                                <constraint firstItem="0mb-ZD-jfP" firstAttribute="leading" secondItem="DnP-je-aO0" secondAttribute="leading" id="d9F-UP-lpv"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="searchTextLabel" destination="0mb-ZD-jfP" id="6ac-oO-odJ"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="Ije-et-cbD" id="eX3-ht-1Rh"/>
-                                    <outlet property="delegate" destination="Ije-et-cbD" id="tnD-dC-uua"/>
-                                </connections>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUP-N3-hIH">
                                 <rect key="frame" x="8" y="48" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
@@ -2303,27 +2261,25 @@
                                     <action selector="back_button:" destination="Ije-et-cbD" eventType="touchUpInside" id="0ll-Hq-eVG"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2v-QI-Eln" customClass="RadarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="138" width="375" height="425"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2a6-6F-Wey" firstAttribute="bottom" secondItem="K6z-Ec-Dqg" secondAttribute="bottom" id="09S-f2-y7E"/>
-                            <constraint firstItem="xM1-UC-9A1" firstAttribute="leading" secondItem="K6z-Ec-Dqg" secondAttribute="leading" id="5Df-nR-e8Y"/>
-                            <constraint firstItem="xM1-UC-9A1" firstAttribute="trailing" secondItem="K6z-Ec-Dqg" secondAttribute="trailing" id="D3w-lC-JtB"/>
-                            <constraint firstItem="xM1-UC-9A1" firstAttribute="top" secondItem="aUP-N3-hIH" secondAttribute="bottom" constant="8" id="H3W-If-Cvd"/>
-                            <constraint firstItem="2a6-6F-Wey" firstAttribute="leading" secondItem="K6z-Ec-Dqg" secondAttribute="leading" id="Hnm-xi-1CT"/>
-                            <constraint firstItem="xM1-UC-9A1" firstAttribute="top" secondItem="K6z-Ec-Dqg" secondAttribute="top" constant="66" id="NJr-7o-MQC"/>
+                            <constraint firstItem="K6z-Ec-Dqg" firstAttribute="bottom" secondItem="g2v-QI-Eln" secondAttribute="bottom" constant="104" id="3bA-iZ-A57"/>
+                            <constraint firstItem="g2v-QI-Eln" firstAttribute="top" secondItem="aUP-N3-hIH" secondAttribute="bottom" constant="60" id="JfF-qK-Ard"/>
                             <constraint firstItem="aUP-N3-hIH" firstAttribute="top" secondItem="K6z-Ec-Dqg" secondAttribute="top" constant="28" id="OHv-1R-tMa"/>
                             <constraint firstItem="aUP-N3-hIH" firstAttribute="leading" secondItem="K6z-Ec-Dqg" secondAttribute="leading" constant="8" id="PNB-7N-yRh"/>
-                            <constraint firstItem="K6z-Ec-Dqg" firstAttribute="bottom" secondItem="xM1-UC-9A1" secondAttribute="bottom" constant="525" id="Pre-om-m8c"/>
+                            <constraint firstItem="g2v-QI-Eln" firstAttribute="trailing" secondItem="K6z-Ec-Dqg" secondAttribute="trailing" id="cXd-XY-p5j"/>
+                            <constraint firstItem="g2v-QI-Eln" firstAttribute="leading" secondItem="K6z-Ec-Dqg" secondAttribute="leading" id="cgK-80-pp3"/>
                             <constraint firstItem="K6z-Ec-Dqg" firstAttribute="trailing" secondItem="aUP-N3-hIH" secondAttribute="trailing" constant="321" id="j77-Al-HrV"/>
-                            <constraint firstItem="2a6-6F-Wey" firstAttribute="top" secondItem="xM1-UC-9A1" secondAttribute="bottom" id="mhu-S0-s5I"/>
-                            <constraint firstItem="2a6-6F-Wey" firstAttribute="trailing" secondItem="K6z-Ec-Dqg" secondAttribute="trailing" id="msz-h2-Asj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K6z-Ec-Dqg"/>
                     </view>
                     <connections>
-                        <outlet property="search" destination="2a6-6F-Wey" id="CDo-Ns-Y1Y"/>
-                        <outlet property="searchBar" destination="xM1-UC-9A1" id="b2i-TQ-xYW"/>
+                        <outlet property="radarChart" destination="g2v-QI-Eln" id="xI4-zS-umq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCf-cp-Wps" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2353,9 +2309,8 @@
         <image name="user-1" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hp5-UO-Yc0"/>
-        <segue reference="S3T-pC-Rh2"/>
-        <segue reference="uNh-mk-Z55"/>
+        <segue reference="J9O-rh-PCW"/>
+        <segue reference="zqB-K4-ABl"/>
         <segue reference="IRP-rs-cQD"/>
         <segue reference="gvh-FA-UjS"/>
         <segue reference="lIu-Uh-BJu"/>

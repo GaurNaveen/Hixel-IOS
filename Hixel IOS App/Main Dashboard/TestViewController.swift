@@ -7,99 +7,71 @@
 //
 
 import UIKit
-
+import Charts
 class TestViewController: UIViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var radarChart: RadarChartView!
+    //Label
+    let subjects = ["Health", "Safety", "Performance", "Revenue", "Biology"]
+    let activities = ["Burger", "Steak", "Salad", "Pasta", "Pizza"]
+
+    //Points
+    let array = [1.0, 2.0, 3.0, 4.0, 5.0]
     var searchArray = [SearchEntry]()
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        serach()
         // Do any additional setup after loading the view.
+       setChart(dataPoints: subjects, values: array)
+      //  set(dataPoints: subjects, values: array)
+
     }
-    @IBOutlet weak var search: UITableView!
-    
     @IBAction func back_button(_ sender: Any) {
         self.dismiss(animated: true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+   func setChart(dataPoints: [String], values: [Double]) {
+    radarChart.noDataText = "You need to provide data for the chart."
+    var dataEntries: [ChartDataEntry] = []
+    for i in 0..<dataPoints.count {
+    
+        let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
+       // print(values[i])
+        dataEntries.append(dataEntry)
     }
-    */
-    func serach(query:String)
-    {
-        let _ = Client().request(.search(query: query)).subscribe { event in
-            switch event{
-            case .success(let response):
-                print("Hurray")
-                
-                let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
-                let searches = try! JSONDecoder().decode([SearchEntry].self, from: response.data)
-                self.searchArray = searches
-                print("Sex",searches)
-                
-                // MARK: Reload the table data when the search results are in.
-                self.search.reloadData()
+    let chartDataSet = RadarChartDataSet(values: dataEntries, label: "Apple ")
+    //Options of radarChart
+    radarChart.sizeToFit()
+   //radarChart.description = "as"
+    
+    //Options for the axis from here. The range is 0-100, the interval is 20
+    radarChart.yAxis.labelCount = 6
+   // radarChart.yAxis.axisMinimum = 0.0
+    //radarChart.yAxis.axisMaximum = 100.0
+    
+    radarChart.rotationEnabled = true
+    chartDataSet.drawFilledEnabled = true
+    
+    
+    //Other options
+   // radarChart.legend.enabled = false
+    radarChart.yAxis.gridAntialiasEnabled = true
+    radarChart.animate(yAxisDuration: 2.0)
+    radarChart.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: subjects)
+   // let chartData = RadarChartData(xVals: subjects, dataSet: chartDataSet)
+    //radayAxis.drawLabelsEnabled = false
+    radarChart.yAxis.drawLabelsEnabled = false
+    radarChart.xAxis.axisMinimum = 0;
+    radarChart.xAxis.axisMaximum = 500;
+    let chartData = RadarChartData(dataSet: chartDataSet)
 
-                break
-                
-            case .error(let error):
-                print("Yikes")
-                print(error)
-                break
-            }
-        }
+    radarChart.data = chartData
+
     }
+    
+    
+    
 
 }
 
-extension TestViewController: UITableViewDataSource,UITableViewDelegate{
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return  searchArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SearchTableViewCell
-        
-        if(searchArray.count != 0 )
-        {
-            cell.setupCell(searchEntry: searchArray[indexPath.row])
-        }
-        
-        
-        
-        return cell
-    }
-    
-}
-
-extension TestViewController: UISearchBarDelegate {
-    
-    // Call the Search method from here and put the results into the array , then reload the table view
-   
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        if(searchText.count != 0)
-        {
-            search.isHidden = false
-            serach(query: searchText)
-
-        }
-        
-        if(searchText.count == 0)
-        {
-                        search.isHidden = true
-        }
-       print("count",searchText.count)
-        
-    }
-    
-}
