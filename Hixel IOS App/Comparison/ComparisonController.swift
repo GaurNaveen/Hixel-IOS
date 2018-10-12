@@ -80,7 +80,7 @@ class ComparisonController: UIViewController{
                 // MARK: Reload the table data when the search results are in.
                 self.searchView.reloadData()
                 var frame = self.searchView.frame
-                frame.size.height = self.searchView.contentSize.height+50
+                frame.size.height = self.searchView.contentSize.height+70
                 self.searchView.frame = frame
                 break
                 
