@@ -49,8 +49,9 @@ class ComparisonController: UIViewController{
        print(companies.count, "ey")
        compare2.isHidden = true
        clear.isHidden = true
-        searchView.isHidden = true
         
+        searchView.isHidden = true
+        searchView.dropShadow()
     }
 
     func setAccessoryToNone()
@@ -150,6 +151,8 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(tableView != searchView)
+        {
         clear.isHidden = false
       
         if(tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark)
@@ -188,7 +191,7 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
    
    
     
-    
+    }
 }
 
 // MARK: Setup for selected companies on top of Your Portfolio companies
