@@ -14,6 +14,11 @@ enum ServerInterface {
     
     // "users/"
     case signup(applicationUser: ApplicationUser)
+    case userData()
+    case resetEmail(email: String)
+    case resetCode(email: String, code: String)
+    case resetPassword(email: String, code: String, password: String)
+    case changePassword(oldPassword: String, newPassword: String)
     case refresh(token: String)
     
     case companydata(tickers: String, years: Int)
@@ -35,6 +40,16 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
                 return "/users/sign-up"
             case .refresh:
                 return "/users/refresh"
+            case .userData:
+                return "users/profile"
+            case .resetEmail:
+                return "users/reset-email"
+            case .resetCode:
+                return "users/reset-code"
+            case .resetPassword:
+                return "users/reset-password"
+            case .changePassword:
+                return "users/change-password"
             case .companydata:
                 return "/companydata"
             case .search:
@@ -59,6 +74,14 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
                 return .requestJSONEncodable(loginData)
             case .signup(let applicationUser):
                 return .requestJSONEncodable(applicationUser)
+            case .resetEmail(let email):
+                return .requestParameters(parameters: ["email": email], encoding: URLEncoding.queryString)
+            case .resetCode(let email, let code):
+                return .requestParameters(parameters: ["email": email, "code": code], encoding: URLEncoding.queryString)
+            case .resetPassword(let email, let code, let password):
+                return .requestParameters(parameters: ["email": email, "code": code, "password": password], encoding: URLEncoding.queryString)
+            case .changePassword(let oldPassword, let newPassword):
+                return .requestParameters(parameters: ["oldPassword": oldPassword, "newPassword": newPassword], encoding: URLEncoding.queryString)
             case .companydata(let tickers, let years):
                 return .requestParameters(parameters: ["tickers": tickers, "years": years], encoding: URLEncoding.queryString)
             case .search(let query):
@@ -72,7 +95,7 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
         var h = ["Content-type": "application/json"]
         
         switch self {
-            case .login, .signup:
+            case .login, .signup, .resetEmail, .resetCode, .resetPassword:
                 break
             case .refresh:
                 h["Refresh"] = Credentials.currentCredentials().refreshToken
@@ -85,13 +108,8 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
     
     var authorizationType: AuthorizationType {
         switch self {
-            case .login:
-                fallthrough
-            case .signup:
-                fallthrough
-            case .refresh:
+            case .login, .signup, .resetEmail, .resetCode, .resetPassword:
                 return .none
-            
             default:
                 return .bearer
         }

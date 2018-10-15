@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		01E7DB5D41EC833636E1DC8B /* Pods_Hixel_IOS_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA35FF841B2F2C5A74FBE7E5 /* Pods_Hixel_IOS_AppUITests.framework */; };
 		734B87F9F826882AE3C9E238 /* Pods_Hixel_IOS_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E67BE17182F949A42DD2289 /* Pods_Hixel_IOS_App.framework */; };
+		8C32D27E217239C30087A3FD /* UserPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D27D217239C30087A3FD /* UserPortfolio.swift */; };
+		8C32D28021723B530087A3FD /* PortfolioCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D27F21723B530087A3FD /* PortfolioCompany.swift */; };
 		8C3DD283216394F400DA2C99 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DD282216394F400DA2C99 /* Client.swift */; };
 		8C3DD2892163CFCF00DA2C99 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DD2882163CFCF00DA2C99 /* Credentials.swift */; };
 		8C3DD28A2163E89000DA2C99 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DD282216394F400DA2C99 /* Client.swift */; };
@@ -108,6 +110,8 @@
 		336CD5C64B0D33E240F1D549 /* Pods-Hixel IOS AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppUITests/Pods-Hixel IOS AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		61D8BCCA86C733592D390A40 /* Pods-Hixel IOS App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS App/Pods-Hixel IOS App.debug.xcconfig"; sourceTree = "<group>"; };
 		6CABD49832682223D4D7E494 /* Pods-Hixel IOS AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppTests/Pods-Hixel IOS AppTests.release.xcconfig"; sourceTree = "<group>"; };
+		8C32D27D217239C30087A3FD /* UserPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPortfolio.swift; sourceTree = "<group>"; };
+		8C32D27F21723B530087A3FD /* PortfolioCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCompany.swift; sourceTree = "<group>"; };
 		8C3DD282216394F400DA2C99 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		8C3DD2882163CFCF00DA2C99 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		8C668BD12146B35100356101 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -296,6 +300,8 @@
 				8CA9B1662146D8CE00FC5502 /* LoginData.swift */,
 				8CA9B1682146DEE500FC5502 /* ApplicationUser.swift */,
 				8CA9B16A2146DFB400FC5502 /* SearchEntry.swift */,
+				8C32D27D217239C30087A3FD /* UserPortfolio.swift */,
+				8C32D27F21723B530087A3FD /* PortfolioCompany.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -627,6 +633,7 @@
 				B6E9F3B32154D5EC00B2168D /* SignUpController.swift in Sources */,
 				B61B17902150F2FB0029CA63 /* ComparisonCollectionViewCell.swift in Sources */,
 				8CB823502146C0170065A34D /* ServerInterface.swift in Sources */,
+				8C32D27E217239C30087A3FD /* UserPortfolio.swift in Sources */,
 				B61B178C2150E70D0029CA63 /* ComparisonController2.swift in Sources */,
 				B65A53C8214209CB00C18554 /* SettingsController.swift in Sources */,
 				8CA9B1652146D77A00FC5502 /* FinancialData.swift in Sources */,
@@ -653,6 +660,7 @@
 				B6FA6DC72147B29D00C38901 /* GraphScaleInfo.swift in Sources */,
 				B61B179A21519B200029CA63 /* TableViewCell.swift in Sources */,
 				8C3DD2892163CFCF00DA2C99 /* Credentials.swift in Sources */,
+				8C32D28021723B530087A3FD /* PortfolioCompany.swift in Sources */,
 				8CA9B1632146D64F00FC5502 /* CompanyIdentifiers.swift in Sources */,
 				B6D153F7217073B600ABB7C8 /* SearchComparisonCell.swift in Sources */,
 				8C3DD283216394F400DA2C99 /* Client.swift in Sources */,
