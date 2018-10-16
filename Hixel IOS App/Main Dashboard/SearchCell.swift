@@ -9,11 +9,20 @@
 import UIKit
 
 class SearchCell: UITableViewCell {
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var stock: UILabel!
+    @IBOutlet weak var compName: UILabel!
     @IBOutlet weak var searchName: UILabel!
  
+    @IBOutlet weak var searchCard: UIView!
     
-    func setCompany(tempCompany: TempCompany){
-        searchName.text = tempCompany.name
+    func setCompany(company: Company){
+        //searchName.text = tempCompany.name
+        searchCard.dropShadow()
+        searchCard.layer.cornerRadius = 5.0
+        compName.text = company.identifiers.name
+        stock.text = "Ticker "+company.identifiers.ticker
+        
     }
     
     

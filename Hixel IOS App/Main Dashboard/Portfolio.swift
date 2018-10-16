@@ -14,14 +14,14 @@ import Charts
 import SVProgressHUD
 
 // Global Declaration of the Array that will hold varpanies Object
-    var info = false
-    var companies:[TempCompany]=[]
-    var indexPath1 = IndexPath(row: 0, section: 0)
-    var add: Bool = false
-    var companyToAdd : [TempCompany] = []
-    var move = false;
+var info = false
+var companies:[TempCompany]=[]
+var indexPath1 = IndexPath(row: 0, section: 0)
+var add: Bool = false
+var companyToAdd : [TempCompany] = []
+var move = false;
 
-    class PortfolioController: UIViewController {
+class PortfolioController: UIViewController {
     
     @IBOutlet weak var MAINVIEW: UIView! // Conatins all the views in which we are working in
     @IBOutlet weak var searchController: UISearchBar!
@@ -47,8 +47,10 @@ import SVProgressHUD
         // performSegue(withIdentifier: "Dashboard_Graph_info", sender: self)
         performSegue(withIdentifier: "port_graphinfo2", sender: self)
     }
-        
-    let hardCodedStrings = ["Dashboard","Portfolio"]
+    @IBOutlet weak var barChartView: BarChartView!
+    
+    
+    let hardCodedStrings = ["Dashboard","Overview"]
     let financialIndicators = ["Health","Performance","Strength","Returns","Safety"]
     let overallFinancialValues = [3,2,5,3,4]
     let graphScale = ["0","1","2","3","4","5"]
@@ -61,18 +63,24 @@ import SVProgressHUD
     var loadedCompany = [Company]()
     let searchcontroller1 = UISearchController(searchResultsController: nil)
     var filteredCompanies = [String]()
-    
+    var months : [String]!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-       SearchTableView.isHidden = true
+        
+        SearchTableView.isHidden = true
         print("Hoollla")
         print("Companies count ",portfolioCompanies)
         
         setupHeaderView()
         overallLabel.text = hardCodedStrings[1]
+        months = ["Health", "Performance", "Return", "Risk", "Strength"]
+
+        let yvalues = [3.0,4.0,1.0,2.0,5.0]
         
-        
+        setupBarChart(dataPoints: months, values: yvalues)
+       // barChartView.dropShadow()
         // setup the UITable view to have a list of Companies on the Dashboard
         companies = createArray()
         
@@ -83,25 +91,25 @@ import SVProgressHUD
         setupBarGraphView()
         print("ola")
         /* Activate when doing onboarding
-        // If the user doesn't have any company then display the message
-        let message = UILabel()
-        MAINVIEW.addSubview(message)
-        message.text = "Please add a company"
-        message.font = message.font.withSize(15)
-        message.translatesAutoresizingMaskIntoConstraints = false
-        message.centerXAnchor.constraint(equalTo: MAINVIEW.centerXAnchor).isActive = true
-        message.centerYAnchor.constraint(equalTo: MAINVIEW.centerYAnchor).isActive = true
-        message.heightAnchor.constraint(equalToConstant: 120).isActive = true
-        message.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        */
+         // If the user doesn't have any company then display the message
+         let message = UILabel()
+         MAINVIEW.addSubview(message)
+         message.text = "Please add a company"
+         message.font = message.font.withSize(15)
+         message.translatesAutoresizingMaskIntoConstraints = false
+         message.centerXAnchor.constraint(equalTo: MAINVIEW.centerXAnchor).isActive = true
+         message.centerYAnchor.constraint(equalTo: MAINVIEW.centerYAnchor).isActive = true
+         message.heightAnchor.constraint(equalToConstant: 120).isActive = true
+         message.widthAnchor.constraint(equalToConstant: 120).isActive = true
+         */
         if(add == true)
         {
-           // tableView.reloadData()
+            // tableView.reloadData()
             //addCompany1(company: companyToAdd!)
             
             companies += companyToAdd
             print(companies)
-
+            
             reload()
         }
         
@@ -113,8 +121,8 @@ import SVProgressHUD
                 print(response.data)
             case .failure(let error):
                 print(error)
-               
-
+                
+                
             }
         }
         
@@ -130,6 +138,52 @@ import SVProgressHUD
         headerLabel.text = hardCodedStrings[0]
         headerLabel.textColor = .black
         
+    }
+    
+    func setupBarChart(dataPoints: [String], values: [Double])
+    {
+        barChartView.noDataText = "You need to provide data for the chart."
+        barChartView.legend.enabled = false
+        barChartView.drawValueAboveBarEnabled = false
+        barChartView.drawBarShadowEnabled = false
+        var dataEntries : [BarChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]])
+            dataEntries.append(dataEntry)
+            
+            
+        }
+        
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
+        chartDataSet.setColors(UIColor.init(netHex: 0xFFDD7C),UIColor.init(netHex: 0x1DCEB1),UIColor.init(netHex: 0xFF5D84),UIColor.init(netHex: 0xFF5D84),UIColor.init(netHex: 0x1DCEB1))
+        let chartData = BarChartData(dataSet: chartDataSet)
+        chartData.barWidth = 0.2
+        chartData.setDrawValues(false)
+        
+        /*
+         
+         reset all the 5 colors of graph here depending upon the values
+         
+         */
+        
+        barChartView.xAxis.drawGridLinesEnabled = false
+        barChartView.xAxis.drawAxisLineEnabled = false
+        barChartView.xAxis.labelCount = 5
+        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
+        barChartView.xAxis.granularity = 1.0
+        
+        barChartView.leftAxis.labelPosition = .outsideChart
+        barChartView.leftAxis.drawGridLinesEnabled = true
+        barChartView.leftAxis.drawLabelsEnabled = true
+        barChartView.leftAxis.drawAxisLineEnabled = false
+        barChartView.rightAxis.enabled = false
+        
+        
+        barChartView.data = chartData
+        barChartView.xAxis.labelPosition = .bottom
+        barChartView.backgroundColor = UIColor.white
+        barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
     
     // Configures the Delegate and DataSource for the Table View
@@ -151,7 +205,7 @@ import SVProgressHUD
         let company12 = TempCompany(name: "Amazon Com Inc.", stockExchange: "NYSE", score: 67)
         let company13 = TempCompany(name: "Advanced Micro Devices Inc", stockExchange: "NYSE", score: 67)
         let company14 = TempCompany(name: "Intel", stockExchange: "NYSE", score: 67)
-
+        
         
         tempCompanies.append(company1)
         tempCompanies.append(company3)
@@ -163,7 +217,7 @@ import SVProgressHUD
         tempCompanies.append(company12)
         tempCompanies.append(company13)
         tempCompanies.append(company14)
-
+        
         return tempCompanies
     }
     
@@ -183,7 +237,7 @@ import SVProgressHUD
         verticalAxis.heightAnchor.constraint(equalToConstant: 200).isActive = true
         verticalAxis.widthAnchor.constraint(equalToConstant: 2).isActive = true
         verticalAxis.backgroundColor = UIColor.black
-       
+        
         setupBarGraphLabel()
         
     }
@@ -201,8 +255,8 @@ import SVProgressHUD
         barLabel3.text = financialIndicators[2]
         barLabel4.text = financialIndicators[3]
         barLabel5.text = financialIndicators[4]
-       
-       
+        
+        
         barColors()
         barLines()
     }
@@ -211,7 +265,7 @@ import SVProgressHUD
     {   bar3.translatesAutoresizingMaskIntoConstraints = false
         bar4.translatesAutoresizingMaskIntoConstraints = false
         bar5.translatesAutoresizingMaskIntoConstraints = false
-
+        
         bar1.backgroundColor = calculateColor(value: overallFinancialValues[0])
         bar2.backgroundColor = calculateColor(value: overallFinancialValues[1])
         bar3.backgroundColor = calculateColor(value: overallFinancialValues[2])
@@ -254,7 +308,7 @@ import SVProgressHUD
         scale4.text = graphScale[5]
         scale5.text = graphScale[4]
         scale6.text = graphScale[3]
-
+        
     }
     
     // Using Auto Layout to setup all the anchors for each bar. Right now the values doesn't changes dynamically but they will be added soon.
@@ -263,9 +317,9 @@ import SVProgressHUD
     let barThird = UIView()
     let fourthBar = UIView()
     let fifthBar = UIView()
-
-
-
+    
+    
+    
     private func setupBars(value : Int) // should take an array of int values
     {
         barGraphView.addSubview(oneBar)
@@ -368,17 +422,17 @@ import SVProgressHUD
         {
             return UIColor.init(netHex: 0xFF5D84)
         }
-        
+            
         else if(value == 3)
         {
             return UIColor.init(netHex: 0xFFDD7C)
         }
-        
+            
         else
         {
             return UIColor.init(netHex: 0x1DCEB1)
         }
-    
+        
     }
     func addCompany1(company : TempCompany)
     {
@@ -428,11 +482,11 @@ import SVProgressHUD
                 
                 let company = try! JSONDecoder().decode([Company].self, from: response.data)
                 //self.companies1[0].identifiers.name
-               // self.loadedCompany = company
+                // self.loadedCompany = company
                 self.loadedCompany = company
                 SVProgressHUD.dismiss()
                 move = true
-                 self.performSegue(withIdentifier: "Dashboard_Company", sender: self)
+                self.performSegue(withIdentifier: "Dashboard_Company", sender: self)
                 move = false
                 break
                 
@@ -442,13 +496,13 @@ import SVProgressHUD
             }
         }
         
-       
-
+        
+        
     }
     
     
     
-
+    
 }
 // MARK: Extension Methods for UIColor and UIView
 // To get Custom Colors or To convert hex code into rgba
@@ -509,15 +563,15 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
             
             return cell
         }
-        
-        
-        
+            
+            
+            
         else  {
-        let temp_company = portcomp[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell") as! CompanyCell
-        cell.setCompany(tempCompany: temp_company)
-        cell.setupScore(value: companies[indexPath.row].score)
-        return cell
+            let temp_company = portcomp[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell") as! CompanyCell
+            cell.setCompany(tempCompany: temp_company)
+            cell.setupScore(value: companies[indexPath.row].score)
+            return cell
         }
         
     }
@@ -549,8 +603,8 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         
         // Refresh the bar graph when the user deletes a company from the portfolio
         /*
-        barThird.backgroundColor = UIColor.black
-        print("hello")
+         barThird.backgroundColor = UIColor.black
+         print("hello")
          */
     }
     
@@ -563,10 +617,10 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         tableView.endUpdates()
-    
+        
     }
     
-   
+    
     func reload()
     {
         tableView.reloadData()
@@ -579,7 +633,7 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         {
             SVProgressHUD.show()
             info = false
-
+            
             indexPath1 = indexPath
             var ticker = searchArray[indexPath.row].ticker
             
@@ -588,16 +642,16 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
             
             // After the company is loaded, BOOM!! move to the Company Data View
             info = false
-
+            
             //performSegue(withIdentifier: "Dashboard_Company", sender: self)
-
+            
         }
-        
+            
         else
         {
-        info = false
-        indexPath1 = indexPath
-        performSegue(withIdentifier: "Dashboard_Company", sender: self)
+            info = false
+            indexPath1 = indexPath
+            performSegue(withIdentifier: "Dashboard_Company", sender: self)
         }
     }
     
@@ -606,19 +660,19 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         
         if( info == false)
         {
-        let vc = segue.destination as! CompanyController
-       // vc.company = companies[indexPath1.row]
-        vc.searchedCompany = portcomp[indexPath1.row]
-        if(move==true)
-        {
-        vc.searchedCompany = loadedCompany[0]
+            let vc = segue.destination as! CompanyController
+            // vc.company = companies[indexPath1.row]
+            vc.searchedCompany = portcomp[indexPath1.row]
+            if(move==true)
+            {
+                vc.searchedCompany = loadedCompany[0]
             }
-       // print(vc.company)
+            // print(vc.company)
             
         }
     }
     
-
+    
     
     
 }

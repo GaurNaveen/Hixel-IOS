@@ -11,7 +11,7 @@ import Charts
 class CompanyController: UIViewController {
     @IBAction func finanail_indicators_info(_ sender: Any) {
         performSegue(withIdentifier: "indicators_info", sender: self)
-
+        
     }
     
     @IBOutlet weak var add_button2: UIButton!
@@ -28,22 +28,22 @@ class CompanyController: UIViewController {
     let indexPath3 = IndexPath(item: 3, section:0)
     let indexPath4 = IndexPath(item: 4, section:0)
     var selectedIndexPath: IndexPath?
-
+    
     // Prepare to send the current company back to Portfolio
     @IBAction func add_button(_ sender: Any) {
         //companies.append(company!)
-       // add = true
+        // add = true
         //let Port = PortfolioController()
         //Port.addCompany1(company: company!)
-      //  companyToAdd.append(company!)
-       // performSegue(withIdentifier: "segue2", sender: self)
+        //  companyToAdd.append(company!)
+        // performSegue(withIdentifier: "segue2", sender: self)
         portcomp.append(searchedCompany!)
         // performSegue(withIdentifier: "segue2", sender: self)
-
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      //  let vc = segue.destination as! PortfolioController
-       // vc.addCompany1(company: company!)
+        //  let vc = segue.destination as! PortfolioController
+        // vc.addCompany1(company: company!)
     }
     
     @IBOutlet weak var lineChartView: LineChartView!
@@ -64,14 +64,14 @@ class CompanyController: UIViewController {
     @IBOutlet weak var dataField1: UIView!
     @IBOutlet weak var score1: UILabel!
     let scoreLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Score"
         label.textColor = .red
         label.textAlignment = .center
         label.font = UIFont . boldSystemFont(ofSize: 32)
         return label
     }()
-
+    
     fileprivate func setAutoLayoutOnScore1() {
         /// Adds text to the circular chart we have created. Make sure to add it after the layers have been created
         // use Auto Layout to position the score
@@ -92,15 +92,15 @@ class CompanyController: UIViewController {
         super.viewDidLoad()
         if(portcomp.contains(where: {$0.identifiers.ticker == searchedCompany?.identifiers.ticker}))
         {
-        add_button2.isHidden = true
+            add_button2.isHidden = true
         }
         else{
             add_button2.isHidden = false
-
+            
         }
         companyNameLabel.text = searchedCompany?.identifiers.name
         setChartValues()
-       // dataField1.dropShadow()
+        // dataField1.dropShadow()
         // Do any additional setup after loading the view.
         // let's start by drawing a circle somehow
         scoreLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
@@ -118,7 +118,7 @@ class CompanyController: UIViewController {
         // Change the color of the circle
         shapeLayer.fillColor = UIColor.black.cgColor
         shapeLayer.strokeEnd = 0
-    
+        
         // Create my track layer now
         let trackLayer = CAShapeLayer()
         trackLayer.path = circularPath1.cgPath
@@ -137,14 +137,14 @@ class CompanyController: UIViewController {
         scoreChartContainer.addSubview(score_percent)
         addAutoLayoutToScorePercent()        //view.addSubview(score)
         handleTap()
-       // view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+        // view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         
         indexPaths.append(indexPath0)
         indexPaths.append(indexPath1)
         indexPaths.append(indexPath2)
         indexPaths.append(indexPath3)
         indexPaths.append(indexPath4)
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -178,11 +178,11 @@ class CompanyController: UIViewController {
         score_percent.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 225).isActive = true
         
     }
-  var lineChartEntry = [ChartDataEntry]()
-  var lineChartEntry2 = [ChartDataEntry]()
-  var score_Values = [1,3,2,4,3]
+    var lineChartEntry = [ChartDataEntry]()
+    var lineChartEntry2 = [ChartDataEntry]()
+    var score_Values = [1,3,2,4,3]
     //var score_Values1 = [2,1,5,1,2]
-  var years = ["2014","2015","2016","2017","2018"]
+    var years = ["2014","2015","2016","2017","2018"]
     
     // MARK: Setup Line Chart
     func setChartValues()
@@ -192,11 +192,11 @@ class CompanyController: UIViewController {
             lineChartEntry.append(value)
         }
         /*
-        for i in 0..<score_Values1.count {
-            let value = ChartDataEntry(x: Double(i), y: Double(score_Values1[i]))
-            lineChartEntry2.append(value)
-        }
-        */
+         for i in 0..<score_Values1.count {
+         let value = ChartDataEntry(x: Double(i), y: Double(score_Values1[i]))
+         lineChartEntry2.append(value)
+         }
+         */
         //let set2 = LineChartDataSet(values: lineChartEntry2, label: "Risk")
         
         let set1 = LineChartDataSet(values: lineChartEntry, label: "Health")
@@ -212,37 +212,37 @@ class CompanyController: UIViewController {
         lineChartView.xAxis.granularity = 1
         
     }
-   
-
-   
-
+    
+    
+    
+    
 }
 
 extension CompanyController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return  ratios.count
+        return  ratios.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let value = ratiosValue[indexPath.row]
-
+        
         let name = ratios[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ratio1", for: indexPath) as! CompanyTableViewCell
         cell.setupName(name: name)
         cell.setupValue(value: value)
-
+        
         if(indexPath.row == 0)
         {
             cell.backgroundColor = UIColor.init(netHex: 0x335289)
             cell.ratioName.text = company?.name
             cell.ratioName.textColor = .white
             cell.ratioValue.isHidden = true
-
+            
         }
-
+        
         return cell
     }
-
+    
 }
 
 extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSource {
@@ -260,7 +260,7 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
         
         
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //collectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
         // MARK: TO Access cell elments
@@ -268,34 +268,34 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
         cell.cellView.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
         cell.indicator.textColor = .white
         
-//        for i in 0..<indexPaths.count {
-//           // print(indexPath)
-//            print(collectionView.visibleCells.count)
-//           // let visible = collectionView.visibleCells
-//            if(indexPath != indexPaths[i])
-//            {
-//
-//                if(collectionView.cellForItem(at: indexPaths[i]) != nil)
-//                {
-//                     let cell1 =  collectionView.cellForItem(at: indexPaths[i]) as! RatioCell
-//                    cell1.cellView.backgroundColor = .white
-//                    cell1.indicator.textColor = .black
-//                }
-//
-//
-//            }
-//
-//
-//        }
-//        selectedIndexPath = indexPath
+        //        for i in 0..<indexPaths.count {
+        //           // print(indexPath)
+        //            print(collectionView.visibleCells.count)
+        //           // let visible = collectionView.visibleCells
+        //            if(indexPath != indexPaths[i])
+        //            {
+        //
+        //                if(collectionView.cellForItem(at: indexPaths[i]) != nil)
+        //                {
+        //                     let cell1 =  collectionView.cellForItem(at: indexPaths[i]) as! RatioCell
+        //                    cell1.cellView.backgroundColor = .white
+        //                    cell1.indicator.textColor = .black
+        //                }
+        //
+        //
+        //            }
+        //
+        //
+        //        }
+        //        selectedIndexPath = indexPath
         
-    
+        
         
     }
     
     
-   
     
     
-
+    
+    
 }

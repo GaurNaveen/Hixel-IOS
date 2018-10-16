@@ -8,12 +8,12 @@
 
 import Foundation
 import UIKit
-
+import SVProgressHUD
 
 class ComparisonController: UIViewController{
     
     var searchArray = [SearchEntry]()
-
+    
     @IBOutlet weak var searchView: UITableView!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -27,14 +27,22 @@ class ComparisonController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ComparisonController2
         vc.Aselected = self.selected_companies
+        vc.companiesSelected = self.companiesSelectedFromSearch
+        vc.Aselected1 =  self.loadedCompanies
+      //  vc.companiesSelected =
+        
     }
     
+    var companiesSelectedFromSearch : [SearchEntry] = []
+    var loadedCompanies : [Company] = []
     @IBAction func clear(_ sender: Any) {
-        setAccessoryToNone()
-        selected_companies.removeAll()
+       // setAccessoryToNone()
+        //selected_companies.removeAll()
+        loadedCompanies.removeAll()
         compare2.isHidden = true
         clear.isHidden = true
-        updateCollectionView()
+        //updateCollectionView()
+        tableView.reloadData()
     }
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var compare2: UIButton!
@@ -46,20 +54,20 @@ class ComparisonController: UIViewController{
     var selected_companies: [TempCompany] = []
     
     override func viewDidLoad() {
-       print(companies.count, "ey")
-       compare2.isHidden = true
-       clear.isHidden = true
+        print(companies.count, "ey")
+        compare2.isHidden = true
+        clear.isHidden = true
         //searchView.translatesAutoresizingMaskIntoConstraints = false
         searchView.isHidden = true
         //searchView.dropShadow()
-      //  searchView.layer.cornerRadius = 10.0
+        //  searchView.layer.cornerRadius = 10.0
     }
-
+    
     func setAccessoryToNone()
     { let size = companies.count
         for i in 0..<size
         {   let indexPath = IndexPath(row: i, section: 0)
-
+            
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
         }
     }
@@ -72,7 +80,7 @@ class ComparisonController: UIViewController{
             case .success(let response):
                 print("Hurray")
                 
-               // let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
+                // let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
                 let searches = try! JSONDecoder().decode([SearchEntry].self, from: response.data)
                 self.searchArray = searches
                 print("Sex",searches)
@@ -91,8 +99,44 @@ class ComparisonController: UIViewController{
             }
         }
     }
-   
+    
+    func loadCompany(ticker:String)
+    {
+        let _ = Client().request(.companydata(tickers: ticker, years: 1)).subscribe{ event in
+            switch event {
+            case .success(let response):
+                // Dismiss the Progress bar.
+                //SVProgressHUD.dismiss()
+                
+                // print("hello")
+                // print("The ticker is",ticker)
+                
+                let company = try! JSONDecoder().decode([Company].self, from: response.data)
+                //self.companies1[0].identifiers.name
+                // self.loadedCompany = company
+                // self.loadedCompanies = company
+                self.loadedCompanies.append(company[0])
+                SVProgressHUD.dismiss()
+                self.tableView.reloadData()
+                //move = true
+                //self.performSegue(withIdentifier: "Dashboard_Company", sender: self)
+                //move = false
+                break
+                
+            case .error(let error):
+                print(error)
+                break
+            }
+        }
+        
+        
+        
+    }
+    
 }
+
+
+
 
 // MARK: Comparison Search setup here
 extension ComparisonController: UISearchBarDelegate {
@@ -113,7 +157,7 @@ extension ComparisonController: UISearchBarDelegate {
         
     }
     
-   
+    
 }
 
 extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
@@ -126,7 +170,8 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
         }
         
         
-      return   companies.count
+      //  return   companies.count
+        return loadedCompanies.count
         
     }
     
@@ -138,17 +183,18 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
             
             if(searchArray.count != 0 )
             {
-            cell.setupCell(company: searchArray[indexPath.row])
+                cell.setupCell(company: searchArray[indexPath.row])
             }
             return cell
         }
         
         
         
-        let company = companies[indexPath.row]
+       // let company = companies[indexPath.row]
+        let company = loadedCompanies[indexPath.row]
         let cell  = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SearchCell
-        cell.setCompany(tempCompany: company)
-        
+       // cell.setCompany(tempCompany: company)
+        cell.setCompany(company: company)
         return cell
         
     }
@@ -156,44 +202,56 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(tableView != searchView)
         {
-        clear.isHidden = false
-      
-        if(tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark)
-        {
-        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-            if selected_companies.count != 0 {
-                
-                // Will be changed later on...
-                _ = selected_companies.popLast()
-                
-            }
-            if selected_companies.count <= 1 {
-               // compare_button.isHidden = true
-                compare2.isHidden = true
-                
-            }
+            clear.isHidden = false
             
-        }
-        else{
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-            
-            // When the user selects the company add it to a seprate array
-            selected_companies.append(companies[indexPath.row])
-            
-            // When the user selects the companies , update the collection view
-            updateCollectionView()
-            
-            if selected_companies.count == 2{
-                compare2.isHidden = false
+            if(tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark)
+            {
+                tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+                if selected_companies.count != 0 {
+                    
+                    // Will be changed later on...
+                    _ = selected_companies.popLast()
+                    
+                }
+                if selected_companies.count <= 1 {
+                    // compare_button.isHidden = true
+                    compare2.isHidden = true
+                    
+                }
                 
             }
-            //print(selected_companies[indexPath.row].name)
+            else{
+                tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+                
+                // When the user selects the company add it to a seprate array
+                selected_companies.append(companies[indexPath.row])
+                
+                // When the user selects the companies , update the collection view
+                updateCollectionView()
+                
+                if selected_companies.count == 2{
+                    compare2.isHidden = false
+                    
+                }
+                //print(selected_companies[indexPath.row].name)
+            }
+            
+            
+            
         }
         
-    }
-   
-   
-    
+        if(tableView == searchView)
+        {   SVProgressHUD.show(withStatus: "Loading Company")
+            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+            
+             companiesSelectedFromSearch.append(searchArray[indexPath.row])
+            // Load the selected companies
+            loadCompany(ticker: searchArray[indexPath.row].ticker)
+            //var name = searchArray[indexPath.row].name
+            //print("Kamina",name)
+        }
+        
+        
     }
 }
 
@@ -201,15 +259,17 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
 extension ComparisonController : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // return selected_companies.count
-         return selected_companies.count
-        //return portcomp.count
+       // return selected_companies.count
+        return portcomp.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "selected_companies", for: indexPath) as! SelectedCompaniesCollectionViewCell
-        cell.setupCell(name: selected_companies[indexPath.row].name)
-        //cell.setupCell(name: portcomp[indexPath.row].identifiers.name)
+        //cell.setupCell(name: selected_companies[indexPath.row].name)
+        cell.setupCell(name: portcomp[indexPath.row].identifiers.name)
+        
+
         
         return cell
         
@@ -224,11 +284,22 @@ extension ComparisonController : UICollectionViewDelegate, UICollectionViewDataS
         
     }
     
-    /*
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
-    }
-   */
+    
+     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+     // add the compant to loadedCompanies variable
+        loadedCompanies.append(portcomp[indexPath.row])
+        if(loadedCompanies.count>=2)
+        {
+            compare2.isHidden = false
+        }
+        
+        if(loadedCompanies.count>=1)
+        {
+            clear.isHidden = false
+        }
+        tableView.reloadData()
+     }
+    
     
     
     

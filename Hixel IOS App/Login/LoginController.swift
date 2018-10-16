@@ -19,7 +19,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     var companies1 = [Company]()
     let companiesTicker = ["aapl","msft","tsla","twtr","snap","fb","amzn","intc","amd"]
     var string = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,53 +37,53 @@ class LoginController: UIViewController, UITextFieldDelegate {
         // If the username and password are empty , raise an alert telling the user about it.
         if(username.text!.isEmpty || password.text!.isEmpty)
         {
-            popAlert()
-           //self.performSegue(withIdentifier: "login_MainView", sender: self)
+            //popAlert()
+            self.performSegue(withIdentifier: "test", sender: self)
             
         }
-        
+            
             
         else
         {
             
-        SVProgressHUD.show(withStatus: "Signing in")
-        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+            SVProgressHUD.show(withStatus: "Signing in")
+            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
             
-        let body = LoginData(email: username.text ?? "", password: password.text ?? "")
-        
-        let _ = Client().request(.login(loginData: body)).subscribe { result in
-            switch result {
-            case .success(let response):
-                if (response.statusCode == 200) {
-                    print("Killa")
-                    SVProgressHUD.setStatus("Loading Portfolio")
-                    //SVProgressHUD.dismiss()
+            let body = LoginData(email: username.text ?? "", password: password.text ?? "")
+            
+            let _ = Client().request(.login(loginData: body)).subscribe { result in
+                switch result {
+                case .success(let response):
+                    if (response.statusCode == 200) {
+                        print("Killa")
+                        SVProgressHUD.setStatus("Loading Portfolio")
+                        //SVProgressHUD.dismiss()
+                        
+                        let authToken = response.response?.allHeaderFields["Authorization"]as? String
+                        let refreshToken = response.response?.allHeaderFields["Refresh"]as? String
+                        
+                        let newCredentials = Credentials(authToken: authToken ?? "", refreshToken: refreshToken ?? "")
+                        
+                        Credentials.setCredentials(newCredentials: newCredentials)
+                        
+                        
+                        // Load data here
+                        self.loadDataFromServer()
+                        // self.performSegue(withIdentifier: "login_MainView", sender: self)
+                    }
+                    else if (response.statusCode == 401) {
+                        SVProgressHUD.dismiss()
+                        self.incorrectDetailsAlert()
+                        print("Incorrect username or password.")//TODO: Display user-facing message
+                    }
                     
-                    let authToken = response.response?.allHeaderFields["Authorization"]as? String
-                    let refreshToken = response.response?.allHeaderFields["Refresh"]as? String
-                    
-                    let newCredentials = Credentials(authToken: authToken ?? "", refreshToken: refreshToken ?? "")
-                    
-                    Credentials.setCredentials(newCredentials: newCredentials)
-                    
-                    
-                    // Load data here
-                    self.loadDataFromServer()
-                   // self.performSegue(withIdentifier: "login_MainView", sender: self)
-                }
-                else if (response.statusCode == 401) {
+                case .error(let error):
                     SVProgressHUD.dismiss()
-                    self.incorrectDetailsAlert()
-                    print("Incorrect username or password.")//TODO: Display user-facing message
+                    self.serverErrorAlert()
+                    print("Network error: \(error)" ) //TODO: Display user-facing message
                 }
-                
-            case .error(let error):
-                SVProgressHUD.dismiss()
-                self.serverErrorAlert()
-                print("Network error: \(error)" ) //TODO: Display user-facing message
             }
         }
-    }
     }
     
     // Takes the user to the Sign Up View
@@ -131,13 +131,13 @@ class LoginController: UIViewController, UITextFieldDelegate {
     // user to the Portfolio.
     func loadDataFromServer()
     {
-       
-       let _ = Client().request(.companydata(tickers: string, years: 1)).subscribe{ event in
+        
+        let _ = Client().request(.companydata(tickers: string, years: 1)).subscribe{ event in
             switch event {
             case .success(let response):
                 // Dismiss the Progress bar.
                 SVProgressHUD.dismiss()
-               
+                
                 print("hello")
                 
                 // let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
@@ -147,12 +147,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 //self.companies1[0].identifiers.name
                 portcomp = company
                 // Go to the Main Dashboard
-
+                
                 self.performSegue(withIdentifier: "login_MainView", sender: self)
-
-               // print(self.companies1)
+                
+                // print(self.companies1)
                 break
-           
+                
             case .error(let error):
                 print(error)
                 break
@@ -160,7 +160,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         }
         
         //serach()
-       
+        
     }
     
     func serach()
@@ -186,14 +186,20 @@ class LoginController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         /* This won't work as the segue is connected to a UITabbarController, we need to cast it to
          * UITabbarController and get the View Controller object.
-        let vc = segue.destination as! PortfolioController
-        vc.portfolioCompanies = companies1
-        */
-        if(move == true)
+         let vc = segue.destination as! PortfolioController
+         vc.portfolioCompanies = companies1
+         */
+        
+        if(segue.identifier ==  "test")
         {
-        let tabCtrl: UITabBarController = segue.destination as! UITabBarController
-        let destinationVC = tabCtrl.viewControllers![0] as! PortfolioController // [0] because Portfolio is the first tab in the tab bar controller.
-        destinationVC.portfolioCompanies = companies1
+            
+        }
+        
+        if(move == true && segue.identifier  != "test")
+        {
+            let tabCtrl: UITabBarController = segue.destination as! UITabBarController
+            let destinationVC = tabCtrl.viewControllers![0] as! PortfolioController // [0] because Portfolio is the first tab in the tab bar controller.
+            destinationVC.portfolioCompanies = companies1
         }
     }
 }
