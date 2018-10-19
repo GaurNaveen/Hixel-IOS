@@ -20,7 +20,11 @@ var indexPath1 = IndexPath(row: 0, section: 0)
 var add: Bool = false
 var companyToAdd : [TempCompany] = []
 var move = false;
-
+var healthfinal = 0.0
+var performanceFinal = 0.0
+var returnFinal = 0.0
+var safetyFinal = 0.0
+var strengthFinal = 0.0
 class PortfolioController: UIViewController {
     
     @IBOutlet weak var MAINVIEW: UIView! // Conatins all the views in which we are working in
@@ -64,7 +68,8 @@ class PortfolioController: UIViewController {
     let searchcontroller1 = UISearchController(searchResultsController: nil)
     var filteredCompanies = [String]()
     var months : [String]!
-
+    var avgScores = [Double]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,9 +84,11 @@ class PortfolioController: UIViewController {
         setupHeaderView()
         overallLabel.text = hardCodedStrings[1]
         months = ["Health", "Performance", "Return", "Safety", "Strength"]
-
-        let yvalues = [3.0,4.0,1.0,2.0,5.0]
         
+        
+        dataForBarChart()
+        let yvalues = avgScores
+        print("Hec",yvalues)
         setupBarChart(dataPoints: months, values: yvalues)
        // barChartView.dropShadow()
         // setup the UITable view to have a list of Companies on the Dashboard
@@ -115,7 +122,6 @@ class PortfolioController: UIViewController {
             
             reload()
         }
-        dataForBarChart()
 
 //        comapanyDataProvider.request(.companydata(tickers: "AAPL", years: 2)) { (result) in
 //
@@ -150,7 +156,7 @@ class PortfolioController: UIViewController {
         headerLabel.textColor = .black
         
     }
-    
+    var chartData1 = BarChartData()
     func setupBarChart(dataPoints: [String], values: [Double])
     {
         barChartView.noDataText = "You need to provide data for the chart."
@@ -162,16 +168,18 @@ class PortfolioController: UIViewController {
         for i in 0..<dataPoints.count {
             let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]])
             dataEntries.append(dataEntry)
+            print("Hect",dataEntry)
             
             
         }
         
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
         chartDataSet.setColors(UIColor.init(netHex: 0xFFDD7C),UIColor.init(netHex: 0x1DCEB1),UIColor.init(netHex: 0xFF5D84),UIColor.init(netHex: 0xFF5D84),UIColor.init(netHex: 0x1DCEB1))
+       // var c = ChartDataEntry(x: <#T##Double#>, y: <#T##Double#>)
         let chartData = BarChartData(dataSet: chartDataSet)
         chartData.barWidth = 0.2
         chartData.setDrawValues(false)
-        
+        chartData1 = chartData
         /*
          
          reset all the 5 colors of graph here depending upon the values
@@ -183,11 +191,13 @@ class PortfolioController: UIViewController {
         barChartView.xAxis.labelCount = 5
         barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
         barChartView.xAxis.granularity = 1.0
-        
         barChartView.leftAxis.labelPosition = .outsideChart
         barChartView.leftAxis.drawGridLinesEnabled = true
         barChartView.leftAxis.drawLabelsEnabled = true
         barChartView.leftAxis.drawAxisLineEnabled = false
+        barChartView.leftAxis.axisMinimum = 0.0
+        barChartView.leftAxis.axisMaximum = 5.0
+        barChartView.leftAxis.granularity = 1.0
         barChartView.rightAxis.enabled = false
         
         
@@ -196,6 +206,12 @@ class PortfolioController: UIViewController {
         barChartView.backgroundColor = UIColor.white
         //barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
+    func updateChart()
+    {
+        chartData1.clearValues()
+        
+    }
+    
     
     // Configures the Delegate and DataSource for the Table View
     private func setuptableView(){
@@ -463,11 +479,14 @@ class PortfolioController: UIViewController {
         for i in 0...portcomp.count-1 {
              x += portcomp[i].getHealth()
         }
+        
+        healthfinal = Double(Int(x)/portcomp.count)
         // For Return 
         var r=0.0
         for i in 0...portcomp.count-1 {
             r += portcomp[i].getReturns()
         }
+        returnFinal = Double(Int(r)/portcomp.count)
         
         // FOR SAFETY
         var sf=0.0
@@ -475,24 +494,36 @@ class PortfolioController: UIViewController {
             sf += portcomp[i].getSafety()
         }
         
+        safetyFinal = Double(Int(sf)/portcomp.count)
+        
         //FOR PERFORMANCE
         var p = 0.0
         for i in 0...portcomp.count-1 {
             p += portcomp[i].getPerformance()
         }
+        performanceFinal = Double(Int(p)/portcomp.count)
+
         
         // For Strength
         var st = 0.0
         for i in 0...portcomp.count-1 {
             st += portcomp[i].getStrength()
         }
+        strengthFinal = Double(Int(st)/portcomp.count)
         
-    print("HealthBar",(Int(x)/portcomp.count)) // Average Health = 4
-    print("ReturnBar",(Int(r)/portcomp.count)) // AVERAGE RETURN = 1
-    print("SafetyBar",(Int(sf)/portcomp.count)) // AVERAGE SAFETY = 4
-    print("PerformanceBar",(Int(p)/portcomp.count))// AVERAGE Performance = 1
-    print("StrengthBar",(Int(st)/portcomp.count))
-    }
+        avgScores.append(Double(Int(x)/portcomp.count))
+        avgScores.append(Double(Int(p)/portcomp.count))
+        avgScores.append(Double(Int(r)/portcomp.count))
+        avgScores.append(Double(Int(sf)/portcomp.count))
+        avgScores.append(Double(Int(st)/portcomp.count))
+        
+//    print("HealthBar",(Int(x)/portcomp.count)) // Average Health = 4
+//    print("ReturnBar",(Int(r)/portcomp.count)) // AVERAGE RETURN = 1
+//    print("SafetyBar",(Int(sf)/portcomp.count)) // AVERAGE SAFETY = 4
+//    print("PerformanceBar",(Int(p)/portcomp.count))// AVERAGE Performance = 1
+//    print("StrengthBar",(Int(st)/portcomp.count))
+        
+        }
     
     
     
