@@ -128,6 +128,13 @@ class PortfolioController: UIViewController {
         
     }
     
+    // Activates When the View Appears on the Screen.
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+        SearchTableView.isHidden = true
+        searchBar.text = ""
+    }
+    
     func addCompany(company : TempCompany)
     {
         addCompany1(company: company)
@@ -570,7 +577,7 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
             let temp_company = portcomp[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell") as! CompanyCell
             cell.setCompany(tempCompany: temp_company)
-            cell.setupScore(value: companies[indexPath.row].score)
+            cell.setupScore(value: temp_company.score) // need to add score to the Company Class
             return cell
         }
         

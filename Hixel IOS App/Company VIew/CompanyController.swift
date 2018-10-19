@@ -20,7 +20,7 @@ class CompanyController: UIViewController {
     var searchedCompany : Company? = nil
     
     @IBOutlet weak var companyNameLabel: UILabel!
-    
+   // let port :PortfolioController = nil
     
     let indexPath0 = IndexPath(item: 0, section:0)
     let indexPath1 = IndexPath(item: 1, section:0)
@@ -39,6 +39,7 @@ class CompanyController: UIViewController {
         // performSegue(withIdentifier: "segue2", sender: self)
         portcomp.append(searchedCompany!)
         // performSegue(withIdentifier: "segue2", sender: self)
+       self.dismiss(animated: true, completion: viewDidLoad)
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -22,7 +22,26 @@ class SearchCell: UITableViewCell {
         searchCard.layer.cornerRadius = 5.0
         compName.text = company.identifiers.name
         stock.text = "Ticker "+company.identifiers.ticker
-        
+        score.text = "Score: \(company.score)"
+        setScoreColor(Score: company.score)
+    }
+    
+    func setScoreColor(Score:Int)
+    {
+        if (Score == 50)
+        {
+            score.textColor = UIColor.yellow
+        }
+            
+        else if (Score < 50)
+        {
+            score.textColor =  UIColor.red
+        }
+            
+        else{
+            score.textColor =  UIColor.init(netHex: 0x1DCEB1)
+            
+        }
     }
     
     
