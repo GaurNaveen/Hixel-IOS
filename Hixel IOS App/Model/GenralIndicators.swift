@@ -10,11 +10,12 @@ import Foundation
 
 struct GeneralIndicators {
     let score : Int
-    let Health : Int
-    let Safety : Int
-    let Revenue : Int
-    let Performance : Int
-    let Strength : Int
+    var Health : Double
+    let Safety : Double
+    let Revenue : Double
+    let Performance : Double
+    let Strength : Double
+    
     
     
 }

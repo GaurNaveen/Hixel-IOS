@@ -68,7 +68,10 @@ class PortfolioController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       // print("Lock",portcomp[0].financialDataEntries[0].ratios.keys.contains(<#T##element: String##String#>))
+        print("Lock",portcomp[0].financialDataEntries[1].ratios.keys)
+        let res = portcomp[0].calculateGenrealIndicators()
+        
+       print("Lock",res)
         SearchTableView.isHidden = true
         print("Hoollla")
         print("Companies count ",portfolioCompanies)
@@ -112,19 +115,20 @@ class PortfolioController: UIViewController {
             
             reload()
         }
-        
-        comapanyDataProvider.request(.companydata(tickers: "AAPL", years: 2)) { (result) in
-            
-            switch result{
-            case .success(let response):
-                ///let json = try! JSONSerialization.jsonObject(with: response.data, options:[])
-                print(response.data)
-            case .failure(let error):
-                print(error)
-                
-                
-            }
-        }
+        dataForBarChart()
+
+//        comapanyDataProvider.request(.companydata(tickers: "AAPL", years: 2)) { (result) in
+//
+//            switch result{
+//            case .success(let response):
+//                ///let json = try! JSONSerialization.jsonObject(with: response.data, options:[])
+//                print(response.data)
+//            case .failure(let error):
+//                print(error)
+//
+//
+//            }
+//        }
         
     }
     
@@ -197,6 +201,11 @@ class PortfolioController: UIViewController {
     private func setuptableView(){
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func calculateFinancialIndicators()
+    {
+        
     }
     
     // Creates a temporary array that holds the company names and then returns it
@@ -447,6 +456,46 @@ class PortfolioController: UIViewController {
         print("yewq")
         companies.append(company)
     }
+    
+    func dataForBarChart()
+    {   // For Health
+        var x=0.0
+        for i in 0...portcomp.count-1 {
+             x += portcomp[i].getHealth()
+        }
+        // For Return 
+        var r=0.0
+        for i in 0...portcomp.count-1 {
+            r += portcomp[i].getReturns()
+        }
+        
+        // FOR SAFETY
+        var sf=0.0
+        for i in 0...portcomp.count-1 {
+            sf += portcomp[i].getSafety()
+        }
+        
+        //FOR PERFORMANCE
+        var p = 0.0
+        for i in 0...portcomp.count-1 {
+            p += portcomp[i].getPerformance()
+        }
+        
+        // For Strength
+        var st = 0.0
+        for i in 0...portcomp.count-1 {
+            st += portcomp[i].getStrength()
+        }
+        
+    print("HealthBar",(Int(x)/portcomp.count)) // Average Health = 4
+    print("ReturnBar",(Int(r)/portcomp.count)) // AVERAGE RETURN = 1
+    print("SafetyBar",(Int(sf)/portcomp.count)) // AVERAGE SAFETY = 4
+    print("PerformanceBar",(Int(p)/portcomp.count))// AVERAGE Performance = 1
+    print("StrengthBar",(Int(st)/portcomp.count))
+    }
+    
+    
+    
     
     // This function connects to the server and loads the search results.
     func serach(query:String)

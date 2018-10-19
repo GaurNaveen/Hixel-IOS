@@ -37,8 +37,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
         // If the username and password are empty , raise an alert telling the user about it.
         if(username.text!.isEmpty || password.text!.isEmpty)
         {
-            //popAlert()
-            self.performSegue(withIdentifier: "test", sender: self)
+            popAlert()
+           // self.performSegue(withIdentifier: "test", sender: self)
             
         }
             
@@ -132,7 +132,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     func loadDataFromServer()
     {
         
-        let _ = Client().request(.companydata(tickers: string, years: 1)).subscribe{ event in
+        let _ = Client().request(.companydata(tickers: string, years: 5)).subscribe{ event in
             switch event {
             case .success(let response):
                 // Dismiss the Progress bar.
