@@ -33,6 +33,8 @@ class ComparisonController: UIViewController{
         
     }
     
+   
+    
     var companiesSelectedFromSearch : [SearchEntry] = []
     var loadedCompanies : [Company] = []
     @IBAction func clear(_ sender: Any) {
@@ -61,6 +63,10 @@ class ComparisonController: UIViewController{
         searchView.isHidden = true
         //searchView.dropShadow()
         //  searchView.layer.cornerRadius = 10.0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        collectionView.reloadData()
     }
     
     func setAccessoryToNone()

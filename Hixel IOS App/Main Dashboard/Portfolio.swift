@@ -585,10 +585,10 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     // Adds the swipe to delete to UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        let deletedCompany = companies[indexPath.row]
+        let deletedCompany = portcomp[indexPath.row]
         let deletedIndex = indexPath.row
         if editingStyle == .delete{
-            companies.remove(at: indexPath.row)
+            portcomp.remove(at: indexPath.row)
             self.tableView.reloadData()
         }
         // Displays the snackbar when a company gets deleted
@@ -598,14 +598,14 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
             let actionMessage = MDCSnackbarMessage()
             // When the user clicks the UNDO button perform the action here
             self.insertNewRow(deletedCompany: deletedCompany,deletedIndex: deletedIndex)
-            actionMessage.text = deletedCompany.name + " added back to portfolio"
+            actionMessage.text = deletedCompany.identifiers.name + " added back to portfolio"
             MDCSnackbarManager.show(actionMessage)
             
         }
         action.handler = actionHandler
         action.title = "Undo"
         message.action = action
-        message.text = deletedCompany.name+" deleted from Portfolio"
+        message.text = deletedCompany.identifiers.name+" deleted from Portfolio"
         MDCSnackbarManager.show(message)
         
         // Refresh the bar graph when the user deletes a company from the portfolio
@@ -616,9 +616,9 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     }
     
     // Adds the deleted company back to the table view
-    func insertNewRow(deletedCompany : TempCompany,deletedIndex: Int)
+    func insertNewRow(deletedCompany : Company,deletedIndex: Int)
     {
-        companies.append(deletedCompany)
+        portcomp.append(deletedCompany)
         
         let indexPath = IndexPath(row: deletedIndex-1, section: 0)
         tableView.beginUpdates()

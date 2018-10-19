@@ -16,10 +16,6 @@ class SearchTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    
-    
-    
     func setupCell(searchEntry : SearchEntry)
     {
         searchTextLabel.text = searchEntry.name

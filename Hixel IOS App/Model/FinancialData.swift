@@ -10,7 +10,6 @@ import Foundation
 struct FinancialData: Codable {
     let year: Int
     let ratios: [String: Double]
-    
     private enum CodingKeys: String, CodingKey {
         case year
         case ratios

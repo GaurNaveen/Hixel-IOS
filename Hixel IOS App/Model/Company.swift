@@ -11,8 +11,10 @@ struct Company: Codable {
     let identifiers: CompanyIdentifiers
     let financialDataEntries: [FinancialData]
     var score = 60
+    //var generalIndicators : GeneralIndicators
     private enum CodingKeys: String, CodingKey {
         case identifiers
         case financialDataEntries
+        
     }
 }
