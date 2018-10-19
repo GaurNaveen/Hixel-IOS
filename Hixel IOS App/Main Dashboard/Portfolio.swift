@@ -75,7 +75,7 @@ class PortfolioController: UIViewController {
         
         setupHeaderView()
         overallLabel.text = hardCodedStrings[1]
-        months = ["Health", "Performance", "Return", "Risk", "Strength"]
+        months = ["Health", "Performance", "Return", "Safety", "Strength"]
 
         let yvalues = [3.0,4.0,1.0,2.0,5.0]
         
