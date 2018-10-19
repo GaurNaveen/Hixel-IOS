@@ -72,8 +72,8 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             let value = ChartDataEntry(x: Double(i), y: Double(score_Values1[i]))
             lineChartEntry2.append(value)
         }
-        let set1 = LineChartDataSet(values: lineChartEntry, label: Aselected[0].name)
-        let set2 = LineChartDataSet(values: lineChartEntry2, label: Aselected[1].name)
+        let set1 = LineChartDataSet(values: lineChartEntry, label: Aselected1[0].identifiers.name)
+        let set2 = LineChartDataSet(values: lineChartEntry2, label: Aselected1[1].identifiers.name)
         
         set1.circleColors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
         set1.colors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
@@ -179,14 +179,14 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             return financialIndicators.count
         }
         
-        return Aselected.count
+        return Aselected1.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var scoreNumber = [70, 50, 20,30]
         // Inside this if statement setup the score chart
         if collectionView == self.collectionViewB {
-            let temp_Company = Aselected[indexPath.row]
+            let temp_Company = Aselected1[indexPath.row]
             let cellB = collectionView.dequeueReusableCell(withReuseIdentifier: "score", for: indexPath) as! ScoreCollectionViewCell
             cellB.setupCompaniesName(companies: temp_Company, score: scoreNumber[indexPath.row])
             cellB.layer.borderColor = UIColor.black.cgColor
@@ -213,7 +213,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ComparisonCell", for: indexPath) as! ComparisonCollectionViewCell
         
-        cell.company_name.text = Aselected[indexPath.row].name
+        cell.company_name.text = Aselected1[indexPath.row].identifiers.name
         cell.layer.cornerRadius = 10.0
         // The color of the cell should depend upon the
         //cell.backgroundColor = UIColor.init(netHex: 0x)

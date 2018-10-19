@@ -26,7 +26,7 @@ class ComparisonController: UIViewController{
     // MARK: Passes the data between views
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ComparisonController2
-        vc.Aselected = self.selected_companies
+        //vc.Aselected = self.selected_companies
         vc.companiesSelected = self.companiesSelectedFromSearch
         vc.Aselected1 =  self.loadedCompanies
       //  vc.companiesSelected =

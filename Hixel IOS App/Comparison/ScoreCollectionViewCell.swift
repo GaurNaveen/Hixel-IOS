@@ -15,9 +15,9 @@ class ScoreCollectionViewCell: UICollectionViewCell {
     let shapeLayer = CAShapeLayer()
     @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var score_container: UIView!
-    func setupCompaniesName(companies: TempCompany,score : Int)
+    func setupCompaniesName(companies: Company,score : Int)
     {
-        companyName.text = companies.name
+        companyName.text = companies.identifiers.name
         
         
         let center = score_container.center
