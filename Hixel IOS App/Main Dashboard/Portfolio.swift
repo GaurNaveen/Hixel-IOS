@@ -68,7 +68,7 @@ class PortfolioController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       // print("Lock",portcomp[0].financialDataEntries[0].ratios.keys.contains(<#T##element: String##String#>))
         SearchTableView.isHidden = true
         print("Hoollla")
         print("Companies count ",portfolioCompanies)
@@ -190,7 +190,7 @@ class PortfolioController: UIViewController {
         barChartView.data = chartData
         barChartView.xAxis.labelPosition = .bottom
         barChartView.backgroundColor = UIColor.white
-        barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        //barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
     
     // Configures the Delegate and DataSource for the Table View

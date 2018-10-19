@@ -10,8 +10,9 @@ import Foundation
 struct Company: Codable {
     let identifiers: CompanyIdentifiers
     let financialDataEntries: [FinancialData]
+  //  var score :Int? = nil
     var score = 60
-    //var generalIndicators : GeneralIndicators
+    var generalIndicators : GeneralIndicators? = nil
     private enum CodingKeys: String, CodingKey {
         case identifiers
         case financialDataEntries

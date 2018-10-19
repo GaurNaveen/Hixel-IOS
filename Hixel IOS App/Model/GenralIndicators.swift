@@ -16,8 +16,5 @@ struct GeneralIndicators {
     let Performance : Int
     let Strength : Int
     
-    func calculateHealthIndicators()
-    {
-        
-    }
+    
 }

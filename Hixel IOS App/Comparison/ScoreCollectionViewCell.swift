@@ -39,8 +39,8 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         hey.translatesAutoresizingMaskIntoConstraints = false
         hey.topAnchor.constraint(equalTo: score_container.topAnchor, constant: 55).isActive = true
         hey.bottomAnchor.constraint(equalTo: score_container.bottomAnchor, constant: 20).isActive = true
-        hey.leftAnchor.constraint(equalTo: score_container.leftAnchor, constant: 67).isActive = true
-        hey.rightAnchor.constraint(equalTo: score_container.rightAnchor, constant: 45).isActive = true
+        hey.leftAnchor.constraint(equalTo: score_container.leftAnchor, constant: 69).isActive = true
+        hey.rightAnchor.constraint(equalTo: score_container.rightAnchor, constant: 40).isActive = true
         hey.heightAnchor.constraint(equalToConstant: 21)
         hey.widthAnchor.constraint(equalToConstant: 31)
         hey.textColor = .white

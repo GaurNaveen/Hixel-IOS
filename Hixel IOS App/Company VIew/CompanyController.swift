@@ -86,7 +86,7 @@ class CompanyController: UIViewController {
         score1.topAnchor.constraint(equalTo: scoreChartContainer.bottomAnchor, constant: 170).isActive = true
         score1.bottomAnchor.constraint(equalTo: scoreChartContainer.topAnchor, constant: 200).isActive = true
         score1.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 160).isActive = true
-        score1.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 225).isActive = true
+        score1.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 235).isActive = true
     }
     
     override func viewDidLoad() {
@@ -107,7 +107,7 @@ class CompanyController: UIViewController {
         scoreLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         scoreLabel.center = view.center
         
-        let center = CGPoint(x: 190, y: 140)
+        let center = CGPoint(x: 200, y: 140)
         let circularPath = UIBezierPath(arcCenter: center, radius: 85, startAngle: -CGFloat.pi / 2, endAngle:2*CGFloat.pi, clockwise: true)
         
         // This
@@ -115,7 +115,7 @@ class CompanyController: UIViewController {
         shapeLayer.path = circularPath.cgPath
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.strokeColor = UIColor.green.cgColor
-        shapeLayer.lineWidth = 5
+        shapeLayer.lineWidth = 7
         // Change the color of the circle
         shapeLayer.fillColor = UIColor.black.cgColor
         shapeLayer.strokeEnd = 0
@@ -175,8 +175,8 @@ class CompanyController: UIViewController {
         score_percent.widthAnchor.constraint(equalToConstant: 100).isActive = true
         score_percent.topAnchor.constraint(equalTo: scoreChartContainer.bottomAnchor, constant: 170).isActive = true
         score_percent.bottomAnchor.constraint(equalTo: scoreChartContainer.topAnchor, constant: 160).isActive = true
-        score_percent.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 120).isActive = true
-        score_percent.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 225).isActive = true
+        score_percent.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 125).isActive = true
+        score_percent.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 230).isActive = true
         
     }
     var lineChartEntry = [ChartDataEntry]()
