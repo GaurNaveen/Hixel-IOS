@@ -9,28 +9,26 @@
 import UIKit
 import Charts
 class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-    //var selectedCompanies = ["Apple Inc","Samsung Corp","Alphabet","Bmw","Facebook"]
+    /// var selectedCompanies = ["Apple Inc","Samsung Corp","Alphabet","Bmw","Facebook"]
     @IBOutlet weak var lineChartView: LineChartView!
-  //  @IBOutlet weak var radarChartView: RadarChartView!
+    ///  @IBOutlet weak var radarChartView: RadarChartView!
     @IBOutlet weak var radarChartView: RadarChartView!
-    
     @IBOutlet weak var collectionView3: UICollectionView!
-    // Arrays that holds the Financial Indicators values
+    /// Arrays that holds the Financial Indicators values
     var financialIndicatorsValue = [4,3,2]
     var financialIndicators = ["Financial Indicators","Health","Performance","Strength","Safety","Return"]
     var ratios = ["Liquidity Ratio","Debt Ratio","P/E Ratio"]
     let subjects = ["Health", "Safety", "Performance", "Revenue", "Strength"]
-    
     var ratiosValue = [0,1.2,1.3,0.5,0,1.45,0.29,0.45,0,1.34,1.67,0.6]
+    
     @IBAction func info(_ sender: Any) {
         // performSegue(withIdentifier: "comparison_info", sender: self) port_graphinfo2
         performSegue(withIdentifier: "comparison_graph2", sender: self)
     }
-    //Points
+    ///Points
     let array = [1.0, 2.0, 3.0, 4.0, 5.0]
     let array2 = [5.0, 6.0, 2.0, 1.0, 5.0]
     @IBOutlet weak var graphContainerView: UIView!
-    
     @IBOutlet weak var graphHeaderView: UIView!
     @IBOutlet weak var collectionViewB: UICollectionView!
     // Contains all the companies user have selected
@@ -40,6 +38,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     var Aselected1: [Company] = []
     @IBOutlet weak var horizontalLine: UIView!
     
+    /// Function sets up the graph views and their containers.
     override func viewDidLoad() {
         super.viewDidLoad()
         print("klopp",Aselected1)
@@ -96,10 +95,16 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     }
     
     
-    // MARK: Setup Radar chart
+    // MARK: - Setup Radar chart
+    /// Function use to setup the radar chart.
+    ///
+    /// - Parameters:
+    ///   - dataPoints: Pass in the data points.
+    ///   - values: Pass the values for company 1
+    ///   - values2: Pass the values for other companies.
     func setUpRadarChart(dataPoints: [String],values: [Double],values2: [Double])
     {
-       radarChartView.noDataText = "You need to provide data for the chart eh!"
+        radarChartView.noDataText = "You need to provide data for the chart eh!"
         var dataEntries: [ChartDataEntry] = []
         
         // For first company
@@ -147,6 +152,10 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     }
     
     
+    /// Function sets up the colors depedning upon the indicators values.
+    ///
+    /// - Parameter value: Indicators value.
+    /// - Returns: UI Color
     func cherryPickColour(value: Int) -> UIColor
     {
         if (value > 3)
@@ -173,6 +182,13 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         self.dismiss(animated: true)
     }
     
+    
+    /// Function determines the number of rows in the collection view.
+    ///
+    /// - Parameters:
+    ///   - collectionView: System Defined Params
+    ///   - section: System Defined Params
+    /// - Returns: Number of rows required.
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(collectionView == self.collectionView3)
         {
@@ -182,6 +198,13 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         return Aselected1.count
     }
     
+    
+    /// Function used to configure the cell inside the collection view.
+    ///
+    /// - Parameters:
+    ///   - collectionView: System Defined Params
+    ///   - indexPath: System Defines params
+    /// - Returns: Configured Cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var scoreNumber = [70, 50, 20,30]
         // Inside this if statement setup the score chart
@@ -192,8 +215,6 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             cellB.layer.borderColor = UIColor.black.cgColor
             cellB.layer.borderWidth = 0.5
             cellB.layer.cornerRadius = 10.0
-            
-            // Add the Score chart
             
             
             return cellB
@@ -224,6 +245,12 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     
     var selectedIndexPath: IndexPath?
     var previoud:IndexPath?
+    
+    /// When the user selets an indicator it changes it colors.
+    ///
+    /// - Parameters:
+    ///   - collectionView: System Defined Params.
+    ///   - indexPath: System Defined Params.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (collectionView == self.collectionView3) {
             collectionView3.cellForItem(at: indexPath)?.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
@@ -249,6 +276,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     
 }
 
+// MARK: - Use to setup the table view.
 extension ComparisonController2: UITableViewDelegate,UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

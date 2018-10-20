@@ -13,32 +13,34 @@ import SVProgressHUD
 class ComparisonController: UIViewController{
     
     var searchArray = [SearchEntry]()
-    
     @IBOutlet weak var searchView: UITableView!
-    
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var clear: UIButton!
+    
     // MARK: Takes the uesr to the comaparison view
     @IBAction func compare1(_ sender: Any) {
         performSegue(withIdentifier: "search_comparison", sender: self)
     }
+    
     // MARK: Passes the data between views
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ComparisonController2
         //vc.Aselected = self.selected_companies
         vc.companiesSelected = self.companiesSelectedFromSearch
         vc.Aselected1 =  self.loadedCompanies
-      //  vc.companiesSelected =
+        //  vc.companiesSelected =
         
     }
-    
-   
-    
     var companiesSelectedFromSearch : [SearchEntry] = []
     var loadedCompanies : [Company] = []
+    
+    
+    /// Action button that allows the user to remove the
+    /// selected companies from the Comparison Search.
+    ///
+    /// - Parameter sender: Pass the sender.
     @IBAction func clear(_ sender: Any) {
-       // setAccessoryToNone()
+        // setAccessoryToNone()
         //selected_companies.removeAll()
         loadedCompanies.removeAll()
         compare2.isHidden = true
@@ -49,12 +51,12 @@ class ComparisonController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var compare2: UIButton!
     var searchData = companies
-    
     @IBOutlet weak var searchBar: UISearchBar!
     var filtered: [TempCompany] = []
     var isSearching: Bool = false
     var selected_companies: [TempCompany] = []
     
+    /// FUnction that is activated eveytime the view is laoded.
     override func viewDidLoad() {
         print(companies.count, "ey")
         compare2.isHidden = true
@@ -65,12 +67,18 @@ class ComparisonController: UIViewController{
         //  searchView.layer.cornerRadius = 10.0
     }
     
+    /// Function used to update the collection view
+    /// data when the View appears on the user screen.
+    ///
+    /// - Parameter animated: Pass true if you want animations.
     override func viewDidAppear(_ animated: Bool) {
         collectionView.reloadData()
     }
     
+    /// This function is depreciated.
     func setAccessoryToNone()
-    { let size = companies.count
+    {
+        let size = companies.count
         for i in 0..<size
         {   let indexPath = IndexPath(row: i, section: 0)
             
@@ -78,7 +86,9 @@ class ComparisonController: UIViewController{
         }
     }
     
-    // This function connects to the server and loads the search results.
+    /// This function connects to the server and loads the search results.
+    ///
+    /// - Parameter query: Pass the text entered by the user in the search bar.
     func serach(query:String)
     {
         let _ = Client().request(.search(query: query)).subscribe { event in
@@ -106,6 +116,11 @@ class ComparisonController: UIViewController{
         }
     }
     
+    
+    /// This Function is used to load a company when the user
+    /// selects the company from search result.
+    ///
+    /// - Parameter ticker: Pass the ticker obtained from the search resutls.
     func loadCompany(ticker:String)
     {
         let _ = Client().request(.companydata(tickers: ticker, years: 1)).subscribe{ event in
@@ -144,7 +159,7 @@ class ComparisonController: UIViewController{
 
 
 
-// MARK: Comparison Search setup here
+// MARK: - Comparison Search setup here
 extension ComparisonController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -166,8 +181,16 @@ extension ComparisonController: UISearchBarDelegate {
     
 }
 
+
+// MARK: - Setup for the Collection view
 extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
     
+    /// Configures how many rows ther should be in the collection view.
+    ///
+    /// - Parameters:
+    ///   - tableView: Pass the table view.
+    ///   - section: Section is any.
+    /// - Returns: returns the count of rows.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if (tableView == searchView)
@@ -176,13 +199,20 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
         }
         
         
-      //  return   companies.count
+        //  return   companies.count
         return loadedCompanies.count
         
     }
     
+    /// Funtion used to setup the cell inside the Collection view.
+    ///
+    /// - Parameters:
+    ///   - tableView: System Defined Params
+    ///   - indexPath: System Defined Params
+    /// - Returns: Returns the cell.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // Perform a check to see if the table view is a search view.
         if(tableView == searchView)
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchComparisonCell
@@ -196,15 +226,21 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
         
         
         
-       // let company = companies[indexPath.row]
+        // let company = companies[indexPath.row]
         let company = loadedCompanies[indexPath.row]
         let cell  = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SearchCell
-       // cell.setCompany(tempCompany: company)
+        // cell.setCompany(tempCompany: company)
         cell.setCompany(company: company)
         return cell
         
     }
     
+    /// Funtion configures the behaviour for both collection view , and is
+    /// activated when a user taps on a cell.
+    ///
+    /// - Parameters:
+    ///   - tableView: System Defined Params
+    ///   - indexPath: System Defined Params
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(tableView != searchView)
         {
@@ -246,11 +282,12 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
             
         }
         
+        /// Checks if the table view if of Search View.
         if(tableView == searchView)
         {   SVProgressHUD.show(withStatus: "Loading Company")
             SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
             
-             companiesSelectedFromSearch.append(searchArray[indexPath.row])
+            companiesSelectedFromSearch.append(searchArray[indexPath.row])
             // Load the selected companies
             loadCompany(ticker: searchArray[indexPath.row].ticker)
             //var name = searchArray[indexPath.row].name
@@ -261,27 +298,38 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
     }
 }
 
-// MARK: Setup for selected companies on top of Your Portfolio companies
+// MARK: - Setup for selected companies on top of Your Portfolio companies
 extension ComparisonController : UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
+    /// Function used to detmine number of rows.
+    ///
+    /// - Parameters:
+    ///   - collectionView: System Defined Params
+    ///   - section: System Defined Params
+    /// - Returns: Count of rows required.
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // return selected_companies.count
-       // return selected_companies.count
+        // return selected_companies.count
         return portcomp.count
     }
     
+    /// Function is used to setup the cell.
+    ///
+    /// - Parameters:
+    ///   - collectionView: System Defined Params
+    ///   - indexPath: System Defined Params
+    /// - Returns: Configured Cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "selected_companies", for: indexPath) as! SelectedCompaniesCollectionViewCell
         //cell.setupCell(name: selected_companies[indexPath.row].name)
         cell.setupCell(name: portcomp[indexPath.row].identifiers.name)
-        
-
-        
         return cell
-        
     }
     
-    // When the user selects the company, that company should appear in the collection view too
+    
+    /// Function makes sure when the user selects the company, that company should appear in the collection view too
     func updateCollectionView()
     {
         //let indexPath = IndexPath(item: 0, section: 0)
@@ -291,8 +339,13 @@ extension ComparisonController : UICollectionViewDelegate, UICollectionViewDataS
     }
     
     
-     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-     // add the compant to loadedCompanies variable
+    /// Funtion updates the view when a user selects the company.
+    ///
+    /// - Parameters:
+    ///   - collectionView: System Defined Params.
+    ///   - indexPath: System Defined Params.
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // add the compant to loadedCompanies variable
         loadedCompanies.append(portcomp[indexPath.row])
         if(loadedCompanies.count>=2)
         {
@@ -304,7 +357,7 @@ extension ComparisonController : UICollectionViewDelegate, UICollectionViewDataS
             clear.isHidden = false
         }
         tableView.reloadData()
-     }
+    }
     
     
     

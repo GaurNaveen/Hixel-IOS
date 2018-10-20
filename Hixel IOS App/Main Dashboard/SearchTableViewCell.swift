@@ -16,6 +16,12 @@ class SearchTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    
+    /// Function use to set up the name of the company
+    /// obtained from the search results to a label.
+    ///
+    /// - Parameter searchEntry: Pass the search entry object.
     func setupCell(searchEntry : SearchEntry)
     {
         searchTextLabel.text = searchEntry.name

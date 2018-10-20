@@ -13,6 +13,10 @@ class SelectedCompaniesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var companyName: UILabel!
     
+    /// Function use to add the company name to cell
+    /// and make the corner of the view more smooth.
+    ///
+    /// - Parameter name: <#name description#>
     func setupCell(name : String)
     {
        // view.dropShadow()

@@ -17,11 +17,17 @@ class CompanyTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var ratioName: UILabel!
     
+    /// Function that is used to  set the indicator name
+    ///
+    /// - Parameter name: Pass in the Indicator Name.
     func setupName(name: String)
     {
         ratioName.text = name
     }
     
+    /// Function that is used to set the value for the specified indiactor.
+    ///
+    /// - Parameter value: Indicator Value
     func setupValue(value: Double)
     {
         ratioValue.text = String(value)

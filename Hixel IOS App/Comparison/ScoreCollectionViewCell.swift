@@ -15,6 +15,12 @@ class ScoreCollectionViewCell: UICollectionViewCell {
     let shapeLayer = CAShapeLayer()
     @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var score_container: UIView!
+    
+    /// Function sets up the score chart.
+    ///
+    /// - Parameters:
+    ///   - companies: Pass the selected companies in here
+    ///   - score: Pass their Scores
     func setupCompaniesName(companies: Company,score : Int)
     {
         companyName.text = companies.identifiers.name
@@ -36,6 +42,7 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         scoreLabel.text = String(score) + "%"
         score_container.addSubview(scoreLabel)
         
+        /// This "hey" will be changed to a more correct name soon.
         hey.translatesAutoresizingMaskIntoConstraints = false
         hey.topAnchor.constraint(equalTo: score_container.topAnchor, constant: 55).isActive = true
         hey.bottomAnchor.constraint(equalTo: score_container.bottomAnchor, constant: 20).isActive = true
@@ -49,7 +56,10 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         handleTap(score: score)
         
     }
-    // does the filling animation
+    
+    /// Function adds the animation effects on the Score Chart.
+    ///
+    /// - Parameter score: Pass in the Score value
     @objc private func handleTap(score: Int)
     {
         print("Attepmting to animate strokee")
@@ -70,17 +80,16 @@ class ScoreCollectionViewCell: UICollectionViewCell {
             basicAnimation.toValue = 0.4  // This will be helpfull to control the outer layer , 1 means full , 0.5 means half. adjust accordingly
             
         }
-        
-        
-        
         basicAnimation.duration = 2
-        
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation,forKey: "ursoBasic")
-        
-        
     }
+    
+    /// Function assits the system to choose a color
+    /// for the score chart depending upon the score values.
+    ///
+    /// - Parameter score: Pass the score value.
     func chooseColor(score: Int)
     {
         if(score < 50)

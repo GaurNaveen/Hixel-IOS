@@ -9,6 +9,10 @@
 import UIKit
 import Charts
 class CompanyController: UIViewController {
+    
+    /// Action button used to display the info view.
+    ///
+    /// - Parameter sender: System Defined Params.
     @IBAction func finanail_indicators_info(_ sender: Any) {
         performSegue(withIdentifier: "indicators_info", sender: self)
         
@@ -20,7 +24,7 @@ class CompanyController: UIViewController {
     var searchedCompany : Company? = nil
     
     @IBOutlet weak var companyNameLabel: UILabel!
-   // let port :PortfolioController = nil
+    // let port :PortfolioController = nil
     
     let indexPath0 = IndexPath(item: 0, section:0)
     let indexPath1 = IndexPath(item: 1, section:0)
@@ -29,7 +33,10 @@ class CompanyController: UIViewController {
     let indexPath4 = IndexPath(item: 4, section:0)
     var selectedIndexPath: IndexPath?
     
-    // Prepare to send the current company back to Portfolio
+    
+    /// Function used to add the company to the portfolio when the user presses the add button.
+    ///
+    /// - Parameter sender: <#sender description#>
     @IBAction func add_button(_ sender: Any) {
         //companies.append(company!)
         // add = true
@@ -39,9 +46,15 @@ class CompanyController: UIViewController {
         // performSegue(withIdentifier: "segue2", sender: self)
         portcomp.append(searchedCompany!)
         // performSegue(withIdentifier: "segue2", sender: self)
-       self.dismiss(animated: true, completion: viewDidLoad)
+        self.dismiss(animated: true, completion: viewDidLoad)
         
     }
+    
+    /// Not in use anymore
+    ///
+    /// - Parameters:
+    ///   - segue: <#segue description#>
+    ///   - sender: <#sender description#>
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //  let vc = segue.destination as! PortfolioController
         // vc.addCompany1(company: company!)
@@ -57,13 +70,18 @@ class CompanyController: UIViewController {
     @IBOutlet weak var scoreChartContainer: UIView!
     let shapeLayer = CAShapeLayer()
     var pulsatingLayer: CAShapeLayer!
+    
+    
+    /// Function used to dismiss the current view.
+    ///
+    /// - Parameter sender: System defined params.
     @IBAction func back_button(_ sender: Any) {
         self.dismiss(animated: true)
     }
     @IBOutlet weak var score_percent: UILabel!
-    
     @IBOutlet weak var dataField1: UIView!
     @IBOutlet weak var score1: UILabel!
+    /// Closure for the Score label
     let scoreLabel: UILabel = {
         let label = UILabel()
         label.text = "Score"
@@ -73,6 +91,7 @@ class CompanyController: UIViewController {
         return label
     }()
     
+    /// Function used to set up the Auto layout on the score label.
     fileprivate func setAutoLayoutOnScore1() {
         /// Adds text to the circular chart we have created. Make sure to add it after the layers have been created
         // use Auto Layout to position the score
@@ -91,6 +110,8 @@ class CompanyController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /// Only display the add button when a company is not present in the portfolio.
         if(portcomp.contains(where: {$0.identifiers.ticker == searchedCompany?.identifiers.ticker}))
         {
             add_button2.isHidden = true
@@ -152,7 +173,8 @@ class CompanyController: UIViewController {
         self.navigationController?.setToolbarHidden(false, animated: true)
     }
     
-    // does the filling animation on the score chart.
+    
+    /// Function that does the filling animation on the score chart.
     @objc private func handleTap()
     {
         print("Attepmting to animate strokee")
@@ -168,6 +190,7 @@ class CompanyController: UIViewController {
         
     }
     
+    /// Function used to add auto layout to the score percent.
     func addAutoLayoutToScorePercent()
     {
         score_percent.translatesAutoresizingMaskIntoConstraints = false
@@ -219,6 +242,7 @@ class CompanyController: UIViewController {
     
 }
 
+// MARK: - Sets the Table view and it's cells content.
 extension CompanyController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  ratios.count
@@ -246,6 +270,7 @@ extension CompanyController:UITableViewDataSource,UITableViewDelegate{
     
 }
 
+// MARK: - Sets the Collection view and it's cells content.
 extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -268,35 +293,5 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
         let cell = collectionView.cellForItem(at: indexPath as IndexPath) as! RatioCell
         cell.cellView.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
         cell.indicator.textColor = .white
-        
-        //        for i in 0..<indexPaths.count {
-        //           // print(indexPath)
-        //            print(collectionView.visibleCells.count)
-        //           // let visible = collectionView.visibleCells
-        //            if(indexPath != indexPaths[i])
-        //            {
-        //
-        //                if(collectionView.cellForItem(at: indexPaths[i]) != nil)
-        //                {
-        //                     let cell1 =  collectionView.cellForItem(at: indexPaths[i]) as! RatioCell
-        //                    cell1.cellView.backgroundColor = .white
-        //                    cell1.indicator.textColor = .black
-        //                }
-        //
-        //
-        //            }
-        //
-        //
-        //        }
-        //        selectedIndexPath = indexPath
-        
-        
-        
     }
-    
-    
-    
-    
-    
-    
 }

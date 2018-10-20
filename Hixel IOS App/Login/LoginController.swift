@@ -20,6 +20,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     let companiesTicker = ["aapl","msft","tsla","twtr","snap","fb","amzn","intc","amd"]
     var string = ""
     
+    /// Function used to set the delegate for the text fields.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,13 +33,16 @@ class LoginController: UIViewController, UITextFieldDelegate {
         password.delegate = self
     }
     
+    /// Function executed when the user clicks the login button.
+    ///
+    /// - Parameter sender: <#sender description#>
     @IBAction func loginButton(_ sender: Any) {
         move = true
         // If the username and password are empty , raise an alert telling the user about it.
         if(username.text!.isEmpty || password.text!.isEmpty)
         {
             popAlert()
-           // self.performSegue(withIdentifier: "test", sender: self)
+            // self.performSegue(withIdentifier: "test", sender: self)
             
         }
             
@@ -86,19 +90,19 @@ class LoginController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // Takes the user to the Sign Up View
+    /// Action Button takes the user to the Sign Up View
     @IBAction func newAccount(_ sender: Any) {
         move = false
         performSegue(withIdentifier: "login_signUP", sender: self)
     }
     
-    // Takes the user to the Forgot Password View
+    /// Action Button takes the user to the Forgot Password View
     @IBAction func forgot_password(_ sender: Any) {
         move = false
         performSegue(withIdentifier: "login_forgotPassword", sender: self)
     }
     
-    // Displays an alert on the screen when username or password are missing.
+    /// Function displays an alert on the screen when username or password are missing.
     func popAlert()
     {
         let alert = UIAlertController(title: " Invalid ", message: "Please enter your Username or Password", preferredStyle: .alert)
@@ -108,7 +112,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    // Displays an Alert when the App cannot connect to the Server.
+    /// Function displays an Alert when the App cannot connect to the Server.
     func serverErrorAlert()
     {
         let alert = UIAlertController(title: " Error ", message: "Could not connect to the Server. Please try again!", preferredStyle: .alert)
@@ -118,6 +122,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    /// Function displays a pop alert if the details entred by the user are not correct.
     func incorrectDetailsAlert()
     {
         let alert = UIAlertController(title: " Error ", message: "Username or Password incorrect", preferredStyle: .alert)
@@ -127,8 +133,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    // This function is used to load the data from the server. After the data is loaded is takes the
-    // user to the Portfolio.
+    /// This function is used to load the data from the server. After the data is loaded is takes the user to the Portfolio.
     func loadDataFromServer()
     {
         
@@ -163,6 +168,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
     }
     
+    
+    /// Function used to test the search resutls.
     func serach()
     {
         let _ = Client().request(.search(query: "aap")).subscribe { event in
@@ -204,6 +211,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
 }
 
+// MARK: - Sets up the text fields.
 extension LoginController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

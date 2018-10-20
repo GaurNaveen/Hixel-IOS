@@ -27,6 +27,7 @@ class GraphInfoViewController: UIViewController {
     
     
     
+    /// Function loads all the financial indicators info into an array and changes the view opacity.
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +41,9 @@ class GraphInfoViewController: UIViewController {
         financial_indicators_info.append(strength)
     }
     
+    /// Action button used to dismiss the current view.
+    ///
+    /// - Parameter sender: <#sender description#>
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true)
     }
@@ -48,6 +52,7 @@ class GraphInfoViewController: UIViewController {
 
 }
 
+// MARK: - Sets up the Collection view that displays the info about the financial indicators.
 extension GraphInfoViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

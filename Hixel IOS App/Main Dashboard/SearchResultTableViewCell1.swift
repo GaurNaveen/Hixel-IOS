@@ -24,6 +24,11 @@ class SearchResultTableViewCell1: UITableViewCell {
     
     @IBOutlet weak var searchTextLabel: UILabel!
     @IBOutlet weak var ticker: UILabel!
+    
+    /// Function use to configure the cell for the table view for
+    /// Search results.
+    ///
+    /// - Parameter searchEntry: Pass the search entry object retrieved from the server.
     func setupcell(searchEntry:SearchEntry)
     {
         exchange = searchEntry.exchange

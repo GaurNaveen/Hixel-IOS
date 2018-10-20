@@ -17,6 +17,9 @@ class TableViewCell: UITableViewCell {
         // Initialization code
     }
     
+    /// Function sets up the label with the ratio name.
+    ///
+    /// - Parameter name: Pass in the name.
     func setupLabel(name: String)
     {
         ratioName.text = name

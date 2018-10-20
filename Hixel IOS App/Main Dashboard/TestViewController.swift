@@ -19,10 +19,9 @@ class TestViewController: UIViewController {
     //Points
     let array = [1.0, 2.0, 3.0, 4.0, 5.0]
     let array2 = [5.0, 6.0, 2.0, 1.0, 5.0]
-    
     var searchArray = [SearchEntry]()
-    
     var months : [String]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

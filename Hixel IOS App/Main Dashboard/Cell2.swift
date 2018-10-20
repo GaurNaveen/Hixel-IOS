@@ -11,14 +11,17 @@ import UIKit
 class Cell2: UITableViewCell {
     @IBOutlet weak var port: UILabel!
     @IBOutlet weak var cont: UIView!
-    
     @IBOutlet weak var cellView: UIView!
+    
+    
+    /// Function to set up the Label for the cell.
     func setupLabel()
     {
         port.text = "Graph Will be added here"
         
     }
     
+    /// Function that adds a shadow affect to the cell's view
     func setupCell()
     {
         cont.dropShadow()

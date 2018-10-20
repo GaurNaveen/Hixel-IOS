@@ -12,6 +12,10 @@ class RatioCell: UICollectionViewCell {
     @IBOutlet weak var indicator: UILabel!
     @IBOutlet weak var cellView: UIView!
     
+    /// Function that sets up the indicator name and also configure the
+    /// the view that contains it.
+    ///
+    /// - Parameter name: <#name description#>
     func setupIndicator(name : String)
     {
         cellView.layer.cornerRadius = 12.0

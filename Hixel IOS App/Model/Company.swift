@@ -43,6 +43,9 @@ struct Company: Codable {
         return avg
     }
     
+    /// Function used to calculate the value for Health Indicator
+    ///
+    /// - Returns: Health Value
     mutating func getHealth() -> Double
     {
         let health_temp = financialDataEntries[0].ratios["Current Ratio"] ?? 0
@@ -66,6 +69,9 @@ struct Company: Codable {
         return health
     }
     
+    /// Function used to calculate the value for Return Indicator
+    ///
+    /// - Returns: Returns the "Return Indicator"
     mutating func getReturns()-> Double
     {
         let Returns_temp = financialDataEntries[0].ratios["Dividend Yield"] ?? 0
@@ -91,6 +97,9 @@ struct Company: Codable {
         
     }
     
+    /// Function used to calculate the value for Safety Indicator
+    ///
+    /// - Returns: Returns the Safety Indicator
     mutating func getSafety() -> Double
     {
         let Safety_temp = financialDataEntries[0].ratios["Current Debt-to-Equity Ratio"] ?? 0
@@ -114,6 +123,9 @@ struct Company: Codable {
         return safety
     }
     
+    /// Function used to calculate the value for Performance Indicator
+    ///
+    /// - Returns: Returns Performance indicator.
     mutating func getPerformance() -> Double
     {
         let Performance_temp = financialDataEntries[0].ratios["Return-on-Equity Ratio"] ?? 0
@@ -136,6 +148,9 @@ struct Company: Codable {
         return performance
     }
     
+    /// Function used to calculate the value for Strength Indicator
+    ///
+    /// - Returns: Returns Stenght Indicator Value
     mutating func getStrength() ->Double
     {
         let Strength_temp = financialDataEntries[0].ratios["Interest Coverage"] ?? 0

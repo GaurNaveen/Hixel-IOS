@@ -13,7 +13,7 @@ import Moya
 import Charts
 import SVProgressHUD
 
-// Global Declaration of the Array that will hold varpanies Object
+/// Global Declaration of the Array that will hold varpanies Object
 var info = false
 var companies:[TempCompany]=[]
 var indexPath1 = IndexPath(row: 0, section: 0)
@@ -27,7 +27,8 @@ var safetyFinal = 0.0
 var strengthFinal = 0.0
 class PortfolioController: UIViewController {
     
-    @IBOutlet weak var MAINVIEW: UIView! // Conatins all the views in which we are working in
+    /// IBOutlets from the View that are attached on the Storyboard.
+    @IBOutlet weak var MAINVIEW: UIView!
     @IBOutlet weak var searchController: UISearchBar!
     @IBOutlet weak var verticalAxis: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -46,6 +47,11 @@ class PortfolioController: UIViewController {
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var overallLabel: UILabel!
+    
+    
+    /// Action Button that displays Graph Info.
+    ///
+    /// - Parameter sender: Self, but you don't have to worry about this.
     @IBAction func moreInfoOnGraph(_ sender: Any) {
         info = true
         // performSegue(withIdentifier: "Dashboard_Graph_info", sender: self)
@@ -58,8 +64,7 @@ class PortfolioController: UIViewController {
     let financialIndicators = ["Health","Performance","Strength","Returns","Safety"]
     let overallFinancialValues = [3,2,5,3,4]
     let graphScale = ["0","1","2","3","4","5"]
-    
-    let comapanyDataProvider = MoyaProvider<ServerInterface>()
+    //let comapanyDataProvider = MoyaProvider<ServerInterface>()
     
     // MARK: Array that holds the companies retrieved from the server
     var portfolioCompanies = [Company]()
@@ -70,13 +75,16 @@ class PortfolioController: UIViewController {
     var months : [String]!
     var avgScores = [Double]()
     
-
+    /// Funtion is called when the View Loads.
+    /// It is responsible for loading the Bar Graph
+    /// and the table view that displays the list of
+    /// companies in the portfolio.
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Lock",portcomp[0].financialDataEntries[1].ratios.keys)
         let res = portcomp[0].calculateGenrealIndicators()
         
-       print("Lock",res)
+        print("Lock",res)
         SearchTableView.isHidden = true
         print("Hoollla")
         print("Companies count ",portfolioCompanies)
@@ -90,7 +98,7 @@ class PortfolioController: UIViewController {
         let yvalues = avgScores
         print("Hec",yvalues)
         setupBarChart(dataPoints: months, values: yvalues)
-       // barChartView.dropShadow()
+        // barChartView.dropShadow()
         // setup the UITable view to have a list of Companies on the Dashboard
         companies = createArray()
         
@@ -122,41 +130,37 @@ class PortfolioController: UIViewController {
             
             reload()
         }
-
-//        comapanyDataProvider.request(.companydata(tickers: "AAPL", years: 2)) { (result) in
-//
-//            switch result{
-//            case .success(let response):
-//                ///let json = try! JSONSerialization.jsonObject(with: response.data, options:[])
-//                print(response.data)
-//            case .failure(let error):
-//                print(error)
-//
-//
-//            }
-//        }
         
     }
     
-    // Activates When the View Appears on the Screen.
+    
+    
+    /// Function activates when the View Appears on the Screen.
+    ///
+    /// - Parameter animated: Already specified for you.
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
         SearchTableView.isHidden = true
         searchBar.text = ""
     }
     
-    func addCompany(company : TempCompany)
-    {
-        addCompany1(company: company)
-    }
+    
     // Sets up the Header View of the Portfolio/Dashboard
+    
+    /// Funtion sets up the header view for the MAIN Dashboard.
     private func setupHeaderView(){
         header.backgroundColor = UIColor.white
         headerLabel.text = hardCodedStrings[0]
         headerLabel.textColor = .black
-        
     }
+    
     var chartData1 = BarChartData()
+    
+    /// Function sets up the Bar Chart.
+    ///
+    /// - Parameters:
+    ///   - dataPoints: Health Indicators.
+    ///   - values: Value for the Health Indicators.
     func setupBarChart(dataPoints: [String], values: [Double])
     {
         barChartView.noDataText = "You need to provide data for the chart."
@@ -169,13 +173,10 @@ class PortfolioController: UIViewController {
             let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]])
             dataEntries.append(dataEntry)
             print("Hect",dataEntry)
-            
-            
         }
-        
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
         chartDataSet.setColors(UIColor.init(netHex: 0xFFDD7C),UIColor.init(netHex: 0x1DCEB1),UIColor.init(netHex: 0xFF5D84),UIColor.init(netHex: 0xFF5D84),UIColor.init(netHex: 0x1DCEB1))
-       // var c = ChartDataEntry(x: <#T##Double#>, y: <#T##Double#>)
+        // var c = ChartDataEntry(x: <#T##Double#>, y: <#T##Double#>)
         let chartData = BarChartData(dataSet: chartDataSet)
         chartData.barWidth = 0.2
         chartData.setDrawValues(false)
@@ -206,6 +207,8 @@ class PortfolioController: UIViewController {
         barChartView.backgroundColor = UIColor.white
         //barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
+    
+    /// Updates the Chart Data
     func updateChart()
     {
         chartData1.clearValues()
@@ -213,18 +216,24 @@ class PortfolioController: UIViewController {
     }
     
     
-    // Configures the Delegate and DataSource for the Table View
+    
+    /// Function use to set the Data Source and Delegate for the table view.
     private func setuptableView(){
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    func calculateFinancialIndicators()
-    {
-        
-    }
+    //    func calculateFinancialIndicators()
+    //    {
+    //
+    //    }
     
     // Creates a temporary array that holds the company names and then returns it
+    
+    /// Function sets up a temporary array that holds the company names and then returns it
+    /// P.S. It's no longer in use and will be removed shortly.
+    ///
+    /// - Returns: temporary array
     private func createArray() ->[TempCompany]{
         var tempCompanies: [TempCompany] = []
         let company1 = TempCompany(name: "Apple Inc", stockExchange: "NASDAQ", score: 12)
@@ -253,6 +262,9 @@ class PortfolioController: UIViewController {
         return tempCompanies
     }
     
+    /// Funtion use to configue the graph view.
+    /// Adds shadow , roundedcorners and autolayout on the view.
+    ///
     private func setupBarGraphView()
     {
         barGraphView.dropShadow()
@@ -274,12 +286,15 @@ class PortfolioController: UIViewController {
         
     }
     
+    /// IBOUtlets from the main view.
     @IBOutlet weak var barLabel1: UILabel!
     @IBOutlet weak var barLabel2: UILabel!
     @IBOutlet weak var barLabel3: UILabel!
     @IBOutlet weak var barLabel4: UILabel!
     @IBOutlet weak var barLabel5: UILabel!
     
+    /// FUntion use to setup graph labels.
+    /// P.S. This is no longer in use.
     private func setupBarGraphLabel()
     {
         barLabel1.text = financialIndicators[0]
@@ -293,6 +308,7 @@ class PortfolioController: UIViewController {
         barLines()
     }
     
+    /// P.S. Thsi is no longer in use.
     private func barColors()
     {   bar3.translatesAutoresizingMaskIntoConstraints = false
         bar4.translatesAutoresizingMaskIntoConstraints = false
@@ -306,13 +322,14 @@ class PortfolioController: UIViewController {
         
     }
     
-    // sets up the horizontal bar lines on the bar graph
+    /// sets up the horizontal bar lines on the bar graph
     @IBOutlet weak var barHLline1: UIView!
     @IBOutlet weak var barHLine2: UIView!
     @IBOutlet weak var barHLine3: UIView!
     @IBOutlet weak var barHLine4: UIView!
     @IBOutlet weak var barHLine5: UIView!
     
+    /// Sets up the axis line colors.
     private func barLines()
     {
         barHLline1.backgroundColor = UIColor.init(netHex: 0x868686)
@@ -325,6 +342,7 @@ class PortfolioController: UIViewController {
         setupGraphScale()
     }
     
+    /// OUtlets from the sub view.
     @IBOutlet weak var scale1: UILabel!
     @IBOutlet weak var scale2: UILabel!
     @IBOutlet weak var scale3: UILabel!
@@ -351,7 +369,7 @@ class PortfolioController: UIViewController {
     let fifthBar = UIView()
     
     
-    
+    /// Function that adds the graph bar to the conatiner subview.
     private func setupBars(value : Int) // should take an array of int values
     {
         barGraphView.addSubview(oneBar)
@@ -368,6 +386,9 @@ class PortfolioController: UIViewController {
         Setup_Fifth_Bar(fifthBar: fifthBar)
     }
     
+    /// Adds the autlayout constraints on the graph.
+    ///
+    /// - Parameter oneBar: graph bar
     func Setup_First_Bar(oneBar : UIView)
     {
         oneBar.translatesAutoresizingMaskIntoConstraints = false
@@ -383,6 +404,9 @@ class PortfolioController: UIViewController {
         oneBar.layer.cornerRadius = 5
     }
     
+    /// Adds the autlayout constraints on the graph.
+    ///
+    /// - Parameter oneBar: graph bar
     func Setup_Second_Bar(secondBar: UIView)
     {
         secondBar.translatesAutoresizingMaskIntoConstraints = false
@@ -399,6 +423,9 @@ class PortfolioController: UIViewController {
         secondBar.layer.cornerRadius = 5
     }
     
+    /// Adds the autlayout constraints on the graph.
+    ///
+    /// - Parameter oneBar: graph bar
     func Setup_Third_Bar(barThird : UIView)
     {
         barThird.translatesAutoresizingMaskIntoConstraints = false
@@ -415,6 +442,9 @@ class PortfolioController: UIViewController {
         barThird.layer.cornerRadius = 5
     }
     
+    /// Adds the autlayout constraints on the graph.
+    ///
+    /// - Parameter oneBar: graph bar
     func Setup_Fourth_Bar(fourthBar : UIView)
     {
         fourthBar.translatesAutoresizingMaskIntoConstraints = false
@@ -431,6 +461,9 @@ class PortfolioController: UIViewController {
         fourthBar.layer.cornerRadius = 5
     }
     
+    /// Adds the autlayout constraints on the graph.
+    ///
+    /// - Parameter oneBar: graph bar
     func Setup_Fifth_Bar(fifthBar : UIView)
     {
         fifthBar.translatesAutoresizingMaskIntoConstraints = false
@@ -466,6 +499,10 @@ class PortfolioController: UIViewController {
         }
         
     }
+    
+    /// P.S. No longer in use.
+    ///
+    /// - Parameter company: <#company description#>
     func addCompany1(company : TempCompany)
     {
         //setuptableView()
@@ -473,11 +510,12 @@ class PortfolioController: UIViewController {
         companies.append(company)
     }
     
+    /// Funtion that provides Bar Chart with Data.
     func dataForBarChart()
     {   // For Health
         var x=0.0
         for i in 0...portcomp.count-1 {
-             x += portcomp[i].getHealth()
+            x += portcomp[i].getHealth()
         }
         
         healthfinal = Double(Int(x)/portcomp.count)
@@ -502,7 +540,6 @@ class PortfolioController: UIViewController {
             p += portcomp[i].getPerformance()
         }
         performanceFinal = Double(Int(p)/portcomp.count)
-
         
         // For Strength
         var st = 0.0
@@ -516,19 +553,16 @@ class PortfolioController: UIViewController {
         avgScores.append(Double(Int(r)/portcomp.count))
         avgScores.append(Double(Int(sf)/portcomp.count))
         avgScores.append(Double(Int(st)/portcomp.count))
-        
-//    print("HealthBar",(Int(x)/portcomp.count)) // Average Health = 4
-//    print("ReturnBar",(Int(r)/portcomp.count)) // AVERAGE RETURN = 1
-//    print("SafetyBar",(Int(sf)/portcomp.count)) // AVERAGE SAFETY = 4
-//    print("PerformanceBar",(Int(p)/portcomp.count))// AVERAGE Performance = 1
-//    print("StrengthBar",(Int(st)/portcomp.count))
-        
-        }
+    }
     
     
     
     
     // This function connects to the server and loads the search results.
+    
+    /// Function that connects to the server that
+    /// gets the search result.
+    /// - Parameter query: text entered by the user in the search bar.
     func serach(query:String)
     {
         let _ = Client().request(.search(query: query)).subscribe { event in
@@ -556,6 +590,11 @@ class PortfolioController: UIViewController {
         }
     }
     
+    
+    /// Function that is used to load a particular company
+    /// when a user selects a company from the search results.
+    ///
+    /// - Parameter ticker: ticker for the comapny , obtained from the search results.
     func loadCompany(ticker:String)
     {
         let _ = Client().request(.companydata(tickers: ticker, years: 1)).subscribe{ event in
@@ -583,15 +622,12 @@ class PortfolioController: UIViewController {
             }
         }
         
-        
-        
     }
-    
-    
-    
-    
 }
-// MARK: Extension Methods for UIColor and UIView
+
+
+
+// MARK: - Extension Methods for UIColor and UIView
 // To get Custom Colors or To convert hex code into rgba
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
@@ -606,7 +642,7 @@ extension UIColor {
     }
 }
 
-// To add shadow effects on views
+// MARK: - Extenison for a UI VIew that allows us to add shadow effect to it.
 extension UIView {
     func dropShadow(scale: Bool = true) {
         layer.masksToBounds = false
@@ -621,10 +657,19 @@ extension UIView {
     
 }
 
-// MARK: Table View setup here
+
+// MARK: - Table View setup here
 extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     
     // Determines how many rows the table view should actually have
+    
+    /// Funtion that determines how many rows there will be in
+    /// a table voew.
+    ///
+    /// - Parameters:
+    ///   - tableView: Pass the table view.
+    ///   - section: Pass the Section if any.
+    /// - Returns: The count of how many rows there should be in the table view.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // Fo the Search Results
@@ -635,7 +680,14 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         return portcomp.count
     }
     
-    // This function is used to configure each and every cell in the Table View
+    
+    
+    /// Function is used to configure each and every cell in the Table View.
+    ///
+    /// - Parameters:
+    ///   - tableView: Pass the table view you want to set up.
+    ///   - indexPath: Index path points to each row.
+    /// - Returns: Cell configured for each index path.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if (tableView == self.SearchTableView)
@@ -662,7 +714,14 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         }
         
     }
+    
     // Adds the swipe to delete to UITableView
+    /// Function enables swipe to delete.
+    ///
+    /// - Parameters:
+    ///   - tableView: Pass the table view
+    ///   - editingStyle: Pass the editing style
+    ///   - indexPath: Pass the index path of the row you want to delte.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         let deletedCompany = portcomp[indexPath.row]
@@ -696,6 +755,11 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     }
     
     // Adds the deleted company back to the table view
+    /// Funtion that allows user to undo the delete option.
+    ///
+    /// - Parameters:
+    ///   - deletedCompany: Pass the company that was delted.
+    ///   - deletedIndex: Pass the deleted index.
     func insertNewRow(deletedCompany : Company,deletedIndex: Int)
     {
         portcomp.append(deletedCompany)
@@ -708,11 +772,17 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     }
     
     
+    /// Funtion reloads the table view.
     func reload()
     {
         tableView.reloadData()
     }
     
+    /// Funtion that defines the behaviour of the table view
+    /// when the user taps on a row of the table view.
+    /// - Parameters:
+    ///   - tableView: Pass the table view.
+    ///   - indexPath: Pass the index path for the selected row.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Load the company data for that particular company
@@ -743,6 +813,12 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     }
     
     
+    /// Function is called when there is a segue gooing to happen
+    /// between two view. It pretty much sets the data on the next view before
+    /// segue has occured.
+    /// - Parameters:
+    ///   - segue: Defined for you.
+    ///   - sender: Defined for you.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if( info == false)
@@ -764,6 +840,7 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     
 }
 
+// MARK: - Sets up the Search Bar
 extension PortfolioController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         SearchTableView.isHidden = false

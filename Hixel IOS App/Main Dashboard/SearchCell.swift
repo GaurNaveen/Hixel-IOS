@@ -9,13 +9,18 @@
 import UIKit
 
 class SearchCell: UITableViewCell {
+    /// IBOutlets from the View
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var stock: UILabel!
     @IBOutlet weak var compName: UILabel!
     @IBOutlet weak var searchName: UILabel!
- 
     @IBOutlet weak var searchCard: UIView!
     
+    /// Function sets up the cell for a collection
+    /// view that displays score for a company and
+    //  the name for it.
+    ///
+    /// - Parameter company: Pass the Company you want to display inside the cell.
     func setCompany(company: Company){
         //searchName.text = tempCompany.name
         searchCard.dropShadow()
@@ -26,6 +31,10 @@ class SearchCell: UITableViewCell {
         setScoreColor(Score: company.score)
     }
     
+    /// Function sets the color of stroke
+    /// depending upon the score value.
+    ///
+    /// - Parameter Score: Pass the Score for the Company.
     func setScoreColor(Score:Int)
     {
         if (Score == 50)
