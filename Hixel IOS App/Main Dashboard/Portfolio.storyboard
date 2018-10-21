@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GuJ-Oz-CcT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jM8-GG-bHj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -2237,6 +2237,50 @@
             </objects>
             <point key="canvasLocation" x="2136.8000000000002" y="-960.2698650674663"/>
         </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="2U1-fK-w5w">
+            <objects>
+                <viewController id="jM8-GG-bHj" customClass="OnboardingViewController" customModule="Hixel_IOS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qf8-cG-sEQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mvv-vS-fjP" customClass="onboardingClass" customModule="Hixel_IOS_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mh9-t6-gTt">
+                                <rect key="frame" x="137" y="515" width="100" height="36"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                                <state key="normal" title="Get Started!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mvv-vS-fjP" firstAttribute="width" secondItem="Qf8-cG-sEQ" secondAttribute="width" id="4Hz-DB-NNi"/>
+                            <constraint firstItem="Mvv-vS-fjP" firstAttribute="height" secondItem="Qf8-cG-sEQ" secondAttribute="height" id="KlB-UX-Sey"/>
+                            <constraint firstItem="ef2-aF-IOb" firstAttribute="bottom" secondItem="Mh9-t6-gTt" secondAttribute="bottom" constant="116" id="W9f-RO-Jna"/>
+                            <constraint firstItem="Mvv-vS-fjP" firstAttribute="leading" secondItem="ef2-aF-IOb" secondAttribute="leading" id="lUU-Lw-apN"/>
+                            <constraint firstItem="ef2-aF-IOb" firstAttribute="trailing" secondItem="Mh9-t6-gTt" secondAttribute="trailing" constant="138" id="mHr-Fq-btg"/>
+                            <constraint firstItem="Mvv-vS-fjP" firstAttribute="trailing" secondItem="ef2-aF-IOb" secondAttribute="trailing" id="pov-bD-Vti"/>
+                            <constraint firstItem="Mh9-t6-gTt" firstAttribute="top" secondItem="ef2-aF-IOb" secondAttribute="top" constant="495" id="qz5-5n-EoF"/>
+                            <constraint firstItem="Mvv-vS-fjP" firstAttribute="bottom" secondItem="ef2-aF-IOb" secondAttribute="bottom" id="we3-mg-3Xk"/>
+                            <constraint firstItem="Mh9-t6-gTt" firstAttribute="leading" secondItem="ef2-aF-IOb" secondAttribute="leading" constant="137" id="x8E-JF-oge"/>
+                            <constraint firstItem="Mvv-vS-fjP" firstAttribute="top" secondItem="Qf8-cG-sEQ" secondAttribute="top" id="yiH-Sf-Guh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ef2-aF-IOb"/>
+                    </view>
+                    <connections>
+                        <outlet property="getStarted" destination="Mh9-t6-gTt" id="Dd1-Lq-Xgm"/>
+                        <outlet property="onboarding" destination="Mvv-vS-fjP" id="9z0-dL-ey2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZF-KT-ayn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3237.5999999999999" y="-1014.2428785607198"/>
+        </scene>
         <!--GraphInfo-->
         <scene sceneID="NzQ-li-QS5">
             <objects>
@@ -2257,7 +2301,7 @@
         <image name="more_info" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hp5-UO-Yc0"/>
+        <segue reference="1Zk-LG-t5D"/>
         <segue reference="S3T-pC-Rh2"/>
         <segue reference="YFM-EE-0KE"/>
         <segue reference="uNh-mk-Z55"/>

@@ -85,6 +85,8 @@
 		B6E9F3B62154E2BB00B2168D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9F3B52154E2BB00B2168D /* ForgotPasswordViewController.swift */; };
 		B6E9F3B72154E2BB00B2168D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9F3B52154E2BB00B2168D /* ForgotPasswordViewController.swift */; };
 		B6F9D6A12156A3DD0093C385 /* RatioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9D6A02156A3DD0093C385 /* RatioCell.swift */; };
+		B6FA3526217C4C8A008C6C40 /* onboardingClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA3525217C4C8A008C6C40 /* onboardingClass.swift */; };
+		B6FA3528217C4D5A008C6C40 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA3527217C4D5A008C6C40 /* OnboardingViewController.swift */; };
 		B6FA6DC72147B29D00C38901 /* GraphScaleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA6DC62147B29D00C38901 /* GraphScaleInfo.swift */; };
 		B6FA6DC92147C15200C38901 /* GraphInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6FA6DC82147C15200C38901 /* GraphInfo.storyboard */; };
 /* End PBXBuildFile section */
@@ -162,6 +164,8 @@
 		B6E9F3B22154D5EC00B2168D /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		B6E9F3B52154E2BB00B2168D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		B6F9D6A02156A3DD0093C385 /* RatioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCell.swift; sourceTree = "<group>"; };
+		B6FA3525217C4C8A008C6C40 /* onboardingClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingClass.swift; sourceTree = "<group>"; };
+		B6FA3527217C4D5A008C6C40 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		B6FA6DC62147B29D00C38901 /* GraphScaleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphScaleInfo.swift; sourceTree = "<group>"; };
 		B6FA6DC82147C15200C38901 /* GraphInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GraphInfo.storyboard; sourceTree = "<group>"; };
 		DBB121D7DF7B2A91324DEE30 /* Pods-Hixel IOS AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hixel IOS AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hixel IOS AppTests/Pods-Hixel IOS AppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -313,6 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				B65A53C1214206E600C18554 /* Portfolio.storyboard */,
+				B6FA3527217C4D5A008C6C40 /* OnboardingViewController.swift */,
+				B6FA3525217C4C8A008C6C40 /* onboardingClass.swift */,
 				B6E61A5D216D638200961710 /* SearchTableViewCell.swift */,
 				B6E61A5B216D624D00961710 /* TestViewController.swift */,
 				B6E61A61216D78DA00961710 /* SearchResultTableViewCell1.swift */,
@@ -583,6 +589,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -598,6 +605,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -658,6 +666,7 @@
 				B61B179C2151A8810029CA63 /* CompanyTableViewCell.swift in Sources */,
 				8CA9B1612146D25A00FC5502 /* Company.swift in Sources */,
 				B6C29EC4215D46BF00DA437F /* SelectedCompaniesCollectionViewCell.swift in Sources */,
+				B6FA3526217C4C8A008C6C40 /* onboardingClass.swift in Sources */,
 				B6F9D6A12156A3DD0093C385 /* RatioCell.swift in Sources */,
 				B61B1794215106A20029CA63 /* ScoreCollectionViewCell.swift in Sources */,
 				B6FA6DC72147B29D00C38901 /* GraphScaleInfo.swift in Sources */,
@@ -665,6 +674,7 @@
 				8C3DD2892163CFCF00DA2C99 /* Credentials.swift in Sources */,
 				8C32D28021723B530087A3FD /* PortfolioCompany.swift in Sources */,
 				8CA9B1632146D64F00FC5502 /* CompanyIdentifiers.swift in Sources */,
+				B6FA3528217C4D5A008C6C40 /* OnboardingViewController.swift in Sources */,
 				B6D153F7217073B600ABB7C8 /* SearchComparisonCell.swift in Sources */,
 				8C3DD283216394F400DA2C99 /* Client.swift in Sources */,
 				B6A2D74F214FA5A000853A0C /* SearchCell.swift in Sources */,

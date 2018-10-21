@@ -179,8 +179,8 @@ class PortfolioController: UIViewController {
         // var c = ChartDataEntry(x: <#T##Double#>, y: <#T##Double#>)
         let chartData = BarChartData(dataSet: chartDataSet)
         chartData.barWidth = 0.2
-        chartData.setDrawValues(false)//0x1DCEB1
-        chartData1 = chartData //0xFFDD7C
+        chartData.setDrawValues(false)
+        chartData1 = chartData
         /*
          
          reset all the 5 colors of graph here depending upon the values

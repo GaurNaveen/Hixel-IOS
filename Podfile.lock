@@ -48,6 +48,7 @@ PODS:
   - Moya/RxSwift (11.0.2):
     - Moya/Core
     - RxSwift (~> 4.0)
+  - paper-onboarding (5.0.0)
   - Result (3.2.4)
   - RxSwift (4.3.1)
   - SVProgressHUD (2.2.5)
@@ -58,6 +59,7 @@ DEPENDENCIES:
   - KeychainSwift
   - MaterialComponents/Snackbar
   - Moya/RxSwift
+  - paper-onboarding
   - RxSwift
   - SVProgressHUD
 
@@ -70,6 +72,7 @@ SPEC REPOS:
     - MDFInternationalization
     - MDFTextAccessibility
     - Moya
+    - paper-onboarding
     - Result
     - RxSwift
     - SVProgressHUD
@@ -82,10 +85,11 @@ SPEC CHECKSUMS:
   MDFInternationalization: b5b8626628abf026e630e5ebaeee563037712cbb
   MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
   Moya: a725035953bc1c0eb1be505ab903984501d82440
+  paper-onboarding: a2e3a710fd27ac0b5635ec5490660e7ec09289b5
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: a439b53367a75d37b7ca4b4b17a1c6588fd0db06
+PODFILE CHECKSUM: dd25f6a0c0d34069bc8f98e455c3da41e27bfa8f
 
 COCOAPODS: 1.5.3
