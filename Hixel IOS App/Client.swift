@@ -33,6 +33,7 @@ final class Client {
             }
     }
     
+
     private func refreshSessionToken(oldCredentials: Credentials) -> Single<Credentials> {
         return Single.create { subscriber in
             self.provider.request(.refresh(token: oldCredentials.refreshToken)) { result in

@@ -175,12 +175,12 @@ class PortfolioController: UIViewController {
             print("Hect",dataEntry)
         }
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
-        chartDataSet.setColors(UIColor.init(netHex: 0xFFDD7C),UIColor.init(netHex: 0x1DCEB1),UIColor.init(netHex: 0xFF5D84),UIColor.init(netHex: 0xFF5D84),UIColor.init(netHex: 0x1DCEB1))
+        chartDataSet.setColors(UIColor.init(netHex: 0x1DCEB1),UIColor.init(netHex:0xFF5D84 ),UIColor.init(netHex: 0xFF5D84),UIColor.init(netHex: 0x1DCEB1),UIColor.init(netHex: 0xFFDD7C))
         // var c = ChartDataEntry(x: <#T##Double#>, y: <#T##Double#>)
         let chartData = BarChartData(dataSet: chartDataSet)
         chartData.barWidth = 0.2
-        chartData.setDrawValues(false)
-        chartData1 = chartData
+        chartData.setDrawValues(false)//0x1DCEB1
+        chartData1 = chartData //0xFFDD7C
         /*
          
          reset all the 5 colors of graph here depending upon the values
