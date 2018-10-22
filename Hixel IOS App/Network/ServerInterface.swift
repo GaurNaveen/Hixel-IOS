@@ -8,6 +8,19 @@
 import Foundation
 import Moya
 
+/// The different requests that can be performed
+///
+/// - login: Log in to the CorpReport Server
+/// - signup: Create a new account
+/// - userData: Get information about this user
+/// - resetEmail: Request a password-reset email
+/// - resetCode: Check the validity of a reset-code
+/// - resetPassword: Reset password with a reset-code
+/// - changePassword: Change current password
+/// - refresh: Request a new Access Token and Refresh Token
+/// - companydata: Request data about companies
+/// - search: Query for companies with names or tickers matching a search termm
+/// - ratios: Request the list of ratios which will be calculated
 enum ServerInterface {
     
     case login(loginData: LoginData)
@@ -30,8 +43,10 @@ enum ServerInterface {
 
 extension ServerInterface: TargetType, AccessTokenAuthorizable {
 
+    /// The base URL which the path is appended to
     var baseURL: URL { return URL(string: "https://game.bones-underground.org:8443")! }
 
+    /// The URL path to the API endpoint. This gets appended to baseURL
     var path: String {
         switch self {
             case .login:
@@ -59,6 +74,7 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
         }
     }
     
+    /// Represents what kind of request this will be (GET, PUT, POST, etc.)
     var method: Moya.Method {
         switch self {
             case .login, .signup:
@@ -68,6 +84,7 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
         }
     }
     
+    /// Controls how data is encoded and sent to the server (JSON, URL parameters, etc.)
     var task: Task {
         switch self {
             case .login(let loginData):
@@ -91,6 +108,7 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
         }
     }
     
+    /// Controls which headers will be sent with the request
     var headers: [String : String]? {
         var h = ["Content-type": "application/json"]
         
@@ -100,12 +118,13 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
             case .refresh:
                 h["Refresh"] = Credentials.currentCredentials().refreshToken
             default:
-                h["Authorization"] = Credentials.currentCredentials().authToken
+                h["Authorization"] = Credentials.currentCredentials().accessToken
         }
         
         return h
     }
     
+    /// Controls the level of authorization
     var authorizationType: AuthorizationType {
         switch self {
             case .login, .signup, .resetEmail, .resetCode, .resetPassword:
@@ -115,6 +134,7 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
         }
     }
     
+    /// Sample data which is used for testing
     var sampleData: Data {
         return Data()
     }
