@@ -129,11 +129,15 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     /// Function that helps us to read user defaults.
-    func retrievePasswordAndUserName()
+    ///
+    /// - Returns: Right now only returns the login status
+    func retrievePasswordAndUserName() -> Bool
     {   let retrieveUserName : String? = KeychainWrapper.standard.string(forKey: "userEmail")
         let retrievePassword : String? = KeychainWrapper.standard.string(forKey: "userPassword")
-        let retieveLoginStatus: Bool? = KeychainWrapper.standard.bool(forKey: "loggedIn")
-    }
+        let retrieveLoginStatus: Bool? = KeychainWrapper.standard.bool(forKey: "loggedIn")
+        
+        return retrieveLoginStatus ?? false
+       }
     
     /// Action Button takes the user to the Sign Up View
     @IBAction func newAccount(_ sender: Any) {
