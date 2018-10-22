@@ -1,5 +1,5 @@
 //
-//  ResetPasswordCodeViewController.swift
+//  NewPasswordViewController.swift
 //  Hixel IOS App
 //
 //  Created by Naveen Gaur on 22/10/18.
@@ -8,38 +8,49 @@
 
 import UIKit
 
-class ResetPasswordCodeViewController: UIViewController,UITextFieldDelegate {
+class NewPasswordViewController: UIViewController,UITextFieldDelegate {
+
+    
+    /// Action button that sends your newly added password back to server
+    /// so that you can use it.
+    ///
+    /// - Parameter sender: System Defined Params.
     @IBAction func submit(_ sender: Any) {
         
-        let _ = Client().request(.resetCode(email: email1, code: resetCode.text!)).subscribe{
-            result in
+        
+        let _ =   Client().request(.resetPassword(email: email1, code: code, password: newPassword.text!)).subscribe{
+            resut in
             
-            switch result {
+            switch resut{
+                
             case .success(let response):
                 if(response.statusCode == 200)
                 {
-                    print("Done")
+                    print("Almost done")
+                    // move to login
+                    self.performSegue(withIdentifier: "login_here", sender: self)
                 }
-                
                 else{
-                    print("not done")
+                    print("Not Done1")
                 }
-                
                 break
-
-            default:
-                print("Got Error")
+                
+            default: print("Not Done")
             }
         }
+        
+        
+        
     }
     
-    @IBOutlet weak var resetCode: UITextField!
+    @IBOutlet weak var newPassword: UITextField!
+    
+    
+    /// sets the delegate for text field.
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        newPassword.delegate = self
         // Do any additional setup after loading the view.
-        resetCode.delegate = self
-        
     }
     
 
@@ -54,10 +65,12 @@ class ResetPasswordCodeViewController: UIViewController,UITextFieldDelegate {
     */
 
 }
-extension ResetPasswordCodeViewController{
-    
+
+//MARK - extension so that the text field returns user data
+extension NewPasswordViewController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
 }
