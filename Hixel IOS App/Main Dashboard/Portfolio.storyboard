@@ -1960,6 +1960,7 @@
                         <segue destination="ZZe-p9-62m" kind="presentation" identifier="login_signUP" id="1Zk-LG-t5D"/>
                         <segue destination="eLf-4d-l83" kind="presentation" identifier="login_forgotPassword" id="dFB-dB-g26"/>
                         <segue destination="Ije-et-cbD" kind="show" identifier="test" id="YFM-EE-0KE"/>
+                        <segue destination="jM8-GG-bHj" kind="modal" identifier="onboarding_login1" id="zwP-vA-5wT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tiC-bK-e1S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2345,7 +2346,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="GuJ-Oz-CcT" kind="show" id="O9A-JW-myN"/>
+                                    <segue destination="ZZe-p9-62m" kind="show" id="EfD-ax-NOc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2394,9 +2395,11 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="J9O-rh-PCW"/>
+        <segue reference="zwP-vA-5wT"/>
         <segue reference="YFM-EE-0KE"/>
         <segue reference="zqB-K4-ABl"/>
-        <segue reference="7tL-dQ-h6e"/>
+        <segue reference="Lx1-wN-svT"/>
+        <segue reference="EfD-ax-NOc"/>
         <segue reference="UAa-6c-BN9"/>
         <segue reference="1vF-3n-TSK"/>
     </inferredMetricsTieBreakers>

@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import  SwiftKeychainWrapper
 class SignUpController: UIViewController {
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
@@ -36,8 +37,10 @@ class SignUpController: UIViewController {
                     {
                         // sign up was succesull
                         SVProgressHUD.dismiss()
+                        self.saveLoginStatus()
                         // Takes the user back to the login view.
-                        self.performSegue(withIdentifier: "onboarding", sender: self)
+                        self.performSegue(withIdentifier: "signup_login", sender: self)
+                        
                         
                     }
                     else if(response.statusCode == 409){
@@ -100,6 +103,13 @@ class SignUpController: UIViewController {
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    /// Saves the Login Status , so that the next time user opens the app he/she shouldn't see the onboarding again.
+    func saveLoginStatus()
+    {
+        let saveSuccessful3 : Bool = KeychainWrapper.standard.set(true, forKey: "loggedIn")
+
     }
     
 }

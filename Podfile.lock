@@ -52,6 +52,7 @@ PODS:
   - Result (3.2.4)
   - RxSwift (4.3.1)
   - SVProgressHUD (2.2.5)
+  - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - paper-onboarding
   - RxSwift
   - SVProgressHUD
+  - SwiftKeychainWrapper
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -76,6 +78,7 @@ SPEC REPOS:
     - Result
     - RxSwift
     - SVProgressHUD
+    - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
@@ -89,7 +92,8 @@ SPEC CHECKSUMS:
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: dd25f6a0c0d34069bc8f98e455c3da41e27bfa8f
+PODFILE CHECKSUM: 67cfc843dfd6d860f31a3f5547d2ec1de5fb63bf
 
 COCOAPODS: 1.5.3

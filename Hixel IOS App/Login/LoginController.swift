@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Moya
 import SVProgressHUD
+import SwiftKeychainWrapper
 var portcomp = [Company]()
 
 class LoginController: UIViewController, UITextFieldDelegate {
@@ -23,6 +24,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+      //  let removeSuccessful: Bool = KeychainWrapper.standard.remove(key: "loggedIn")
+
+        
+        
+        
         let joinedStrings = companiesTicker.joined(separator: ",")
         // Do any additional setup after loading the view.
         string = joinedStrings
@@ -32,9 +38,31 @@ class LoginController: UIViewController, UITextFieldDelegate {
         password.delegate = self
     }
     
+    
+    /// Function checks whether to display the onboarding or not.
+    ///
+    /// - Parameter animated: System Defiend Params.
+    override func viewDidAppear(_ animated: Bool) {
+        let check = retrievePasswordAndUserName()
+        print(check)
+        if(check == false)
+        {   print("Hello bruh!")
+            
+            // Move to the onboarding
+            moveToOnboarding()
+        }
+    }
+    
+    func moveToOnboarding()
+    {
+        performSegue(withIdentifier: "onboarding_login1", sender: self)
+
+        
+    }
+    
     /// Function executed when the user clicks the login button.
     ///
-    /// - Parameter sender: <#sender description#>
+    /// - Parameter sender: System Defined Params
     @IBAction func loginButton(_ sender: Any) {
         move = true
         // If the username and password are empty , raise an alert telling the user about it.
@@ -69,6 +97,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         
                         Credentials.setCredentials(newCredentials: newCredentials)
                         
+                        // Save user defaults
+                        self.saveUserDefaults()
                         
                         // Load data here
                         self.loadDataFromServer()
@@ -87,6 +117,22 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+    }
+    
+    /// Function use to save User's email and password. Might come in use to keep the user logged in.
+    func saveUserDefaults()
+    {
+        let saveSuccessful1 : Bool = KeychainWrapper.standard.set(password.text!, forKey: "userPassword")
+        let saveSuccessful2 : Bool = KeychainWrapper.standard.set(username.text!, forKey: "userEmail")
+        print("Save was Successful: \(saveSuccessful1)")
+        
+    }
+    
+    /// Function that helps us to read user defaults.
+    func retrievePasswordAndUserName()
+    {   let retrieveUserName : String? = KeychainWrapper.standard.string(forKey: "userEmail")
+        let retrievePassword : String? = KeychainWrapper.standard.string(forKey: "userPassword")
+        let retieveLoginStatus: Bool? = KeychainWrapper.standard.bool(forKey: "loggedIn")
     }
     
     /// Action Button takes the user to the Sign Up View

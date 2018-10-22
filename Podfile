@@ -13,6 +13,8 @@ target 'Hixel IOS App' do
   pod 'KeychainSwift'
   pod 'SVProgressHUD'
   pod 'paper-onboarding'
+  pod 'SwiftKeychainWrapper'
+
   target 'Hixel IOS AppTests' do
     inherit! :search_paths
     # Pods for testing
