@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+var email1 = ""
 class ForgotPasswordViewController: UIViewController {
     
     @IBOutlet weak var email: UITextField!
@@ -28,14 +28,22 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     
-    /// Action function for the Submit button
+    /// Action function for the Submit button. Takes the email from the user
+    /// and sends to the server , which then sends the recovery code to the email.
     ///
-    /// - Parameter sender: <#sender description#>
+    /// - Parameter sender: System Defined Params
     @IBAction func submit_button(_ sender: Any) {
         // If the email field is empty, display an alert on the screen.
         if(email.text!.isEmpty)
         {
             popAlert()
+        }
+        
+        email1 = email.text!
+        let _ = Client().request(.resetEmail(email: email.text!)).subscribe{
+            result in
+            
+            self.performSegue(withIdentifier: "enter_code", sender: self)
         }
         
     }

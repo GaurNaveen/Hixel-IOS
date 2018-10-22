@@ -21,10 +21,10 @@ class ScoreCollectionViewCell: UICollectionViewCell {
     /// - Parameters:
     ///   - companies: Pass the selected companies in here
     ///   - score: Pass their Scores
-    func setupCompaniesName(companies: Company,score : Int)
+    func setupCompaniesName( companies: inout Company,score : Int)
     {
         companyName.text = companies.identifiers.name
-        
+        let score = companies.calculateScore()
         
         let center = score_container.center
         let circularPath = UIBezierPath(arcCenter: center, radius: 88, startAngle: -CGFloat.pi / 2, endAngle: 2*CGFloat.pi, clockwise: true)
@@ -39,7 +39,7 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         scoreLabel.centerXAnchor.constraint(equalTo: score_container.centerXAnchor).isActive = true
         scoreLabel.centerYAnchor.constraint(equalTo: score_container.centerYAnchor).isActive = true
-        scoreLabel.text = String(score) + "%"
+        scoreLabel.text = "\(score)%"
         score_container.addSubview(scoreLabel)
         
         /// This "hey" will be changed to a more correct name soon.

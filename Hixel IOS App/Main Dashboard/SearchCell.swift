@@ -21,13 +21,14 @@ class SearchCell: UITableViewCell {
     //  the name for it.
     ///
     /// - Parameter company: Pass the Company you want to display inside the cell.
-    func setCompany(company: Company){
+    func setCompany( company: inout Company){
         //searchName.text = tempCompany.name
         searchCard.dropShadow()
         searchCard.layer.cornerRadius = 5.0
         compName.text = company.identifiers.name
         stock.text = "Ticker "+company.identifiers.ticker
-        score.text = "Score: \(company.score)"
+        
+        score.text = "Score: \(company.calculateScore())"
         setScoreColor(Score: company.score)
     }
     

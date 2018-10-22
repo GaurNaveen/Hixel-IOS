@@ -36,7 +36,7 @@ class CompanyController: UIViewController {
     
     /// Function used to add the company to the portfolio when the user presses the add button.
     ///
-    /// - Parameter sender: <#sender description#>
+    /// - Parameter sender: System Defined Params.
     @IBAction func add_button(_ sender: Any) {
         //companies.append(company!)
         // add = true
@@ -53,8 +53,8 @@ class CompanyController: UIViewController {
     /// Not in use anymore
     ///
     /// - Parameters:
-    ///   - segue: <#segue description#>
-    ///   - sender: <#sender description#>
+    ///   - segue: Params.
+    ///   - sender: Params.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //  let vc = segue.destination as! PortfolioController
         // vc.addCompany1(company: company!)
@@ -110,7 +110,9 @@ class CompanyController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Hoya",(searchedCompany?.calculateScore())!)
         
+        score_percent.text = "\((searchedCompany?.calculateScore())!) %"
         /// Only display the add button when a company is not present in the portfolio.
         if(portcomp.contains(where: {$0.identifiers.ticker == searchedCompany?.identifiers.ticker}))
         {
@@ -121,7 +123,7 @@ class CompanyController: UIViewController {
             
         }
         companyNameLabel.text = searchedCompany?.identifiers.name
-        setChartValues()
+        setChartValues(check: false)
         // dataField1.dropShadow()
         // Do any additional setup after loading the view.
         // let's start by drawing a circle somehow
@@ -202,19 +204,35 @@ class CompanyController: UIViewController {
         score_percent.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 230).isActive = true
         
     }
-    var lineChartEntry = [ChartDataEntry]()
-    var lineChartEntry2 = [ChartDataEntry]()
+    
     var score_Values = [1,3,2,4,3]
     //var score_Values1 = [2,1,5,1,2]
     var years = ["2014","2015","2016","2017","2018"]
     
     // MARK: Setup Line Chart
-    func setChartValues()
+    func setChartValues(check:Bool)
     {
+        var lineChartEntry = [ChartDataEntry]()
+        var lineChartEntry2 = [ChartDataEntry]()
+        score_Values.removeAll()
+        score_Values.append(Int((searchedCompany?.getHealth())!))
+        score_Values.append(Int((searchedCompany?.getHealth2())!))
+        score_Values.append(Int((searchedCompany?.getHealth3())!))
+        score_Values.append(Int((searchedCompany?.getHealth4())!))
+        score_Values.append(Int((searchedCompany?.getHealth5())!))
+
+        // add health values for previous yhears
+        if(check==true)
+        {
+            
+        }
+        
+        
         for i in 0..<score_Values.count {
             let value = ChartDataEntry(x: Double(i), y: Double(score_Values[i]))
             lineChartEntry.append(value)
         }
+        
         /*
          for i in 0..<score_Values1.count {
          let value = ChartDataEntry(x: Double(i), y: Double(score_Values1[i]))
@@ -237,7 +255,27 @@ class CompanyController: UIViewController {
         
     }
     
-    
+    func setChartValues2(score_Values:[Int],indicator:String)
+    {
+        var lineChartEntry3 = [ChartDataEntry]()
+
+        
+        for i in 0..<score_Values.count {
+            let value = ChartDataEntry(x: Double(i), y: Double(score_Values[i]))
+            lineChartEntry3.append(value)
+        }
+        let set1 = LineChartDataSet(values: lineChartEntry3, label: indicator)
+        set1.circleColors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
+        set1.colors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
+        set1.mode = .cubicBezier
+        set1.circleRadius  = 4.0
+        let data = LineChartData(dataSet: set1)
+        //data.addDataSet(set2)
+        lineChartView.data = data
+        lineChartView.chartDescription?.text = "Financial Indiacators"
+        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: years)
+        lineChartView.xAxis.granularity = 1
+    }
     
     
 }
@@ -290,8 +328,85 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //collectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
         // MARK: TO Access cell elments
-        let cell = collectionView.cellForItem(at: indexPath as IndexPath) as! RatioCell
-        cell.cellView.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
-        cell.indicator.textColor = .white
+        //let cell = collectionView.cellForItem(at: indexPath as IndexPath) as! RatioCell
+        //cell.cellView.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
+       // cell.indicator.textColor = .white
+        
+        if(indexPath.row == 0)
+        {
+            // shows the performance indicator for the company in the line chart
+            var values1 = [0,1,2,3,4]
+            values1.removeAll()
+            values1.append( Int((searchedCompany?.getHealth())!))
+            values1.append( Int((searchedCompany?.getHealth2())!))
+            values1.append( Int((searchedCompany?.getHealth3())!))
+            values1.append( Int((searchedCompany?.getHealth4())!))
+            values1.append( Int((searchedCompany?.getHealth5())!))
+            setChartValues2(score_Values: values1, indicator: "Health")
+            
+            //setLineChart2(values1)
+        }
+        
+        
+        
+        
+        if(indexPath.row == 1)
+        {
+            // shows the performance indicator for the company in the line chart
+            var values1 = [0,1,2,3,4]
+            values1.removeAll()
+            values1.append( Int((searchedCompany?.getPerformance())!))
+            values1.append( Int((searchedCompany?.getPerformance2())!))
+            values1.append( Int((searchedCompany?.getPerformance3())!))
+            values1.append( Int((searchedCompany?.getPerformance4())!))
+            values1.append( Int((searchedCompany?.getPerformance5())!))
+           // setChartValues(check: true)
+            print("yad",values1)
+            //setLineChart2(values1)
+        }
+        
+        if(indexPath.row == 2)
+        {
+            // shows the performance indicator for the company in the line chart
+            var values1 = [0,1,2,3,4]
+            values1.removeAll()
+            values1.append( Int((searchedCompany?.getSafety())!))
+            values1.append( Int((searchedCompany?.getSafety2())!))
+            values1.append( Int((searchedCompany?.getSafety3())!))
+            values1.append( Int((searchedCompany?.getSafety4())!))
+            values1.append( Int((searchedCompany?.getSafety5())!))
+            setChartValues2(score_Values: values1, indicator: "Safety")
+
+            
+        }
+        
+        if(indexPath.row == 3)
+        {
+            // shows the performance indicator for the company in the line chart
+            var values1 = [0,1,2,3,4]
+            values1.removeAll()
+            values1.append( Int((searchedCompany?.getStrength())!))
+            values1.append( Int((searchedCompany?.getStrength2())!))
+            values1.append( Int((searchedCompany?.getStrengt3())!))
+            values1.append( Int((searchedCompany?.getStrength4())!))
+            values1.append( Int((searchedCompany?.getStrength5())!))
+            setChartValues2(score_Values: values1, indicator: "Strength")
+
+        }
+        
+        if(indexPath.row == 4)
+        {
+            // shows the performance indicator for the company in the line chart
+            var values1 = [0,1,2,3,4]
+            values1.removeAll()
+            values1.append( Int((searchedCompany?.getReturns())!))
+            values1.append( Int((searchedCompany?.getReturns2())!))
+            values1.append( Int((searchedCompany?.getReturns3())!))
+            values1.append( Int((searchedCompany?.getReturns4())!))
+            values1.append( Int((searchedCompany?.getReturns5())!))
+            setChartValues2(score_Values: values1, indicator: "Returns")
+
+            
+        }
     }
 }

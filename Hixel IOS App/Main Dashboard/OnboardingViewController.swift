@@ -8,10 +8,13 @@
 
 import UIKit
 import paper_onboarding
+
+/// Implements the Onboarding
 class OnboardingViewController: UIViewController {
     @IBOutlet weak var onboarding: onboardingClass!
     @IBOutlet weak var getStarted: UIButton!
     
+    /// Function that sets the delegate and source for onboarding.
     override func viewDidLoad() {
         super.viewDidLoad()
         onboarding.dataSource = self
@@ -19,32 +22,32 @@ class OnboardingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
+/// Onboarding set up here.Configures the whole onboaring here.
 extension OnboardingViewController:PaperOnboardingDataSource,PaperOnboardingDelegate {
+    /// sets the number of screens
     func onboardingItemsCount() -> Int {
-       return  3
+        return  3
     }
     
+    /// Configures the onboarding screens
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
-        let backgroundOne = UIColor(red: 217/255, green: 72/255, blue: 89/255, alpha: 1)
-        let backgroundTwo = UIColor(red: 106/255, green: 166/255, blue: 211/255, alpha: 1)
-        let backgroundThree = UIColor(red: 168/255, green: 200/255, blue: 78/255, alpha: 1)
         let titleFont = UIFont(name: "AvenirNext-Bold", size: 24)!
         let descriptionFont = UIFont(name: "AvenirNext-Regular", size: 18)!
         
-         let items = [
+        let items = [
             OnboardingItemInfo(informationImage: UIImage.init(imageLiteralResourceName: "barchart2"),
                                title: "No Crazy Analayis!",
                                description: "We use easy to understand charts,and assign company a score out of 100.",
@@ -80,6 +83,7 @@ extension OnboardingViewController:PaperOnboardingDataSource,PaperOnboardingDele
         
     }
     
+    /// sets the alpha of button to 0 if the final screen is not reached yet.
     func onboardingWillTransitonToIndex(_ index: Int) {
         if index == 1
         {
@@ -91,6 +95,7 @@ extension OnboardingViewController:PaperOnboardingDataSource,PaperOnboardingDele
         }
     }
     
+    /// sets the alpha of the get started button back to 1 when the user reaches final screen.
     func onboardingDidTransitonToIndex(_ index: Int) {
         if index==2{
             UIView.animate(withDuration: 0.4) {

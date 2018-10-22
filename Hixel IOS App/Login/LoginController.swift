@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import Moya
 import SVProgressHUD
-
 var portcomp = [Company]()
 
 class LoginController: UIViewController, UITextFieldDelegate {

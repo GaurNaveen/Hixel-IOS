@@ -123,7 +123,7 @@ class ComparisonController: UIViewController{
     /// - Parameter ticker: Pass the ticker obtained from the search resutls.
     func loadCompany(ticker:String)
     {
-        let _ = Client().request(.companydata(tickers: ticker, years: 1)).subscribe{ event in
+        let _ = Client().request(.companydata(tickers: ticker, years: 5)).subscribe{ event in
             switch event {
             case .success(let response):
                 // Dismiss the Progress bar.
@@ -227,10 +227,10 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
         
         
         // let company = companies[indexPath.row]
-        let company = loadedCompanies[indexPath.row]
+        var company = loadedCompanies[indexPath.row]
         let cell  = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SearchCell
         // cell.setCompany(tempCompany: company)
-        cell.setCompany(company: company)
+        cell.setCompany(company: &company)
         return cell
         
     }

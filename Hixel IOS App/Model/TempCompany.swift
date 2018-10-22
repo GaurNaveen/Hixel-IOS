@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+/// A temporary company class used only for testing purpose.
 class TempCompany {
     var name: String
     var stockExchange: String

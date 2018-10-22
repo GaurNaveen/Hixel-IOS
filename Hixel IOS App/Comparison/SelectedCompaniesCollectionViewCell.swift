@@ -16,7 +16,7 @@ class SelectedCompaniesCollectionViewCell: UICollectionViewCell {
     /// Function use to add the company name to cell
     /// and make the corner of the view more smooth.
     ///
-    /// - Parameter name: <#name description#>
+    /// - Parameter name: name of the company
     func setupCell(name : String)
     {
        // view.dropShadow()

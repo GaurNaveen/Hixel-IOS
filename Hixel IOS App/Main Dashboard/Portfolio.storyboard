@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jM8-GG-bHj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GuJ-Oz-CcT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -89,7 +89,7 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="98" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jy4-Qs-lXu">
-                                <rect key="frame" x="0.0" y="146" width="375" height="521"/>
+                                <rect key="frame" x="0.0" y="146" width="375" height="472"/>
                                 <color key="backgroundColor" red="0.0" green="0.32156862749999998" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="U6i-xa-aCv">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
@@ -675,7 +675,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8co-sw-1R4">
-                                <rect key="frame" x="0.0" y="20" width="375" height="980"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="931"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7p-LH-a9R">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
@@ -1855,6 +1855,7 @@
                         <outlet property="lastName" destination="Uzj-1I-Wux" id="MXw-1C-h4H"/>
                         <outlet property="password" destination="ZSC-Hx-JRC" id="RmV-q0-mZC"/>
                         <segue destination="GuJ-Oz-CcT" kind="presentation" identifier="signup_login" id="Lx1-wN-svT"/>
+                        <segue destination="jM8-GG-bHj" kind="show" identifier="onboarding" id="KPf-hW-ry3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hba-3k-6Jf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1965,6 +1966,55 @@
             </objects>
             <point key="canvasLocation" x="-1669.5999999999999" y="-284.70764617691157"/>
         </scene>
+        <!--Reset Password Code View Controller-->
+        <scene sceneID="qe7-56-4k8">
+            <objects>
+                <viewController id="2YW-yc-vpS" customClass="ResetPasswordCodeViewController" customModule="Hixel_IOS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xpv-vk-9Mj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Corp Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xD3-Q5-EAV">
+                                <rect key="frame" x="66" y="191" width="243" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="39"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter the reset code sent to your email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwf-71-N8n">
+                                <rect key="frame" x="8" y="273" width="359" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reset Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jBt-hQ-EGJ">
+                                <rect key="frame" x="54" y="374" width="267" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8z-Ud-PCr">
+                                <rect key="frame" x="126" y="446" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submit:" destination="2YW-yc-vpS" eventType="touchUpInside" id="ErH-ts-J52"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wdc-Ea-KbE"/>
+                    </view>
+                    <connections>
+                        <outlet property="resetCode" destination="jBt-hQ-EGJ" id="6IH-UA-QDO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="trP-yG-UpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1892" y="801.94902548725645"/>
+        </scene>
         <!--ForgotPassword-->
         <scene sceneID="4VU-vz-AMe">
             <objects>
@@ -2047,6 +2097,8 @@
                     </view>
                     <connections>
                         <outlet property="email" destination="e51-5j-god" id="rZd-wY-dcS"/>
+                        <segue destination="GuJ-Oz-CcT" kind="show" identifier="back_to_login" id="KTo-8z-wzS"/>
+                        <segue destination="2YW-yc-vpS" kind="show" identifier="enter_code" id="Jop-su-xs9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Do-Nf-tUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2255,6 +2307,9 @@
                                 <state key="normal" title="Get Started!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="GuJ-Oz-CcT" kind="show" id="O9A-JW-myN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2301,12 +2356,11 @@
         <image name="more_info" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Zk-LG-t5D"/>
-        <segue reference="S3T-pC-Rh2"/>
+        <segue reference="J9O-rh-PCW"/>
         <segue reference="YFM-EE-0KE"/>
-        <segue reference="uNh-mk-Z55"/>
-        <segue reference="Lx1-wN-svT"/>
-        <segue reference="gvh-FA-UjS"/>
-        <segue reference="lIu-Uh-BJu"/>
+        <segue reference="zqB-K4-ABl"/>
+        <segue reference="KTo-8z-wzS"/>
+        <segue reference="UAa-6c-BN9"/>
+        <segue reference="1vF-3n-TSK"/>
     </inferredMetricsTieBreakers>
 </document>

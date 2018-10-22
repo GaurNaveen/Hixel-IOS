@@ -597,7 +597,7 @@ class PortfolioController: UIViewController {
     /// - Parameter ticker: ticker for the comapny , obtained from the search results.
     func loadCompany(ticker:String)
     {
-        let _ = Client().request(.companydata(tickers: ticker, years: 1)).subscribe{ event in
+        let _ = Client().request(.companydata(tickers: ticker, years: 5)).subscribe{ event in
             switch event {
             case .success(let response):
                 // Dismiss the Progress bar.
@@ -706,10 +706,11 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
             
             
         else  {
-            let temp_company = portcomp[indexPath.row]
+            var temp_company = portcomp[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell") as! CompanyCell
             cell.setCompany(tempCompany: temp_company)
-            cell.setupScore(value: temp_company.score) // need to add score to the Company Class
+            var score = temp_company.calculateScore()
+            cell.setupScore(value: score) // need to add score to the Company Class
             return cell
         }
         

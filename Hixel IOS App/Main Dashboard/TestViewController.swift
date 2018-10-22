@@ -25,7 +25,7 @@ class TestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-       // setChart(dataPoints: subjects, values: array,values1:array2 )
+        // setChart(dataPoints: subjects, values: array,values1:array2 )
         //  set(dataPoints: subjects, values: array)
         months = ["Health", "Performance", "Return", "Risk", "Strength"]
         let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0]
@@ -59,10 +59,10 @@ class TestViewController: UIViewController {
         chartData.setDrawValues(false)
         
         /*
- 
+         
          reset all the 5 colors of graph here depending upon the values
- 
-        */
+         
+         */
         
         barChartView.xAxis.drawGridLinesEnabled = false
         barChartView.xAxis.drawAxisLineEnabled = false
@@ -84,64 +84,64 @@ class TestViewController: UIViewController {
     }
     
     //    func setChart(dataPoints: [String], values: [Double],values1:[Double]) {
-//        radarChart.noDataText = "You need to provide data for the chart."
-//        var dataEntries: [ChartDataEntry] = []
-//        for i in 0..<dataPoints.count {
-//
-//            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
-//            // print(values[i])
-//            dataEntries.append(dataEntry)
-//        }
-//        let chartDataSet = RadarChartDataSet(values: dataEntries, label: "Apple ")
-//
-//        // Second data
-//        var dataEntries2:[ChartDataEntry] = []
-//
-//        for i in 0..<dataPoints.count {
-//
-//            let dataEntry = ChartDataEntry(x: Double(i), y: values1[i])
-//            // print(values[i])
-//            dataEntries2.append(dataEntry)
-//        }
-//        let chartDataSet2 = RadarChartDataSet(values: dataEntries2, label: "Apple ")
-//
-//        //Fills the color
-//        chartDataSet.fillColor = UIColor.red
-//
-//        //radarChart.webColor = UIColor.red
-//        //radarChart.innerWebColor =   UIColor.red
-//        //Options of radarChart
-//        radarChart.sizeToFit()
-//        //radarChart.description = "as"
-//
-//        //Options for the axis from here. The range is 0-100, the interval is 20
-//        radarChart.yAxis.labelCount = 6
-//        // radarChart.yAxis.axisMinimum = 0.0
-//        //radarChart.yAxis.axisMaximum = 100.0
-//
-//        radarChart.rotationEnabled = true
-//        chartDataSet.drawFilledEnabled = true
-//        chartDataSet2.drawFilledEnabled = true
-//
-//        //Other options
-//        // radarChart.legend.enabled = false
-//        radarChart.yAxis.gridAntialiasEnabled = true
-//        radarChart.animate(yAxisDuration: 2.0)
-//        radarChart.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: subjects)
-//        // let chartData = RadarChartData(xVals: subjects, dataSet: chartDataSet)
-//        //radayAxis.drawLabelsEnabled = false
-//        radarChart.yAxis.drawLabelsEnabled = false
-//        radarChart.xAxis.axisMinimum = 0;
-//        radarChart.xAxis.axisMaximum = 500;
-//
-//        // combine both data
-//        let chartData = RadarChartData(dataSet: chartDataSet)
-//        //let chartData = RadarChartData(dataSet: [chartDataSet,chartDataSet2] as? IChartDataSet)
-//        chartData.addDataSet(chartDataSet2)
-//        radarChart.data = chartData
-//
-//    }
-//
+    //        radarChart.noDataText = "You need to provide data for the chart."
+    //        var dataEntries: [ChartDataEntry] = []
+    //        for i in 0..<dataPoints.count {
+    //
+    //            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
+    //            // print(values[i])
+    //            dataEntries.append(dataEntry)
+    //        }
+    //        let chartDataSet = RadarChartDataSet(values: dataEntries, label: "Apple ")
+    //
+    //        // Second data
+    //        var dataEntries2:[ChartDataEntry] = []
+    //
+    //        for i in 0..<dataPoints.count {
+    //
+    //            let dataEntry = ChartDataEntry(x: Double(i), y: values1[i])
+    //            // print(values[i])
+    //            dataEntries2.append(dataEntry)
+    //        }
+    //        let chartDataSet2 = RadarChartDataSet(values: dataEntries2, label: "Apple ")
+    //
+    //        //Fills the color
+    //        chartDataSet.fillColor = UIColor.red
+    //
+    //        //radarChart.webColor = UIColor.red
+    //        //radarChart.innerWebColor =   UIColor.red
+    //        //Options of radarChart
+    //        radarChart.sizeToFit()
+    //        //radarChart.description = "as"
+    //
+    //        //Options for the axis from here. The range is 0-100, the interval is 20
+    //        radarChart.yAxis.labelCount = 6
+    //        // radarChart.yAxis.axisMinimum = 0.0
+    //        //radarChart.yAxis.axisMaximum = 100.0
+    //
+    //        radarChart.rotationEnabled = true
+    //        chartDataSet.drawFilledEnabled = true
+    //        chartDataSet2.drawFilledEnabled = true
+    //
+    //        //Other options
+    //        // radarChart.legend.enabled = false
+    //        radarChart.yAxis.gridAntialiasEnabled = true
+    //        radarChart.animate(yAxisDuration: 2.0)
+    //        radarChart.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: subjects)
+    //        // let chartData = RadarChartData(xVals: subjects, dataSet: chartDataSet)
+    //        //radayAxis.drawLabelsEnabled = false
+    //        radarChart.yAxis.drawLabelsEnabled = false
+    //        radarChart.xAxis.axisMinimum = 0;
+    //        radarChart.xAxis.axisMaximum = 500;
+    //
+    //        // combine both data
+    //        let chartData = RadarChartData(dataSet: chartDataSet)
+    //        //let chartData = RadarChartData(dataSet: [chartDataSet,chartDataSet2] as? IChartDataSet)
+    //        chartData.addDataSet(chartDataSet2)
+    //        radarChart.data = chartData
+    //
+    //    }
+    //
     
     
     

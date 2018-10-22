@@ -23,7 +23,7 @@ class CompanyCell: UITableViewCell {
     /// - Parameter tempCompany: Pass the company object you want to display.
     func setCompany(tempCompany: Company){
         companyName.text = tempCompany.identifiers.name
-        stock.text = "Ticker: "+tempCompany.identifiers.ticker
+        stock.text = "Nasdaq: "+tempCompany.identifiers.ticker.uppercased()
         containerLayouSetup()
     }
     
