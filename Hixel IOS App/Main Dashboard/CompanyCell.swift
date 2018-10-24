@@ -15,6 +15,7 @@ class CompanyCell: UITableViewCell {
     @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var stock: UILabel!
     @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var healthView: UIView!
     
    
     /// Funtion that displays company info
@@ -31,8 +32,9 @@ class CompanyCell: UITableViewCell {
     /// Funtion adds shadow effect , border and increases the corner radius of the view
     func containerLayouSetup(){
         cv.dropShadow()
-        cv.layer.borderWidth = 0.5
-        cv.layer.cornerRadius = 6.0
+        cv.layer.borderWidth = 0.1
+        cv.layer.cornerRadius = 2.0
+        
     }
     
     /// Funtion helps the display the
@@ -43,6 +45,7 @@ class CompanyCell: UITableViewCell {
     {
         score.text = "Score : " + String(value)
         score.textColor = calculateScoreColor(value: value)
+        healthView.backgroundColor = calculateScoreColor(value: value)
     }
     
     // MARK: Score color calculator
@@ -56,16 +59,16 @@ class CompanyCell: UITableViewCell {
     {
         if (value == 50)
         {
-            return UIColor.yellow
+            return UIColor.init(netHex: 0xFFDB85)
         }
             
         else if (value < 50)
         {
-            return UIColor.red
+            return UIColor.init(netHex: 0xFF5D84)
         }
             
         else{
-            return UIColor.init(netHex: 0x1DCEB1)
+            return UIColor.init(netHex: 0x24CEB1)
             
         }
     }

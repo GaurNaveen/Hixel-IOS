@@ -16,6 +16,7 @@ class SearchComparisonCell: UITableViewCell {
     var tickerSymbol = ""
     func setupCell(company:SearchEntry)
     {
+        
         exchange = company.exchange
         tickerSymbol = company.ticker
         

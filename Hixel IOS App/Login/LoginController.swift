@@ -17,7 +17,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var password: UITextField!
     var move = false
     var companies1 = [Company]()
-    let companiesTicker = ["aapl","msft","tsla","twtr","snap","fb","amzn","intc","amd"]
+    let companiesTicker = ["aapl","tsla","msft","twtr","snap","fb","amzn","intc","amd"]
     var string = ""
     
     /// Function used to set the delegate for the text fields.

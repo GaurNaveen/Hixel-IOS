@@ -81,6 +81,8 @@ class PortfolioController: UIViewController {
     /// companies in the portfolio.
     override func viewDidLoad() {
         super.viewDidLoad()
+        SearchTableView.dropShadow()
+        barChartView.dropShadow()
         print("Lock",portcomp[0].financialDataEntries[1].ratios.keys)
         let res = portcomp[0].calculateGenrealIndicators()
         
@@ -149,9 +151,9 @@ class PortfolioController: UIViewController {
     
     /// Funtion sets up the header view for the MAIN Dashboard.
     private func setupHeaderView(){
-        header.backgroundColor = UIColor.white
+        header.backgroundColor = UIColor.init(netHex: 0x0052CC)
         headerLabel.text = hardCodedStrings[0]
-        headerLabel.textColor = .black
+        headerLabel.textColor = .white
     }
     
     var chartData1 = BarChartData()
@@ -231,7 +233,7 @@ class PortfolioController: UIViewController {
     // Creates a temporary array that holds the company names and then returns it
     
     /// Function sets up a temporary array that holds the company names and then returns it
-    /// P.S. It's no longer in use and will be removed shortly.
+    /// P.S.A. It's no longer in use and will be removed shortly.
     ///
     /// - Returns: temporary array
     private func createArray() ->[TempCompany]{
