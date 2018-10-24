@@ -28,6 +28,7 @@ var strengthFinal = 0.0
 class PortfolioController: UIViewController {
     
     /// IBOutlets from the View that are attached on the Storyboard.
+    @IBOutlet weak var graphContainerView: UIView!
     @IBOutlet weak var MAINVIEW: UIView!
     @IBOutlet weak var searchController: UISearchBar!
     @IBOutlet weak var verticalAxis: UIView!
@@ -82,7 +83,10 @@ class PortfolioController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SearchTableView.dropShadow()
-        barChartView.dropShadow()
+        graphContainerView.dropShadow()
+        graphContainerView.layer.shadowOpacity = 8.0
+        graphContainerView.layer.shadowRadius = 1.5
+        
         print("Lock",portcomp[0].financialDataEntries[1].ratios.keys)
         let res = portcomp[0].calculateGenrealIndicators()
         
