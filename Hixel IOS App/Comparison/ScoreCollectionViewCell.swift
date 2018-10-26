@@ -27,9 +27,9 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         let score = companies.calculateScore()
         
         let center = score_container.center
-        let circularPath = UIBezierPath(arcCenter: center, radius: 88, startAngle: -CGFloat.pi / 2, endAngle: 2*CGFloat.pi, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: center, radius: 38, startAngle: -CGFloat.pi / 2, endAngle: 2*CGFloat.pi, clockwise: true)
         shapeLayer.path = circularPath.cgPath
-        shapeLayer.fillColor = UIColor.init(netHex: 0x3C4F7B).cgColor
+        shapeLayer.fillColor = UIColor.init(netHex: 0x3C4F7B).cgColor//UIColor.white.cgColor//
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         chooseColor(score: score)
         shapeLayer.lineWidth = 5

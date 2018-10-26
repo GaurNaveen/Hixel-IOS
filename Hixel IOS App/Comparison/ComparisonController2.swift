@@ -41,12 +41,13 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     
     /// Function sets up the graph views and their containers.
     override func viewDidLoad() {
+        setStatusStatusBarColor()
         super.viewDidLoad()
         print("klopp",Aselected1)
         graphHeaderView.dropShadow()
         graphContainerView.dropShadow()
-        graphContainerView.layer.borderColor = UIColor.black.cgColor
-        graphContainerView.layer.borderWidth = 0.4
+       // graphContainerView.layer.borderColor = UIColor.black.cgColor
+       // graphContainerView.layer.borderWidth = 0.4
         
         // Do any additional setup after loading the view.
         array.removeAll()
@@ -66,6 +67,12 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         
         setupLineChart()
         setUpRadarChart(dataPoints: subjects, values: array, values2: array2)
+    }
+    
+    func setStatusStatusBarColor()
+    {
+        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+        statusBar.backgroundColor = UIColor.init(netHex: 0x1956CC)
     }
     
     // MARK: Setup Line Chart

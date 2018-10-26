@@ -48,6 +48,12 @@ class ComparisonController: UIViewController{
         //updateCollectionView()
         tableView.reloadData()
     }
+    @IBAction func compareButton(_ sender: Any) {
+        if(loadedCompanies.count == 2)
+        {
+        performSegue(withIdentifier: "search_comparison", sender: self)
+    }
+    }
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var compare2: UIButton!
     var searchData = companies
@@ -66,6 +72,8 @@ class ComparisonController: UIViewController{
         //searchView.dropShadow()
         //  searchView.layer.cornerRadius = 10.0
     }
+    
+    
     
     /// Function used to update the collection view
     /// data when the View appears on the user screen.

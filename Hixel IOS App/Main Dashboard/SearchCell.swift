@@ -16,6 +16,7 @@ class SearchCell: UITableViewCell {
     @IBOutlet weak var searchName: UILabel!
     @IBOutlet weak var searchCard: UIView!
     
+    @IBOutlet weak var healthIndicatorBox: UIView!
     /// Function sets up the cell for a collection
     /// view that displays score for a company and
     //  the name for it.
@@ -26,30 +27,31 @@ class SearchCell: UITableViewCell {
         searchCard.dropShadow()
         searchCard.layer.cornerRadius = 5.0
         compName.text = company.identifiers.name
-        stock.text = "Ticker "+company.identifiers.ticker
-        
-        score.text = "Score: \(company.calculateScore())"
-        setScoreColor(Score: company.score)
+        stock.text = "NASDAQ: "+company.identifiers.ticker.uppercased()
+        company.calculateScore()
+        healthIndicatorBox.backgroundColor = calculateScoreColor(value: company.score)
+       // score.text = "Score: \(company.calculateScore())"
+        //setScoreColor(Score: company.score)
     }
     
     /// Function sets the color of stroke
     /// depending upon the score value.
     ///
     /// - Parameter Score: Pass the Score for the Company.
-    func setScoreColor(Score:Int)
+    func calculateScoreColor(value : Int) -> UIColor
     {
-        if (Score == 50)
+        if (value == 50)
         {
-            score.textColor = UIColor.yellow
+            return UIColor.init(netHex: 0xFFDB85)
         }
             
-        else if (Score < 50)
+        else if (value < 50)
         {
-            score.textColor =  UIColor.red
+            return UIColor.init(netHex: 0xFF5D84)
         }
             
         else{
-            score.textColor =  UIColor.init(netHex: 0x1DCEB1)
+            return UIColor.init(netHex: 0x24CEB1)
             
         }
     }

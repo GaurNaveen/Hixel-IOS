@@ -20,7 +20,7 @@ class SelectedCompaniesCollectionViewCell: UICollectionViewCell {
     func setupCell(name : String)
     {
        // view.dropShadow()
-        view.layer.cornerRadius = 10.0
+        view.layer.cornerRadius = 5.0
         companyName.text = name
         
     }
