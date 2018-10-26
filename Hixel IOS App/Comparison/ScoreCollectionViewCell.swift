@@ -27,19 +27,33 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         let score = companies.calculateScore()
         
         let center = score_container.center
-        let circularPath = UIBezierPath(arcCenter: center, radius: 38, startAngle: -CGFloat.pi / 2, endAngle: 2*CGFloat.pi, clockwise: true)
+        
+        // Creat my track layer
+        let trackLayer = CAShapeLayer()
+        let circularPath1 = UIBezierPath(arcCenter: center, radius: 35, startAngle: -CGFloat.pi / 2, endAngle: 2*CGFloat.pi, clockwise: true)
+        trackLayer.path = circularPath1.cgPath
+        trackLayer.strokeColor = UIColor.lightGray.cgColor
+        trackLayer.lineWidth = 8
+        trackLayer.fillColor = UIColor.clear.cgColor
+        trackLayer.lineCap = CAShapeLayerLineCap.round
+        score_container.layer.addSublayer(trackLayer)
+        
+        
+        
+        let circularPath = UIBezierPath(arcCenter: center, radius: 35, startAngle: -CGFloat.pi / 2, endAngle: 2*CGFloat.pi, clockwise: true)
         shapeLayer.path = circularPath.cgPath
-        shapeLayer.fillColor = UIColor.init(netHex: 0x3C4F7B).cgColor//UIColor.white.cgColor//
+        shapeLayer.fillColor = UIColor.white.cgColor/////UIColor.init(netHex: 0x3C4F7B).cgColor//
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         chooseColor(score: score)
-        shapeLayer.lineWidth = 5
+        shapeLayer.lineWidth = 8
         shapeLayer.strokeEnd = 0
         
         score_container.layer.addSublayer(shapeLayer)
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         scoreLabel.centerXAnchor.constraint(equalTo: score_container.centerXAnchor).isActive = true
         scoreLabel.centerYAnchor.constraint(equalTo: score_container.centerYAnchor).isActive = true
-        scoreLabel.text = "\(score)%"
+        scoreLabel.textColor = UIColor.init(netHex: 0x4153AF)
+        scoreLabel.text = "\(score)"
         score_container.addSubview(scoreLabel)
         
         /// This "hey" will be changed to a more correct name soon.
@@ -92,18 +106,21 @@ class ScoreCollectionViewCell: UICollectionViewCell {
     /// - Parameter score: Pass the score value.
     func chooseColor(score: Int)
     {
-        if(score < 50)
-        {
-            shapeLayer.strokeColor = UIColor.red.cgColor
-            return
-        }
-        else if (score == 50)
-        {
-            shapeLayer.strokeColor = UIColor.yellow.cgColor
-            return
-        }
+//        if(score < 50)
+//        {
+//            shapeLayer.strokeColor = UIColor.init(netHex: 0x4153AF)//UIColor.red.cgColor
+//            return
+//        }
+//        else if (score == 50)
+//        {
+//            shapeLayer.strokeColor = //UIColor.yellow.cgColor
+//            return
+//        }
+//
+//        shapeLayer.strokeColor = UIColor.green.cgColor
+//
+//    }
         
-        shapeLayer.strokeColor = UIColor.green.cgColor
-
-    }
+        shapeLayer.strokeColor = UIColor.init(netHex: 0x4153AF).cgColor
+}
 }

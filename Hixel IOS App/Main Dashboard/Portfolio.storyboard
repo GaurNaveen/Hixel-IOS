@@ -515,21 +515,21 @@
                                                     <constraint firstAttribute="height" constant="161" id="2bP-SA-Cwn"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O2o-Rf-CYc">
-                                                    <size key="itemSize" width="86" height="140"/>
+                                                    <size key="itemSize" width="86" height="134"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="score" id="NFn-02-icE" customClass="ScoreCollectionViewCell" customModule="Hixel_IOS_App" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="10.5" width="86" height="140"/>
+                                                        <rect key="frame" x="0.0" y="13.5" width="86" height="134"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="86" height="140"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="86" height="134"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLm-5k-ISv">
-                                                                    <rect key="frame" x="10" y="108" width="71" height="25"/>
+                                                                    <rect key="frame" x="10" y="100" width="71" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="4pV-Vr-UFO"/>
                                                                     </constraints>
@@ -564,7 +564,7 @@
                                                         <constraints>
                                                             <constraint firstItem="bLm-5k-ISv" firstAttribute="leading" secondItem="NFn-02-icE" secondAttribute="leading" constant="10" id="GIR-Bd-hcu"/>
                                                             <constraint firstAttribute="trailing" secondItem="bLm-5k-ISv" secondAttribute="trailing" constant="5" id="QOH-We-xc2"/>
-                                                            <constraint firstAttribute="bottom" secondItem="bLm-5k-ISv" secondAttribute="bottom" constant="7" id="fH8-B3-3q2"/>
+                                                            <constraint firstAttribute="bottom" secondItem="bLm-5k-ISv" secondAttribute="bottom" constant="9" id="fH8-B3-3q2"/>
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="companyName" destination="bLm-5k-ISv" id="VrN-78-shE"/>
@@ -781,7 +781,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZl-ZX-iqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1308" y="935"/>
+            <point key="canvasLocation" x="1308" y="934.632683658171"/>
         </scene>
         <!--Portfolio-->
         <scene sceneID="gC3-sY-Owj">
@@ -2332,10 +2332,10 @@
         <image name="more_info" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S3T-pC-Rh2"/>
+        <segue reference="J9O-rh-PCW"/>
         <segue reference="zwP-vA-5wT"/>
         <segue reference="YFM-EE-0KE"/>
-        <segue reference="uNh-mk-Z55"/>
+        <segue reference="zqB-K4-ABl"/>
         <segue reference="7tL-dQ-h6e"/>
         <segue reference="1Zk-LG-t5D"/>
         <segue reference="UAa-6c-BN9"/>

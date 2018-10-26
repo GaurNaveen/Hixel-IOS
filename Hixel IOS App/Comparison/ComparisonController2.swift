@@ -127,7 +127,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         // Sets up the X axis
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: years)
         lineChartView.xAxis.granularity = 1
-        
+        lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
     }
     
     func setupLineChart2(score_Values: [Int],score_Values1 : [Int])
