@@ -17,6 +17,7 @@ class SearchCell: UITableViewCell {
     @IBOutlet weak var searchCard: UIView!
     
     @IBOutlet weak var healthIndicatorBox: UIView!
+    
     /// Function sets up the cell for a collection
     /// view that displays score for a company and
     //  the name for it.
