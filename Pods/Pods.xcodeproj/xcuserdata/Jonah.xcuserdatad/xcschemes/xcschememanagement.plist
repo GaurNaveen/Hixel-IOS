@@ -95,6 +95,11 @@
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
+		<key>SwiftKeychainWrapper.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
 		<key>paper-onboarding.xcscheme</key>
 		<dict>
 			<key>isShown</key>

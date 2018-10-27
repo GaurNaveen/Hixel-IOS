@@ -13,6 +13,8 @@ import Moya
 /// - login: Log in to the CorpReport Server
 /// - signup: Create a new account
 /// - userData: Get information about this user
+/// - addCompany: Adds a company to the user's portfolio
+/// - removeCompany: Removes a company from the user's portfolio
 /// - resetEmail: Request a password-reset email
 /// - resetCode: Check the validity of a reset-code
 /// - resetPassword: Reset password with a reset-code
@@ -28,6 +30,8 @@ enum ServerInterface {
     // "users/"
     case signup(applicationUser: ApplicationUser)
     case userData()
+    case addCompany(ticker: String)
+    case removeCompany(ticker: String)
     case resetEmail(email: String)
     case resetCode(email: String, code: String)
     case resetPassword(email: String, code: String, password: String)
@@ -57,6 +61,8 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
                 return "/users/refresh"
             case .userData:
                 return "users/profile"
+            case .addCompany, .removeCompany:
+                return "users/portfolio/company"
             case .resetEmail:
                 return "users/reset-email"
             case .resetCode:
@@ -74,11 +80,13 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
         }
     }
     
-    /// Represents what kind of request this will be (GET, PUT, POST, etc.)
+    /// Represents what kind of request this will be (GET, POST, DELETE, etc.)
     var method: Moya.Method {
         switch self {
-            case .login, .signup:
+            case .login, .signup, .addCompany:
                 return .post
+            case .removeCompany:
+                return .delete
             default:
                 return .get
         }
@@ -91,6 +99,10 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
                 return .requestJSONEncodable(loginData)
             case .signup(let applicationUser):
                 return .requestJSONEncodable(applicationUser)
+            case .addCompany(let ticker):
+                return .requestParameters(parameters: ["ticker": ticker], encoding: URLEncoding.queryString)
+            case .removeCompany(let ticker):
+                return .requestParameters(parameters: ["ticker": ticker], encoding: URLEncoding.queryString)
             case .resetEmail(let email):
                 return .requestParameters(parameters: ["email": email], encoding: URLEncoding.queryString)
             case .resetCode(let email, let code):
