@@ -217,6 +217,23 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
     }
     
+    /// Loads the Application User profile
+    func loadUserData()
+    {
+        let _ =  Client().request(.userData()).subscribe{
+            event in
+            switch event{
+                
+            case .success(let response):
+                let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
+                print("Yass2",json)
+                
+            case .error(let error):
+                print("Oops")
+            }
+        }
+        
+    }
     
     /// Function used to test the search resutls.
     func serach()

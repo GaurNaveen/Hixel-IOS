@@ -629,6 +629,26 @@ class PortfolioController: UIViewController {
         }
         
     }
+    
+    /// Adds a company to the user portfolio
+    ///
+    /// - Parameter deletedCompanyTicker: Takes the deleted company ticker
+    func removeCompany(deletedCompanyTicker:String)
+    {
+        let _ = Client().request(.removeCompany(ticker: deletedCompanyTicker)).subscribe{
+            event in
+            switch event{
+            case .success(let response):
+                let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
+                print("Yass3",json)
+                //self.loadUserData()
+                
+            case .error(let error):
+                print(error)
+                
+            }
+        }
+    }
 }
 
 
@@ -735,6 +755,7 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         let deletedIndex = indexPath.row
         if editingStyle == .delete{
             portcomp.remove(at: indexPath.row)
+            removeCompany(deletedCompanyTicker:deletedCompany.identifiers.ticker)
             self.tableView.reloadData()
         }
         // Displays the snackbar when a company gets deleted

@@ -45,6 +45,8 @@ class CompanyController: UIViewController {
         //  companyToAdd.append(company!)
         // performSegue(withIdentifier: "segue2", sender: self)
         portcomp.append(searchedCompany!)
+        addCompany()
+
         // performSegue(withIdentifier: "segue2", sender: self)
         self.dismiss(animated: true, completion: viewDidLoad)
         
@@ -276,6 +278,23 @@ class CompanyController: UIViewController {
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: years)
         lineChartView.xAxis.granularity = 1
     }
+    
+    /// Adds the company to the uer portfolio.
+    func addCompany()
+    {
+        let _ = Client().request(.addCompany(ticker: (searchedCompany?.identifiers.ticker)!)).subscribe{
+            event in
+            switch event{
+            case .success(let response ):
+                let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
+                print("Yass",json)
+            // self.loadUserData()
+            case .error(let error):
+                print(error)
+            }
+        }
+    }
+    
     
     
 }
