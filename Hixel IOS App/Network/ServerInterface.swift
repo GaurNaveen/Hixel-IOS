@@ -22,7 +22,6 @@ import Moya
 /// - refresh: Request a new Access Token and Refresh Token
 /// - companydata: Request data about companies
 /// - search: Query for companies with names or tickers matching a search termm
-/// - ratios: Request the list of ratios which will be calculated
 enum ServerInterface {
     
     case login(loginData: LoginData)
@@ -40,9 +39,6 @@ enum ServerInterface {
     
     case companydata(tickers: String, years: Int)
     case search(query: String)
-    
-    // "meta/"
-    case ratios
 }
 
 extension ServerInterface: TargetType, AccessTokenAuthorizable {
@@ -75,8 +71,6 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
                 return "/companydata"
             case .search:
                 return "/search"
-            case .ratios:
-                return "meta/ratios"
         }
     }
     
