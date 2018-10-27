@@ -1357,7 +1357,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vu-hN-BFz">
                                                         <rect key="frame" x="302" y="350" width="56" height="56"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <state key="normal" image="Plus_Image">
+                                                        <state key="normal" image="Sad">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -2300,7 +2300,7 @@
         <image name="Back" width="375" height="375"/>
         <image name="Compare_Icon" width="25.5" height="25.5"/>
         <image name="Home_Icon" width="25.5" height="25.5"/>
-        <image name="Plus_Image" width="36" height="36"/>
+        <image name="Sad" width="30" height="30"/>
         <image name="Settings_Icon" width="25.5" height="25.5"/>
         <image name="Submit12" width="242" height="55"/>
         <image name="back_button1" width="37.5" height="37.5"/>

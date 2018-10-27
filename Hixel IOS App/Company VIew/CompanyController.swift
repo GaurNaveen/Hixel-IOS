@@ -134,6 +134,9 @@ class CompanyController: UIViewController {
         
         add_button2.backgroundColor = UIColor.blue
         add_button2.layer.cornerRadius = add_button2.frame.height / 2
+        add_button2.layer.shadowOpacity = 0.25
+        add_button2.layer.shadowRadius = 5
+        add_button2.layer.shadowOffset = CGSize(width: 0, height: 10)
         
         companyNameLabel.text = searchedCompany?.identifiers.name
         setChartValues(check: false)
