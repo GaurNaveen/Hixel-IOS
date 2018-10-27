@@ -18,10 +18,12 @@ class RatioCell: UICollectionViewCell {
     /// - Parameter name: <#name description#>
     func setupIndicator(name : String)
     {
-        cellView.layer.cornerRadius = 12.0
-        cellView.layer.borderColor = UIColor.black.cgColor
-        cellView.layer.borderWidth = 0.5
+        cellView.layer.cornerRadius = 4.0
+        cellView.backgroundColor = UIColor.init(netHex: 0x1C2B4B)
+        //cellView.layer.borderColor = UIColor.black.cgColor
+        //cellView.layer.borderWidth = 0.5
         indicator.text = name
+        indicator.textColor = UIColor.white
     }
     
 }

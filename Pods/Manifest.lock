@@ -14,6 +14,20 @@ PODS:
     - MaterialComponents/Typography
     - MDFInternationalization
     - MDFTextAccessibility
+  - "MaterialComponents/Buttons+ButtonThemer (67.1.0)":
+    - MaterialComponents/Buttons
+    - "MaterialComponents/Buttons+ColorThemer"
+    - "MaterialComponents/Buttons+ShapeThemer"
+    - "MaterialComponents/Buttons+TypographyThemer"
+  - "MaterialComponents/Buttons+ColorThemer (67.1.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Color
+  - "MaterialComponents/Buttons+ShapeThemer (67.1.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Shape
+  - "MaterialComponents/Buttons+TypographyThemer (67.1.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Typography
   - MaterialComponents/Ink (67.1.0):
     - MaterialComponents/private/Math
   - MaterialComponents/OverlayWindow (67.1.0):
@@ -23,9 +37,17 @@ PODS:
     - MaterialComponents/private/Application
   - MaterialComponents/private/Math (67.1.0)
   - MaterialComponents/private/Overlay (67.1.0)
+  - MaterialComponents/private/ShapeLibrary (67.1.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/private/Shapes
   - MaterialComponents/private/Shapes (67.1.0):
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
+  - MaterialComponents/schemes/Color (67.1.0)
+  - MaterialComponents/schemes/Shape (67.1.0):
+    - MaterialComponents/private/ShapeLibrary
+    - MaterialComponents/private/Shapes
+  - MaterialComponents/schemes/Typography (67.1.0)
   - MaterialComponents/ShadowElevations (67.1.0)
   - MaterialComponents/ShadowLayer (67.1.0):
     - MaterialComponents/ShadowElevations
@@ -58,6 +80,7 @@ DEPENDENCIES:
   - Alamofire
   - Charts
   - KeychainSwift
+  - "MaterialComponents/Buttons+ButtonThemer"
   - MaterialComponents/Snackbar
   - Moya/RxSwift
   - paper-onboarding
@@ -94,6 +117,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 67cfc843dfd6d860f31a3f5547d2ec1de5fb63bf
+PODFILE CHECKSUM: fb58d7d9b89713a239778afe64e6e1b0c5b8beda
 
 COCOAPODS: 1.5.3

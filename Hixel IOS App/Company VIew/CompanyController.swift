@@ -105,16 +105,23 @@ class CompanyController: UIViewController {
         score1.heightAnchor.constraint(equalToConstant: 100).isActive = true
         score1.widthAnchor.constraint(equalToConstant: 100).isActive = true
         score1.topAnchor.constraint(equalTo: scoreChartContainer.bottomAnchor, constant: 170).isActive = true
-        score1.bottomAnchor.constraint(equalTo: scoreChartContainer.topAnchor, constant: 200).isActive = true
-        score1.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 160).isActive = true
-        score1.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 235).isActive = true
+        score1.bottomAnchor.constraint(equalTo: scoreChartContainer.topAnchor, constant: 160).isActive = true
+        score1.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 170).isActive = true
+        score1.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 219).isActive = true
+    }
+    
+    func setStatusStatusBarColor()
+    {
+        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+        statusBar.backgroundColor = UIColor.init(netHex: 0x1956CC)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStatusStatusBarColor()
         print("Hoya",(searchedCompany?.calculateScore())!)
-        
-        score_percent.text = "\((searchedCompany?.calculateScore())!) %"
+        scoreChartContainer.dropShadow()
+        score_percent.text = "\((searchedCompany?.calculateScore())!)%"
         /// Only display the add button when a company is not present in the portfolio.
         if(portcomp.contains(where: {$0.identifiers.ticker == searchedCompany?.identifiers.ticker}))
         {
@@ -124,6 +131,10 @@ class CompanyController: UIViewController {
             add_button2.isHidden = false
             
         }
+        
+        add_button2.backgroundColor = UIColor.blue
+        add_button2.layer.cornerRadius = add_button2.frame.height / 2
+        
         companyNameLabel.text = searchedCompany?.identifiers.name
         setChartValues(check: false)
         // dataField1.dropShadow()
@@ -132,8 +143,8 @@ class CompanyController: UIViewController {
         scoreLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         scoreLabel.center = view.center
         
-        let center = CGPoint(x: 200, y: 140)
-        let circularPath = UIBezierPath(arcCenter: center, radius: 85, startAngle: -CGFloat.pi / 2, endAngle:2*CGFloat.pi, clockwise: true)
+        let center = CGPoint(x: 175, y: 60)
+        let circularPath = UIBezierPath(arcCenter: center, radius: 65, startAngle: -CGFloat.pi / 2, endAngle:2*CGFloat.pi, clockwise: true)
         
         // This
         let circularPath1 = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle:2*CGFloat.pi, clockwise: true)
@@ -142,7 +153,8 @@ class CompanyController: UIViewController {
         shapeLayer.strokeColor = UIColor.green.cgColor
         shapeLayer.lineWidth = 7
         // Change the color of the circle
-        shapeLayer.fillColor = UIColor.black.cgColor
+        shapeLayer.fillColor = UIColor.init(netHex: 0x333A43).cgColor
+        
         shapeLayer.strokeEnd = 0
         
         // Create my track layer now
@@ -200,9 +212,9 @@ class CompanyController: UIViewController {
         score_percent.translatesAutoresizingMaskIntoConstraints = false
         score_percent.heightAnchor.constraint(equalToConstant: 100).isActive = true
         score_percent.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        score_percent.topAnchor.constraint(equalTo: scoreChartContainer.bottomAnchor, constant: 170).isActive = true
-        score_percent.bottomAnchor.constraint(equalTo: scoreChartContainer.topAnchor, constant: 160).isActive = true
-        score_percent.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 125).isActive = true
+        score_percent.topAnchor.constraint(equalTo: scoreChartContainer.bottomAnchor, constant: 220).isActive = true
+        score_percent.bottomAnchor.constraint(equalTo: scoreChartContainer.topAnchor, constant: 88).isActive = true
+        score_percent.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 130).isActive = true
         score_percent.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 230).isActive = true
         
     }
@@ -254,7 +266,8 @@ class CompanyController: UIViewController {
         lineChartView.chartDescription?.text = "Financial Indiacators"
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: years)
         lineChartView.xAxis.granularity = 1
-        
+        lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
+
     }
     
     func setChartValues2(score_Values:[Int],indicator:String)
@@ -277,6 +290,8 @@ class CompanyController: UIViewController {
         lineChartView.chartDescription?.text = "Financial Indiacators"
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: years)
         lineChartView.xAxis.granularity = 1
+        lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
+
     }
     
     /// Adds the company to the uer portfolio.
@@ -338,7 +353,7 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! RatioCell
         cell.setupIndicator(name: indicators[indexPath.row])
-        cell.layer.cornerRadius = 12.0
+        cell.layer.cornerRadius = 4.0
         return cell;
         
         

@@ -8,8 +8,11 @@
 
 import UIKit
 import Charts
+import MaterialComponents
+import MaterialComponents
 class TestViewController: UIViewController {
     
+    @IBOutlet weak var addView: UIView!
     @IBOutlet weak var radarChart: RadarChartView!
     //Label
     @IBOutlet weak var barChartView: BarChartView!
@@ -23,6 +26,7 @@ class TestViewController: UIViewController {
     var months : [String]!
     
     override func viewDidLoad() {
+        addFloatingButton()
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // setChart(dataPoints: subjects, values: array,values1:array2 )
@@ -35,6 +39,25 @@ class TestViewController: UIViewController {
     
     @IBAction func back_button(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    
+    func addFloatingButton()
+    {  //view.backgroundColor = UIColor.black
+        
+        
+        let plusImage = UIImage.init(imageLiteralResourceName: "Plus_Image")
+        let button = MDCFloatingButton()
+        button.setImage(plusImage, for: .normal)
+      //  MDCFloatingButton
+        //MDCFloatingButton.
+        button.setElevation(ShadowElevation(rawValue: 6), for: .normal)
+        button.minimumSize = CGSize(width: 64, height: 48)
+        let buttonScheme = MDCButtonScheme()
+        MDCFloatingActionButtonThemer.applyScheme(buttonScheme, to: button)
+        button.setMinimumSize(CGSize(width: 96, height: 40), for: .mini, in: .expanded)
+        button.minimumSize = CGSize(width: 64, height: 48)
+
+        view.addSubview(button)
     }
     
     
