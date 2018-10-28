@@ -80,6 +80,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     {
         var lineChartEntry = [ChartDataEntry]()
         var lineChartEntry2 = [ChartDataEntry]()
+        
         var score_Values = [1,3,2,4,3]
         var score_Values1 = [2,1,5,1,2]
         score_Values.removeAll()
@@ -110,6 +111,8 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         let set1 = LineChartDataSet(values: lineChartEntry, label: Aselected1[0].identifiers.name)
         let set2 = LineChartDataSet(values: lineChartEntry2, label: Aselected1[1].identifiers.name)
         
+        
+        
         set1.circleColors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
         set1.colors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
         set1.mode = .cubicBezier
@@ -118,9 +121,19 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         set2.mode = .cubicBezier
         set2.circleRadius  = 4.0
         
+       
+        
         // Add data to the chart
         let data = LineChartData(dataSet: set1)
         data.addDataSet(set2)
+        
+        var set3 = LineChartDataSet()
+        if(Aselected1.count>2)
+        {
+            set3 = addCompanyToLineChart()
+        }
+        data.addDataSet(set3)
+        
         lineChartView.data = data
         lineChartView.chartDescription?.text = "Financial Indiacators"
         
@@ -129,6 +142,35 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         lineChartView.xAxis.granularity = 1
         lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
     }
+    
+    // Function that adds more company to Line Chart if they are more than 2
+    func addCompanyToLineChart() -> LineChartDataSet // returns a linechartDataSet
+    {   var lineChartEntry3 = [ChartDataEntry]()
+
+        var score_Values3 = [1,3,2,4,3]
+        score_Values3.removeAll()
+        score_Values3.append(Int(Aselected1[2].getHealth()))
+        score_Values3.append(Int(Aselected1[2].getHealth2()))
+        score_Values3.append(Int(Aselected1[2].getHealth3()))
+        score_Values3.append(Int(Aselected1[2].getHealth4()))
+        score_Values3.append(Int(Aselected1[2].getHealth5()))
+        
+        for i in 0..<score_Values3.count {
+            let value = ChartDataEntry(x: Double(i), y: Double(score_Values3[i]))
+            lineChartEntry3.append(value)
+        }
+        let set3 = LineChartDataSet(values: lineChartEntry3, label: Aselected1[2].identifiers.name)
+        
+        set3.circleColors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
+        set3.colors = [NSUIColor.init(red: 239, green: 89, blue: 89)]
+        set3.mode = .cubicBezier
+        set3.circleRadius  = 4.0
+        
+        return set3
+        
+    }
+    
+    
     
     func setupLineChart2(score_Values: [Int],score_Values1 : [Int])
     {

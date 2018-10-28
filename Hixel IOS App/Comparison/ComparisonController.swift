@@ -49,10 +49,10 @@ class ComparisonController: UIViewController{
         tableView.reloadData()
     }
     @IBAction func compareButton(_ sender: Any) {
-        if(loadedCompanies.count == 2)
+        if(loadedCompanies.count >= 2)
         {
         performSegue(withIdentifier: "search_comparison", sender: self)
-    }
+        }
     }
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var compare2: UIButton!
