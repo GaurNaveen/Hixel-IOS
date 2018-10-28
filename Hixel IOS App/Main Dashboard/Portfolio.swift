@@ -804,6 +804,10 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
             self.insertNewRow(deletedCompany: deletedCompany,deletedIndex: deletedIndex)
             actionMessage.text = deletedCompany.identifiers.name + " added back to portfolio"
             MDCSnackbarManager.show(actionMessage)
+            //---Reload the Bar Graph when a company is added back again.
+            self.dataForBarChart()
+            let yvalues = self.avgScores
+            self.setupBarChart(dataPoints: self.months, values: yvalues)
             
         }
         action.handler = actionHandler
