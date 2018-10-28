@@ -28,6 +28,13 @@ class ChangePasswordViewController: UIViewController {
     }
     
     @IBAction func confirm(_ sender: Any) {
+        
+        if(currentPassword.text!.isEmpty || newPassword.text!.isEmpty || retypeNewPass.text!.isEmpty)
+        {
+            popAlert()
+        }
+        
+        else {
         SVProgressHUD.show(withStatus: "Loading")
         let _ = Client().request(.changePassword(oldPassword: currentPassword.text!, newPassword: newPassword.text!)).subscribe{
             event in
@@ -41,8 +48,9 @@ class ChangePasswordViewController: UIViewController {
                 SVProgressHUD.dismiss()
                 print("Failure")
                 self.dismiss(animated: true)
-            }
+                }
             
+            }
         }
     }
     
@@ -55,6 +63,14 @@ class ChangePasswordViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func popAlert()
+    {
+        let alert = UIAlertController(title: " Invalid ", message: "Please fill the empty text field", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
 
 }
 
