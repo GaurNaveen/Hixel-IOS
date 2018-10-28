@@ -172,7 +172,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     
     
     
-    func setupLineChart2(score_Values: [Int],score_Values1 : [Int])
+    func setupLineChart2(score_Values: [Int],score_Values1 : [Int],type:String)
     {
         var lineChartEntry = [ChartDataEntry]()
         var lineChartEntry2 = [ChartDataEntry]()
@@ -203,6 +203,33 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         // Add data to the chart
         let data = LineChartData(dataSet: set1)
         data.addDataSet(set2)
+        
+        var set3 = LineChartDataSet()
+
+        if(Aselected1.count>2)
+        {
+            switch  type{
+            case "Performance":
+                set3 = addCompanyPerformanceToLineChartTwo()
+                break
+            case "Strength":
+                set3 = addCompanyStrengthToLineChartTwo()
+                break
+                
+            case "Safety":
+                set3 = addCompanySafetyToLineChartTwo()
+                break
+            case "Return":
+                set3 = addCompanyReturnToLineChartTwo()
+                break
+            default:
+                print("Yeee")
+            }
+            
+            
+        }
+        data.addDataSet(set3)
+        
         lineChartView.data = data
         lineChartView.chartDescription?.text = "Financial Indiacators"
         
@@ -211,6 +238,113 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         lineChartView.xAxis.granularity = 1
         
     }
+    
+    func addCompanyReturnToLineChartTwo() -> LineChartDataSet
+    {
+        var lineChartEntry3 = [ChartDataEntry]()
+        
+        var score_Values3 = [1,3,2,4,3]
+        score_Values3.removeAll()
+        score_Values3.append(Int(Aselected1[2].getReturns()))
+        score_Values3.append(Int(Aselected1[2].getReturns2()))
+        score_Values3.append(Int(Aselected1[2].getReturns3()))
+        score_Values3.append(Int(Aselected1[2].getReturns4()))
+        score_Values3.append(Int(Aselected1[2].getReturns5()))
+        
+        for i in 0..<score_Values3.count {
+            let value = ChartDataEntry(x: Double(i), y: Double(score_Values3[i]))
+            lineChartEntry3.append(value)
+        }
+        let set3 = LineChartDataSet(values: lineChartEntry3, label: Aselected1[2].identifiers.name)
+        
+        set3.circleColors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
+        set3.colors = [NSUIColor.init(red: 239, green: 89, blue: 89)]
+        set3.mode = .cubicBezier
+        set3.circleRadius  = 4.0
+        
+        return set3
+    }
+    
+    func addCompanySafetyToLineChartTwo() -> LineChartDataSet
+    {
+        var lineChartEntry3 = [ChartDataEntry]()
+        
+        var score_Values3 = [1,3,2,4,3]
+        score_Values3.removeAll()
+        score_Values3.append(Int(Aselected1[2].getSafety()))
+        score_Values3.append(Int(Aselected1[2].getSafety2()))
+        score_Values3.append(Int(Aselected1[2].getSafety3()))
+        score_Values3.append(Int(Aselected1[2].getSafety4()))
+        score_Values3.append(Int(Aselected1[2].getSafety5()))
+        
+        for i in 0..<score_Values3.count {
+            let value = ChartDataEntry(x: Double(i), y: Double(score_Values3[i]))
+            lineChartEntry3.append(value)
+        }
+        let set3 = LineChartDataSet(values: lineChartEntry3, label: Aselected1[2].identifiers.name)
+        
+        set3.circleColors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
+        set3.colors = [NSUIColor.init(red: 239, green: 89, blue: 89)]
+        set3.mode = .cubicBezier
+        set3.circleRadius  = 4.0
+        
+        return set3
+    }
+    
+    func addCompanyPerformanceToLineChartTwo() -> LineChartDataSet
+    {
+        var lineChartEntry3 = [ChartDataEntry]()
+        
+        var score_Values3 = [1,3,2,4,3]
+        score_Values3.removeAll()
+        score_Values3.append(Int(Aselected1[2].getPerformance()))
+        score_Values3.append(Int(Aselected1[2].getPerformance2()))
+        score_Values3.append(Int(Aselected1[2].getPerformance3()))
+        score_Values3.append(Int(Aselected1[2].getPerformance4()))
+        score_Values3.append(Int(Aselected1[2].getPerformance5()))
+        
+        for i in 0..<score_Values3.count {
+            let value = ChartDataEntry(x: Double(i), y: Double(score_Values3[i]))
+            lineChartEntry3.append(value)
+        }
+        let set3 = LineChartDataSet(values: lineChartEntry3, label: Aselected1[2].identifiers.name)
+        
+        set3.circleColors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
+        set3.colors = [NSUIColor.init(red: 239, green: 89, blue: 89)]
+        set3.mode = .cubicBezier
+        set3.circleRadius  = 4.0
+        
+        return set3
+    }
+    
+    
+    func addCompanyStrengthToLineChartTwo() -> LineChartDataSet
+    {
+        var lineChartEntry3 = [ChartDataEntry]()
+        
+        var score_Values3 = [1,3,2,4,3]
+        score_Values3.removeAll()
+        score_Values3.append(Int(Aselected1[2].getStrength()))
+        score_Values3.append(Int(Aselected1[2].getStrength2()))
+        score_Values3.append(Int(Aselected1[2].getStrengt3()))
+        score_Values3.append(Int(Aselected1[2].getStrength4()))
+        score_Values3.append(Int(Aselected1[2].getStrength5()))
+        
+        for i in 0..<score_Values3.count {
+            let value = ChartDataEntry(x: Double(i), y: Double(score_Values3[i]))
+            lineChartEntry3.append(value)
+        }
+        let set3 = LineChartDataSet(values: lineChartEntry3, label: Aselected1[2].identifiers.name)
+        
+        set3.circleColors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
+        set3.colors = [NSUIColor.init(red: 239, green: 89, blue: 89)]
+        set3.mode = .cubicBezier
+        set3.circleRadius  = 4.0
+        
+        return set3
+    }
+    
+    
     // MARK: - Setup Radar chart
     /// Function use to setup the radar chart.
     ///
@@ -413,7 +547,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 print("haibibi naveen",performanceValues2[3])
                 print("haibibi naveen",performanceValues2[4])
                 //setupLineChart()
-                setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2)
+                setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Safety")
             }
             
             /// changes the line chart to show Health indicators
@@ -446,7 +580,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 performanceValues2.append(Int(Aselected1[1].getPerformance5()))
                 
                 //setupLineChart()
-                setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2)
+                setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Performance")
                 
             }
             
@@ -474,7 +608,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 performanceValues2.append(Int(Aselected1[1].getStrength5()))
                 
                 //setupLineChart()
-                setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2)
+                setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Strength")
             }
             
             /// changes the line chart to show return indicators
@@ -482,7 +616,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             {
                 // returns
                 var performanceValues1 = [0,1,2,3,4]
-                print("Habibi Hector")
+                //print("Habibi Hector")
                 performanceValues1.removeAll()
                 performanceValues1.append(Int(Aselected1[0].getReturns()))
                 performanceValues1.append(Int(Aselected1[0].getReturns2()))
@@ -499,7 +633,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 performanceValues2.append(Int(Aselected1[1].getReturns5()))
                 
                 //setupLineChart()
-                setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2)
+                setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Safety")
             }
             
         }
