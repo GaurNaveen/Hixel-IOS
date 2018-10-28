@@ -7,16 +7,45 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class ChangePasswordViewController: UIViewController {
-
+    @IBAction func dismissView(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBOutlet weak var currentPassword: UITextField!
+    @IBOutlet weak var newPassword: UITextField!
+    @IBOutlet weak var retypeNewPass: UITextField!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        currentPassword.delegate = self
+        newPassword.delegate = self
+        retypeNewPass.delegate = self
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func confirm(_ sender: Any) {
+        SVProgressHUD.show(withStatus: "Loading")
+        let _ = Client().request(.changePassword(oldPassword: currentPassword.text!, newPassword: newPassword.text!)).subscribe{
+            event in
+            switch event{
+            case .success(let reponse):
+                print("Success")
+                SVProgressHUD.dismiss()
+                self.dismiss(animated: true)
+                break
+            case .error(let error):
+                SVProgressHUD.dismiss()
+                print("Failure")
+                self.dismiss(animated: true)
+            }
+            
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -27,4 +56,11 @@ class ChangePasswordViewController: UIViewController {
     }
     */
 
+}
+
+extension ChangePasswordViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
