@@ -9,7 +9,7 @@
 import Foundation
 
 struct PortfolioCompany : Codable {
-    let id : Int
+    let id : Int?
     let ticker : String
     
     private enum CodingKeys : String, CodingKey {

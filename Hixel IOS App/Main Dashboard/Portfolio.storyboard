@@ -1264,7 +1264,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2Z-dx-hBc">
-                                                <rect key="frame" x="0.0" y="41" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="17" width="375" height="74"/>
                                                 <color key="backgroundColor" red="0.1280709505" green="0.31567245719999998" blue="0.76866978409999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xuV-NA-3o7">
@@ -1432,7 +1432,7 @@
                                             <constraint firstItem="eZx-Ju-M4t" firstAttribute="top" secondItem="p2Z-dx-hBc" secondAttribute="bottom" constant="8" id="hTw-bm-yt6"/>
                                             <constraint firstItem="xuV-NA-3o7" firstAttribute="top" secondItem="18o-oQ-RGn" secondAttribute="top" constant="137" id="iX4-Ua-ymu"/>
                                             <constraint firstAttribute="height" constant="1000" id="io2-ku-a7j"/>
-                                            <constraint firstItem="p2Z-dx-hBc" firstAttribute="top" secondItem="18o-oQ-RGn" secondAttribute="top" constant="41" id="pnq-oP-1XD"/>
+                                            <constraint firstItem="p2Z-dx-hBc" firstAttribute="top" secondItem="18o-oQ-RGn" secondAttribute="top" constant="17" id="pnq-oP-1XD"/>
                                             <constraint firstItem="eZx-Ju-M4t" firstAttribute="leading" secondItem="18o-oQ-RGn" secondAttribute="leading" id="wLb-O9-rTO"/>
                                             <constraint firstItem="eZx-Ju-M4t" firstAttribute="top" secondItem="4CO-Og-PaP" secondAttribute="bottom" constant="20" id="wnc-mj-KZX"/>
                                             <constraint firstAttribute="bottom" secondItem="eZx-Ju-M4t" secondAttribute="bottom" constant="621" id="y9i-jF-LPN"/>

@@ -11,7 +11,7 @@ import Moya
 import SVProgressHUD
 import SwiftKeychainWrapper
 var portcomp = [Company]()
-
+var userData = [ApplicationUser]()
 class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -99,6 +99,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         
                         // Save user defaults
                         self.saveUserDefaults()
+                        
+                        // MARK: Load User Data from the server
+                        self.loadUserData()
                         
                         // Load data here
                         self.loadDataFromServer()
@@ -225,8 +228,15 @@ class LoginController: UIViewController, UITextFieldDelegate {
             switch event{
                 
             case .success(let response):
-                let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
-                print("Yass2",json)
+                let data = try! JSONDecoder().decode(ApplicationUser.self, from: response.data)
+                 userData.append(data)
+                
+                print(userData[0])
+                // Call the load data function from here if there are any tickers here.
+                
+                
+                //let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
+               // print("Yass2",json)
                 
             case .error(let error):
                 print("Oops")

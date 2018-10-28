@@ -8,7 +8,7 @@
 import Foundation
 
 struct UserPortfolio : Codable {
-    let id: Int
+    let id: Int?
     let companies: [PortfolioCompany]
     
     private enum CodingKeys: String, CodingKey {

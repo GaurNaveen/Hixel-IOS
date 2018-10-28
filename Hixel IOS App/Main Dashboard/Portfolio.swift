@@ -82,6 +82,7 @@ class PortfolioController: UIViewController {
     /// companies in the portfolio.
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Kmon",userData[0].portfolio?.companies.count)
         SearchTableView.dropShadow()
         graphContainerView.dropShadow()
         graphContainerView.layer.shadowOpacity = 8.0
@@ -757,6 +758,8 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
             portcomp.remove(at: indexPath.row)
             removeCompany(deletedCompanyTicker:deletedCompany.identifiers.ticker)
             self.tableView.reloadData()
+            self.barChartView.invalidateIntrinsicContentSize()
+        
         }
         // Displays the snackbar when a company gets deleted
         let message = MDCSnackbarMessage()
