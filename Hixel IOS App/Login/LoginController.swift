@@ -12,10 +12,12 @@ import SVProgressHUD
 import SwiftKeychainWrapper
 var portcomp = [Company]()
 var userData = [ApplicationUser]()
+
 class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     var move = false
+    var userCompanyTicker = [String]()
     var companies1 = [Company]()
     let companiesTicker = ["aapl","tsla","msft","twtr","snap","fb","amzn","intc","amd"]
     var string = ""
@@ -26,7 +28,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
       //  let removeSuccessful: Bool = KeychainWrapper.standard.remove(key: "loggedIn")
 
-        
+       
         
         
         let joinedStrings = companiesTicker.joined(separator: ",")
@@ -103,8 +105,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         // MARK: Load User Data from the server
                         self.loadUserData()
                         
-                        // Load data here
-                        self.loadDataFromServer()
+                        // Load data here------------------ remove the comment from below if something goes wrong
+                        //self.loadDataFromServer()
                         // self.performSegue(withIdentifier: "login_MainView", sender: self)
                     }
                     else if (response.statusCode == 401) {
@@ -231,19 +233,75 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 let data = try! JSONDecoder().decode(ApplicationUser.self, from: response.data)
                  userData.append(data)
                 
-                print(userData[0])
-                // Call the load data function from here if there are any tickers here.
+                // Loop over and get the tickers if there is any
+                let count = userData[0].portfolio!.companies.count
+                if(count>0)
+                {
+                for i in 0...count-1{
+                    print("Yass34",userData[0].portfolio!.companies[i].ticker)
+                    self.userCompanyTicker.append(userData[0].portfolio!.companies[i].ticker) // put the tickers into an array
+                    
+                    }
+                    // call the loadUser method below
+                    self.loadCompaniesFromUserData(tickers: self.userCompanyTicker)
+                }
+                else{
+                    //------ We still move to the Main Dashboard but don't actually setup the Bar Chart ------//
+                    SVProgressHUD.dismiss()
+                    self.performSegue(withIdentifier: "login_MainView", sender: self)
+
+                    print("Boom!!")
+                }
+              //  print(userData[0])
                 
-                
-                //let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
-               // print("Yass2",json)
-                
-            case .error(let error):
+            case .error( _):
                 print("Oops")
             }
         }
         
     }
+    
+    
+    
+    func loadCompaniesFromUserData(tickers:[String])
+    {
+        var tickersString = ""
+        let joinedStrings = userCompanyTicker.joined(separator: ",")
+        // Do any additional setup after loading the view.
+        tickersString = joinedStrings
+        
+        let _ = Client().request(.companydata(tickers: tickersString, years: 5)).subscribe{ event in
+            switch event {
+            case .success(let response):
+                // Dismiss the Progress bar.
+                SVProgressHUD.dismiss()
+                
+               // print("hello")
+                
+                // let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
+                //print(json)
+               let company = try! JSONDecoder().decode([Company].self, from: response.data)
+               //print("Kula",company)
+                self.companies1 = company
+                //self.companies1[0].identifiers.name
+                portcomp = company
+                // Go to the Main Dashboard
+                print("Kula",portcomp.count)
+               self.performSegue(withIdentifier: "login_MainView", sender: self)
+                
+                // print(self.companies1)
+                break
+                
+            case .error(let error):
+                print(error)
+                break
+            }
+        }
+        
+        
+    }
+    
+   
     
     /// Function used to test the search resutls.
     func serach()

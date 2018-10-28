@@ -82,16 +82,17 @@ class PortfolioController: UIViewController {
     /// companies in the portfolio.
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Kmon",userData[0].portfolio?.companies.count)
+        //print("Kmon",userData[0].portfolio?.companies.count)
+        
         SearchTableView.dropShadow()
         graphContainerView.dropShadow()
         graphContainerView.layer.shadowOpacity = 8.0
         graphContainerView.layer.shadowRadius = 1.5
         
-        print("Lock",portcomp[0].financialDataEntries[1].ratios.keys)
-        let res = portcomp[0].calculateGenrealIndicators()
+      //  print("Lock",portcomp[0].financialDataEntries[1].ratios.keys)
+        //let res = portcomp[0].calculateGenrealIndicators()
         
-        print("Lock",res)
+       // print("Lock",res)
         SearchTableView.isHidden = true
         print("Hoollla")
         print("Companies count ",portfolioCompanies)
@@ -101,10 +102,15 @@ class PortfolioController: UIViewController {
         months = ["Health", "Performance", "Return", "Safety", "Strength"]
         
         
-        dataForBarChart()
-        let yvalues = avgScores
-        print("Hec",yvalues)
-        setupBarChart(dataPoints: months, values: yvalues)
+//        dataForBarChart()
+//        let yvalues = avgScores
+//        print("Hec",yvalues)
+//        setupBarChart(dataPoints: months, values: yvalues)
+        
+       // ------------- Uncomment above line
+        
+        
+        
         // barChartView.dropShadow()
         // setup the UITable view to have a list of Companies on the Dashboard
         companies = createArray()
@@ -149,6 +155,16 @@ class PortfolioController: UIViewController {
         tableView.reloadData()
         SearchTableView.isHidden = true
         searchBar.text = ""
+        move = false
+        print("Company count ",portcomp.count)
+        if(portcomp.count>0)
+        {   print("Updating")
+            dataForBarChart()
+            let yvalues = avgScores
+            setupBarChart(dataPoints: months, values: yvalues)
+
+        }
+        
     }
     
     
@@ -519,9 +535,12 @@ class PortfolioController: UIViewController {
     
     /// Funtion that provides Bar Chart with Data.
     func dataForBarChart()
-    {   // For Health
+    {
+        avgScores.removeAll()
+        // For Health
         var x=0.0
         for i in 0...portcomp.count-1 {
+            print("Count ", i)
             x += portcomp[i].getHealth()
         }
         
@@ -620,7 +639,7 @@ class PortfolioController: UIViewController {
                 SVProgressHUD.dismiss()
                 move = true
                 self.performSegue(withIdentifier: "Dashboard_Company", sender: self)
-                move = false
+                
                 break
                 
             case .error(let error):
@@ -758,6 +777,21 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
             portcomp.remove(at: indexPath.row)
             removeCompany(deletedCompanyTicker:deletedCompany.identifiers.ticker)
             self.tableView.reloadData()
+            
+            if(portcomp.count>0)
+            {   print("Updating")
+                dataForBarChart()
+                let yvalues = avgScores
+                setupBarChart(dataPoints: months, values: yvalues)
+                
+            }
+            
+            
+            if(portcomp.count == 0){
+                let yValues = [0.0,0.0,0.0,0.0,0.0]
+                self.setupBarChart(dataPoints: months, values: yValues)
+
+            }
             self.barChartView.invalidateIntrinsicContentSize()
         
         }
@@ -856,12 +890,17 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
         {
             let vc = segue.destination as! CompanyController
             // vc.company = companies[indexPath1.row]
-            vc.searchedCompany = portcomp[indexPath1.row]
+        
+           // vc.searchedCompany = portcomp[indexPath1.row]
+            
             if(move==true)
             {
                 vc.searchedCompany = loadedCompany[0]
             }
             // print(vc.company)
+            else{
+                vc.searchedCompany = portcomp[indexPath1.row]
+            }
             
         }
     }
