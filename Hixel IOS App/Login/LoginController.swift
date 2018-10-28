@@ -71,8 +71,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
         // If the username and password are empty , raise an alert telling the user about it.
         if(username.text!.isEmpty || password.text!.isEmpty)
         {
-           // popAlert()
-             self.performSegue(withIdentifier: "test", sender: self)
+            popAlert()
+             //self.performSegue(withIdentifier: "test", sender: self)
             
         }
             

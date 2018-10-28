@@ -53,7 +53,12 @@ class ComparisonController: UIViewController{
         {
         performSegue(withIdentifier: "search_comparison", sender: self)
         }
+            
+        else{
+            popAlert()
+        }
     }
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var compare2: UIButton!
     var searchData = companies
@@ -73,6 +78,15 @@ class ComparisonController: UIViewController{
         //  searchView.layer.cornerRadius = 10.0
     }
     
+    /// Stops the user from going to the comparison view without selecting atleast 2 companies.
+    func popAlert()
+    {
+        let alert = UIAlertController(title: " Invalid ", message: "Please select atleast two companies", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
     
     
     /// Function used to update the collection view
