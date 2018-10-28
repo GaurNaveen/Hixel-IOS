@@ -14,6 +14,7 @@ var portcomp = [Company]()
 var userData = [ApplicationUser]()
 
 class LoginController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     var move = false
@@ -25,7 +26,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     /// Function used to set the delegate for the text fields.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        imageView.contentMode = .scaleAspectFit
       //  let removeSuccessful: Bool = KeychainWrapper.standard.remove(key: "loggedIn")
 
        
