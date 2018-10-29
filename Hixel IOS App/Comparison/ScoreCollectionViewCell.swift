@@ -80,16 +80,35 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
-        if(score > 65)
+        if(score > 60 && score<70)
         {
-            basicAnimation.toValue = 0.5
+            basicAnimation.toValue = 0.4
         }
         
-        else if(score < 50)
+        
+            
+        else if(score>70 && score<85)
+        {
+            basicAnimation.toValue = 0.8
+        }
+        
+        else if(score>85)
+        {
+            basicAnimation.toValue = 0.9
+        }
+        
+        else if(score < 30)
         {
             basicAnimation.toValue = 0.2
 
         }
+            
+        else if(score>30 && score<50)
+        {
+            basicAnimation.toValue = 0.3
+
+        }
+            
         else if (score == 50){
             basicAnimation.toValue = 0.4  // This will be helpfull to control the outer layer , 1 means full , 0.5 means half. adjust accordingly
             
