@@ -84,20 +84,20 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         var score_Values = [1,3,2,4,3]
         var score_Values1 = [2,1,5,1,2]
         score_Values.removeAll()
-        score_Values.append(Int(Aselected1[0].getHealth()))
-        score_Values.append(Int(Aselected1[0].getHealth2()))
-        score_Values.append(Int(Aselected1[0].getHealth3()))
-        score_Values.append(Int(Aselected1[0].getHealth4()))
         score_Values.append(Int(Aselected1[0].getHealth5()))
+        score_Values.append(Int(Aselected1[0].getHealth4()))
+        score_Values.append(Int(Aselected1[0].getHealth3()))
+        score_Values.append(Int(Aselected1[0].getHealth2()))
+        score_Values.append(Int(Aselected1[0].getHealth()))
         
         score_Values1.removeAll()
-        score_Values1.append(Int(Aselected1[1].getHealth()))
-        score_Values1.append(Int(Aselected1[1].getHealth2()))
-        score_Values1.append(Int(Aselected1[1].getHealth3()))
-        score_Values1.append(Int(Aselected1[1].getHealth4()))
         score_Values1.append(Int(Aselected1[1].getHealth5()))
+        score_Values1.append(Int(Aselected1[1].getHealth4()))
+        score_Values1.append(Int(Aselected1[1].getHealth3()))
+        score_Values1.append(Int(Aselected1[1].getHealth2()))
+        score_Values1.append(Int(Aselected1[1].getHealth()))
         
-        let years = ["2014","2015","2016","2017","2018"]
+        let years = ["2013","2014","2015","2016","2017"]
         
         for i in 0..<score_Values.count {
             let value = ChartDataEntry(x: Double(i), y: Double(score_Values[i]))
@@ -135,12 +135,18 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         data.addDataSet(set3)
         
         lineChartView.data = data
-        lineChartView.chartDescription?.text = "Financial Indiacators"
-        
+        lineChartView.chartDescription?.text = "Health"
         // Sets up the X axis
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: years)
         lineChartView.xAxis.granularity = 1
         lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        lineChartView.xAxis.drawAxisLineEnabled = true
+        lineChartView.leftAxis.drawAxisLineEnabled = false
+        lineChartView.leftAxis.axisMinimum = 0.0
+        lineChartView.leftAxis.axisMaximum = 6.0
+        lineChartView.leftAxis.granularity = 1.0
+        lineChartView.rightAxis.enabled = false
+        
     }
     
     // Function that adds more company to Line Chart if they are more than 2
@@ -149,11 +155,11 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
 
         var score_Values3 = [1,3,2,4,3]
         score_Values3.removeAll()
-        score_Values3.append(Int(Aselected1[2].getHealth()))
-        score_Values3.append(Int(Aselected1[2].getHealth2()))
-        score_Values3.append(Int(Aselected1[2].getHealth3()))
-        score_Values3.append(Int(Aselected1[2].getHealth4()))
         score_Values3.append(Int(Aselected1[2].getHealth5()))
+        score_Values3.append(Int(Aselected1[2].getHealth4()))
+        score_Values3.append(Int(Aselected1[2].getHealth3()))
+        score_Values3.append(Int(Aselected1[2].getHealth2()))
+        score_Values3.append(Int(Aselected1[2].getHealth()))
         
         for i in 0..<score_Values3.count {
             let value = ChartDataEntry(x: Double(i), y: Double(score_Values3[i]))
@@ -231,12 +237,18 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         data.addDataSet(set3)
         
         lineChartView.data = data
-        lineChartView.chartDescription?.text = "Financial Indiacators"
+        lineChartView.chartDescription?.text = type
         
         // Sets up the X axis
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: years)
         lineChartView.xAxis.granularity = 1
-        
+        lineChartView.xAxis.drawAxisLineEnabled = true
+        lineChartView.leftAxis.drawAxisLineEnabled = false
+        lineChartView.leftAxis.axisMinimum = 0.0
+        lineChartView.leftAxis.axisMaximum = 6.0
+        lineChartView.leftAxis.granularity = 1.0
+        lineChartView.rightAxis.enabled = false
+
     }
     
     func addCompanyReturnToLineChartTwo() -> LineChartDataSet
@@ -245,11 +257,11 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         
         var score_Values3 = [1,3,2,4,3]
         score_Values3.removeAll()
-        score_Values3.append(Int(Aselected1[2].getReturns()))
-        score_Values3.append(Int(Aselected1[2].getReturns2()))
-        score_Values3.append(Int(Aselected1[2].getReturns3()))
-        score_Values3.append(Int(Aselected1[2].getReturns4()))
         score_Values3.append(Int(Aselected1[2].getReturns5()))
+        score_Values3.append(Int(Aselected1[2].getReturns4()))
+        score_Values3.append(Int(Aselected1[2].getReturns3()))
+        score_Values3.append(Int(Aselected1[2].getReturns2()))
+        score_Values3.append(Int(Aselected1[2].getReturns()))
         
         for i in 0..<score_Values3.count {
             let value = ChartDataEntry(x: Double(i), y: Double(score_Values3[i]))
@@ -271,11 +283,11 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         
         var score_Values3 = [1,3,2,4,3]
         score_Values3.removeAll()
-        score_Values3.append(Int(Aselected1[2].getSafety()))
-        score_Values3.append(Int(Aselected1[2].getSafety2()))
-        score_Values3.append(Int(Aselected1[2].getSafety3()))
-        score_Values3.append(Int(Aselected1[2].getSafety4()))
         score_Values3.append(Int(Aselected1[2].getSafety5()))
+        score_Values3.append(Int(Aselected1[2].getSafety4()))
+        score_Values3.append(Int(Aselected1[2].getSafety3()))
+        score_Values3.append(Int(Aselected1[2].getSafety2()))
+        score_Values3.append(Int(Aselected1[2].getSafety()))
         
         for i in 0..<score_Values3.count {
             let value = ChartDataEntry(x: Double(i), y: Double(score_Values3[i]))
@@ -297,11 +309,11 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         
         var score_Values3 = [1,3,2,4,3]
         score_Values3.removeAll()
-        score_Values3.append(Int(Aselected1[2].getPerformance()))
-        score_Values3.append(Int(Aselected1[2].getPerformance2()))
-        score_Values3.append(Int(Aselected1[2].getPerformance3()))
-        score_Values3.append(Int(Aselected1[2].getPerformance4()))
         score_Values3.append(Int(Aselected1[2].getPerformance5()))
+        score_Values3.append(Int(Aselected1[2].getPerformance4()))
+        score_Values3.append(Int(Aselected1[2].getPerformance3()))
+        score_Values3.append(Int(Aselected1[2].getPerformance2()))
+        score_Values3.append(Int(Aselected1[2].getPerformance()))
         
         for i in 0..<score_Values3.count {
             let value = ChartDataEntry(x: Double(i), y: Double(score_Values3[i]))
@@ -324,11 +336,11 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         
         var score_Values3 = [1,3,2,4,3]
         score_Values3.removeAll()
-        score_Values3.append(Int(Aselected1[2].getStrength()))
-        score_Values3.append(Int(Aselected1[2].getStrength2()))
-        score_Values3.append(Int(Aselected1[2].getStrengt3()))
-        score_Values3.append(Int(Aselected1[2].getStrength4()))
         score_Values3.append(Int(Aselected1[2].getStrength5()))
+        score_Values3.append(Int(Aselected1[2].getStrength4()))
+        score_Values3.append(Int(Aselected1[2].getStrengt3()))
+        score_Values3.append(Int(Aselected1[2].getStrength2()))
+        score_Values3.append(Int(Aselected1[2].getStrength()))
         
         for i in 0..<score_Values3.count {
             let value = ChartDataEntry(x: Double(i), y: Double(score_Values3[i]))
@@ -503,15 +515,15 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     ///   - indexPath: System Defined Params.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (collectionView == self.collectionView3) {
-            collectionView3.cellForItem(at: indexPath)?.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
+          // collectionView3.cellForItem(at: indexPath)?.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
             
             //  MARK: This allows you to access cell elements
-            let cell =  collectionView.cellForItem(at: indexPath) as! CollectionViewCell3
+           // let cell =  collectionView.cellForItem(at: indexPath) as! CollectionViewCell3
             // cell.label.textColor = .white
             
             if(selectedIndexPath != nil)
             {
-                collectionView3.cellForItem(at: selectedIndexPath!)?.backgroundColor = UIColor.white
+                //collectionView3.cellForItem(at: selectedIndexPath!)?.backgroundColor = UIColor.white
                 
                 // cell.label.textColor = .black
                 
@@ -527,19 +539,19 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 var performanceValues1 = [0,1,2,3,4]
                 print("Habibi Hector")
                 performanceValues1.removeAll()
-                performanceValues1.append(Int(Aselected1[0].getSafety()))
-                performanceValues1.append(Int(Aselected1[0].getSafety2()))
-                performanceValues1.append(Int(Aselected1[0].getSafety3()))
-                performanceValues1.append(Int(Aselected1[0].getSafety4()))
                 performanceValues1.append(Int(Aselected1[0].getSafety5()))
+                performanceValues1.append(Int(Aselected1[0].getSafety4()))
+                performanceValues1.append(Int(Aselected1[0].getSafety3()))
+                performanceValues1.append(Int(Aselected1[0].getSafety2()))
+                performanceValues1.append(Int(Aselected1[0].getSafety()))
                 
                 var performanceValues2 = [0,1,2,3,4]
                 performanceValues2.removeAll()
-                performanceValues2.append(Int(Aselected1[1].getSafety()))
-                performanceValues2.append(Int(Aselected1[1].getSafety2()))
-                performanceValues2.append(Int(Aselected1[1].getSafety3()))
-                performanceValues2.append(Int(Aselected1[1].getSafety4()))
                 performanceValues2.append(Int(Aselected1[1].getSafety5()))
+                performanceValues2.append(Int(Aselected1[1].getSafety4()))
+                performanceValues2.append(Int(Aselected1[1].getSafety3()))
+                performanceValues2.append(Int(Aselected1[1].getSafety2()))
+                performanceValues2.append(Int(Aselected1[1].getSafety()))
                 
                 print("haibibi naveen",performanceValues2[0])
                 print("haibibi naveen",performanceValues2[1])
@@ -565,19 +577,19 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 var performanceValues1 = [0,1,2,3,4]
                 print("Habibi Hector")
                 performanceValues1.removeAll()
-                performanceValues1.append(Int(Aselected1[0].getPerformance()))
-                performanceValues1.append(Int(Aselected1[0].getPerformance2()))
-                performanceValues1.append(Int(Aselected1[0].getPerformance3()))
-                performanceValues1.append(Int(Aselected1[0].getPerformance4()))
                 performanceValues1.append(Int(Aselected1[0].getPerformance5()))
+                performanceValues1.append(Int(Aselected1[0].getPerformance4()))
+                performanceValues1.append(Int(Aselected1[0].getPerformance3()))
+                performanceValues1.append(Int(Aselected1[0].getPerformance2()))
+                performanceValues1.append(Int(Aselected1[0].getPerformance()))
                 
                 var performanceValues2 = [0,1,2,3,4]
                 performanceValues2.removeAll()
-                performanceValues2.append(Int(Aselected1[1].getPerformance()))
-                performanceValues2.append(Int(Aselected1[1].getPerformance2()))
-                performanceValues2.append(Int(Aselected1[1].getPerformance3()))
-                performanceValues2.append(Int(Aselected1[1].getPerformance4()))
                 performanceValues2.append(Int(Aselected1[1].getPerformance5()))
+                performanceValues2.append(Int(Aselected1[1].getPerformance4()))
+                performanceValues2.append(Int(Aselected1[1].getPerformance3()))
+                performanceValues2.append(Int(Aselected1[1].getPerformance2()))
+                performanceValues2.append(Int(Aselected1[1].getPerformance()))
                 
                 //setupLineChart()
                 setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Performance")
@@ -593,19 +605,19 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 var performanceValues1 = [0,1,2,3,4]
                 print("Habibi Hector")
                 performanceValues1.removeAll()
-                performanceValues1.append(Int(Aselected1[0].getStrength()))
-                performanceValues1.append(Int(Aselected1[0].getStrength2()))
-                performanceValues1.append(Int(Aselected1[0].getStrengt3()))
-                performanceValues1.append(Int(Aselected1[0].getStrength4()))
                 performanceValues1.append(Int(Aselected1[0].getStrength5()))
+                performanceValues1.append(Int(Aselected1[0].getStrength4()))
+                performanceValues1.append(Int(Aselected1[0].getStrengt3()))
+                performanceValues1.append(Int(Aselected1[0].getStrength2()))
+                performanceValues1.append(Int(Aselected1[0].getStrength()))
                 
                 var performanceValues2 = [0,1,2,3,4]
                 performanceValues2.removeAll()
-                performanceValues2.append(Int(Aselected1[1].getStrength()))
-                performanceValues2.append(Int(Aselected1[1].getStrength2()))
-                performanceValues2.append(Int(Aselected1[1].getStrengt3()))
-                performanceValues2.append(Int(Aselected1[1].getStrength4()))
                 performanceValues2.append(Int(Aselected1[1].getStrength5()))
+                performanceValues2.append(Int(Aselected1[1].getStrength4()))
+                performanceValues2.append(Int(Aselected1[1].getStrengt3()))
+                performanceValues2.append(Int(Aselected1[1].getStrength2()))
+                performanceValues2.append(Int(Aselected1[1].getStrength()))
                 
                 //setupLineChart()
                 setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Strength")
@@ -618,19 +630,19 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 var performanceValues1 = [0,1,2,3,4]
                 //print("Habibi Hector")
                 performanceValues1.removeAll()
-                performanceValues1.append(Int(Aselected1[0].getReturns()))
-                performanceValues1.append(Int(Aselected1[0].getReturns2()))
+                performanceValues1.append(Int(Aselected1[0].getReturns5()))
+                performanceValues1.append(Int(Aselected1[0].getReturns4()))
                 performanceValues1.append(Int(Aselected1[0].getReturns3()))
                 performanceValues1.append(Int(Aselected1[0].getReturns2()))
-                performanceValues1.append(Int(Aselected1[0].getReturns5()))
+                performanceValues1.append(Int(Aselected1[0].getReturns()))
                 
                 var performanceValues2 = [0,1,2,3,4]
                 performanceValues2.removeAll()
-                performanceValues2.append(Int(Aselected1[1].getReturns()))
-                performanceValues2.append(Int(Aselected1[1].getReturns2()))
-                performanceValues2.append(Int(Aselected1[1].getReturns3()))
-                performanceValues2.append(Int(Aselected1[1].getReturns4()))
                 performanceValues2.append(Int(Aselected1[1].getReturns5()))
+                performanceValues2.append(Int(Aselected1[1].getReturns4()))
+                performanceValues2.append(Int(Aselected1[1].getReturns3()))
+                performanceValues2.append(Int(Aselected1[1].getReturns2()))
+                performanceValues2.append(Int(Aselected1[1].getReturns()))
                 
                 //setupLineChart()
                 setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Safety")

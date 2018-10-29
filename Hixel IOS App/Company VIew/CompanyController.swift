@@ -275,6 +275,8 @@ class CompanyController: UIViewController {
         lineChartView.leftAxis.axisMinimum = 0.0
         lineChartView.leftAxis.axisMaximum = 6.0
         lineChartView.leftAxis.granularity = 1.0
+        lineChartView.rightAxis.enabled = false
+
     }
     
     func setChartValues2(score_Values:[Int],indicator:String)
@@ -298,6 +300,8 @@ class CompanyController: UIViewController {
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: years)
         lineChartView.xAxis.granularity = 1
         lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        lineChartView.rightAxis.enabled = false
+
 
     }
     
