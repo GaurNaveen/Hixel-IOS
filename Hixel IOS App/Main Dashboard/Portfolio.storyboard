@@ -1352,7 +1352,21 @@
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JM7-uF-KRJ">
                                                         <rect key="frame" x="0.0" y="333" width="375" height="88"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OyN-oH-b6h">
+                                                                <rect key="frame" x="176" y="33" width="22" height="22"/>
+                                                                <connections>
+                                                                    <action selector="graphInfo:" destination="hJV-vX-57w" eventType="touchUpInside" id="dWV-9f-n1U"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
                                                         <color key="backgroundColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="OyN-oH-b6h" secondAttribute="bottom" constant="33" id="6xH-kW-Nx7"/>
+                                                            <constraint firstAttribute="trailing" secondItem="OyN-oH-b6h" secondAttribute="trailing" constant="177" id="RiZ-DK-iur"/>
+                                                            <constraint firstItem="OyN-oH-b6h" firstAttribute="top" secondItem="JM7-uF-KRJ" secondAttribute="top" constant="33" id="fDb-k7-e6A"/>
+                                                            <constraint firstItem="OyN-oH-b6h" firstAttribute="leading" secondItem="JM7-uF-KRJ" secondAttribute="leading" constant="176" id="tXi-WB-zuz"/>
+                                                        </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vu-hN-BFz">
                                                         <rect key="frame" x="302" y="350" width="56" height="56"/>
@@ -2545,7 +2559,7 @@
         <segue reference="J9O-rh-PCW"/>
         <segue reference="KPf-hW-ry3"/>
         <segue reference="YFM-EE-0KE"/>
-        <segue reference="Bs0-KH-Y0x"/>
+        <segue reference="zqB-K4-ABl"/>
         <segue reference="7tL-dQ-h6e"/>
         <segue reference="1Zk-LG-t5D"/>
         <segue reference="gvh-FA-UjS"/>

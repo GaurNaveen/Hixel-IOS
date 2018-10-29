@@ -8,7 +8,7 @@
 
 import UIKit
 import Charts
-var indicator = ""
+var indicator12 = "Health"
 class CompanyController: UIViewController {
     
     /// Action button used to display the info view.
@@ -405,7 +405,7 @@ class CompanyController: UIViewController {
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
         
-        let myString  = "Health"
+        let myString  = "Safety"
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
@@ -420,7 +420,7 @@ class CompanyController: UIViewController {
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
         
-        let myString  = "Health"
+        let myString  = "Performance"
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
@@ -435,7 +435,7 @@ class CompanyController: UIViewController {
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
         
-        let myString  = "Health"
+        let myString  = "Returns"
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
@@ -450,7 +450,7 @@ class CompanyController: UIViewController {
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
         
-        let myString  = "Health"
+        let myString  = "Strength"
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
@@ -458,6 +458,30 @@ class CompanyController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    @IBAction func graphInfo(_ sender: Any) {
+        print(indicator12)
+        switch indicator12{
+            
+        case "Health": healthPopAlert()
+            break
+            
+        case "Safety": safetyPopAlert()
+            break
+            
+        case "Performance": performancePopAlert()
+            break
+            
+        case "Returns": returnsPopAlert()
+            break
+            
+        case "Strength": strengthPopAlert()
+            break
+            
+        default: print("Nothing to show")
+            break
+        }
+    }
     
     
     
@@ -526,7 +550,7 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             values1.append( Int((searchedCompany?.getHealth2())!))
             values1.append( Int((searchedCompany?.getHealth())!))
             setChartValues2(score_Values: values1, indicator: "Health")
-            indicator = "Health"
+            indicator12 = "Health"
         }
         
         
@@ -546,7 +570,7 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             print("yad",values1)
             //setLineChart2(values1)
             setChartValues2(score_Values: values1, indicator: "Performance")
-            indicator = "Performance"
+            indicator12 = "Performance"
         }
         
         if (indexPath.row == 2)
@@ -560,7 +584,7 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             values1.append( Int((searchedCompany?.getSafety2())!))
             values1.append( Int((searchedCompany?.getSafety())!))
             setChartValues2(score_Values: values1, indicator: "Safety")
-            indicator = "Safety"
+            indicator12 = "Safety"
             
         }
         
@@ -575,7 +599,7 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             values1.append( Int((searchedCompany?.getStrength2())!))
             values1.append( Int((searchedCompany?.getStrength())!))
             setChartValues2(score_Values: values1, indicator: "Strength")
-            indicator = "Strength"
+            indicator12 = "Strength"
         }
         
         if (indexPath.row == 4)
@@ -589,7 +613,7 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             values1.append( Int((searchedCompany?.getReturns2())!))
             values1.append( Int((searchedCompany?.getReturns())!))
             setChartValues2(score_Values: values1, indicator: "Returns")
-            indicator = "Returns"
+            indicator12 = "Returns"
         }
     }
 }
