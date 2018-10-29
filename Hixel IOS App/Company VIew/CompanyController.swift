@@ -224,7 +224,7 @@ class CompanyController: UIViewController {
     
     var score_Values = [1,3,2,4,3]
     //var score_Values1 = [2,1,5,1,2]
-    var years = ["2014","2015","2016","2017","2018"]
+    var years = ["2013","2014","2015","2016","2017"]
     
     // MARK: Setup Line Chart
     func setChartValues(check:Bool)
@@ -232,11 +232,11 @@ class CompanyController: UIViewController {
         var lineChartEntry = [ChartDataEntry]()
         var lineChartEntry2 = [ChartDataEntry]()
         score_Values.removeAll()
-        score_Values.append(Int((searchedCompany?.getHealth())!))
-        score_Values.append(Int((searchedCompany?.getHealth2())!))
-        score_Values.append(Int((searchedCompany?.getHealth3())!))
-        score_Values.append(Int((searchedCompany?.getHealth4())!))
         score_Values.append(Int((searchedCompany?.getHealth5())!))
+        score_Values.append(Int((searchedCompany?.getHealth4())!))
+        score_Values.append(Int((searchedCompany?.getHealth3())!))
+        score_Values.append(Int((searchedCompany?.getHealth2())!))
+        score_Values.append(Int((searchedCompany?.getHealth())!))
 
         // add health values for previous yhears
         if(check==true)
@@ -270,7 +270,11 @@ class CompanyController: UIViewController {
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: years)
         lineChartView.xAxis.granularity = 1
         lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
-
+        lineChartView.xAxis.drawAxisLineEnabled = true
+        lineChartView.leftAxis.drawAxisLineEnabled = false
+        lineChartView.leftAxis.axisMinimum = 0.0
+        lineChartView.leftAxis.axisMaximum = 6.0
+        lineChartView.leftAxis.granularity = 1.0
     }
     
     func setChartValues2(score_Values:[Int],indicator:String)
@@ -374,13 +378,13 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             // shows the performance indicator for the company in the line chart
             var values1 = [0,1,2,3,4]
             values1.removeAll()
-            values1.append( Int((searchedCompany?.getHealth())!))
-            values1.append( Int((searchedCompany?.getHealth2())!))
-            values1.append( Int((searchedCompany?.getHealth3())!))
-            values1.append( Int((searchedCompany?.getHealth4())!))
             values1.append( Int((searchedCompany?.getHealth5())!))
+            values1.append( Int((searchedCompany?.getHealth4())!))
+            values1.append( Int((searchedCompany?.getHealth3())!))
+            values1.append( Int((searchedCompany?.getHealth2())!))
+            values1.append( Int((searchedCompany?.getHealth())!))
             setChartValues2(score_Values: values1, indicator: "Health")
-            
+            print("Lp",searchedCompany?.financialDataEntries[4].year)
             //setLineChart2(values1)
         }
         
@@ -392,14 +396,16 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             // shows the performance indicator for the company in the line chart
             var values1 = [0,1,2,3,4]
             values1.removeAll()
-            values1.append( Int((searchedCompany?.getPerformance())!))
-            values1.append( Int((searchedCompany?.getPerformance2())!))
-            values1.append( Int((searchedCompany?.getPerformance3())!))
-            values1.append( Int((searchedCompany?.getPerformance4())!))
             values1.append( Int((searchedCompany?.getPerformance5())!))
+            values1.append( Int((searchedCompany?.getPerformance4())!))
+            values1.append( Int((searchedCompany?.getPerformance3())!))
+            values1.append( Int((searchedCompany?.getPerformance2())!))
+            values1.append( Int((searchedCompany?.getPerformance())!))
            // setChartValues(check: true)
             print("yad",values1)
             //setLineChart2(values1)
+            setChartValues2(score_Values: values1, indicator: "Performance")
+
         }
         
         if(indexPath.row == 2)
@@ -407,11 +413,11 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             // shows the performance indicator for the company in the line chart
             var values1 = [0,1,2,3,4]
             values1.removeAll()
-            values1.append( Int((searchedCompany?.getSafety())!))
-            values1.append( Int((searchedCompany?.getSafety2())!))
-            values1.append( Int((searchedCompany?.getSafety3())!))
-            values1.append( Int((searchedCompany?.getSafety4())!))
             values1.append( Int((searchedCompany?.getSafety5())!))
+            values1.append( Int((searchedCompany?.getSafety4())!))
+            values1.append( Int((searchedCompany?.getSafety3())!))
+            values1.append( Int((searchedCompany?.getSafety2())!))
+            values1.append( Int((searchedCompany?.getSafety())!))
             setChartValues2(score_Values: values1, indicator: "Safety")
 
             
@@ -422,11 +428,11 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             // shows the performance indicator for the company in the line chart
             var values1 = [0,1,2,3,4]
             values1.removeAll()
-            values1.append( Int((searchedCompany?.getStrength())!))
-            values1.append( Int((searchedCompany?.getStrength2())!))
-            values1.append( Int((searchedCompany?.getStrengt3())!))
-            values1.append( Int((searchedCompany?.getStrength4())!))
             values1.append( Int((searchedCompany?.getStrength5())!))
+            values1.append( Int((searchedCompany?.getStrength4())!))
+            values1.append( Int((searchedCompany?.getStrengt3())!))
+            values1.append( Int((searchedCompany?.getStrength2())!))
+            values1.append( Int((searchedCompany?.getStrength())!))
             setChartValues2(score_Values: values1, indicator: "Strength")
 
         }
@@ -436,11 +442,11 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             // shows the performance indicator for the company in the line chart
             var values1 = [0,1,2,3,4]
             values1.removeAll()
-            values1.append( Int((searchedCompany?.getReturns())!))
-            values1.append( Int((searchedCompany?.getReturns2())!))
-            values1.append( Int((searchedCompany?.getReturns3())!))
-            values1.append( Int((searchedCompany?.getReturns4())!))
             values1.append( Int((searchedCompany?.getReturns5())!))
+            values1.append( Int((searchedCompany?.getReturns4())!))
+            values1.append( Int((searchedCompany?.getReturns3())!))
+            values1.append( Int((searchedCompany?.getReturns2())!))
+            values1.append( Int((searchedCompany?.getReturns())!))
             setChartValues2(score_Values: values1, indicator: "Returns")
 
             
