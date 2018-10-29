@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import SVProgressHUD
 var code = ""
 
 class ResetPasswordCodeViewController: UIViewController,UITextFieldDelegate {
+    
+    
+    @IBAction func back_button(_ sender: Any) {
+        
+        self.dismiss(animated: true)
+    }
+    
     
     /// Action button tat sends the email and the reset code to the server.
     ///
     /// - Parameter sender: System Defined params.
     @IBAction func submit(_ sender: Any) {
+        SVProgressHUD.show(withStatus: "Loading")
+        
         code=resetCode.text!
         let _ = Client().request(.resetCode(email: email1, code: resetCode.text!)).subscribe{
             result in
@@ -24,17 +34,18 @@ class ResetPasswordCodeViewController: UIViewController,UITextFieldDelegate {
                 if(response.statusCode == 200)
                 {
                     print("Done")
+                    SVProgressHUD.dismiss()
                    self.performSegue(withIdentifier: "newPassword", sender: self)
                 }
+                break
                 
-                else{
-                    print("not done")
-                }
-                
+            case .error(let error): SVProgressHUD.dismiss()
+                self.errorPopAlert()
                 break
 
             default:
                 print("Got Error")
+                break
             }
         }
     }
@@ -48,6 +59,15 @@ class ResetPasswordCodeViewController: UIViewController,UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         resetCode.delegate = self
+        
+    }
+    func errorPopAlert()
+    {
+        let alert = UIAlertController(title: " Error ", message: "Coudn't connect to the server", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
         
     }
     

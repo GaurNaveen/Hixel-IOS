@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 var email1 = ""
 class ForgotPasswordViewController: UIViewController {
     
@@ -39,13 +40,25 @@ class ForgotPasswordViewController: UIViewController {
             popAlert()
         }
         
+        else {
+            SVProgressHUD.show(withStatus: "Loading")
         email1 = email.text!
         let _ = Client().request(.resetEmail(email: email.text!)).subscribe{
             result in
             
-            self.performSegue(withIdentifier: "enter_code", sender: self)
+            switch result{
+            case .success(let repsonse):
+                SVProgressHUD.dismiss()
+                 self.performSegue(withIdentifier: "enter_code", sender: self)
+            case .error(let error):
+                SVProgressHUD.dismiss()
+                self.errorPopAlert()
+                break
+                
+            }
+           
+            }
         }
-        
     }
     
     /// Function that displays an alert on the screen telling user that he left the Email field empty.
@@ -58,7 +71,15 @@ class ForgotPasswordViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    
+    func errorPopAlert()
+    {
+        let alert = UIAlertController(title: " Error ", message: "Coudn't connect to the server", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     
     
 }

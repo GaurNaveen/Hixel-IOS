@@ -23,6 +23,7 @@ class SignUpController: UIViewController {
         // If the user misses a field , then an alert is generated tellling the user about it.
         if(firstName.text!.isEmpty || lastName.text!.isEmpty || email.text!.isEmpty || password.text!.isEmpty)
         {
+            SVProgressHUD.dismiss()
             popAlert()
         }
             
