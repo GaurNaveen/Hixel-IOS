@@ -162,7 +162,7 @@ class PortfolioController: UIViewController {
             dataForBarChart()
             let yvalues = avgScores
             setupBarChart(dataPoints: months, values: yvalues)
-
+           // print("Red",portfolioCompanies[0].financialDataEntries[0].year)
         }
         
     }
@@ -861,14 +861,14 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
     ///   - deletedCompany: Pass the company that was delted.
     ///   - deletedIndex: Pass the deleted index.
     func insertNewRow(deletedCompany : Company,deletedIndex: Int)
-    {
+    {   print("Del",deletedCompany)
         portcomp.append(deletedCompany)
-        
-        let indexPath = IndexPath(row: deletedIndex-1, section: 0)
-        tableView.beginUpdates()
-        tableView.insertRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-        tableView.endUpdates()
-        
+    
+       // let indexPath = IndexPath(row: deletedIndex, section: 0)
+       // tableView.beginUpdates()
+        //tableView.insertRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        //tableView.endUpdates()
+        tableView.reloadData()
     }
     
     
