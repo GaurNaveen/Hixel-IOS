@@ -197,8 +197,15 @@ class PortfolioController: UIViewController {
             dataEntries.append(dataEntry)
             print("Hect",dataEntry)
         }
+        
+        // returns the bar colors
+        var colors = [NSUIColor]()
+        //setupBarChartColors(values: values)
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
-        chartDataSet.setColors(UIColor.init(netHex: 0x1DCEB1),UIColor.init(netHex:0xFF5D84 ),UIColor.init(netHex: 0xFF5D84),UIColor.init(netHex: 0x1DCEB1),UIColor.init(netHex: 0xFFDD7C))
+//        chartDataSet.setColors(UIColor.init(netHex: 0x1DCEB1),UIColor.init(netHex:0xFF5D84 ),UIColor.init(netHex: 0xFF5D84),UIColor.init(netHex: 0x1DCEB1),UIColor.init(netHex: 0xFFDD7C))
+        
+        
+        chartDataSet.setColors(setupBarChartColors(values: values[0]),setupBarChartColors(values: values[1]),setupBarChartColors(values: values[2]),setupBarChartColors(values: values[3]),setupBarChartColors(values: values[4]))
         // var c = ChartDataEntry(x: <#T##Double#>, y: <#T##Double#>)
         let chartData = BarChartData(dataSet: chartDataSet)
         chartData.barWidth = 0.2
@@ -230,6 +237,30 @@ class PortfolioController: UIViewController {
         barChartView.backgroundColor = UIColor.white
         //barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
+    
+    func setupBarChartColors(values:Double) -> NSUIColor
+    {   
+        
+        
+        
+            if(values>3)
+            {
+                return UIColor.init(netHex: 0x1DCEB1)
+            }
+            else if(values < 3)
+            {
+                return UIColor.init(netHex:0xFF5D84 )
+            }
+            else{
+                // i == 3
+                return UIColor.init(netHex: 0xFFDD7C)
+            }
+        
+       
+        
+    }
+    
+    
     
     /// Updates the Chart Data
     func updateChart()

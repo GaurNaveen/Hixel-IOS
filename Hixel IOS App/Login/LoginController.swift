@@ -12,6 +12,9 @@ import SVProgressHUD
 import SwiftKeychainWrapper
 var portcomp = [Company]()
 var userData = [ApplicationUser]()
+let based = "Based On: "
+let health = "Gauges a company's ability to pay short-term and long-term obligations. It's used to give an idea of a company's ability to pay back its liabilities (e.g. debt) with its assets.\n\n\(based)Current ratio = Current Assets / Current Liabilities"
+
 
 class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
@@ -70,7 +73,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         move = true
         // If the username and password are empty , raise an alert telling the user about it.
         if(username.text!.isEmpty || password.text!.isEmpty)
-        {
+        {   //testPopAlert()
             popAlert()
              //self.performSegue(withIdentifier: "test", sender: self)
             
@@ -166,6 +169,29 @@ class LoginController: UIViewController, UITextFieldDelegate {
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    /// Function displays an alert on the screen when username or password are missing.
+    func testPopAlert()
+    {
+        let alert = UIAlertController(title: " Health ", message: health, preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        
+        
+        let myString  = "Health"
+        var myMutableString = NSMutableAttributedString()
+        myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
+        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
+        alert.setValue(myMutableString, forKey: "attributedTitle")
+        self.present(alert, animated: true, completion: nil)
+        
+        
+        
+        
+    }
+    
+    
     
     /// Function displays an Alert when the App cannot connect to the Server.
     func serverErrorAlert()
