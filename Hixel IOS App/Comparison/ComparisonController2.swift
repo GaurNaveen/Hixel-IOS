@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+var indicator1 = ""
 class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     /// var selectedCompanies = ["Apple Inc","Samsung Corp","Alphabet","Bmw","Facebook"]
     @IBOutlet weak var lineChartView: LineChartView!
@@ -563,6 +564,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 print("haibibi naveen",performanceValues2[4])
                 //setupLineChart()
                 setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Safety")
+                indicator1 = "Safety"
             }
             
             /// changes the line chart to show Health indicators
@@ -570,6 +572,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             if(indexPath.row == 1)
             {
                 setupLineChart()
+                indicator1 = "Health"
             }
             
             /// changes the line chart to show Performance indicators
@@ -596,6 +599,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 
                 //setupLineChart()
                 setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Performance")
+                indicator1 = "Performance"
                 
             }
             
@@ -624,6 +628,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 
                 //setupLineChart()
                 setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Strength")
+                indicator1 = "Strength"
             }
             
             /// changes the line chart to show return indicators
@@ -649,6 +654,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 
                 //setupLineChart()
                 setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Safety")
+                indicator1 = "Returns"
             }
             
         }
