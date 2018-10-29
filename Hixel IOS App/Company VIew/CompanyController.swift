@@ -192,6 +192,51 @@ class CompanyController: UIViewController {
         self.navigationController?.setToolbarHidden(false, animated: true)
     }
     
+    func calculateStroke(value:Int) -> Double
+    {
+        if(value>=80)
+        {
+            shapeLayer.strokeColor = UIColor.init(netHex: 0x1DCEB1).cgColor
+            return 0.65
+        }
+        
+        else if(value >= 70 && value < 80)
+        {
+            shapeLayer.strokeColor = UIColor.init(netHex: 0x1DCEB1).cgColor
+            return 0.56
+        }
+        else if(value > 60 && value < 70)
+        {
+            shapeLayer.strokeColor = UIColor.init(netHex: 0x1DCEB1).cgColor
+            return 0.48
+        }
+        else if(value>=50 && value <= 60)
+        {   shapeLayer.strokeColor = UIColor.init(netHex: 0xFFDD7C).cgColor
+            return 0.42
+        }
+        
+        else if(value == 50)
+        {  shapeLayer.strokeColor =  UIColor.init(netHex: 0xFFDD7C).cgColor
+            return 0.4
+        }
+        
+        else if (value < 50  && value >= 40)
+        {
+           shapeLayer.strokeColor = UIColor.init(netHex: 0xFFDD7C).cgColor
+            return 0.35
+        }
+        else if (value >= 30 && value < 40 )
+        {
+                shapeLayer.strokeColor = UIColor.init(netHex:0xFF5D84).cgColor
+                return 0.25
+        }
+        
+        else {
+            shapeLayer.strokeColor = UIColor.init(netHex:0xFF5D84).cgColor
+            return 0.2
+        }
+        
+    }
     
     /// Function that does the filling animation on the score chart.
     @objc private func handleTap()
@@ -199,7 +244,10 @@ class CompanyController: UIViewController {
         print("Attepmting to animate strokee")
         
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        basicAnimation.toValue = 0.5  // This will be helpfull to control the outer layer , 1 means full , 0.5 means half. adjust accordingly
+        //basicAnimation.toValue = 0.5  // This will be helpfull to control the outer layer , 1 means full , 0.5 means half. adjust accordingly
+        var stroke = Int(score_percent.text!.replacingOccurrences(of: "%", with: ""))
+        basicAnimation.toValue =   calculateStroke(value: stroke!)
+        
         basicAnimation.duration = 2
         
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
