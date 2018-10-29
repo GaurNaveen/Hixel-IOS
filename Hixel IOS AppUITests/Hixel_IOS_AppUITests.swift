@@ -48,12 +48,12 @@ class Hixel_IOS_AppUITests: XCTestCase {
                 // Use XCTAssert and related functions to verify your tests produce the correct results.
         
         
-        let app1 = XCUIApplication()
+        let _ = XCUIApplication()
         app.textFields["Username"].tap()
         app.secureTextFields["Password"].tap()
         app.otherElements.containing(.staticText, identifier:"Corp Report").children(matching: .button).element(boundBy: 1).tap()
         
-        let tabBarsQuery3 = app.tabBars
+        let _ = app.tabBars
         let compareButton = tabBarsQuery.buttons["Compare"]
         compareButton.tap()
         tabBarsQuery.buttons["Settings"].tap()
@@ -83,13 +83,10 @@ class Hixel_IOS_AppUITests: XCTestCase {
         tablesQuery.staticTexts["Selected Companies:"].tap()
         portfolioButton.tap()
         
-        let tablesQuery4 = elementsQuery.tables
+        let _ = elementsQuery.tables
         tablesQuery2/*@START_MENU_TOKEN@*/.staticTexts["Nasdaq: AAPL"]/*[[".cells.staticTexts[\"Nasdaq: AAPL\"]",".staticTexts[\"Nasdaq: AAPL\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         backButton1Button.tap()
         scrollViewsQuery.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .searchField).element.tap()
         tablesQuery2.staticTexts["Overview"].tap()
-      
-        
     }
-    
 }

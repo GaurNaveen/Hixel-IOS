@@ -625,12 +625,8 @@ class PortfolioController: UIViewController {
         let _ = Client().request(.search(query: query)).subscribe { event in
             switch event{
             case .success(let response):
-                print("Hurray")
-                
-                let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
                 let searches = try! JSONDecoder().decode([SearchEntry].self, from: response.data)
                 self.searchArray = searches
-                print("Sex",searches)
                 
                 // MARK: Reload the table data when the search results are in.
                 self.SearchTableView.reloadData()
@@ -640,7 +636,6 @@ class PortfolioController: UIViewController {
                 break
                 
             case .error(let error):
-                print("Yikes")
                 print(error)
                 break
             }
@@ -892,7 +887,7 @@ extension PortfolioController: UITableViewDelegate,UITableViewDataSource{
             info = false
             
             indexPath1 = indexPath
-            var ticker = searchArray[indexPath.row].ticker
+            let ticker = searchArray[indexPath.row].ticker
             
             //loadCompany(ticker)
             loadCompany(ticker: ticker)

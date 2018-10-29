@@ -60,17 +60,9 @@ class SignUpController: UIViewController {
                     SVProgressHUD.dismiss()
                     print(error)
                     break
-                    
-                default: print("A null error code")
-                SVProgressHUD.dismiss()
-                    break
                 }
-                
-                
             }
-            
         }
-        
     }
     
     /// Function is used to set delegates for the text fields.
@@ -109,8 +101,7 @@ class SignUpController: UIViewController {
     /// Saves the Login Status , so that the next time user opens the app he/she shouldn't see the onboarding again.
     func saveLoginStatus()
     {
-        let saveSuccessful3 : Bool = KeychainWrapper.standard.set(true, forKey: "loggedIn")
-
+        let _ : Bool = KeychainWrapper.standard.set(true, forKey: "loggedIn")
     }
     
 }

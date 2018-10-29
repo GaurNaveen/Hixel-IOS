@@ -103,15 +103,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         
                         Credentials.setCredentials(newCredentials: newCredentials)
                         
-                        // Save user defaults
-                        self.saveUserDefaults()
-                        
                         // MARK: Load User Data from the server
                         self.loadUserData()
-                        
-                        // Load data here------------------ remove the comment from below if something goes wrong
-                        //self.loadDataFromServer()
-                        // self.performSegue(withIdentifier: "login_MainView", sender: self)
                     }
                     else if (response.statusCode == 401) {
                         SVProgressHUD.dismiss()
@@ -128,21 +121,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    /// Function use to save User's email and password. Might come in use to keep the user logged in.
-    func saveUserDefaults()
-    {
-        let saveSuccessful1 : Bool = KeychainWrapper.standard.set(password.text!, forKey: "userPassword")
-        let saveSuccessful2 : Bool = KeychainWrapper.standard.set(username.text!, forKey: "userEmail")
-        print("Save was Successful: \(saveSuccessful1)")
-        
-    }
-    
     /// Function that helps us to read user defaults.
     ///
     /// - Returns: Right now only returns the login status
     func retrievePasswordAndUserName() -> Bool
-    {   let retrieveUserName : String? = KeychainWrapper.standard.string(forKey: "userEmail")
-        let retrievePassword : String? = KeychainWrapper.standard.string(forKey: "userPassword")
+    {
         let retrieveLoginStatus: Bool? = KeychainWrapper.standard.bool(forKey: "loggedIn")
         
         return retrieveLoginStatus ?? false
@@ -178,17 +161,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
         
-        
         let myString  = "Health"
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
         alert.setValue(myMutableString, forKey: "attributedTitle")
         self.present(alert, animated: true, completion: nil)
-        
-        
-        
-        
     }
     
     

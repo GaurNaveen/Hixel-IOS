@@ -39,12 +39,12 @@ class ChangePasswordViewController: UIViewController {
         let _ = Client().request(.changePassword(oldPassword: currentPassword.text!, newPassword: newPassword.text!)).subscribe{
             event in
             switch event{
-            case .success(let reponse):
+            case .success(let response):
                 print("Success")
                 SVProgressHUD.dismiss()
                 self.dismiss(animated: true)
                 break
-            case .error(let error):
+            case .error(let _):
                 SVProgressHUD.dismiss()
                 print("Failure")
                 self.dismiss(animated: true)

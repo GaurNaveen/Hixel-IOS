@@ -29,7 +29,7 @@ class SearchCell: UITableViewCell {
         searchCard.layer.cornerRadius = 5.0
         compName.text = company.identifiers.name
         stock.text = "NASDAQ: "+company.identifiers.ticker.uppercased()
-        company.calculateScore()
+        let _ = company.calculateScore()
         healthIndicatorBox.backgroundColor = calculateScoreColor(value: company.score)
        // score.text = "Score: \(company.calculateScore())"
         //setScoreColor(Score: company.score)

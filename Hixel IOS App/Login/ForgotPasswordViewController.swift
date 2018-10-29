@@ -47,10 +47,10 @@ class ForgotPasswordViewController: UIViewController {
             result in
             
             switch result{
-            case .success(let repsonse):
+            case .success(let _):
                 SVProgressHUD.dismiss()
                  self.performSegue(withIdentifier: "enter_code", sender: self)
-            case .error(let error):
+            case .error(let _):
                 SVProgressHUD.dismiss()
                 self.errorPopAlert()
                 break

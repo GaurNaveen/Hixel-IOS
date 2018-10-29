@@ -17,7 +17,6 @@ class TestViewController: UIViewController {
     //Label
     @IBOutlet weak var barChartView: BarChartView!
     let subjects = ["Health", "Safety", "Performance", "Revenue", "Strength"]
-    //let activities = ["Burger", "Steak", "Salad", "Pasta", "Pizza"]
     
     //Points
     let array = [1.0, 2.0, 3.0, 4.0, 5.0]
@@ -32,7 +31,6 @@ class TestViewController: UIViewController {
         // setChart(dataPoints: subjects, values: array,values1:array2 )
         //  set(dataPoints: subjects, values: array)
         months = ["Health", "Performance", "Return", "Risk", "Strength"]
-        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0]
         let yvalues = [3.0,4.0,1.0,2.0,5.0]
         setChart(dataPoints: months, values: yvalues)
     }

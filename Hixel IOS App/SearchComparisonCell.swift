@@ -12,18 +12,17 @@ class SearchComparisonCell: UITableViewCell {
 
     @IBOutlet weak var ticker: UILabel!
     @IBOutlet weak var compName: UILabel!
+    
     var exchange = ""
     var tickerSymbol = ""
+    
     func setupCell(company:SearchEntry)
     {
-        
         exchange = company.exchange
         tickerSymbol = company.ticker
         
         // Setup Cell Labels with the server results.
         compName.text = company.name
-        ticker.text = exchange + " "+tickerSymbol
-        print("Ye Raha",ticker.text)
+        ticker.text = exchange + " " + tickerSymbol
     }
-
 }

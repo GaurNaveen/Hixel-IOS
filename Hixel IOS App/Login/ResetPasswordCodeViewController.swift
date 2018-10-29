@@ -25,7 +25,7 @@ class ResetPasswordCodeViewController: UIViewController,UITextFieldDelegate {
     @IBAction func submit(_ sender: Any) {
         SVProgressHUD.show(withStatus: "Loading")
         
-        code=resetCode.text!
+        code = resetCode.text!
         let _ = Client().request(.resetCode(email: email1, code: resetCode.text!)).subscribe{
             result in
             
@@ -39,12 +39,8 @@ class ResetPasswordCodeViewController: UIViewController,UITextFieldDelegate {
                 }
                 break
                 
-            case .error(let error): SVProgressHUD.dismiss()
+            case .error(let _): SVProgressHUD.dismiss()
                 self.errorPopAlert()
-                break
-
-            default:
-                print("Got Error")
                 break
             }
         }

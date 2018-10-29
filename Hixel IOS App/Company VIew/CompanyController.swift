@@ -377,7 +377,7 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
         //cell.cellView.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
        // cell.indicator.textColor = .white
         
-        if(indexPath.row == 0)
+        if (indexPath.row == 0)
         {
             // shows the performance indicator for the company in the line chart
             var values1 = [0,1,2,3,4]
@@ -388,14 +388,12 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             values1.append( Int((searchedCompany?.getHealth2())!))
             values1.append( Int((searchedCompany?.getHealth())!))
             setChartValues2(score_Values: values1, indicator: "Health")
-            print("Lp",searchedCompany?.financialDataEntries[4].year)
-            //setLineChart2(values1)
         }
         
         
         
         
-        if(indexPath.row == 1)
+        if (indexPath.row == 1)
         {
             // shows the performance indicator for the company in the line chart
             var values1 = [0,1,2,3,4]
@@ -412,7 +410,7 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
 
         }
         
-        if(indexPath.row == 2)
+        if (indexPath.row == 2)
         {
             // shows the performance indicator for the company in the line chart
             var values1 = [0,1,2,3,4]
@@ -427,7 +425,7 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             
         }
         
-        if(indexPath.row == 3)
+        if (indexPath.row == 3)
         {
             // shows the performance indicator for the company in the line chart
             var values1 = [0,1,2,3,4]
@@ -441,7 +439,7 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
 
         }
         
-        if(indexPath.row == 4)
+        if (indexPath.row == 4)
         {
             // shows the performance indicator for the company in the line chart
             var values1 = [0,1,2,3,4]
@@ -452,7 +450,6 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             values1.append( Int((searchedCompany?.getReturns2())!))
             values1.append( Int((searchedCompany?.getReturns())!))
             setChartValues2(score_Values: values1, indicator: "Returns")
-
             
         }
     }
