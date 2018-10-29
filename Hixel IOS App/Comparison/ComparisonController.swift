@@ -257,6 +257,17 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
         
     }
     
+    // ------ Swipe to Delete--------//
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            loadedCompanies.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
+    
+    
+    
     /// Funtion configures the behaviour for both collection view , and is
     /// activated when a user taps on a cell.
     ///
@@ -306,12 +317,16 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
         
         /// Checks if the table view if of Search View.
         if(tableView == searchView)
-        {   SVProgressHUD.show(withStatus: "Loading Company")
+            
+        {
+            
+            SVProgressHUD.show(withStatus: "Loading Company")
             SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
             
             companiesSelectedFromSearch.append(searchArray[indexPath.row])
             // Load the selected companies
             loadCompany(ticker: searchArray[indexPath.row].ticker)
+            searchView.isHidden = true
             //var name = searchArray[indexPath.row].name
             //print("Kamina",name)
         }

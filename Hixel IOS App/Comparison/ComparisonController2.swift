@@ -8,7 +8,7 @@
 
 import UIKit
 import Charts
-var indicator1 = ""
+var indicator13 = "Health"
 class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     /// var selectedCompanies = ["Apple Inc","Samsung Corp","Alphabet","Bmw","Facebook"]
     @IBOutlet weak var lineChartView: LineChartView!
@@ -24,12 +24,37 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     
     @IBAction func info(_ sender: Any) {
         // performSegue(withIdentifier: "comparison_info", sender: self) port_graphinfo2
-        performSegue(withIdentifier: "comparison_graph2", sender: self)
+       // performSegue(withIdentifier: "comparison_graph2", sender: self)
+        
+        switch indicator13{
+            
+        case "Health": healthPopAlert()
+            break
+            
+        case "Safety": safetyPopAlert()
+            break
+            
+        case "Performance": performancePopAlert()
+            break
+            
+        case "Returns": returnsPopAlert()
+            break
+            
+        case "Strength": strengthPopAlert()
+            break
+            
+        default: print("Nothing to show")
+            break
+        }
     }
+        
+        
+    
     ///Points
     var array = [1.0, 2.0, 3.0, 4.0, 5.0]
     
     var array2 = [5.0, 6.0, 2.0, 1.0, 5.0]
+    var array3 = [1.0,2.0,3.0,4.0,5.0]
     @IBOutlet weak var graphContainerView: UIView!
     @IBOutlet weak var graphHeaderView: UIView!
     @IBOutlet weak var collectionViewB: UICollectionView!
@@ -148,6 +173,30 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         lineChartView.leftAxis.granularity = 1.0
         lineChartView.rightAxis.enabled = false
         
+    }
+    
+    func addOneMoreCompanyToRadarChart() -> ChartDataSet
+    {
+        array3.removeAll()
+        array3.append((Aselected1[0].getHealth()))
+        array3.append(Aselected1[0].getSafety())
+        array3.append(Aselected1[0].getPerformance())
+        array3.append(Aselected1[0].getReturns())
+        array3.append(Aselected1[0].getStrength())
+        
+        // For Second Company
+        var dataEntries2:[ChartDataEntry] = []
+        for i in 0..<array3.count {
+            
+            let dataEntry = ChartDataEntry(x: Double(i), y: array3[i])
+            // print(values[i])
+            dataEntries2.append(dataEntry)
+        }
+        let chartDataSet2 = RadarChartDataSet(values: dataEntries2, label: Aselected1[2].identifiers.name)
+        chartDataSet2.fillColor = UIColor.yellow
+        chartDataSet2.drawFilledEnabled = true
+        
+        return chartDataSet2
     }
     
     // Function that adds more company to Line Chart if they are more than 2
@@ -413,6 +462,13 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         // combine both data
         let chartData = RadarChartData(dataSet: chartDataSet)
         chartData.addDataSet(chartDataSet2)
+        
+//        if(Aselected1.count == 3)
+//        {
+//            let chartDataSet3 = addOneMoreCompanyToRadarChart()
+//            chartData.addDataSet(chartDataSet3)
+//        }
+        
         radarChartView.data = chartData
         
     }
@@ -564,7 +620,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 print("haibibi naveen",performanceValues2[4])
                 //setupLineChart()
                 setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Safety")
-                indicator1 = "Safety"
+                indicator13 = "Safety"
             }
             
             /// changes the line chart to show Health indicators
@@ -572,7 +628,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             if(indexPath.row == 1)
             {
                 setupLineChart()
-                indicator1 = "Health"
+                indicator13 = "Health"
             }
             
             /// changes the line chart to show Performance indicators
@@ -599,7 +655,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 
                 //setupLineChart()
                 setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Performance")
-                indicator1 = "Performance"
+                indicator13 = "Performance"
                 
             }
             
@@ -628,7 +684,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 
                 //setupLineChart()
                 setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Strength")
-                indicator1 = "Strength"
+                indicator13 = "Strength"
             }
             
             /// changes the line chart to show return indicators
@@ -654,7 +710,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 
                 //setupLineChart()
                 setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Safety")
-                indicator1 = "Returns"
+                indicator13 = "Returns"
             }
             
         }
@@ -694,7 +750,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
         
-        let myString  = "Health"
+        let myString  = "Safety"
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
@@ -709,7 +765,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
         
-        let myString  = "Health"
+        let myString  = "Performance"
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
@@ -724,7 +780,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
         
-        let myString  = "Health"
+        let myString  = "Returns"
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
@@ -739,7 +795,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
         
-        let myString  = "Health"
+        let myString  = "Strength"
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
