@@ -3,11 +3,12 @@
 target 'Hixel IOS App' do
 
   use_frameworks!
+  inhibit_all_warnings!
 
   # Pods for Hixel IOS App
   pod 'MaterialComponents/Snackbar'
   pod 'Alamofire'
-  pod 'Moya/RxSwift', :inhibit warnings => true
+  pod 'Moya/RxSwift'
   pod 'Charts'
   pod 'RxSwift'
   pod 'KeychainSwift'
