@@ -7,7 +7,7 @@ target 'Hixel IOS App' do
   # Pods for Hixel IOS App
   pod 'MaterialComponents/Snackbar'
   pod 'Alamofire'
-  pod 'Moya/RxSwift'
+  pod 'Moya/RxSwift', :inhibit warnings => true
   pod 'Charts'
   pod 'RxSwift'
   pod 'KeychainSwift'
