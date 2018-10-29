@@ -80,39 +80,7 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
-        if(score > 60 && score<70)
-        {
-            basicAnimation.toValue = 0.4
-        }
-        
-        
-            
-        else if(score>70 && score<85)
-        {
-            basicAnimation.toValue = 0.8
-        }
-        
-        else if(score>85)
-        {
-            basicAnimation.toValue = 0.9
-        }
-        
-        else if(score < 30)
-        {
-            basicAnimation.toValue = 0.2
-
-        }
-            
-        else if(score>30 && score<50)
-        {
-            basicAnimation.toValue = 0.3
-
-        }
-            
-        else if (score == 50){
-            basicAnimation.toValue = 0.4  // This will be helpfull to control the outer layer , 1 means full , 0.5 means half. adjust accordingly
-            
-        }
+       basicAnimation.toValue = calculateStroke(value: score)
         basicAnimation.duration = 2
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
@@ -142,4 +110,49 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         
         shapeLayer.strokeColor = UIColor.init(netHex: 0x4153AF).cgColor
 }
+    func calculateStroke(value:Int) -> Double
+    {
+        if(value>=80)
+        {
+            //shapeLayer.strokeColor = UIColor.init(netHex: 0x1DCEB1).cgColor
+            return 0.65
+        }
+            
+        else if(value >= 70 && value < 80)
+        {
+            //shapeLayer.strokeColor = UIColor.init(netHex: 0x1DCEB1).cgColor
+            return 0.56
+        }
+        else if(value > 60 && value < 70)
+        {
+            //shapeLayer.strokeColor = UIColor.init(netHex: 0x1DCEB1).cgColor
+            return 0.48
+        }
+        else if(value>=50 && value <= 60)
+        {   //shapeLayer.strokeColor = UIColor.init(netHex: 0xFFDD7C).cgColor
+            return 0.42
+        }
+            
+        else if(value == 50)
+        {  //shapeLayer.strokeColor =  UIColor.init(netHex: 0xFFDD7C).cgColor
+            return 0.4
+        }
+            
+        else if (value < 50  && value >= 40)
+        {
+            //shapeLayer.strokeColor = UIColor.init(netHex: 0xFFDD7C).cgColor
+            return 0.35
+        }
+        else if (value >= 30 && value < 40 )
+        {
+            //shapeLayer.strokeColor = UIColor.init(netHex:0xFF5D84).cgColor
+            return 0.25
+        }
+            
+        else {
+            //shapeLayer.strokeColor = UIColor.init(netHex:0xFF5D84).cgColor
+            return 0.2
+        }
+        
+    }
 }

@@ -40,7 +40,7 @@ class ChangePasswordViewController: UIViewController {
             event in
             switch event{
             case .success(let response):
-                print("Success")
+                print(response.statusCode)
                 SVProgressHUD.dismiss()
                 self.dismiss(animated: true)
                 break

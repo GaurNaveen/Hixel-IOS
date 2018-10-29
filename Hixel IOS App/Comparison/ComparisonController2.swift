@@ -277,6 +277,9 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         return set3
     }
     
+    
+    
+    
     func addCompanySafetyToLineChartTwo() -> LineChartDataSet
     {
         var lineChartEntry3 = [ChartDataEntry]()
@@ -649,6 +652,93 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             }
             
         }
+    }
+    
+    //----- Info POP UPS -------//
+    let health = "Gauges a company's ability to pay short-term and long-term obligations. It's used to give an idea of a company's ability to pay back its liabilities (e.g. debt) with its assets.\n\n\(based)Current ratio = Current Assets / Current Liabilities"
+    
+    let safety = "Is a measure of a company's financial leverage e.g. it gauges the extent to which a company is taking on debt as a means of leveraging (attempting to increase its value by using borrowed money to fund various projects).\n\nBased on: Current Debt/Equity (D/E) Ratio = Current Liabilities / Equity"
+    
+    let strength = "Reflects how easily a company can pay interest on its outstanding debt with its available earnings. In other words, it measures the margin of safety a company has for paying interest during a given period.\n\nBased on: Interest coverage = earnings before interest and taxes (EBIT) / net interest expense"
+    
+    let performance = "Can also be known as profitability, it's a measure of how much profit a company generates with the money shareholders have invested. It illustrates how effective the company is at turning the cash put into the business into greater gains and growth.\n\nBased on: Return on equity (ROE) = Net Income / Shareholder's Equity"
+    
+    let Returns = "How much a company pays out in dividends each year relative to its share priceIt measures how much (bang for your buck) you are getting from dividends.\n\nBased on: Dividend Yield = Annual Dividends per share/Price per share"
+    
+    
+    func healthPopAlert()
+    {
+        let alert = UIAlertController(title: " Health ", message: health, preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        
+        let myString  = "Health"
+        var myMutableString = NSMutableAttributedString()
+        myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
+        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
+        alert.setValue(myMutableString, forKey: "attributedTitle")
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func safetyPopAlert()
+    {
+        let alert = UIAlertController(title: " Safety ", message: safety, preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        
+        let myString  = "Health"
+        var myMutableString = NSMutableAttributedString()
+        myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
+        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
+        alert.setValue(myMutableString, forKey: "attributedTitle")
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func performancePopAlert()
+    {
+        let alert = UIAlertController(title: " Performance ", message: performance, preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        
+        let myString  = "Health"
+        var myMutableString = NSMutableAttributedString()
+        myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
+        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
+        alert.setValue(myMutableString, forKey: "attributedTitle")
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func returnsPopAlert()
+    {
+        let alert = UIAlertController(title: " Returns ", message: Returns, preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        
+        let myString  = "Health"
+        var myMutableString = NSMutableAttributedString()
+        myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
+        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
+        alert.setValue(myMutableString, forKey: "attributedTitle")
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func strengthPopAlert()
+    {
+        let alert = UIAlertController(title: " Strength ", message: strength, preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        
+        let myString  = "Health"
+        var myMutableString = NSMutableAttributedString()
+        myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
+        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
+        alert.setValue(myMutableString, forKey: "attributedTitle")
+        self.present(alert, animated: true, completion: nil)
     }
     
     
