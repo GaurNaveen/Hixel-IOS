@@ -121,7 +121,7 @@ class CompanyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setStatusStatusBarColor()
-        print("Hoya",(searchedCompany?.calculateScore())!)
+        //print("Hoya",(searchedCompany?.calculateScore())!)
         scoreChartContainer.dropShadow()
         score_percent.text = "\((searchedCompany?.calculateScore())!)%"
         /// Only display the add button when a company is not present in the portfolio.
@@ -363,7 +363,7 @@ class CompanyController: UIViewController {
             switch event{
             case .success(let response ):
                 let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
-                print("Yass",json)
+                //print("Yass",json)
             // self.loadUserData()
             case .error(let error):
                 print(error)
@@ -552,9 +552,6 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             setChartValues2(score_Values: values1, indicator: "Health")
             indicator12 = "Health"
         }
-        
-        
-        
         
         if (indexPath.row == 1)
         {

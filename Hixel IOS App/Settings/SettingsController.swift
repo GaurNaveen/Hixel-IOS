@@ -18,6 +18,7 @@ class SettingsController: UIViewController{
     
     @IBAction func nameChange(_ sender: Any) {
         firstName.isUserInteractionEnabled = true
+        
     }
     @IBAction func lastNameChange(_ sender: Any) {
         lastName.isUserInteractionEnabled = true
@@ -39,8 +40,9 @@ class SettingsController: UIViewController{
         firstName.isUserInteractionEnabled = false
         lastName.isUserInteractionEnabled = false
         password.isUserInteractionEnabled = false
-        headerLabel.text = "Hi, "+userData[0].firstName+" "+userData[0].lastName
         firstName.text =  userData[0].firstName
         lastName.text = userData[0].lastName
+        headerLabel.text = "Hi, "+firstName.text!+" "+lastName.text!
+       
     }
 }

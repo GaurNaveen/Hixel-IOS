@@ -52,7 +52,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         let check = retrievePasswordAndUserName()
         print(check)
         if(check == false)
-        {   print("Hello bruh!")
+        {  // print("Hello bruh!")
             
             // Move to the onboarding
             moveToOnboarding()
@@ -91,6 +91,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
             let _ = Client().request(.login(loginData: body)).subscribe { result in
                 switch result {
                 case .success(let response):
+                    print("Res",response.statusCode)
                     if (response.statusCode == 200) {
                         print("Killa")
                         SVProgressHUD.setStatus("Loading Portfolio")
@@ -129,6 +130,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         let retrieveLoginStatus: Bool? = KeychainWrapper.standard.bool(forKey: "loggedIn")
         
         return retrieveLoginStatus ?? false
+        
        }
     
     /// Action Button takes the user to the Sign Up View

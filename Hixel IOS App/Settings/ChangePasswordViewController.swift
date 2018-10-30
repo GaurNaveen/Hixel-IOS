@@ -40,9 +40,27 @@ class ChangePasswordViewController: UIViewController {
             event in
             switch event{
             case .success(let response):
-                print(response.statusCode)
-                SVProgressHUD.dismiss()
-                self.dismiss(animated: true)
+                
+               // print(response.statusCode)
+                if(response.statusCode == 200)
+                {
+                    SVProgressHUD.dismiss()
+                    self.donePopAlert()
+                    self.dismiss(animated: true)
+                }
+                
+                else if(response.statusCode == 401)
+                {
+                    SVProgressHUD.dismiss()
+                    self.errorPopAlert()
+                    self.dismiss(animated: true)
+
+                }
+                
+                else{
+                    self.dismiss(animated: true)
+
+                }
                 break
             case .error(let _):
                 SVProgressHUD.dismiss()
@@ -66,6 +84,24 @@ class ChangePasswordViewController: UIViewController {
     func popAlert()
     {
         let alert = UIAlertController(title: " Invalid ", message: "Please fill the empty text field", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func donePopAlert()
+    {
+        let alert = UIAlertController(title: " Success! ", message: "Your Password has been changed successfully", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func errorPopAlert()
+    {
+        let alert = UIAlertController(title: " Error ", message: "Your Password was not changed", preferredStyle: .alert)
         
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)

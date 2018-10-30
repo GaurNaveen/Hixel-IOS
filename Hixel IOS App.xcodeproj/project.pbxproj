@@ -467,7 +467,7 @@
 					B65A538A2141538600C18554 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1000;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					B65A539E2141538700C18554 = {
 						CreatedOnToolsVersion = 9.2;
@@ -887,8 +887,9 @@
 			baseConfigurationReference = 61D8BCCA86C733592D390A40 /* Pods-Hixel IOS App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 72F2HJBU4U;
 				INFOPLIST_FILE = "Hixel IOS App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com..Hello-World.Hixel-IOS-App";
@@ -904,8 +905,9 @@
 			baseConfigurationReference = E48DF9D6530CA926166C59F0 /* Pods-Hixel IOS App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 72F2HJBU4U;
 				INFOPLIST_FILE = "Hixel IOS App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com..Hello-World.Hixel-IOS-App";
