@@ -77,7 +77,7 @@ extension ServerInterface: TargetType, AccessTokenAuthorizable {
     /// Represents what kind of request this will be (GET, POST, DELETE, etc.)
     var method: Moya.Method {
         switch self {
-            case .login, .signup, .addCompany:
+            case .login, .signup, .addCompany,.changePassword:
                 return .post
             case .removeCompany:
                 return .delete

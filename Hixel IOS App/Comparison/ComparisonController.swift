@@ -310,8 +310,7 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
                 }
                 //print(selected_companies[indexPath.row].name)
             }
-            
-            
+             
             
         }
         
