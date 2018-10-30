@@ -1728,11 +1728,14 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hws-Et-LEu">
                                 <rect key="frame" x="66" y="492" width="242" height="55"/>
+                                <color key="backgroundColor" red="0.096944235269999998" green="0.64731949570000002" blue="0.9961205125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="242" id="rUK-Bs-Jda"/>
                                     <constraint firstAttribute="height" constant="55" id="zra-yc-PQR"/>
                                 </constraints>
-                                <state key="normal" image="Submit12"/>
+                                <state key="normal" title="Create an account">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="loginButton:" destination="GuJ-Oz-CcT" eventType="touchUpInside" id="PrW-4G-uW0"/>
                                     <action selector="signUp:" destination="ZZe-p9-62m" eventType="touchUpInside" id="pR6-4X-sqq"/>
@@ -2546,7 +2549,6 @@
         <image name="Home_Icon" width="25.5" height="25.5"/>
         <image name="Sad" width="30" height="30"/>
         <image name="Settings_Icon" width="25.5" height="25.5"/>
-        <image name="Submit12" width="242" height="55"/>
         <image name="back_button1" width="37.5" height="37.5"/>
         <image name="cancel" width="37.5" height="37.5"/>
         <image name="compare-1" width="211" height="55"/>
@@ -2560,8 +2562,8 @@
         <segue reference="KPf-hW-ry3"/>
         <segue reference="YFM-EE-0KE"/>
         <segue reference="zqB-K4-ABl"/>
-        <segue reference="7tL-dQ-h6e"/>
-        <segue reference="1Zk-LG-t5D"/>
+        <segue reference="Lx1-wN-svT"/>
+        <segue reference="EfD-ax-NOc"/>
         <segue reference="gvh-FA-UjS"/>
         <segue reference="lIu-Uh-BJu"/>
     </inferredMetricsTieBreakers>
