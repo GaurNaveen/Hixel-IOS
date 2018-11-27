@@ -3,7 +3,6 @@
 //  Hixel IOS App
 //
 //  Created by Naveen Gaur on 14/9/18.
-//  Copyright © 2018 Naveen Gaur. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +15,6 @@ class CompanyController: UIViewController {
     /// - Parameter sender: System Defined Params.
     @IBAction func finanail_indicators_info(_ sender: Any) {
         performSegue(withIdentifier: "indicators_info", sender: self)
-        
     }
     
     @IBOutlet weak var add_button2: UIButton!
@@ -90,7 +88,7 @@ class CompanyController: UIViewController {
         label.text = "Score"
         label.textColor = .red
         label.textAlignment = .center
-        label.font = UIFont . boldSystemFont(ofSize: 32)
+        label.font = UIFont.boldSystemFont(ofSize: 32)
         return label
     }()
     
@@ -103,12 +101,10 @@ class CompanyController: UIViewController {
         
         // Set Score using auto layout
         score1.translatesAutoresizingMaskIntoConstraints = false
-        score1.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        score1.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        score1.topAnchor.constraint(equalTo: scoreChartContainer.bottomAnchor, constant: 170).isActive = true
-        score1.bottomAnchor.constraint(equalTo: scoreChartContainer.topAnchor, constant: 160).isActive = true
-        score1.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 170).isActive = true
-        score1.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 219).isActive = true
+        //score1.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        //score1.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        //score1.centerXAnchor.constraint(equalTo: scoreChartContainer.centerXAnchor).isActive = true
+        //score1.centerYAnchor.constraint(equalTo: scoreChartContainer.centerYAnchor).isActive = true
     }
     
     func setStatusStatusBarColor()
@@ -121,17 +117,17 @@ class CompanyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setStatusStatusBarColor()
-        //print("Hoya",(searchedCompany?.calculateScore())!)
+
         scoreChartContainer.dropShadow()
         score_percent.text = "\((searchedCompany?.calculateScore())!)%"
         /// Only display the add button when a company is not present in the portfolio.
-        if(portcomp.contains(where: {$0.identifiers.ticker == searchedCompany?.identifiers.ticker}))
+        if (portcomp.contains(where: {$0.identifiers.ticker == searchedCompany?.identifiers.ticker}))
         {
             add_button2.isHidden = true
         }
-        else{
+        else
+        {
             add_button2.isHidden = false
-            
         }
         
         add_button2.backgroundColor = UIColor.blue
@@ -142,16 +138,26 @@ class CompanyController: UIViewController {
         
         companyNameLabel.text = searchedCompany?.identifiers.name
         setChartValues(check: false)
+        
+        indexPaths.append(indexPath0)
+        indexPaths.append(indexPath1)
+        indexPaths.append(indexPath2)
+        indexPaths.append(indexPath3)
+        indexPaths.append(indexPath4)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         // dataField1.dropShadow()
         // Do any additional setup after loading the view.
         // let's start by drawing a circle somehow
         scoreLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         scoreLabel.center = view.center
         
-        let center = CGPoint(x: 175, y: 60)
+        let center = CGPoint(x: scoreChartContainer.frame.width / 2, y: 92)
         let circularPath = UIBezierPath(arcCenter: center, radius: 65, startAngle: -CGFloat.pi / 2, endAngle:2*CGFloat.pi, clockwise: true)
         
-        // This
         let circularPath1 = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle:2*CGFloat.pi, clockwise: true)
         shapeLayer.path = circularPath.cgPath
         shapeLayer.lineCap = CAShapeLayerLineCap.round
@@ -180,14 +186,6 @@ class CompanyController: UIViewController {
         scoreChartContainer.addSubview(score_percent)
         addAutoLayoutToScorePercent()        //view.addSubview(score)
         handleTap()
-        // view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
-        
-        indexPaths.append(indexPath0)
-        indexPaths.append(indexPath1)
-        indexPaths.append(indexPath2)
-        indexPaths.append(indexPath3)
-        indexPaths.append(indexPath4)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -243,11 +241,9 @@ class CompanyController: UIViewController {
     /// Function that does the filling animation on the score chart.
     @objc private func handleTap()
     {
-        print("Attepmting to animate strokee")
-        
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         //basicAnimation.toValue = 0.5  // This will be helpfull to control the outer layer , 1 means full , 0.5 means half. adjust accordingly
-        var stroke = Int(score_percent.text!.replacingOccurrences(of: "%", with: ""))
+        let stroke = Int(score_percent.text!.replacingOccurrences(of: "%", with: ""))
         basicAnimation.toValue =   calculateStroke(value: stroke!)
         
         basicAnimation.duration = 2
@@ -265,22 +261,23 @@ class CompanyController: UIViewController {
         score_percent.translatesAutoresizingMaskIntoConstraints = false
         score_percent.heightAnchor.constraint(equalToConstant: 100).isActive = true
         score_percent.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        score_percent.topAnchor.constraint(equalTo: scoreChartContainer.bottomAnchor, constant: 220).isActive = true
-        score_percent.bottomAnchor.constraint(equalTo: scoreChartContainer.topAnchor, constant: 88).isActive = true
-        score_percent.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 130).isActive = true
-        score_percent.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 230).isActive = true
+        score_percent.centerXAnchor.constraint(equalTo: scoreChartContainer.centerXAnchor).isActive = true
+        score_percent.centerYAnchor.constraint(equalTo: scoreChartContainer.centerYAnchor).isActive = true
+        //score_percent.topAnchor.constraint(equalTo: scoreChartContainer.bottomAnchor, constant: 220).isActive = true
+        //score_percent.bottomAnchor.constraint(equalTo: scoreChartContainer.topAnchor, constant: 88).isActive = true
+        //score_percent.leftAnchor.constraint(equalTo: view.rightAnchor, constant: 130).isActive = true
+        //score_percent.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 230).isActive = true
         
     }
     
     var score_Values = [1,3,2,4,3]
-    //var score_Values1 = [2,1,5,1,2]
+
     var years = ["2013","2014","2015","2016","2017"]
     
     // MARK: Setup Line Chart
     func setChartValues(check:Bool)
     {
         var lineChartEntry = [ChartDataEntry]()
-        var lineChartEntry2 = [ChartDataEntry]()
         score_Values.removeAll()
         score_Values.append(Int((searchedCompany?.getHealth5())!))
         score_Values.append(Int((searchedCompany?.getHealth4())!))
@@ -316,7 +313,7 @@ class CompanyController: UIViewController {
         let data = LineChartData(dataSet: set1)
         //data.addDataSet(set2)
         lineChartView.data = data
-        lineChartView.chartDescription?.text = "Financial Indiacators"
+        lineChartView.chartDescription?.text = "Financial Indicators"
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: years)
         lineChartView.xAxis.granularity = 1
         lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
@@ -346,7 +343,7 @@ class CompanyController: UIViewController {
         let data = LineChartData(dataSet: set1)
         //data.addDataSet(set2)
         lineChartView.data = data
-        lineChartView.chartDescription?.text = "Financial Indiacators"
+        lineChartView.chartDescription?.text = "Financial Indicators"
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter.init(values: years)
         lineChartView.xAxis.granularity = 1
         lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
@@ -355,16 +352,15 @@ class CompanyController: UIViewController {
 
     }
     
-    /// Adds the company to the uer portfolio.
+    /// Adds the company to the user portfolio.
     func addCompany()
     {
         let _ = Client().request(.addCompany(ticker: (searchedCompany?.identifiers.ticker)!)).subscribe{
             event in
             switch event{
             case .success(let response ):
-                let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
-                //print("Yass",json)
-            // self.loadUserData()
+                let _ = try! JSONSerialization.jsonObject(with: response.data, options: [])
+                // self.loadUserData()
             case .error(let error):
                 print(error)
             }
@@ -372,15 +368,15 @@ class CompanyController: UIViewController {
     }
     
     //----- Info POP UPS -------//
-    let health = "Gauges a company's ability to pay short-term and long-term obligations. It's used to give an idea of a company's ability to pay back its liabilities (e.g. debt) with its assets.\n\n\(based)Current ratio = Current Assets / Current Liabilities"
+    let health = "Gives an idea of a company's ability to pay back its liabilities (e.g. debt) with its assets.\n\nFormula: Current ratio = Current Assets / Current Liabilities"
     
-    let safety = "Is a measure of a company's financial leverage e.g. it gauges the extent to which a company is taking on debt as a means of leveraging (attempting to increase its value by using borrowed money to fund various projects).\n\nBased on: Current Debt/Equity (D/E) Ratio = Current Liabilities / Equity"
+    let safety = "Shows the extent to which a company is taking on debt as a means of leveraging (attempting to increase its value by using borrowed money to fund projects)\n\nFormula: Current Debt/Equity (D/E) Ratio = Current Liabilities / Equity"
     
-    let strength = "Reflects how easily a company can pay interest on its outstanding debt with its available earnings. In other words, it measures the margin of safety a company has for paying interest during a given period.\n\nBased on: Interest coverage = earnings before interest and taxes (EBIT) / net interest expense"
+    let strength = "Reflects how easily a company can pay interest on its outstanding debt with its available earnings.\n\nFormula: Interest Coverage = EBIT / Net Interest Expense"
     
-    let performance = "Can also be known as profitability, it's a measure of how much profit a company generates with the money shareholders have invested. It illustrates how effective the company is at turning the cash put into the business into greater gains and growth.\n\nBased on: Return on equity (ROE) = Net Income / Shareholder's Equity"
+    let performance = "A general measure of a company's profitability.\n\nFormula: Profit Margin = Net Income (Loss) / Revenues"
     
-    let Returns = "How much a company pays out in dividends each year relative to its share priceIt measures how much (bang for your buck) you are getting from dividends.\n\nBased on: Dividend Yield = Annual Dividends per share/Price per share"
+    let Returns = "Reflects the company's ability to generate profits from stockholder investments\n\nFormula: Return on Equity = Net Income (Loss) / Equity"
     
     
     func healthPopAlert()
@@ -460,7 +456,6 @@ class CompanyController: UIViewController {
     
     
     @IBAction func graphInfo(_ sender: Any) {
-        print(indicator12)
         switch indicator12{
             
         case "Health": healthPopAlert()
@@ -478,8 +473,7 @@ class CompanyController: UIViewController {
         case "Strength": strengthPopAlert()
             break
             
-        default: print("Nothing to show")
-            break
+        default: break
         }
     }
     
@@ -563,9 +557,7 @@ extension CompanyController : UICollectionViewDelegate,UICollectionViewDataSourc
             values1.append( Int((searchedCompany?.getPerformance3())!))
             values1.append( Int((searchedCompany?.getPerformance2())!))
             values1.append( Int((searchedCompany?.getPerformance())!))
-           // setChartValues(check: true)
-            print("yad",values1)
-            //setLineChart2(values1)
+
             setChartValues2(score_Values: values1, indicator: "Performance")
             indicator12 = "Performance"
         }

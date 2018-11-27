@@ -3,7 +3,6 @@
 //  Hixel IOS App
 //
 //  Created by Jonah Jeleniewski on 11/9/18.
-//  Copyright © 2018 Naveen Gaur. All rights reserved.
 //
 
 import Foundation

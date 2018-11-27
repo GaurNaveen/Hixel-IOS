@@ -3,48 +3,43 @@
 //  Hixel IOS App
 //
 //  Created by Naveen Gaur on 18/9/18.
-//  Copyright © 2018 Naveen Gaur. All rights reserved.
 //
 
 import UIKit
 import Charts
 var indicator13 = "Health"
-class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-    /// var selectedCompanies = ["Apple Inc","Samsung Corp","Alphabet","Bmw","Facebook"]
+class ComparisonController2: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
     @IBOutlet weak var lineChartView: LineChartView!
     ///  @IBOutlet weak var radarChartView: RadarChartView!
     @IBOutlet weak var radarChartView: RadarChartView!
     @IBOutlet weak var collectionView3: UICollectionView!
     /// Arrays that holds the Financial Indicators values
     var financialIndicatorsValue = [4,3,2]
-    var financialIndicators = ["Financial Indicators","Health","Performance","Strength","Safety","Return"]
+    var financialIndicators = ["Health","Performance","Strength","Safety","Return"]
     var ratios = ["Liquidity Ratio","Debt Ratio","P/E Ratio"]
     let subjects = ["Health", "Safety", "Performance", "Revenue", "Strength"]
     var ratiosValue = [0,1.2,1.3,0.5,0,1.45,0.29,0.45,0,1.34,1.67,0.6]
     
     @IBAction func info(_ sender: Any) {
-        // performSegue(withIdentifier: "comparison_info", sender: self) port_graphinfo2
-       // performSegue(withIdentifier: "comparison_graph2", sender: self)
-        
-        switch indicator13{
+        switch indicator13 {
+            case "Health": healthPopAlert()
+                break
             
-        case "Health": healthPopAlert()
-            break
+            case "Safety": safetyPopAlert()
+                break
             
-        case "Safety": safetyPopAlert()
-            break
+            case "Performance": performancePopAlert()
+                break
             
-        case "Performance": performancePopAlert()
-            break
+            case "Returns": returnsPopAlert()
+                break
             
-        case "Returns": returnsPopAlert()
-            break
+            case "Strength": strengthPopAlert()
+                break
             
-        case "Strength": strengthPopAlert()
-            break
-            
-        default: print("Nothing to show")
-            break
+            default: print("Nothing to show")
+                break
         }
     }
         
@@ -69,7 +64,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     override func viewDidLoad() {
         setStatusStatusBarColor()
         super.viewDidLoad()
-        print("klopp",Aselected1)
+
         graphHeaderView.dropShadow()
         graphContainerView.dropShadow()
        // graphContainerView.layer.borderColor = UIColor.black.cgColor
@@ -137,8 +132,6 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         let set1 = LineChartDataSet(values: lineChartEntry, label: Aselected1[0].identifiers.name)
         let set2 = LineChartDataSet(values: lineChartEntry2, label: Aselected1[1].identifiers.name)
         
-        
-        
         set1.circleColors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
         set1.colors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
         set1.mode = .cubicBezier
@@ -147,8 +140,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         set2.mode = .cubicBezier
         set2.circleRadius  = 4.0
         
-       
-        
+
         // Add data to the chart
         let data = LineChartData(dataSet: set1)
         data.addDataSet(set2)
@@ -189,7 +181,6 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         for i in 0..<array3.count {
             
             let dataEntry = ChartDataEntry(x: Double(i), y: array3[i])
-            // print(values[i])
             dataEntries2.append(dataEntry)
         }
         let chartDataSet2 = RadarChartDataSet(values: dataEntries2, label: Aselected1[2].identifiers.name)
@@ -226,8 +217,6 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         
     }
     
-    
-    
     func setupLineChart2(score_Values: [Int],score_Values1 : [Int],type:String)
     {
         var lineChartEntry = [ChartDataEntry]()
@@ -245,6 +234,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             let value = ChartDataEntry(x: Double(i), y: Double(score_Values1[i]))
             lineChartEntry2.append(value)
         }
+        
         let set1 = LineChartDataSet(values: lineChartEntry, label: Aselected1[0].identifiers.name)
         let set2 = LineChartDataSet(values: lineChartEntry2, label: Aselected1[1].identifiers.name)
         
@@ -262,12 +252,14 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         
         var set3 = LineChartDataSet()
 
-        if(Aselected1.count>2)
+        if (Aselected1.count > 2)
         {
-            switch  type{
+            switch type {
+            
             case "Performance":
                 set3 = addCompanyPerformanceToLineChartTwo()
                 break
+                
             case "Strength":
                 set3 = addCompanyStrengthToLineChartTwo()
                 break
@@ -275,15 +267,15 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             case "Safety":
                 set3 = addCompanySafetyToLineChartTwo()
                 break
+                
             case "Return":
                 set3 = addCompanyReturnToLineChartTwo()
                 break
-            default:
-                print("Yeee")
+                
+            default: break
             }
-            
-            
         }
+        
         data.addDataSet(set3)
         
         lineChartView.data = data
@@ -327,9 +319,6 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
         return set3
     }
     
-    
-    
-    
     func addCompanySafetyToLineChartTwo() -> LineChartDataSet
     {
         var lineChartEntry3 = [ChartDataEntry]()
@@ -372,6 +361,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             let value = ChartDataEntry(x: Double(i), y: Double(score_Values3[i]))
             lineChartEntry3.append(value)
         }
+        
         let set3 = LineChartDataSet(values: lineChartEntry3, label: Aselected1[2].identifiers.name)
         
         set3.circleColors = [NSUIColor.init(red: 42, green: 76, blue: 126)]
@@ -419,14 +409,12 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     ///   - values2: Pass the values for other companies.
     func setUpRadarChart(dataPoints: [String],values: [Double],values2: [Double])
     {
-        radarChartView.noDataText = "You need to provide data for the chart eh!"
         var dataEntries: [ChartDataEntry] = []
         
         // For first company
         for i in 0..<dataPoints.count {
             
             let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
-            // print(values[i])
             dataEntries.append(dataEntry)
         }
         let chartDataSet = RadarChartDataSet(values: dataEntries, label: Aselected1[0].identifiers.name)
@@ -593,11 +581,10 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             
             /// changes the line chart to show Safety indicators
             
-            if(indexPath.row == 4)
+            if (indexPath.row == 3)
             {
                 // change the data
                 var performanceValues1 = [0,1,2,3,4]
-                print("Habibi Hector")
                 performanceValues1.removeAll()
                 performanceValues1.append(Int(Aselected1[0].getSafety5()))
                 performanceValues1.append(Int(Aselected1[0].getSafety4()))
@@ -613,11 +600,6 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
                 performanceValues2.append(Int(Aselected1[1].getSafety2()))
                 performanceValues2.append(Int(Aselected1[1].getSafety()))
                 
-                print("haibibi naveen",performanceValues2[0])
-                print("haibibi naveen",performanceValues2[1])
-                print("haibibi naveen",performanceValues2[2])
-                print("haibibi naveen",performanceValues2[3])
-                print("haibibi naveen",performanceValues2[4])
                 //setupLineChart()
                 setupLineChart2(score_Values: performanceValues1, score_Values1: performanceValues2,type: "Safety")
                 indicator13 = "Safety"
@@ -625,7 +607,7 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             
             /// changes the line chart to show Health indicators
             
-            if(indexPath.row == 1)
+            if (indexPath.row == 0)
             {
                 setupLineChart()
                 indicator13 = "Health"
@@ -633,11 +615,11 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             
             /// changes the line chart to show Performance indicators
             
-            if(indexPath.row == 2)
+            if (indexPath.row == 1)
             {
                 // change the data
                 var performanceValues1 = [0,1,2,3,4]
-                print("Habibi Hector")
+
                 performanceValues1.removeAll()
                 performanceValues1.append(Int(Aselected1[0].getPerformance5()))
                 performanceValues1.append(Int(Aselected1[0].getPerformance4()))
@@ -661,12 +643,11 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             
             /// changes the line chart to show Strength indicators
             
-            if(indexPath.row==3)
+            if (indexPath.row == 2)
             {
                 //strength
                 // change the data
                 var performanceValues1 = [0,1,2,3,4]
-                print("Habibi Hector")
                 performanceValues1.removeAll()
                 performanceValues1.append(Int(Aselected1[0].getStrength5()))
                 performanceValues1.append(Int(Aselected1[0].getStrength4()))
@@ -688,11 +669,9 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
             }
             
             /// changes the line chart to show return indicators
-            if(indexPath.row==5)
+            if (indexPath.row == 4)
             {
-                // returns
                 var performanceValues1 = [0,1,2,3,4]
-                //print("Habibi Hector")
                 performanceValues1.removeAll()
                 performanceValues1.append(Int(Aselected1[0].getReturns5()))
                 performanceValues1.append(Int(Aselected1[0].getReturns4()))
@@ -717,16 +696,15 @@ class ComparisonController2: UIViewController,UICollectionViewDelegate,UICollect
     }
     
     //----- Info POP UPS -------//
-    let health = "Gauges a company's ability to pay short-term and long-term obligations. It's used to give an idea of a company's ability to pay back its liabilities (e.g. debt) with its assets.\n\n\(based)Current ratio = Current Assets / Current Liabilities"
+    let health = "Gives an idea of a company's ability to pay back its liabilities (e.g. debt) with its assets.\n\nFormula: Current ratio = Current Assets / Current Liabilities"
     
-    let safety = "Is a measure of a company's financial leverage e.g. it gauges the extent to which a company is taking on debt as a means of leveraging (attempting to increase its value by using borrowed money to fund various projects).\n\nBased on: Current Debt/Equity (D/E) Ratio = Current Liabilities / Equity"
+    let safety = "Shows the extent to which a company is taking on debt as a means of leveraging (attempting to increase its value by using borrowed money to fund projects)\n\nFormula: Current Debt/Equity (D/E) Ratio = Current Liabilities / Equity"
     
-    let strength = "Reflects how easily a company can pay interest on its outstanding debt with its available earnings. In other words, it measures the margin of safety a company has for paying interest during a given period.\n\nBased on: Interest coverage = earnings before interest and taxes (EBIT) / net interest expense"
+    let strength = "Reflects how easily a company can pay interest on its outstanding debt with its available earnings.\n\nFormula: Interest Coverage = EBIT / Net Interest Expense"
     
-    let performance = "Can also be known as profitability, it's a measure of how much profit a company generates with the money shareholders have invested. It illustrates how effective the company is at turning the cash put into the business into greater gains and growth.\n\nBased on: Return on equity (ROE) = Net Income / Shareholder's Equity"
+    let performance = "A general measure of a company's profitability.\n\nFormula: Profit Margin = Net Income (Loss) / Revenues"
     
-    let Returns = "How much a company pays out in dividends each year relative to its share priceIt measures how much (bang for your buck) you are getting from dividends.\n\nBased on: Dividend Yield = Annual Dividends per share/Price per share"
-    
+    let Returns = "Reflects the company's ability to generate profits from stockholder investments\n\nFormula: Return on Equity = Net Income (Loss) / Equity"
     
     func healthPopAlert()
     {
@@ -816,18 +794,20 @@ extension ComparisonController2: UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ratio", for: indexPath)as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ratio", for: indexPath) as! TableViewCell
         let name = ratios[indexPath.row]
         let value = ratiosValue[indexPath.row]
         cell.setupLabel(name: name)
         cell.setupLabelValue(value: value)
-        if(indexPath.row == 0)
+        
+        if (indexPath.row == 0)
         {
             cell.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
             cell.ratioName.textColor = .white
             cell.ratioValue.isHidden = true
         }
-        if(indexPath.row == 4)
+        
+        if (indexPath.row == 4)
         {
             cell.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
             cell.ratioName.textColor = .white
@@ -835,7 +815,7 @@ extension ComparisonController2: UITableViewDelegate,UITableViewDataSource
             
         }
         
-        if(indexPath.row == 8)
+        if (indexPath.row == 8)
         {
             cell.backgroundColor = UIColor.init(netHex: 0x3C4F7B)
             cell.ratioName.textColor = .white

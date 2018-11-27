@@ -3,7 +3,6 @@
 //  Hixel IOS App
 //
 //  Created by Naveen Gaur on 21/9/18.
-//  Copyright © 2018 Naveen Gaur. All rights reserved.
 //
 
 import UIKit
@@ -19,46 +18,47 @@ class SignUpController: UIViewController {
     ///
     /// - Parameter sender: System Defined Param
     @IBAction func signUp(_ sender: Any) {
-        SVProgressHUD.show(withStatus: "Signing UP!")
+        SVProgressHUD.show(withStatus: "Creating account...")
         // If the user misses a field , then an alert is generated tellling the user about it.
-        if(firstName.text!.isEmpty || lastName.text!.isEmpty || email.text!.isEmpty || password.text!.isEmpty)
+        if (firstName.text!.isEmpty || lastName.text!.isEmpty || email.text!.isEmpty || password.text!.isEmpty)
         {
             SVProgressHUD.dismiss()
-            popAlert()
+            popAlert(title: "Invalid", message: "Empty fields are not allowed.")
         }
             
         else
-        {   
-            let _ = Client().request(.signup(applicationUser: ApplicationUser(firstName: firstName.text!, lastName: lastName.text!, email: email.text!, password: password.text!))).subscribe{
-                result in
-                
-                switch result{
+        {
+            let data = ApplicationUser(firstName: firstName.text!,
+                                       lastName: lastName.text!,
+                                       email: email.text!,
+                                       password: password.text!)
+            
+            let _ = Client().request(.signup(applicationUser: data)).subscribe { result in
+                switch result {
                 case .success(let response):
-                    if(response.statusCode == 200)
+                    if (response.statusCode == 200)
                     {
                         // sign up was succesull
                         SVProgressHUD.dismiss()
-                        self.saveLoginStatus()
                         // Takes the user back to the login view.
                         self.performSegue(withIdentifier: "signup_login", sender: self)
                         
                         
                     }
-                    else if(response.statusCode == 409){
+                    else if (response.statusCode == 409){
                         SVProgressHUD.dismiss()
-                        print("Email Is Already in use")
+                        self.popAlert(title: "Error", message: "That email is already in use.")
                         
                     }
-                    else if(response.statusCode == 500)
+                    else
                     {
                         SVProgressHUD.dismiss()
-                        print("Invalid Input")
+                        self.popAlert(title: "Error", message: "Unexpected error: \(response.statusCode)")
                     }
-                    
                     
                 case .error(let error):
                     SVProgressHUD.dismiss()
-                    print(error)
+                    self.popAlert(title: "Error", message: error.localizedDescription)
                     break
                 }
             }
@@ -69,8 +69,10 @@ class SignUpController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        //Ensure onboarding will not occur again.
+        KeychainWrapper.standard.set(true, forKey: "ONBOARDING_COMPLETED")
         
+        // Do any additional setup after loading the view.
         firstName.delegate = self
         lastName.delegate = self
         email.delegate = self
@@ -89,21 +91,14 @@ class SignUpController: UIViewController {
     }
     
     // Action Button displays an alert to the screen when user misses a credentials on Sign Up.
-    func popAlert()
+    func popAlert(title: String, message: String)
     {
-        let alert = UIAlertController(title: " Invalid ", message: "Please Fill all the credentials", preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil)
     }
-    
-    /// Saves the Login Status , so that the next time user opens the app he/she shouldn't see the onboarding again.
-    func saveLoginStatus()
-    {
-        let _ : Bool = KeychainWrapper.standard.set(true, forKey: "loggedIn")
-    }
-    
 }
 
 // MARK: - Sets up the text view

@@ -3,7 +3,6 @@
 //  Hixel IOS App
 //
 //  Created by Naveen Gaur on 29/10/18.
-//  Copyright © 2018 Naveen Gaur. All rights reserved.
 //
 
 import UIKit
@@ -42,14 +41,14 @@ class ChangePasswordViewController: UIViewController {
             case .success(let response):
                 
                // print(response.statusCode)
-                if(response.statusCode == 200)
+                if (response.statusCode == 200)
                 {
                     SVProgressHUD.dismiss()
                     self.donePopAlert()
                     self.dismiss(animated: true)
                 }
                 
-                else if(response.statusCode == 401)
+                else if (response.statusCode == 401)
                 {
                     SVProgressHUD.dismiss()
                     self.errorPopAlert()
@@ -62,9 +61,8 @@ class ChangePasswordViewController: UIViewController {
 
                 }
                 break
-            case .error(let _):
+            case .error:
                 SVProgressHUD.dismiss()
-                print("Failure")
                 self.dismiss(animated: true)
                 }
             

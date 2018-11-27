@@ -3,7 +3,6 @@
 //  Hixel IOS App
 //
 //  Created by Naveen Gaur on 21/9/18.
-//  Copyright © 2018 Naveen Gaur. All rights reserved.
 //
 
 import UIKit
@@ -37,7 +36,7 @@ class ForgotPasswordViewController: UIViewController {
         // If the email field is empty, display an alert on the screen.
         if(email.text!.isEmpty)
         {
-            popAlert()
+            emptyEmailAlert()
         }
         
         else {
@@ -47,12 +46,12 @@ class ForgotPasswordViewController: UIViewController {
             result in
             
             switch result{
-            case .success(let _):
+            case .success:
                 SVProgressHUD.dismiss()
                  self.performSegue(withIdentifier: "enter_code", sender: self)
-            case .error(let _):
+            case .error:
                 SVProgressHUD.dismiss()
-                self.errorPopAlert()
+                self.errorAlert()
                 break
                 
             }
@@ -62,18 +61,18 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     /// Function that displays an alert on the screen telling user that he left the Email field empty.
-    func popAlert()
+    func emptyEmailAlert()
     {
-        let alert = UIAlertController(title: " Invalid ", message: "Please enter your Email address", preferredStyle: .alert)
+        let alert = UIAlertController(title: " Invalid ", message: "Please enter your Email Address", preferredStyle: .alert)
         
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil)
     }
     
-    func errorPopAlert()
+    func errorAlert()
     {
-        let alert = UIAlertController(title: " Error ", message: "Coudn't connect to the server", preferredStyle: .alert)
+        let alert = UIAlertController(title: " Error ", message: "Couldn't connect to the server", preferredStyle: .alert)
         
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)

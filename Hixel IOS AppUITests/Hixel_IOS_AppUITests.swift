@@ -3,7 +3,6 @@
 //  Hixel IOS AppUITests
 //
 //  Created by Naveen Gaur on 6/9/18.
-//  Copyright © 2018 Naveen Gaur. All rights reserved.
 //
 
 import XCTest
@@ -45,12 +44,6 @@ class Hixel_IOS_AppUITests: XCTestCase {
         element2.swipeLeft()
         element2.swipeLeft()
         getStartedButton.tap()
-        
-        
-       
-        
-      
-        
     }
     
     func UITests()
@@ -160,8 +153,6 @@ class Hixel_IOS_AppUITests: XCTestCase {
         radarChart2DatasetsIntelCorpIntelCorpElement.swipeDown()
         elementsQuery.buttons["Back"].tap()
         
-        let app3 = XCUIApplication()
-        let collectionViewsQuery2 = app.collectionViews
         collectionViewsQuery/*@START_MENU_TOKEN@*/.staticTexts["Tesla, Inc."]/*[[".cells.staticTexts[\"Tesla, Inc.\"]",".staticTexts[\"Tesla, Inc.\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         collectionViewsQuery/*@START_MENU_TOKEN@*/.staticTexts["INTEL CORP"]/*[[".cells.staticTexts[\"INTEL CORP\"]",".staticTexts[\"INTEL CORP\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.buttons["Button"].tap()
@@ -197,7 +188,6 @@ class Hixel_IOS_AppUITests: XCTestCase {
     
     func profileViewUITest2()
     {
-        
         let app = XCUIApplication()
         let element2 = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 2)
         let element = element2.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
@@ -222,8 +212,5 @@ class Hixel_IOS_AppUITests: XCTestCase {
         app.buttons["Confirm"].tap()
         app.buttons["cancel"].tap()
         app.buttons["Log Out"].tap()
-        
-        
     }
-    
 }

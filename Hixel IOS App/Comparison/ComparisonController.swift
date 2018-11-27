@@ -3,7 +3,6 @@
 //  Hixel IOS App
 //
 //  Created by Naveen Gaur on 7/9/18.
-//  Copyright © 2018 Naveen Gaur. All rights reserved.
 //
 
 import Foundation
@@ -67,9 +66,8 @@ class ComparisonController: UIViewController{
     var isSearching: Bool = false
     var selected_companies: [TempCompany] = []
     
-    /// FUnction that is activated eveytime the view is laoded.
+    /// Function that is activated everytime the view is loaded.
     override func viewDidLoad() {
-        print(companies.count, "ey")
         compare2.isHidden = true
         clear.isHidden = true
         //searchView.translatesAutoresizingMaskIntoConstraints = false
@@ -81,7 +79,7 @@ class ComparisonController: UIViewController{
     /// Stops the user from going to the comparison view without selecting atleast 2 companies.
     func popAlert()
     {
-        let alert = UIAlertController(title: " Invalid ", message: "Please select atleast two companies", preferredStyle: .alert)
+        let alert = UIAlertController(title: " Invalid ", message: "Please select at least two companies", preferredStyle: .alert)
         
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
@@ -111,27 +109,22 @@ class ComparisonController: UIViewController{
     /// This function connects to the server and loads the search results.
     ///
     /// - Parameter query: Pass the text entered by the user in the search bar.
-    func serach(query:String)
+    func search(query:String)
     {
         let _ = Client().request(.search(query: query)).subscribe { event in
             switch event{
             case .success(let response):
-                print("Hurray")
-                
-                // let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
                 let searches = try! JSONDecoder().decode([SearchEntry].self, from: response.data)
                 self.searchArray = searches
-                print("Sex",searches)
                 
                 // MARK: Reload the table data when the search results are in.
                 self.searchView.reloadData()
                 var frame = self.searchView.frame
-                frame.size.height = self.searchView.contentSize.height+70
+                frame.size.height = self.searchView.contentSize.height + 70
                 self.searchView.frame = frame
                 break
                 
             case .error(let error):
-                print("Yikes")
                 print(error)
                 break
             }
@@ -145,25 +138,23 @@ class ComparisonController: UIViewController{
     /// - Parameter ticker: Pass the ticker obtained from the search resutls.
     func loadCompany(ticker:String)
     {
+        if (self.loadedCompanies.contains(where: {$0.identifiers.ticker == ticker}))
+        {
+            return
+        }
+        
+        SVProgressHUD.show(withStatus: "Loading Company")
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+        
         let _ = Client().request(.companydata(tickers: ticker, years: 5)).subscribe{ event in
             switch event {
             case .success(let response):
-                // Dismiss the Progress bar.
-                //SVProgressHUD.dismiss()
-                
-                // print("hello")
-                // print("The ticker is",ticker)
                 
                 let company = try! JSONDecoder().decode([Company].self, from: response.data)
-                //self.companies1[0].identifiers.name
-                // self.loadedCompany = company
-                // self.loadedCompanies = company
+
                 self.loadedCompanies.append(company[0])
                 SVProgressHUD.dismiss()
                 self.tableView.reloadData()
-                //move = true
-                //self.performSegue(withIdentifier: "Dashboard_Company", sender: self)
-                //move = false
                 break
                 
             case .error(let error):
@@ -171,9 +162,6 @@ class ComparisonController: UIViewController{
                 break
             }
         }
-        
-        
-        
     }
     
 }
@@ -187,27 +175,25 @@ extension ComparisonController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchView.isHidden = false
         
-        if(searchText.count != 0)
+        if (searchText.count != 0)
         {
             // make network calls
-            serach(query: searchText)
+            search(query: searchText)
         }
         
-        if(searchText.count == 0)
+        if (searchText.count == 0)
         {
             searchView.isHidden = true
         }
         
     }
-    
-    
 }
 
 
 // MARK: - Setup for the Collection view
 extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
     
-    /// Configures how many rows ther should be in the collection view.
+    /// Configures how many rows there should be in the collection view.
     ///
     /// - Parameters:
     ///   - tableView: Pass the table view.
@@ -219,9 +205,7 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
         {
             return searchArray.count
         }
-        
-        
-        //  return   companies.count
+    
         return loadedCompanies.count
         
     }
@@ -275,7 +259,7 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
     ///   - tableView: System Defined Params
     ///   - indexPath: System Defined Params
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(tableView != searchView)
+        if (tableView != searchView)
         {
             clear.isHidden = false
             
@@ -301,33 +285,24 @@ extension ComparisonController: UITableViewDataSource,UITableViewDelegate {
                 // When the user selects the company add it to a seprate array
                 selected_companies.append(companies[indexPath.row])
                 
-                // When the user selects the companies , update the collection view
+                // When the user selects the companies, update the collection view
                 updateCollectionView()
                 
-                if selected_companies.count == 2{
+                if selected_companies.count == 2 {
                     compare2.isHidden = false
                     
                 }
-                //print(selected_companies[indexPath.row].name)
             }
-             
-            
         }
         
         /// Checks if the table view if of Search View.
-        if(tableView == searchView)
-            
+        if (tableView == searchView)
         {
-            
-            SVProgressHUD.show(withStatus: "Loading Company")
-            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
-            
             companiesSelectedFromSearch.append(searchArray[indexPath.row])
             // Load the selected companies
             loadCompany(ticker: searchArray[indexPath.row].ticker)
             searchView.isHidden = true
-            //var name = searchArray[indexPath.row].name
-            //print("Kamina",name)
+            searchBar.text = ""
         }
         
         
@@ -368,10 +343,7 @@ extension ComparisonController : UICollectionViewDelegate, UICollectionViewDataS
     /// Function makes sure when the user selects the company, that company should appear in the collection view too
     func updateCollectionView()
     {
-        //let indexPath = IndexPath(item: 0, section: 0)
-        print("hello")
         collectionView.reloadData()
-        
     }
     
     
@@ -381,21 +353,25 @@ extension ComparisonController : UICollectionViewDelegate, UICollectionViewDataS
     ///   - collectionView: System Defined Params.
     ///   - indexPath: System Defined Params.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // add the compant to loadedCompanies variable
-        loadedCompanies.append(portcomp[indexPath.row])
-        if(loadedCompanies.count>=2)
+        let company = portcomp[indexPath.row];
+        
+        if (self.loadedCompanies.contains(where: {$0.identifiers.ticker == company.identifiers.ticker}))
+        {
+            return
+        }
+        
+        loadedCompanies.append(company)
+        
+        if (loadedCompanies.count >= 2)
         {
             compare2.isHidden = false
         }
         
-        if(loadedCompanies.count>=1)
+        if (loadedCompanies.count >= 1)
         {
             clear.isHidden = false
         }
+        
         tableView.reloadData()
     }
-    
-    
-    
-    
 }

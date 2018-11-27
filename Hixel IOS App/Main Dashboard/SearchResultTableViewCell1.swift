@@ -3,7 +3,6 @@
 //  Hixel IOS App
 //
 //  Created by Naveen Gaur on 10/10/18.
-//  Copyright © 2018 Naveen Gaur. All rights reserved.
 //
 
 import UIKit
@@ -35,7 +34,7 @@ class SearchResultTableViewCell1: UITableViewCell {
         tickerSymbol = searchEntry.ticker
         
         searchTextLabel.text = searchEntry.name
-        ticker.text = exchange + " "+tickerSymbol
+        ticker.text = exchange + ": "+tickerSymbol
 
     }
     

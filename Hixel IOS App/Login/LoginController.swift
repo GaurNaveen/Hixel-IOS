@@ -12,9 +12,6 @@ import SVProgressHUD
 import SwiftKeychainWrapper
 var portcomp = [Company]()
 var userData = [ApplicationUser]()
-let based = "Based On: "
-let health = "Gauges a company's ability to pay short-term and long-term obligations. It's used to give an idea of a company's ability to pay back its liabilities (e.g. debt) with its assets.\n\n\(based)Current ratio = Current Assets / Current Liabilities"
-
 
 class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
@@ -30,15 +27,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.contentMode = .scaleAspectFit
-      //  let removeSuccessful: Bool = KeychainWrapper.standard.remove(key: "loggedIn")
 
-       
-        
-        
         let joinedStrings = companiesTicker.joined(separator: ",")
-        // Do any additional setup after loading the view.
         string = joinedStrings
-        print(string)
+        
         // MARK: Setting up Delegates
         username.delegate = self
         password.delegate = self
@@ -49,12 +41,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
     ///
     /// - Parameter animated: System Defiend Params.
     override func viewDidAppear(_ animated: Bool) {
-        let check = retrievePasswordAndUserName()
-        print(check)
-        if(check == false)
-        {  // print("Hello bruh!")
-            
-            // Move to the onboarding
+        let didOnboarding = KeychainWrapper.standard.bool(forKey: "ONBOARDING_COMPLETED") ?? false
+
+        if (didOnboarding == false)
+        {
             moveToOnboarding()
         }
     }
@@ -62,8 +52,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
     func moveToOnboarding()
     {
         performSegue(withIdentifier: "onboarding_login1", sender: self)
-
-        
     }
     
     /// Function executed when the user clicks the login button.
@@ -72,18 +60,13 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButton(_ sender: Any) {
         move = true
         // If the username and password are empty , raise an alert telling the user about it.
-        if(username.text!.isEmpty || password.text!.isEmpty)
-        {   //testPopAlert()
-            popAlert()
-             //self.performSegue(withIdentifier: "test", sender: self)
-            
+        if (username.text!.isEmpty || password.text!.isEmpty)
+        {
+            self.popAlert(title: "Invalid", message: "Username or password was incorrect.")
         }
-            
-            
         else
         {
-            
-            SVProgressHUD.show(withStatus: "Signing in")
+            SVProgressHUD.show(withStatus: "Authenticating...")
             SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
             
             let body = LoginData(email: username.text ?? "", password: password.text ?? "")
@@ -91,14 +74,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
             let _ = Client().request(.login(loginData: body)).subscribe { result in
                 switch result {
                 case .success(let response):
-                    print("Res",response.statusCode)
                     if (response.statusCode == 200) {
-                        print("Killa")
-                        SVProgressHUD.setStatus("Loading Portfolio")
-                        //SVProgressHUD.dismiss()
+                        SVProgressHUD.setStatus("Loading Dashboard...")
                         
-                        let authToken = response.response?.allHeaderFields["Authorization"]as? String
-                        let refreshToken = response.response?.allHeaderFields["Refresh"]as? String
+                        let authToken = response.response?.allHeaderFields["Authorization"] as? String
+                        let refreshToken = response.response?.allHeaderFields["Refresh"] as? String
                         
                         let newCredentials = Credentials(authToken: authToken ?? "", refreshToken: refreshToken ?? "")
                         
@@ -109,29 +89,16 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     }
                     else if (response.statusCode == 401) {
                         SVProgressHUD.dismiss()
-                        self.incorrectDetailsAlert()
-                        print("Incorrect username or password.")//TODO: Display user-facing message
+                        self.popAlert(title: "Invalid Details", message: "Username or password was incorrect.")
                     }
                     
                 case .error(let error):
                     SVProgressHUD.dismiss()
-                    self.serverErrorAlert()
-                    print("Network error: \(error)" ) //TODO: Display user-facing message
+                    self.popAlert(title: "Network Error", message: error.localizedDescription)
                 }
             }
         }
     }
-    
-    /// Function that helps us to read user defaults.
-    ///
-    /// - Returns: Right now only returns the login status
-    func retrievePasswordAndUserName() -> Bool
-    {
-        let retrieveLoginStatus: Bool? = KeychainWrapper.standard.bool(forKey: "loggedIn")
-        
-        return retrieveLoginStatus ?? false
-        
-       }
     
     /// Action Button takes the user to the Sign Up View
     @IBAction func newAccount(_ sender: Any) {
@@ -146,48 +113,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     /// Function displays an alert on the screen when username or password are missing.
-    func popAlert()
+    func popAlert(title: String, message: String)
     {
-        let alert = UIAlertController(title: " Invalid ", message: "Please enter your Username or Password", preferredStyle: .alert)
-        
-        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(okButton)
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    /// Function displays an alert on the screen when username or password are missing.
-    func testPopAlert()
-    {
-        let alert = UIAlertController(title: " Health ", message: health, preferredStyle: .alert)
-        
-        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(okButton)
-        
-        let myString  = "Health"
-        var myMutableString = NSMutableAttributedString()
-        myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!])
-        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSRange(location:0,length:myString.characters.count))
-        alert.setValue(myMutableString, forKey: "attributedTitle")
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    
-    
-    /// Function displays an Alert when the App cannot connect to the Server.
-    func serverErrorAlert()
-    {
-        let alert = UIAlertController(title: " Error ", message: "Could not connect to the Server. Please try again!", preferredStyle: .alert)
-        
-        let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(okButton)
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    
-    /// Function displays a pop alert if the details entred by the user are not correct.
-    func incorrectDetailsAlert()
-    {
-        let alert = UIAlertController(title: " Error ", message: "Username or Password incorrect", preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okButton)
@@ -204,19 +132,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 // Dismiss the Progress bar.
                 SVProgressHUD.dismiss()
                 
-                print("hello")
-                
-                // let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
-                //print(json)
                 let company = try! JSONDecoder().decode([Company].self, from: response.data)
+                
                 self.companies1 = company
-                //self.companies1[0].identifiers.name
                 portcomp = company
-                // Go to the Main Dashboard
-                
+
                 self.performSegue(withIdentifier: "login_MainView", sender: self)
-                
-                // print(self.companies1)
                 break
                 
             case .error(let error):
@@ -224,9 +145,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 break
             }
         }
-        
-        //serach()
-        
     }
     
     /// Loads the Application User profile
@@ -240,15 +158,14 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 let data = try! JSONDecoder().decode(ApplicationUser.self, from: response.data)
                  userData.append(data)
                 
-                // Loop over and get the tickers if there is any
                 let count = userData[0].portfolio!.companies.count
-                if(count>0)
+                
+                if (count > 0)
                 {
-                for i in 0...count-1{
-                    print("Yass34",userData[0].portfolio!.companies[i].ticker)
-                    self.userCompanyTicker.append(userData[0].portfolio!.companies[i].ticker) // put the tickers into an array
-                    
+                    for i in 0 ... count - 1 {
+                        self.userCompanyTicker.append(userData[0].portfolio!.companies[i].ticker) // put the tickers into an array
                     }
+                    
                     // call the loadUser method below
                     self.loadCompaniesFromUserData(tickers: self.userCompanyTicker)
                 }
@@ -256,19 +173,14 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     //------ We still move to the Main Dashboard but don't actually setup the Bar Chart ------//
                     SVProgressHUD.dismiss()
                     self.performSegue(withIdentifier: "login_MainView", sender: self)
-
-                    print("Boom!!")
                 }
-              //  print(userData[0])
                 
-            case .error( _):
-                print("Oops")
+            case .error(let error):
+                SVProgressHUD.dismiss()
+                print(error)
             }
         }
-        
     }
-    
-    
     
     func loadCompaniesFromUserData(tickers:[String])
     {
@@ -283,23 +195,17 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 // Dismiss the Progress bar.
                 SVProgressHUD.dismiss()
                 
-               // print("hello")
-                
-                // let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
-                //print(json)
-               let company = try! JSONDecoder().decode([Company].self, from: response.data)
-               //print("Kula",company)
+                let company = try! JSONDecoder().decode([Company].self, from: response.data)
+
                 self.companies1 = company
-                //self.companies1[0].identifiers.name
                 portcomp = company
-                // Go to the Main Dashboard
-                print("Kula",portcomp.count)
-               self.performSegue(withIdentifier: "login_MainView", sender: self)
                 
-                // print(self.companies1)
+                // Go to the Main Dashboard
+                self.performSegue(withIdentifier: "login_MainView", sender: self)
                 break
                 
             case .error(let error):
+                SVProgressHUD.dismiss()
                 print(error)
                 break
             }
@@ -311,19 +217,16 @@ class LoginController: UIViewController, UITextFieldDelegate {
    
     
     /// Function used to test the search resutls.
-    func serach()
+    func search()
     {
         let _ = Client().request(.search(query: "aap")).subscribe { event in
             switch event{
             case .success(let response):
-                print("Hurray")
                 
                 let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
-                print("Sex",json)
                 break
                 
             case .error(let error):
-                print("Yikes")
                 print(error)
                 break
             }
@@ -338,12 +241,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
          vc.portfolioCompanies = companies1
          */
         
-        if(segue.identifier ==  "test")
+        if (segue.identifier ==  "test")
         {
             
         }
         
-        if(move == true && segue.identifier  != "test")
+        if (move == true && segue.identifier != "test")
         {
             let tabCtrl: UITabBarController = segue.destination as! UITabBarController
             let destinationVC = tabCtrl.viewControllers![0] as! PortfolioController // [0] because Portfolio is the first tab in the tab bar controller.

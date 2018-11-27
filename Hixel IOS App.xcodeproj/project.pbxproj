@@ -51,7 +51,7 @@
 		B61B179A21519B200029CA63 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B179921519B200029CA63 /* TableViewCell.swift */; };
 		B61B179C2151A8810029CA63 /* CompanyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B179B2151A8810029CA63 /* CompanyTableViewCell.swift */; };
 		B6340EBA218662BB0027532B /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6340EB9218662BB0027532B /* ChangePasswordViewController.swift */; };
-		B6452BAD2179C6C3003DD53A /* GenralIndicators.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6452BAC2179C6C3003DD53A /* GenralIndicators.swift */; };
+		B6452BAD2179C6C3003DD53A /* GeneralIndicators.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6452BAC2179C6C3003DD53A /* GeneralIndicators.swift */; };
 		B6541AF321434F4900AB9894 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6541AF221434F4900AB9894 /* CompanyCell.swift */; };
 		B6541AF721436F0700AB9894 /* Cell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6541AF621436F0700AB9894 /* Cell2.swift */; };
 		B6542394215566AB00C445D6 /* GraphInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6542393215566AB00C445D6 /* GraphInfoCollectionViewCell.swift */; };
@@ -86,7 +86,6 @@
 		B6E9F3B62154E2BB00B2168D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9F3B52154E2BB00B2168D /* ForgotPasswordViewController.swift */; };
 		B6E9F3B72154E2BB00B2168D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E9F3B52154E2BB00B2168D /* ForgotPasswordViewController.swift */; };
 		B6F9D6A12156A3DD0093C385 /* RatioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9D6A02156A3DD0093C385 /* RatioCell.swift */; };
-		B6FA3526217C4C8A008C6C40 /* onboardingClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA3525217C4C8A008C6C40 /* onboardingClass.swift */; };
 		B6FA3528217C4D5A008C6C40 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA3527217C4D5A008C6C40 /* OnboardingViewController.swift */; };
 		B6FA352A217DE8C4008C6C40 /* ResetPasswordCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA3529217DE8C4008C6C40 /* ResetPasswordCodeViewController.swift */; };
 		B6FA352C217DECDA008C6C40 /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA352B217DECDA008C6C40 /* NewPasswordViewController.swift */; };
@@ -138,7 +137,7 @@
 		B61B179921519B200029CA63 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		B61B179B2151A8810029CA63 /* CompanyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableViewCell.swift; sourceTree = "<group>"; };
 		B6340EB9218662BB0027532B /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
-		B6452BAC2179C6C3003DD53A /* GenralIndicators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenralIndicators.swift; sourceTree = "<group>"; };
+		B6452BAC2179C6C3003DD53A /* GeneralIndicators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralIndicators.swift; sourceTree = "<group>"; };
 		B6541AF221434F4900AB9894 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		B6541AF621436F0700AB9894 /* Cell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell2.swift; sourceTree = "<group>"; };
 		B6542393215566AB00C445D6 /* GraphInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphInfoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -170,7 +169,6 @@
 		B6E9F3B22154D5EC00B2168D /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		B6E9F3B52154E2BB00B2168D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		B6F9D6A02156A3DD0093C385 /* RatioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCell.swift; sourceTree = "<group>"; };
-		B6FA3525217C4C8A008C6C40 /* onboardingClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingClass.swift; sourceTree = "<group>"; };
 		B6FA3527217C4D5A008C6C40 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		B6FA3529217DE8C4008C6C40 /* ResetPasswordCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordCodeViewController.swift; sourceTree = "<group>"; };
 		B6FA352B217DECDA008C6C40 /* NewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
@@ -316,7 +314,7 @@
 				8CA9B16A2146DFB400FC5502 /* SearchEntry.swift */,
 				8C32D27D217239C30087A3FD /* UserPortfolio.swift */,
 				8C32D27F21723B530087A3FD /* PortfolioCompany.swift */,
-				B6452BAC2179C6C3003DD53A /* GenralIndicators.swift */,
+				B6452BAC2179C6C3003DD53A /* GeneralIndicators.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,7 +324,6 @@
 			children = (
 				B65A53C1214206E600C18554 /* Portfolio.storyboard */,
 				B6FA3527217C4D5A008C6C40 /* OnboardingViewController.swift */,
-				B6FA3525217C4C8A008C6C40 /* onboardingClass.swift */,
 				B6E61A5D216D638200961710 /* SearchTableViewCell.swift */,
 				B6E61A61216D78DA00961710 /* SearchResultTableViewCell1.swift */,
 				B65A53C3214208A300C18554 /* Portfolio.swift */,
@@ -681,7 +678,6 @@
 				B61B179C2151A8810029CA63 /* CompanyTableViewCell.swift in Sources */,
 				8CA9B1612146D25A00FC5502 /* Company.swift in Sources */,
 				B6C29EC4215D46BF00DA437F /* SelectedCompaniesCollectionViewCell.swift in Sources */,
-				B6FA3526217C4C8A008C6C40 /* onboardingClass.swift in Sources */,
 				B6F9D6A12156A3DD0093C385 /* RatioCell.swift in Sources */,
 				B61B1794215106A20029CA63 /* ScoreCollectionViewCell.swift in Sources */,
 				B6FA6DC72147B29D00C38901 /* GraphScaleInfo.swift in Sources */,
@@ -696,7 +692,7 @@
 				B6A2D74F214FA5A000853A0C /* SearchCell.swift in Sources */,
 				B61B1798215180BF0029CA63 /* CollectionViewCell3.swift in Sources */,
 				B65A53BE2141648B00C18554 /* TempCompany.swift in Sources */,
-				B6452BAD2179C6C3003DD53A /* GenralIndicators.swift in Sources */,
+				B6452BAD2179C6C3003DD53A /* GeneralIndicators.swift in Sources */,
 				B6E61A62216D78DA00961710 /* SearchResultTableViewCell1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -889,10 +885,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 72F2HJBU4U;
+				DEVELOPMENT_TEAM = R2QYX3MT3H;
 				INFOPLIST_FILE = "Hixel IOS App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com..Hello-World.Hixel-IOS-App";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hixel.corpreport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -907,10 +903,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 72F2HJBU4U;
+				DEVELOPMENT_TEAM = R2QYX3MT3H;
 				INFOPLIST_FILE = "Hixel IOS App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com..Hello-World.Hixel-IOS-App";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hixel.corpreport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
